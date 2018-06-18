@@ -9,8 +9,6 @@
 !/wp-content/*/*/*
 !/wp-content/*/*/*/*
 !/wp-content/*/*/*/*/*
-<<<<<<< HEAD
 !/wp-content/*/*/*/*/*/*
-=======
-!/wp-content/*/*/*/*/*/*
->>>>>>> 0ac240724959f10c2f0b0f8c428dff239aa7b247
+/wp-content/themes/.DS_Store
+/wp-content/themes/ofw2018/.DS_Store

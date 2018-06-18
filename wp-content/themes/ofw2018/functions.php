@@ -545,6 +545,25 @@ function my_custom_dashboard_access_handler() {
    }
 }
 
+function wps_change_role_name() {
+global $wp_roles;
+if ( ! isset( $wp_roles ) )
+$wp_roles = new WP_Roles();
+$wp_roles->roles['subscriber']['name'] = 'Member';
+$wp_roles->role_names['subscriber'] = 'Member';
+}
+add_action('init', 'wps_change_role_name');
+
+if( get_role('contributor') ){
+    remove_role( 'contributor' );
+}
+if( get_role('author') ){
+    remove_role( 'author' );
+}
+if( get_role('editor') ){
+    remove_role( 'editor' );
+}
+
 // function cm_redirect_users_by_role() {
  
 //     if ( ! defined( 'DOING_AJAX' ) ) {

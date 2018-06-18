@@ -3,13 +3,10 @@
 
 # Except for the themes directories:
 !.gitignore
-
-!
-!*/
-!*/wp-content/
-!*/wp-content/themes/
-!*/wp-content/themes/*
-!*/wp-content/themes/*/*
-!*/wp-content/themes/*/*/*
-!*/wp-content/themes/*/*/*/*
-!*/wp-content/themes/*/*/*/*/*
+!/wp-content/
+!/wp-content/themes/
+!/wp-content/themes/*
+!/wp-content/themes/*/*
+!/wp-content/themes/*/*/*
+!/wp-content/themes/*/*/*/*
+!/wp-content/themes/*/*/*/*/*

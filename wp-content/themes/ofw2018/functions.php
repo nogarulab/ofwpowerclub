@@ -528,7 +528,7 @@ function my_custom_dashboard_access_handler() {
       $caps = ( is_object( $user) ) ? array_keys($user->allcaps) : array();
 
       //All capabilities/roles listed here are not able to see the dashboard
-      $block_access_to = array('subscriber', 'contributor', 'agent', 'partner', 'author', 'editor');
+      $block_access_to = array('subscriber', 'agent', 'partner');
       
       if(array_intersect($block_access_to, $caps)) {
          //wp_redirect( home_url() );
@@ -537,6 +537,8 @@ function my_custom_dashboard_access_handler() {
  
         if ( 'partner' === $role_name ) {
             wp_redirect( home_url('/partner-dashboard') );
+        } elseif ( 'agent' === $role_name ) {
+            wp_redirect( home_url('/agent-dashboard') );
         } else {
             wp_redirect( home_url() );
         }

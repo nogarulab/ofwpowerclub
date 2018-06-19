@@ -2,26 +2,15 @@
 
 get_header(); 
 
-if ( is_page('account') ) {
+if ( is_page('partner-dashboard') ) {
+
+	echo 'This is the partner dashboard';
+	echo '<a href="'. wp_logout_url( home_url() ) .'">Logout</a>';
   
-  if ( current_user_can('agent') ) :
-    
-    //Earl uni na ang magiging dashboard kan agents after sya mag login
-    echo 'agent here';
-    echo '<a href="'. wp_logout_url( home_url() ) .'">Logout</a>';
-  
-  elseif ( current_user_can('partner') ) :
-  
-    get_template_part( 'partners/form', get_post_format() );
-    echo '<a href="'. wp_logout_url( home_url() ) .'">Logout</a>';
-  
-  else :
-  
-    echo do_shortcode('[ms-membership-account]');
-    echo '<hr>';
-    echo do_shortcode('[ms-membership-logout]');
-  
-  endif;
+} elseif ( is_page('agent-dashboard') ) {
+
+	echo 'This is the agent dashboard';
+	echo '<a href="'. wp_logout_url( home_url() ) .'">Logout</a>';
   
 } else {
 

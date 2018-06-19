@@ -4,13 +4,29 @@ get_header();
 
 if ( is_page('partner-dashboard') ) {
 
-	echo 'This is the partner dashboard';
-	echo '<a href="'. wp_logout_url( home_url() ) .'">Logout</a>';
+	if ( is_user_logged_in() && current_user_can('partner') ) :
+
+		echo 'This is the partner dashboard';
+		echo '<a href="'. wp_logout_url( home_url() ) .'">Logout</a>';
+
+	else :
+
+		echo 'You do not have permission to view this page. Please login as a partner to view this page';
+
+	endif;
   
 } elseif ( is_page('agent-dashboard') ) {
 
-	get_template_part( 'partners/form', get_post_format() );
-	echo '<a href="'. wp_logout_url( home_url() ) .'">Logout</a>';
+	if ( is_user_logged_in() && current_user_can('agent') ) :
+
+		get_template_part( 'partners/form', get_post_format() );
+		echo '<a href="'. wp_logout_url( home_url() ) .'">Logout</a>';
+
+	else :
+
+		echo 'You do not have permission to view this page. Please login as an agent to view this page';
+
+	endif;
   
 } else {
 

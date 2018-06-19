@@ -465,7 +465,7 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 }
 
 /*------------------------------------*\
-	Addding Agent Role
+    Addding Agent Role
 \*------------------------------------*/
 
 $result = add_role( 'agent', __( 'Agent' ),
@@ -488,7 +488,7 @@ $result = add_role( 'agent', __( 'Agent' ),
 );
 
 /*------------------------------------*\
-	Addding Partner Role
+    Addding Partner Role
 \*------------------------------------*/
 
 $result = add_role( 'partner', __( 'Partner' ),
@@ -511,7 +511,7 @@ $result = add_role( 'partner', __( 'Partner' ),
 );
 
 /*------------------------------------*\
-	Restrict Dashboard to Admin Only
+    Restrict Dashboard to Admin Only
 \*------------------------------------*/
 
 // Could be better adds the function to the 'init' hook and check later if it's an admin page
@@ -563,22 +563,6 @@ if( get_role('author') ){
 if( get_role('editor') ){
     remove_role( 'editor' );
 }
-
-// function cm_redirect_users_by_role() {
- 
-//     if ( ! defined( 'DOING_AJAX' ) ) {
- 
-//         $current_user   = wp_get_current_user();
-//         $role_name      = $current_user->roles[0];
- 
-//         if ( 'partner' === $role_name ) {
-//             wp_redirect( '/partner-dashboard' );
-//         }
- 
-//     }
- 
-// }
-// add_action( 'admin_init', 'cm_redirect_users_by_role' );
 
 
 ?>

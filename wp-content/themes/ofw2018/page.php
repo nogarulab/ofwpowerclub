@@ -12,7 +12,7 @@ if ( is_page('account') ) {
   
   elseif ( current_user_can('partner') ) :
   
-    echo 'partner here';
+    get_template_part( 'partners/form', get_post_format() );
     echo '<a href="'. wp_logout_url( home_url() ) .'">Logout</a>';
   
   else :

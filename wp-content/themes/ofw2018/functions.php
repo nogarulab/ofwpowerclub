@@ -540,7 +540,7 @@ function my_custom_dashboard_access_handler() {
         } elseif ( 'agent' === $role_name ) {
             wp_redirect( home_url('/agent-dashboard') );
         } else {
-            wp_redirect( home_url() );
+            wp_redirect( home_url('/account') );
         }
          exit;
       }

@@ -9,7 +9,7 @@ if ( is_page('partner-dashboard') ) {
   
 } elseif ( is_page('agent-dashboard') ) {
 
-	echo 'This is the agent dashboard';
+	get_template_part( 'partners/form', get_post_format() );
 	echo '<a href="'. wp_logout_url( home_url() ) .'">Logout</a>';
   
 } else {

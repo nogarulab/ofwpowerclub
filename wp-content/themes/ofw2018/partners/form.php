@@ -38,12 +38,12 @@ if ( ! is_user_logged_in() ) :
 	          $errors['password_confirmation'] = "Passwords do not match";  
 	        }
 
-	        if (empty($_POST['first_name']))
+	        if (empty($_POST['firstname']))
 	        {
 	        	$errors['firstname'] = "Please provide your first name so what we can address you properly.";
 	        }
 
-	        if (empty($_POST['last_name']))
+	        if (empty($_POST['lastname']))
 	        {
 	        	$errors['lastname'] = "Please provide your last name so what we can address you properly.";
 	        }

@@ -93,6 +93,7 @@ if ( ! is_user_logged_in() ) :
 	            $terms = true;
 
 	            wp_update_user( array ('ID' => $new_user_id,  'display_name' => $display_name) ) ;
+	            wp_update_user( array ('ID' => $new_user_id,  'user_url' => $_POST['e_website_url']) ) ;
 	            update_user_meta( $new_user_id, 'contact_number', $_POST['contactnumber'] );
 	            update_user_meta( $new_user_id, 'first_name', sanitize_text_field( $_POST['firstname'] ) );
 	            update_user_meta( $new_user_id, 'last_name', sanitize_text_field( $_POST['lastname'] ) );

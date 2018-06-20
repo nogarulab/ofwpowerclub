@@ -617,4 +617,13 @@ function add_establishment_form_meta_box() {
 }
 add_action("add_meta_boxes", "add_establishment_form_meta_box");
 
+function modify_contact_methods($profile_fields) {
+
+    // Add new fields
+    $profile_fields['contact_number'] = 'Contact Number';
+
+    return $profile_fields;
+}
+add_filter('user_contactmethods', 'modify_contact_methods');
+
 ?>

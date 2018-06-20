@@ -594,4 +594,27 @@ if( get_role('editor') ){
     remove_role( 'editor' );
 }
 
+function establishment_form_meta_box($object) {
+    wp_nonce_field(basename(__FILE__), "meta-box-nonce");
+?>
+    <div>
+        <label>Owner</label>
+        <input type="text" name="" value="" />
+    </div>
+    <div>
+        <label>Name of Contact Person</label>
+        <input type="text" name="" value="" />
+    </div>
+    <div>
+        <label>Number of Contact Person</label>
+        <input type="text" name="" value="" />
+    </div>
+<?php
+}
+
+function add_establishment_form_meta_box() {
+    add_meta_box("establishment-details-meta-box", "Establishement Details", "establishment_form_meta_box", "partners", "side", "default", null);
+}
+add_action("add_meta_boxes", "add_establishment_form_meta_box");
+
 ?>

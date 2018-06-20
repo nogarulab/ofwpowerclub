@@ -594,29 +594,4 @@ if( get_role('editor') ){
     remove_role( 'editor' );
 }
 
-function add_post($posttype) {
-    if ( empty($_POST) || !wp_verify_nonce($_POST['client_'.$posttype.'_nonce'],'submit_'.$posttype ) ) {
-        echo 'Sorry, your nonce did not verify.';
-        exit;
-    } else {
-
-        $title = $_POST['establishmentname'];
-        $content = $_POST['establishmentdescription'];
-
-        $addpartner = array(
-            'post_title'    => wp_strip_all_tags( $title ),
-            'post_content'  => $content,
-            'post_status'   => 'draft',
-            'post_type'     => 'partners'
-        );
-        $new_partner = wp_insert_post($addpartner);
-
-        $post = get_post($new_partner); 
-        //$post_slug = $post->post_name;
-        //echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.home_url().'/'.$postype.'/'.$post_slug.'?edit=true">';
-        exit; 
-
-    }
-}
-
 ?>

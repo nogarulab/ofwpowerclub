@@ -11,7 +11,7 @@ if ( is_page('partner-dashboard') ) {
 
 	else :
 
-		echo 'You do not have permission to view this page. Please login as a partner to view this page';
+		echo 'You do not have permission to view this page. Please login as a partner or wait until your account has been activated.';
 
 	endif;
   

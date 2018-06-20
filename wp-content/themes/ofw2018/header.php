@@ -5,12 +5,12 @@
 		<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
 
 		<link href="//www.google-analytics.com" rel="dns-prefetch">
-        <link href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico" rel="shortcut icon">
-        <link href="<?php echo get_template_directory_uri(); ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed">
+        <link href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico" rel="shortcut icon">
 
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="<?php bloginfo('description'); ?>">
+		<meta name="keywords" content="Power Club, Pinoy Power Club, Filipino Power Club, OFW Power Club, OFW Membership">
 
 		<meta name="keywords" content="">
 
@@ -26,30 +26,45 @@
 
 	</head>
 	<body <?php body_class(); ?>>
-    <div id="preloader">
+    	<div id="preloader">
 			<div id="status">&nbsp;</div>
 		</div>
 
-		<!-- wrapper -->
 		<div class="wrapper">
 
-			<!-- header -->
 			<header class="header clear" role="banner">
-
-					<!-- logo -->
-					<div class="logo">
-						<a href="<?php echo home_url(); ?>">
-							<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
-							<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img">
-						</a>
+				<div class="mid-header py-2">
+					<div class="container">
+						<div class="row align-items-center justify-content-between">
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-5">
+								<a href="<?php echo home_url(); ?>">
+									<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img img-fluid d-block mx-auto">
+									<h1 class="d-none">OFW Power Club</h1>
+								</a>
+							</div>
+							<div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+								<?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
+							</div>
+						</div>
 					</div>
-					<!-- /logo -->
-
-					<!-- nav -->
-					<nav class="nav" role="navigation">
-						<?php html5blank_nav(); ?>
-					</nav>
-					<!-- /nav -->
-
+				</div>
+				<nav class="navbar navbar-expand-lg navbar-dark">
+					<div class="container">
+						
+						<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+	    					<span class="navbar-toggler-icon"></span>
+	  					</button> 
+	  					<div class="d-flex align-items-center order-lg-last">
+							<div class="login-links"><button class="btn-member">Member Login</button></div>
+							<div class="login-links"><button class="btn-partner">Partner Login</button></div>
+						</div>
+	  					<div class="collapse navbar-collapse mt-3 mt-lg-0" id="mainNav">
+							<?php wp_nav_menu(array('menu' => 'Main Menu', 'items_wrap' => '<ul class="navbar-nav d-flex order-lg-first">%3$s</ul>'))?>
+						</div>
+						
+						
+		
+						
+					</div>
+				</nav>
 			</header>
-			<!-- /header -->

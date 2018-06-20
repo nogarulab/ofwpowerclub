@@ -1,0 +1,59 @@
+.header {
+	border-top: 12px solid $yellow;
+	#ajaxsearchlite1 {
+		.probox {
+			padding: 0px 4px;
+			border: 1px solid #7e7e7e;
+			.promagnifier .innericon svg {
+				fill: #9c9b9b;
+			}
+		}
+	} 
+	.navbar {
+		background: $blue;
+		li.menu-item {
+			margin-right: 30px;
+			a {
+				color: #fff;
+				text-transform: uppercase;
+				font-size: 0.875em;
+				transition: color  0.3s;
+				&:hover {
+					color: #7cafd8;
+				}
+			}
+		}
+		.login-links {
+			display: inline;
+			button {
+				height: 46px;
+			    margin-top: -8px;
+			    margin-bottom: -8px;
+			    font-size: 0.813em;
+			    border: none;
+			    color: #fff;
+			    padding: 10px;
+			    &.btn-member {
+			    	background: #03497f;
+			    }
+			    &.btn-partner {
+			    	background: #2d2d2d;
+			    }
+			}
+		}
+		.navbar-toggler {
+			border: none;
+		}
+		.navbar-toggler-icon {
+			height: 1em;
+			width: 1em;
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+		}
+		.navbar-collapse.show, .navbar-collapse.collapsing {
+			li {
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+		}
+	}
+}

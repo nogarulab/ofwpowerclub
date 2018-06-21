@@ -635,4 +635,28 @@ function custom_admin_js() {
 }
 add_action('admin_footer', 'custom_admin_js');
 
+/* Adding Members */
+function add_user_with_roles(){
+    /* Inserting Users in WP*/
+    $user_id = wp_insert_user( $_POST ) ;
+    /* Checking if not error*/
+    if ( ! is_wp_error( $user_id ) ) {
+        /***
+         * Adding additional metakey in user meta
+         * agent_id ~ Current User ID
+         */
+        update_user_meta( $user_id, 'agent_id', get_current_user_id());
+
+        /***
+         * JUST AND PROMPT
+         */
+        echo "User created  ";
+        print_r($_POST);
+        /***
+         * JUST AND PROMPT END
+         */
+    }
+}
+add_action('add_members', 'add_user_with_roles');
+
 ?>

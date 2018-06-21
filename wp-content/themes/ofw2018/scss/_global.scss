@@ -25,12 +25,13 @@ html, body {
   padding: 0;
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
-  color: #2d2d2d;
+  color: $black;
 }
 
 a {
   &:hover {
     text-decoration: none;
+    color: inherit;
   }
 }
 
@@ -38,4 +39,20 @@ button {
   &:focus {
     outline: 0;
   }
+}
+
+.bg-red {
+  background: $red;
+}
+
+.bg-yellow {
+  background: $yellow;
+}
+
+.black {
+  color: $black;
+}
+
+.white {
+  color: #fff;
 }

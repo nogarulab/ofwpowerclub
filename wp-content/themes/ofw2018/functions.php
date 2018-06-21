@@ -652,9 +652,7 @@ function add_user_with_roles(){
          */
         echo "User created  ";
         print_r($_POST);
-        /***
-         * JUST AND PROMPT END
-         */
+
     }
 }
 add_action('add_members', 'add_user_with_roles');

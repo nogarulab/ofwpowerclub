@@ -32,27 +32,22 @@ if ( is_page('partner-dashboard') ) {
                 <div class="form-group">
                     <input type="text" name="user_login" class="form-control"/>
                 </div>
-
                 <label for="">Password</label>
                 <div class="form-group">
                     <input type="text" name="user_pass" class="form-control"/>
                 </div>
-
                 <label for="">Email</label>
                 <div class="form-group">
                     <input type="text" name="lname" class="form-control"/>
                 </div>
-
                 <label for="">First Name</label>
                 <div class="form-group">
                     <input type="text" name="first_name" class="form-control"/>
                 </div>
-
                 <label for="">Last Name</label>
                 <div class="form-group">
                     <input type="text" name="last_name" class="form-control"/>
                 </div>
-
                 <button type="submit" name="submit">Submit</button>
             </form>
         <?php

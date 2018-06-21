@@ -59,6 +59,8 @@ if ( ! is_user_logged_in() ) :
 			$sticker 					= isset($_POST['receivesticker']);
 			$owner 						= $_POST['e_owner'];
     		$establishmentwebsite 		= $_POST['e_website_url'];
+    		$benefitname				= $_POST['benefitname'];
+    		$benefitdesc				= $_POST['benefitdesc'];
 
 
 			if ( $title == '' )
@@ -98,8 +100,7 @@ if ( ! is_user_logged_in() ) :
 	            update_user_meta( $new_user_id, 'first_name', sanitize_text_field( $_POST['firstname'] ) );
 	            update_user_meta( $new_user_id, 'last_name', sanitize_text_field( $_POST['lastname'] ) );
 
-	            // You could do all manner of other things here like send an email to the user, etc. I leave that to you.  
-	   			//add_partner($posttype);
+	            $benefits_offered = array('name' => $benefitname, 'description' => $benefitdesc);
 
 		        $addpartner = array(
 		            'post_title'    => wp_strip_all_tags( $title ),
@@ -113,9 +114,7 @@ if ( ! is_user_logged_in() ) :
 		        add_post_meta( $new_partner, 'receive_sticker', $sticker );
 		        add_post_meta( $new_partner, 'establishment_owner', $owner );
 		        add_post_meta( $new_partner, 'establishmentwebsite', $establishmentwebsite );
-
-		        //$post_slug = $post->post_name;
-		        //echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.home_url().'/'.$postype.'/'.$post_slug.'?edit=true">';
+		        add_post_meta( $new_partner, 'benefits_offered', $benefits_offered );
 
 	            $success = 1;  
 	   			echo "<div>You have successfully sent your application. Please wait for our staff to get in touch with you for the next step.</div>";
@@ -133,20 +132,39 @@ if ( ! is_user_logged_in() ) :
 ?>
 
 <form id="wp_signup_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">  
-	<h3>Tell Us About Yourself</h3>
-    <div><input type="text" name="email" id="email" placeholder="Email Address"></div>
-    <div><input type="password" name="password" id="password" placeholder="Password">  </div>
-    <div><input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password">  </div>
-    <div><input type="text" name="firstname" id="firstname" placeholder="First Name"></div>
-    <div><input type="text" name="lastname" id="lastname" placeholder="Last Name">  </div>
-    <div><input type="number" name="contactnumber" id="contactnumber" placeholder="Contact Number"></div>
+	<div>
+		<h3>Create Account</h3>
+		<p>Please register first on our website.</p>
+	    <div><input type="text" name="email" id="email" placeholder="Email Address"></div>
+	    <div><input type="password" name="password" id="password" placeholder="Password">  </div>
+	    <div><input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password">  </div>
+	    <div><input type="text" name="firstname" id="firstname" placeholder="First Name"></div>
+	    <div><input type="text" name="lastname" id="lastname" placeholder="Last Name">  </div>
+	    <div><input type="number" name="contactnumber" id="contactnumber" placeholder="Contact Number"></div>
+	</div>
     <hr>
-    <h3>Tell Us About Your Establishment</h3>
-    <div><input type="text" name="establishmentname" id="establishmentname" placeholder="Establishment/Business Name"></div>
-    <div><textarea name="establishmentdescription">Tell Us about your establishment/business</textarea></div>
-    <div><input type="text" name="e_owner" value="" placeholder="Name of Proprietor"></div>
-    <div><input type="text" name="e_website_url" value="" placeholder="Website Link"></div>
-    <h3>Tell Us About Your Establishment</h3>
+    <div>
+	    <h3>About Your Establishment</h3>
+	    <p>Tell us more about your establishments.</p>
+	    <div><input type="text" name="establishmentname" id="establishmentname" placeholder="Establishment/Business Name"></div>
+	    <div><textarea name="establishmentdescription">Tell Us about your establishment/business</textarea></div>
+	    <div><input type="text" name="e_owner" value="" placeholder="Name of Proprietor"></div>
+	    <div><input type="text" name="e_website_url" value="" placeholder="Website Link"></div>
+	</div>
+	<hr>
+	<div>
+    	<h3>Benefits and Perks</h3>
+    	<p>Tell us the benefits and perks that you're going to offer to our members.</p>
+    	<div class="benefit_perks" data-itemhtml="<li class='item'><div><input type='text' name='benefitname[]' placeholder='Benefit Name'></div><div><textarea name='benefitdesc[]'>About the benefit</textarea></div><span class='remove'>Remove</span></li>">
+    		<ul>
+	    		<li class="item">
+	    			<div><input type="text" name="benefitname[]" placeholder="Benefit Name"></div>
+	    			<div><textarea name="benefitdesc[]">About the benefit</textarea></div>
+	    		</li>
+	    	</ul>
+    		<span class="add">Add another benefit/perks</button>
+    	</div>
+    </div>
 
     <div><input type="checkbox" name="receivesticker" value="" /> Receive OFW Power Club Sticker(s)</div>
     <div>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</div>

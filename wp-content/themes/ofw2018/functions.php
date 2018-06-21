@@ -594,27 +594,45 @@ if( get_role('editor') ){
     remove_role( 'editor' );
 }
 
-function establishment_form_meta_box($object) {
+function benefits_form_meta_box($object) {
     wp_nonce_field(basename(__FILE__), "meta-box-nonce");
-?>
-    <div>
-        <label>Owner</label>
-        <input type="text" name="" value="" />
-    </div>
-    <div>
-        <label>Name of Contact Person</label>
-        <input type="text" name="" value="" />
-    </div>
-    <div>
-        <label>Number of Contact Person</label>
-        <input type="text" name="" value="" />
-    </div>
-<?php
+
+    $benefits_offered = get_post_meta($object->ID, 'benefits_offered', true);
+    $benefits = [];
+
+    for ($i=0;$i<count($benefits_offered['name']);$i++) {
+        array_push($benefits, array($benefits_offered['name'][$i]));
+        array_push($benefits[$i], $benefits_offered['description'][$i]);
+    }
+
+    echo '<div class="benefit-list" data-itemhtml="<li class=item><input type=text name=benefitname[] placeholder=Benefit Name><textarea name=benefitdesc[]>About the benefit</textarea><span class=remove>Remove</span></li>"><ul>';
+    foreach ($benefits as $benefit) {
+        echo '<li class="item">';
+        echo '<input type="text" name="" value="'.$benefit[0].'">';
+        echo '<textarea name="">'.$benefit[1].'</textarea><span class=remove>Remove</span>';
+        echo '</li>';
+    }
+    echo '</ul><span class="add">Add another benefit/perks</button></div>';
 }
 
-function add_establishment_form_meta_box() {
-    add_meta_box("establishment-details-meta-box", "Establishement Details", "establishment_form_meta_box", "partners", "side", "default", null);
+function add_benefits_form_meta_box() {
+    add_meta_box("benefits-list-meta-box", "Benefits/Perks", "benefits_form_meta_box", "partners", "normal", "default", null);
 }
-add_action("add_meta_boxes", "add_establishment_form_meta_box");
+add_action("add_meta_boxes", "add_benefits_form_meta_box");
+
+function modify_contact_methods($profile_fields) {
+
+    $profile_fields['contact_number'] = 'Contact Number';
+    return $profile_fields;
+}
+add_filter('user_contactmethods', 'modify_contact_methods');
+
+function custom_admin_js() {
+    $url_js     = get_template_directory_uri() . '/js/admin_scripts.js';
+    $url_css    = get_template_directory_uri() . '/css/admin_css.css';
+    echo '"<link type="text/css" rel="stylesheet" href="'. $url_css . '" />"';
+    echo '"<script type="text/javascript" src="'. $url_js . '"></script>"';
+}
+add_action('admin_footer', 'custom_admin_js');
 
 ?>

@@ -38,15 +38,29 @@ if ( ! is_user_logged_in() ) :
 	          $errors['password_confirmation'] = "Passwords do not match";  
 	        }
 
-	        $title 					= $_POST['establishmentname'];
-			$content 				= $_POST['establishmentdescription'];
-			$terms 					= isset($_POST['terms_condition']);
-			$sticker 				= isset($_POST['receivesticker']);
-			$owner 					= $_POST['e_owner'];
-    		$contactperson 			= $_POST['e_contact_person'];
-    		$contactnumber 			= $_POST['e_contact_number'];
-    		$establishmentemail 	= $_POST['e_email_address'];
-    		$establishmentwebsite 	= $_POST['e_website_url'];
+	        if (empty($_POST['firstname']))
+	        {
+	        	$errors['firstname'] = "Please provide your first name so what we can address you properly.";
+	        }
+
+	        if (empty($_POST['lastname']))
+	        {
+	        	$errors['lastname'] = "Please provide your last name so what we can address you properly.";
+	        }
+
+	        if (empty($_POST['contactnumber']))
+	        {
+	        	$errors['contactnumber'] = "Please provide your contactnumber so that we can get in touch.";
+	        }
+
+	        $title 						= $_POST['establishmentname'];
+			$content 					= $_POST['establishmentdescription'];
+			$terms 						= isset($_POST['terms_condition']);
+			$sticker 					= isset($_POST['receivesticker']);
+			$owner 						= $_POST['e_owner'];
+    		$establishmentwebsite 		= $_POST['e_website_url'];
+    		$benefitname				= $_POST['benefitname'];
+    		$benefitdesc				= $_POST['benefitdesc'];
 
 
 			if ( $title == '' )
@@ -68,21 +82,6 @@ if ( ! is_user_logged_in() ) :
 		    {
 		    	$errors['owner'] = "Please tell us the owner of the establishment.";
 		    }
-
-		    if ( empty($contactperson) )
-		    {
-		    	$errors['contactperson'] = "Please tell us who will we talk to";
-		    }
-
-		    if ( empty($contactnumber) )
-		    {
-		    	$errors['contactnumber'] = "Please tell us the contact number";
-		    }
-
-		    if ( empty($establishmentemail) )
-		    {
-		    	$errors['establishmentemail'] = "Please tell us the email address";
-		    }
 	   
 	        if(0 === count($errors)) 
 	        {  
@@ -96,11 +95,12 @@ if ( ! is_user_logged_in() ) :
 	            $terms = true;
 
 	            wp_update_user( array ('ID' => $new_user_id,  'display_name' => $display_name) ) ;
+	            wp_update_user( array ('ID' => $new_user_id,  'user_url' => $_POST['e_website_url']) ) ;
+	            update_user_meta( $new_user_id, 'contact_number', $_POST['contactnumber'] );
 	            update_user_meta( $new_user_id, 'first_name', sanitize_text_field( $_POST['firstname'] ) );
 	            update_user_meta( $new_user_id, 'last_name', sanitize_text_field( $_POST['lastname'] ) );
 
-	            // You could do all manner of other things here like send an email to the user, etc. I leave that to you.  
-	   			//add_partner($posttype);
+	            $benefits_offered = array('name' => $benefitname, 'description' => $benefitdesc);
 
 		        $addpartner = array(
 		            'post_title'    => wp_strip_all_tags( $title ),
@@ -113,13 +113,8 @@ if ( ! is_user_logged_in() ) :
 		        add_post_meta( $new_partner, 'terms_condition', $terms );
 		        add_post_meta( $new_partner, 'receive_sticker', $sticker );
 		        add_post_meta( $new_partner, 'establishment_owner', $owner );
-		        add_post_meta( $new_partner, 'contact_person', $contactperson );
-		        add_post_meta( $new_partner, 'contact_number', $contactnumber );
-		        add_post_meta( $new_partner, 'establishmentemail', $establishmentemail );
 		        add_post_meta( $new_partner, 'establishmentwebsite', $establishmentwebsite );
-
-		        //$post_slug = $post->post_name;
-		        //echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.home_url().'/'.$postype.'/'.$post_slug.'?edit=true">';
+		        add_post_meta( $new_partner, 'benefits_offered', $benefits_offered );
 
 	            $success = 1;  
 	   			echo "<div>You have successfully sent your application. Please wait for our staff to get in touch with you for the next step.</div>";
@@ -137,27 +132,43 @@ if ( ! is_user_logged_in() ) :
 ?>
 
 <form id="wp_signup_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">  
-	<h3>Tell Us About Yourself</h3>
-    <div><input type="text" name="email" id="email" placeholder="Email Address"></div>
-    <div><input type="password" name="password" id="password" placeholder="Password">  </div>
-    <div><input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password">  </div>
-    <div><input type="text" name="firstname" id="firstname" placeholder="First Name"></div>
-    <div><input type="text" name="lastname" id="lastname" placeholder="Last Name">  </div>
+	<div>
+		<h3>Create Account</h3>
+		<p>Please register first on our website.</p>
+	    <div><input type="text" name="email" id="email" placeholder="Email Address"></div>
+	    <div><input type="password" name="password" id="password" placeholder="Password">  </div>
+	    <div><input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password">  </div>
+	    <div><input type="text" name="firstname" id="firstname" placeholder="First Name"></div>
+	    <div><input type="text" name="lastname" id="lastname" placeholder="Last Name">  </div>
+	    <div><input type="number" name="contactnumber" id="contactnumber" placeholder="Contact Number"></div>
+	</div>
     <hr>
-    <h3>Tell Us About Your Establishment</h3>
-    <div><input type="text" name="establishmentname" id="establishmentname" placeholder="Establishment/Business Name"></div>
-    <div><textarea name="establishmentdescription">Tell Us about your establishment/business</textarea></div>
-    <div><input type="text" name="e_owner" value="" placeholder="Name of Proprietor"></div>
-    <div><input type="text" name="e_contact_person" value="" placeholder="Name of Contact Person"></div>
-    <div><input type="number" name="e_contact_number" value="" placeholder="Contact Number"></div>
-    <div><input type="email" name="e_email_address" value="" placeholder="Email Address"></div>
-    <div><input type="text" name="e_website_url" value="" placeholder="Website Link"></div>
+    <div>
+	    <h3>About Your Establishment</h3>
+	    <p>Tell us more about your establishments.</p>
+	    <div><input type="text" name="establishmentname" id="establishmentname" placeholder="Establishment/Business Name"></div>
+	    <div><textarea name="establishmentdescription">Tell Us about your establishment/business</textarea></div>
+	    <div><input type="text" name="e_owner" value="" placeholder="Name of Proprietor"></div>
+	    <div><input type="text" name="e_website_url" value="" placeholder="Website Link"></div>
+	</div>
+	<hr>
+	<div>
+    	<h3>Benefits and Perks</h3>
+    	<p>Tell us the benefits and perks that you're going to offer to our members.</p>
+    	<div class="benefit_perks" data-itemhtml="<li class='item'><div><input type='text' name='benefitname[]' placeholder='Benefit Name'></div><div><textarea name='benefitdesc[]'>About the benefit</textarea></div><span class='remove'>Remove</span></li>">
+    		<ul>
+	    		<li class="item">
+	    			<div><input type="text" name="benefitname[]" placeholder="Benefit Name"></div>
+	    			<div><textarea name="benefitdesc[]">About the benefit</textarea></div>
+	    		</li>
+	    	</ul>
+    		<span class="add">Add another benefit/perks</button>
+    	</div>
+    </div>
+
     <div><input type="checkbox" name="receivesticker" value="" /> Receive OFW Power Club Sticker(s)</div>
     <div>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</div>
     <div><input type="checkbox" name="terms_condition" value="" /> Accept terms and condition</div>
-
-
-
     <div><input type="submit" id="submitbtn" name="submit" value="Sign Up" />  </div>
     <input type="hidden" name="post-type" id="post-type" value="<?php echo $posttype; ?>" />
 	<input type="hidden" name="action" value="<?php echo $posttype; ?>" />

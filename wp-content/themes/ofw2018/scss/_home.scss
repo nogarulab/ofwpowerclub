@@ -19,6 +19,49 @@
 			font-size: 1.250em;
 		}
 	}
+	.scroll {
+		padding-top: 60px;
+		position: absolute;
+		bottom: 20px;
+		left: 50%;
+		z-index: 2;
+		display: inline-block;
+		-webkit-transform: translate(0, -50%);
+		transform: translate(0, -50%);
+		letter-spacing: .1em;
+		text-decoration: none;
+		transition: opacity .3s;
+		transform: translateX(-37px);
+		&:hover {
+			opacity: .5;
+			color: #fff;
+		}
+		span {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			width: 30px;
+			height: 50px;
+			margin-left: -15px;
+			border: 2px solid #fff;
+			border-radius: 50px;
+			box-sizing: border-box;
+			&:before {
+				position: absolute;
+				top: 10px;
+				left: 50%;
+				content: '';
+				width: 6px;
+				height: 6px;
+				margin-left: -3px;
+				background-color: #fff;
+				border-radius: 100%;
+				-webkit-animation: sdb10 2s infinite;
+				animation: sdb10 2s infinite;
+				box-sizing: border-box;
+			}
+		}
+	}
 	.carousel-fade {
 		.carousel-item {
 			display: block;
@@ -48,5 +91,63 @@
 	  position: absolute;
 	  top: 0;
 	  left: 0;
+	}
+}
+
+.member-partner {
+	min-height: 100vh;
+	.join-member {
+		padding-bottom: 370px;
+		background-image: url('../img/pattern1.jpg');
+		background-attachment: fixed;
+	}
+	h3 {
+		font-weight: 700;
+		text-transform: uppercase;
+		font-size: 1.500em;
+	}
+	h2 {
+		font-weight: 700;
+		text-transform: uppercase;
+		color: $red;
+		font-size: 2.813em;
+		margin-bottom: 24px;
+	}
+	p {
+		font-size: 0.952em;
+		margin-bottom: 35px;
+	}
+	.join-partner {
+		padding-top: 100px;
+		padding-bottom: 100px;
+		transform: translateY(-320px);
+		width: 90%;
+		margin-left: 2%;
+		margin-right: 8%;
+		background-image: url('../img/partner-bg.jpg');
+		background-size: cover;
+		background-position: center;
+		.partner-cont {
+			transform: translateX(110px);
+		}
+		.carousel {
+			margin-left: 5%;
+		}
+		.carousel-indicators {
+			position: unset;
+		    margin-top: 100px;
+		    justify-content: left;
+		    margin-left: 5%;
+		    li {
+		    	width: 12px;
+		    	height: 12px;
+		    	border-radius: 50%;
+		    	background-color: $yellow;
+		    	cursor: pointer;
+		    	&.active {
+		    		background-color: #fff;
+		    	}
+		    }
+		}
 	}
 }

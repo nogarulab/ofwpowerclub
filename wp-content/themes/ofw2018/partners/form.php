@@ -105,8 +105,9 @@ if ( ! is_user_logged_in() ) :
 		        $addpartner = array(
 		            'post_title'    => wp_strip_all_tags( $title ),
 		            'post_content'  => $content,
-		            'post_status'   => 'draft',
-		            'post_type'     => 'partners'
+		            'post_status'   => 'private',
+		            'post_type'     => 'partners',
+
 		        );
 		        $new_partner = wp_insert_post($addpartner);
 		        $post = get_post($new_partner);

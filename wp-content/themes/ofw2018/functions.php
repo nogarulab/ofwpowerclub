@@ -605,20 +605,36 @@ function benefits_form_meta_box($object) {
         array_push($benefits[$i], $benefits_offered['description'][$i]);
     }
 
-    echo '<div class="benefit-list" data-itemhtml="<li class=item><input type=text name=benefitname[] placeholder=Benefit Name><textarea name=benefitdesc[]>About the benefit</textarea><span class=remove>Remove</span></li>"><ul>';
+    echo '<div class="benefit-list" data-itemhtml="<li class=item><div><input type=text name=benefitname[] placeholder=Benefit Name></div><div><textarea name=benefitdesc[]>About the benefit</textarea></div><span class=remove>x</span></li>"><ul>';
     foreach ($benefits as $benefit) {
         echo '<li class="item">';
-        echo '<input type="text" name="" value="'.$benefit[0].'">';
-        echo '<textarea name="">'.$benefit[1].'</textarea><span class=remove>Remove</span>';
+        echo '<div><input type="text" name="benefitname[]" value="'.$benefit[0].'"></div>';
+        echo '<div><textarea name="benefitdesc[]">'.$benefit[1].'</textarea></div><span class=remove>x</span>';
         echo '</li>';
     }
-    echo '</ul><span class="add">Add another benefit/perks</button></div>';
+    echo '</ul><span class="add">Add Another Benefit</button></div>';
 }
 
 function add_benefits_form_meta_box() {
     add_meta_box("benefits-list-meta-box", "Benefits/Perks", "benefits_form_meta_box", "partners", "normal", "default", null);
 }
 add_action("add_meta_boxes", "add_benefits_form_meta_box");
+
+function establishmen_details_form_meta_box($object) {
+    wp_nonce_field(basename(__FILE__), "meta-box-nonce");
+
+    $receive_sticker = get_post_meta($object->ID, "receive_sticker", true);
+
+    echo '<div><label>Owner/CEO/Proprietor(s)</label><input type="text" name="establishment_owner" value="'.get_post_meta($object->ID, "establishment_owner", true).'"></div>';
+    echo '<div><label>Website URL</label><input type="text" name="establishmentwebsite" value="'.get_post_meta($object->ID, "establishmentwebsite", true).'"></div>';
+    echo '<div class="check"><input type="checkbox" name="receivesticker" '. (!empty($receive_sticker) && $receive_sticker == 1 ? 'checked="checked"' : "") .'>Agreed to receive OFW Power Club stickers.</div>';
+    echo '<p>Please take note that this partner agreed to the terms and condition of our organization.</p>';
+}
+
+function add_establishment_details_meta_box() {
+    add_meta_box("establishment-details-meta-box", "Additional Details", "establishmen_details_form_meta_box", "partners", "side", "default", null);
+}
+add_action("add_meta_boxes", "add_establishment_details_meta_box");
 
 function save_benefits_meta_box($post_id, $post, $update) {
     if (!isset($_POST["meta-box-nonce"]) || !wp_verify_nonce($_POST["meta-box-nonce"], basename(__FILE__)))
@@ -634,18 +650,33 @@ function save_benefits_meta_box($post_id, $post, $update) {
     if($slug != $post->post_type)
         return $post_id;
 
-    $benefitname    = "";
-    $benefitdesc    = "";
+    $benefitname            = "";
+    $benefitdesc            = "";
+    $establishment_owner    = "";
+    $establishmentwebsite   = "";
+    $sticker                = isset($_POST['receivesticker']);
 
     if(isset($_POST["benefitname"])) {
         $benefitname = $_POST["benefitname"];
     }
-    update_post_meta($post_id, "benefitname", $benefitname);
 
     if(isset($_POST["benefitdesc"])) {
         $benefitdesc = $_POST["benefitdesc"];
     }
-    update_post_meta($post_id, "benefitdesc", $benefitdesc);
+
+    $benefits_offered = array('name' => $benefitname, 'description' => $benefitdesc);
+    update_post_meta($post_id, 'benefits_offered', $benefits_offered );
+
+    if(isset($_POST["establishment_owner"])) {
+        $establishment_owner = $_POST["establishment_owner"];
+    }
+    update_post_meta($post_id, 'establishment_owner', $establishment_owner );
+
+    if(isset($_POST["establishmentwebsite"])) {
+        $establishmentwebsite = $_POST["establishmentwebsite"];
+    }
+    update_post_meta($post_id, 'establishmentwebsite', $establishmentwebsite );
+    update_post_meta($post_id, 'receive_sticker', $sticker );
 
 }
 add_action("save_post", "save_benefits_meta_box", 10, 3);

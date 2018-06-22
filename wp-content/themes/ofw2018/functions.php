@@ -620,6 +620,36 @@ function add_benefits_form_meta_box() {
 }
 add_action("add_meta_boxes", "add_benefits_form_meta_box");
 
+function save_benefits_meta_box($post_id, $post, $update) {
+    if (!isset($_POST["meta-box-nonce"]) || !wp_verify_nonce($_POST["meta-box-nonce"], basename(__FILE__)))
+        return $post_id;
+
+    if(!current_user_can("edit_post", $post_id))
+        return $post_id;
+
+    if(defined("DOING_AUTOSAVE") && DOING_AUTOSAVE)
+        return $post_id;
+
+    $slug = "partners";
+    if($slug != $post->post_type)
+        return $post_id;
+
+    $benefitname    = "";
+    $benefitdesc    = "";
+
+    if(isset($_POST["benefitname"])) {
+        $benefitname = $_POST["benefitname"];
+    }
+    update_post_meta($post_id, "benefitname", $benefitname);
+
+    if(isset($_POST["benefitdesc"])) {
+        $benefitdesc = $_POST["benefitdesc"];
+    }
+    update_post_meta($post_id, "benefitdesc", $benefitdesc);
+
+}
+add_action("save_post", "save_benefits_meta_box", 10, 3);
+
 function modify_contact_methods($profile_fields) {
 
     $profile_fields['contact_number'] = 'Contact Number';

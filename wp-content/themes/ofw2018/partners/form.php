@@ -61,6 +61,10 @@ if ( ! is_user_logged_in() ) :
     		$establishmentwebsite 		= $_POST['e_website_url'];
     		$benefitname				= $_POST['benefitname'];
     		$benefitdesc				= $_POST['benefitdesc'];
+    		$b_location 				= $_POST['b_location'];
+    		$b_address 					= $_POST['b_address'];
+    		$b_contactnumber			= $_POST['b_contactnumber'];
+    		$b_contactperson 			= $_POST['b_contactperson'];
 
 
 			if ( $title == '' )
@@ -101,6 +105,7 @@ if ( ! is_user_logged_in() ) :
 	            update_user_meta( $new_user_id, 'last_name', sanitize_text_field( $_POST['lastname'] ) );
 
 	            $benefits_offered = array('name' => $benefitname, 'description' => $benefitdesc);
+	            $branches = array('location' => $b_location, 'address' => $b_address, 'contact_no' => $b_contactnumber, 'contact_person' => $b_contactperson);
 
 		        $addpartner = array(
 		            'post_title'    => wp_strip_all_tags( $title ),
@@ -116,6 +121,7 @@ if ( ! is_user_logged_in() ) :
 		        add_post_meta( $new_partner, 'establishment_owner', $owner );
 		        add_post_meta( $new_partner, 'establishmentwebsite', $establishmentwebsite );
 		        add_post_meta( $new_partner, 'benefits_offered', $benefits_offered );
+		        add_post_meta( $new_partner, 'branches', $branches );
 
 	            $success = 1;  
 	   			echo "<div>You have successfully sent your application. Please wait for our staff to get in touch with you for the next step.</div>";
@@ -153,10 +159,26 @@ if ( ! is_user_logged_in() ) :
 	    <div><input type="text" name="e_website_url" value="" placeholder="Website Link"></div>
 	</div>
 	<hr>
+    <div>
+	    <h3>Branches</h3>
+	    <p>Tell us the address, contact number, email &amp; contact person of all your establishment branches.</p>
+	    <div class='branches incremental-item' data-itemhtml='<li class="item"><div><input type="text" name="b_location[]" placeholder="Location"></div><div><input type="text" name="b_address[]" placeholder="Address"></div><div><input type="text" name="b_contactnumber[]" placeholder="Contact Number"></div><div><input type="text" name="b_contactperson[]" placeholder="Contact Person"></div><span class="remove">Remove</span></li>'>
+	    	<ul>
+	    		<li class="item">
+	    			<div><input type="text" name="b_location[]" placeholder="Location"></div>
+	    			<div><input type="text" name="b_address[]" placeholder="Address"></div>
+	    			<div><input type="text" name="b_contactnumber[]" placeholder="Contact Number"></div>
+	    			<div><input type="text" name="b_contactperson[]" placeholder="Contact Person"></div>
+	    		</li>
+	    	</ul>
+    		<span class="add">Add another branch</button>
+	    </div>
+	</div>
+	<hr>
 	<div>
     	<h3>Benefits and Perks</h3>
     	<p>Tell us the benefits and perks that you're going to offer to our members.</p>
-    	<div class="benefit_perks" data-itemhtml="<li class='item'><div><input type='text' name='benefitname[]' placeholder='Benefit Name'></div><div><textarea name='benefitdesc[]'>About the benefit</textarea></div><span class='remove'>Remove</span></li>">
+    	<div class="benefit_perks incremental-item" data-itemhtml="<li class='item'><div><input type='text' name='benefitname[]' placeholder='Benefit Name'></div><div><textarea name='benefitdesc[]'>About the benefit</textarea></div><span class='remove'>Remove</span></li>">
     		<ul>
 	    		<li class="item">
 	    			<div><input type="text" name="benefitname[]" placeholder="Benefit Name"></div>

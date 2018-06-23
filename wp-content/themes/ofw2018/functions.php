@@ -605,7 +605,7 @@ function benefits_form_meta_box($object) {
         array_push($benefits[$i], $benefits_offered['description'][$i]);
     }
 
-    echo '<div class="benefit-list" data-itemhtml="<li class=item><div><input type=text name=benefitname[] placeholder=Benefit Name></div><div><textarea name=benefitdesc[]>About the benefit</textarea></div><span class=remove>x</span></li>"><ul>';
+    echo '<div class="benefit-list" data-itemhtml="<li class=item><div><input type=text name=benefitname[] placeholder=Benefit Name></div><div><textarea name=benefitdesc[]></textarea></div><span class=remove>x</span></li>"><ul>';
     foreach ($benefits as $benefit) {
         echo '<li class="item">';
         echo '<div><input type="text" name="benefitname[]" value="'.$benefit[0].'"></div>';

@@ -86,6 +86,19 @@ if ( ! is_user_logged_in() ) :
 		    {
 		    	$errors['owner'] = "Please tell us the owner of the establishment.";
 		    }
+
+		    require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+	        require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+	        require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+
+	        $file = $_FILES['featured_img']['tmp_name'];
+
+	        if (file_exists($file)) {
+	            $imagesizedata = getimagesize($file);
+	            if ($imagesizedata === FALSE) {
+	                $errors['b_logo'] = 'Your uploading a wrong file. Please upload either .jpg, .gif or .png';
+	            }
+	        }
 	   
 	        if(0 === count($errors)) 
 	        {  
@@ -122,6 +135,8 @@ if ( ! is_user_logged_in() ) :
 		        add_post_meta( $new_partner, 'establishmentwebsite', $establishmentwebsite );
 		        add_post_meta( $new_partner, 'benefits_offered', $benefits_offered );
 		        add_post_meta( $new_partner, 'branches', $branches );
+		        $attachment_id = media_handle_upload( 'featured_img', $new_partner );
+		        add_post_meta( $new_partner, '_thumbnail_id', $attachment_id);
 
 	            $success = 1;  
 	   			echo "<div>You have successfully sent your application. Please wait for our staff to get in touch with you for the next step.</div>";
@@ -187,6 +202,11 @@ if ( ! is_user_logged_in() ) :
 	    	</ul>
     		<span class="add">Add another benefit/perks</button>
     	</div>
+    </div>
+
+    <div>
+    	<h3>Upload Your Establishment's Logo</h3>
+    	<div><input type="file" name="featured_img" id="featured_img" accept="image/*" /></div>
     </div>
 
     <div><input type="checkbox" name="receivesticker" value="" /> Receive OFW Power Club Sticker(s)</div>

@@ -1,3 +1,11 @@
+*, :after, ::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 #benefits-list-meta-box .inside {
 	margin-top: 0;
 	position: relative;
@@ -7,14 +15,16 @@
 .benefit-list ul {
 	margin: 0 -12px;
 }
-.benefit-list li {
+.benefit-list li,
+.branch-list li {
 	position: relative;
 	border-bottom: 1px solid #ddd;
 	margin-bottom: 10px;
 	padding: 10px 47px 10px 12px;
 	margin: 0;
 }
-.benefit-list li:nth-child(even) {
+.benefit-list li:nth-child(even),
+.branch-list li:nth-child(even) {
 	background: #fafafa;
 }
 
@@ -23,17 +33,23 @@
 }
 
 .benefit-list li input,
-.benefit-list li textarea {
+.benefit-list li textarea,
+.branch-list input {
 	width: 100%;
 	box-shadow: none;
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
 	padding: 10px;
 }
+.benefit-list li input,
+.branch-list input { 
+	height: 42px;
+}
 
-.benefit-list li .remove {
+.benefit-list li .remove,
+.branch-list li .remove {
 	width: 25px;
-	height: 21px;
+	height: 25px;
 	text-align: center;
 	position: absolute;
 	background: #f4e3e3;
@@ -49,7 +65,14 @@
 	font-size: 14px;
 }
 
-.benefit-list .add {
+.benefit-list label,
+.branch-list label {
+	display: block;
+	padding-bottom: 5px;
+}
+
+.benefit-list .add,
+.branch-list .add {
 	background: #23282d;
 	color: #fff;
 	padding: 10px 15px;
@@ -92,4 +115,40 @@
 	padding-top: 12px;
 	font-size: 12px;
 	line-height: 16px;
+}
+
+#branches-meta-box .inside {
+	margin-top: 0;
+	padding-bottom: 62px;
+	position: relative
+}
+
+.branch-list ul {
+	margin: 0 -12px;
+}
+
+.branch-list ul li {
+	padding: 4px 47px 4px 12px;
+	position: relative;
+}
+
+.branch-list div {
+	padding: 6px 0;
+}
+
+.branch-list .column {
+	margin: 0 -6px;
+}
+
+
+.branch-list input {
+	width: 100%;
+	margin: 0;
+}
+
+.branch-list em {
+	display: inline-block;
+	width: 33.3333%;
+	padding: 0 6px;
+	font-style: normal
 }

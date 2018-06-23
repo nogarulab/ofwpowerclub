@@ -605,11 +605,11 @@ function benefits_form_meta_box($object) {
         array_push($benefits[$i], $benefits_offered['description'][$i]);
     }
 
-    echo '<div class="benefit-list incremental-item" data-itemhtml="<li class=item><div><input type=text name=benefitname[] placeholder=Benefit Name></div><div><textarea name=benefitdesc[]></textarea></div><span class=remove>x</span></li>"><ul>';
+    echo '<div class="benefit-list incremental-item" data-itemhtml="<li class=item><div><label>Name</label><input type=text name=benefitname[] placeholder=Benefit Name></div><div><label>Description</label><textarea name=benefitdesc[]></textarea></div><span class=remove>x</span></li>"><ul>';
     foreach ($benefits as $benefit) {
         echo '<li class="item">';
-        echo '<div><input type="text" name="benefitname[]" value="'.$benefit[0].'"></div>';
-        echo '<div><textarea name="benefitdesc[]">'.$benefit[1].'</textarea></div><span class=remove>x</span>';
+        echo '<div><label>Name</label><input type="text" name="benefitname[]" value="'.$benefit[0].'"></div>';
+        echo '<div><label>Description</label><textarea name="benefitdesc[]">'.$benefit[1].'</textarea></div><span class=remove>x</span>';
         echo '</li>';
     }
     echo '</ul><span class="add">Add Another Benefit</button></div>';
@@ -649,13 +649,11 @@ function branches_form_meta_box($object) {
         array_push($branches[$i], $available_branches['contact_person'][$i]);
     }
 
-    echo '<div class="branch-list incremental-item" data-itemhtml="<li class=item><div><input type=text name=b_location[]></div><div><input type=text name=b_address[]></div><div><input type=number name=b_contactnumber[]></div><div><input type=text name=b_contactperson[]></div><span class=remove>x</span></li>"><ul>';
+    echo '<div class="branch-list incremental-item" data-itemhtml="<li class=item><div><label>Address</label><input type=text name=b_address[]></div><div class=column><em><label>Location</label><input type=text name=b_location[]></em><em><label>Contact Number</label><input type=number name=b_contactnumber[]></em><em><label>Contact Person</label><input type=text name=b_contactperson[]></em></div><span class=remove>x</span></li>"><ul>';
     foreach ($branches as $branch) {
         echo '<li class="item">';
-        echo '<div><input type="text" name="b_location[]" value="'.$branch[0].'"></div>';
-        echo '<div><input type="text" name="b_address[]" value="'.$branch[1].'"></div>';
-        echo '<div><input type="text" name="b_contactnumber[]" value="'.$branch[2].'"></div>';
-        echo '<div><input type="text" name="b_contactperson[]" value="'.$branch[3].'"></div>';
+        echo '<div><label>Address</label><input type="text" name="b_address[]" value="'.$branch[1].'"></div>';
+        echo '<div class="column"><em><label>Location</label><input type="text" name="b_location[]" value="'.$branch[0].'"></em><em><label>Contact Number</label><input type="number" name="b_contactnumber[]" value="'.$branch[2].'"></em><em><label>Contact Person</label><input type="text" name="b_contactperson[]" value="'.$branch[3].'"></em></div>';
         echo '<span class=remove>x</span></li>';
     }
     echo '</ul><span class="add">Add Another Branch</button></div>';
@@ -686,6 +684,10 @@ function save_benefits_meta_box($post_id, $post, $update) {
     $establishment_owner    = "";
     $establishmentwebsite   = "";
     $sticker                = isset($_POST['receivesticker']);
+    $b_location             = "";
+    $b_address              = "";
+    $b_contactnumber        = "";
+    $b_contactperson        = "";
 
     if(isset($_POST["benefitname"])) {
         $benefitname = $_POST["benefitname"];
@@ -698,6 +700,25 @@ function save_benefits_meta_box($post_id, $post, $update) {
     $benefits_offered = array('name' => $benefitname, 'description' => $benefitdesc);
     update_post_meta($post_id, 'benefits_offered', $benefits_offered );
 
+    if(isset($_POST["b_location"])) {
+        $b_location = $_POST["b_location"];
+    }
+
+    if(isset($_POST["b_address"])) {
+        $b_address = $_POST["b_address"];
+    }
+
+    if(isset($_POST["b_contactnumber"])) {
+        $b_contactnumber = $_POST["b_contactnumber"];
+    }
+
+    if(isset($_POST["b_contactperson"])) {
+        $b_contactperson = $_POST["b_contactperson"];
+    }
+
+    $branches = array('location' => $b_location, 'address' => $b_address, 'contact_no' => $b_contactnumber, 'contact_person' => $b_contactperson);
+    update_post_meta($post_id, 'branches', $branches );
+    
     if(isset($_POST["establishment_owner"])) {
         $establishment_owner = $_POST["establishment_owner"];
     }

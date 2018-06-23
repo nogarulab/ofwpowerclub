@@ -605,7 +605,7 @@ function benefits_form_meta_box($object) {
         array_push($benefits[$i], $benefits_offered['description'][$i]);
     }
 
-    echo '<div class="benefit-list" data-itemhtml="<li class=item><div><input type=text name=benefitname[] placeholder=Benefit Name></div><div><textarea name=benefitdesc[]></textarea></div><span class=remove>x</span></li>"><ul>';
+    echo '<div class="benefit-list incremental-item" data-itemhtml="<li class=item><div><input type=text name=benefitname[] placeholder=Benefit Name></div><div><textarea name=benefitdesc[]></textarea></div><span class=remove>x</span></li>"><ul>';
     foreach ($benefits as $benefit) {
         echo '<li class="item">';
         echo '<div><input type="text" name="benefitname[]" value="'.$benefit[0].'"></div>';
@@ -635,6 +635,37 @@ function add_establishment_details_meta_box() {
     add_meta_box("establishment-details-meta-box", "Additional Details", "establishmen_details_form_meta_box", "partners", "side", "default", null);
 }
 add_action("add_meta_boxes", "add_establishment_details_meta_box");
+
+function branches_form_meta_box($object) {
+    wp_nonce_field(basename(__FILE__), "meta-box-nonce");
+
+    $available_branches = get_post_meta($object->ID, 'branches', true);
+    $branches = [];
+
+    for ($i=0;$i<count($available_branches['location']);$i++) {
+        array_push($branches, array($available_branches['location'][$i]));
+        array_push($branches[$i], $available_branches['address'][$i]);
+        array_push($branches[$i], $available_branches['contact_no'][$i]);
+        array_push($branches[$i], $available_branches['contact_person'][$i]);
+    }
+
+    echo '<div class="branch-list incremental-item" data-itemhtml="<li class=item><div><input type=text name=b_location[]></div><div><input type=text name=b_address[]></div><div><input type=number name=b_contactnumber[]></div><div><input type=text name=b_contactperson[]></div><span class=remove>x</span></li>"><ul>';
+    foreach ($branches as $branch) {
+        echo '<li class="item">';
+        echo '<div><input type="text" name="b_location[]" value="'.$branch[0].'"></div>';
+        echo '<div><input type="text" name="b_address[]" value="'.$branch[1].'"></div>';
+        echo '<div><input type="text" name="b_contactnumber[]" value="'.$branch[2].'"></div>';
+        echo '<div><input type="text" name="b_contactperson[]" value="'.$branch[3].'"></div>';
+        echo '<span class=remove>x</span></li>';
+    }
+    echo '</ul><span class="add">Add Another Branch</button></div>';
+    
+}
+
+function add_branches_meta_box() {
+    add_meta_box("branches-meta-box", "Branches", "branches_form_meta_box", "partners", "normal", "default", null);
+}
+add_action("add_meta_boxes", "add_branches_meta_box");
 
 function save_benefits_meta_box($post_id, $post, $update) {
     if (!isset($_POST["meta-box-nonce"]) || !wp_verify_nonce($_POST["meta-box-nonce"], basename(__FILE__)))

@@ -51,4 +51,14 @@
 		max-width: 235px;
 		margin-bottom: 15px;
 	}
+	.home-prods {
+		.grid {
+			.grid-item, .grid-sizer {
+				width: 100%;
+				&.grid-item-large {
+					width: 100%;
+				}
+			}
+		}
+	}
 }

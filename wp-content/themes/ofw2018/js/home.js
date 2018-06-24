@@ -17,8 +17,16 @@
 		});
 
 		$('#partners-carousel').find('.carousel-item').first().addClass('active');
-		$('.carousel-indicators').find('li').first().addClass('active');
-    
+		$('#partners-carousel .carousel-indicators').find('li').first().addClass('active');
+
+		$('#feat-prod-list').find('div:nth-child(2)').addClass('grid-item-large');
+    	$('#feat-prod-list').find('div:nth-child(6)').last().addClass('grid-item-large');
+
+    	$('.grid').masonry({
+		    itemSelector: '.grid-item',
+		    columnWidth: '.grid-sizer',
+  			percentPosition: true
+		});
     
 	});
 	

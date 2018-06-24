@@ -30,7 +30,8 @@ if (function_exists('add_theme_support'))
     add_image_size('large', 700, '', true); // Large Thumbnail
     add_image_size('medium', 250, '', true); // Medium Thumbnail
     add_image_size('small', 120, '', true); // Small Thumbnail
-    add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+    add_image_size('home-prods', 500, 375, true); 
+    add_image_size('testimonials', 180, 180, true); 
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
     /*add_theme_support('custom-background', array(
@@ -110,6 +111,9 @@ function html5blank_header_scripts()
         wp_register_script('easescroll', get_template_directory_uri() . '/js/lib/jquery.easeScroll.js', array(), '1.0');  // Ease Scroll
         wp_enqueue_script('easescroll'); // Enqueue it!
 
+        wp_register_script('matcheight', get_template_directory_uri() . '/js/lib/jquery.matchHeight.js', array(), '1.0');  // Ease Scroll
+        wp_enqueue_script('matcheight'); // Enqueue it!
+
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
     }
@@ -119,6 +123,9 @@ function html5blank_header_scripts()
 function html5blank_conditional_scripts()
 {
     if (is_page('home')) {
+        wp_register_script('masonry', '//unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js', array(), '4.2.1'); 
+        wp_enqueue_script('masonry'); // Enqueue it!
+
         wp_register_script('homejs', get_template_directory_uri() . '/js/home.js', array('jquery'), '1.0.0'); // Conditional script(s)
         wp_enqueue_script('homejs'); // Enqueue it!
     }

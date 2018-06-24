@@ -4,37 +4,62 @@
 
 
 
-<?php 
-	$the_query = new WP_Query(array('post_type'=>'page', 'pagename'=>'home'));
-	while ( $the_query->have_posts() ) : $the_query->the_post();
-?>
 	<section class="banner d-flex align-items-center justify-content-center px-5">
-		<div class="banner-text-container text-center">
-			<h1 class="text-uppercase"><?php bloginfo('name'); ?></h1>
-			<?php the_content(); ?>
-			<div class="buttons d-flex justify-content-around">
-				<a href="" class="h-c-black member-link bg-yellow black text-uppercase py-2 px-4">Be A Member</a>
-				<a href="" class="partner-link bg-red white text-uppercase py-2 px-4">Be A Partner</a>
-			</div>
-		</div>
 		<a href="#join-us" class="scroll white">
 			<span></span>SCROLL
 		</a>		
 		<div data-ride="carousel" class="carousel carousel-fade" id="banner-carousel">
 		    <div role="listbox" class="carousel-inner">
-				<?php $images = get_field('banner_images'); ?>
-				<?php if($images): ?>
-					<?php foreach( $images as $image ): ?>
-					    <div class="carousel-item" style="background-image: url('<?php echo $image['url']; ?>')">
+		    	<?php 
+					$the_query = new WP_Query(array('post_type'=>'slider'));
+					while ( $the_query->have_posts() ) : $the_query->the_post();
+				?>
+				<?php 
+					$featuredImage = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); 
+					$posts = get_field('partner');
+				?>
+					    <div class="carousel-item" style="background-image:url(<?php echo $featuredImage; ?>);">
+					    	<div class="banner-text-container text-center carousel-caption">
+								<h1 class="text-uppercase"><?php the_title(); ?></h1>
+								<?php the_content(); ?>
+								<?php if( $posts ): ?>
+								<?php foreach( $posts as $post): 
+									setup_postdata($post); ?>
+									<a href="<?php the_permalink(); ?>" class="h-c-black member-link bg-yellow black text-uppercase py-2 px-4">Learn More</a>
+								<?php endforeach; wp_reset_postdata(); ?>
+								<?php endif; ?>
+							</div>
 					    </div>
-					<?php endforeach; ?>
-				<?php endif; ?>
+				<?php 
+					endwhile; wp_reset_query(); 
+				?>
 		    </div>
 		</div>
+	</section>
+
+<?php 
+	$the_query = new WP_Query(array('post_type'=>'page', 'pagename'=>'home'));
+	while ( $the_query->have_posts() ) : $the_query->the_post();
+?>
+	<section class="ofw-power-club-cont py-5 text-center">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-8">
+					<h1 class="text-uppercase font-weight-bold"><?php bloginfo('name'); ?></h1>
+					<?php the_content(); ?>
+					<div class="buttons d-flex justify-content-around">
+						<a href="" class="h-c-black member-link bg-yellow black text-uppercase py-2 px-4">Be A Member</a>
+						<a href="" class="h-c-white partner-link bg-blue white text-uppercase py-2 px-4">Be A Partner</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 	</section>
 <?php 
 	endwhile; wp_reset_query(); 
 ?>
+	
 	<section id="join-us" class="member-partner">
 		<?php 
 			$the_query = new WP_Query(array('post_type'=>'blurbs', 'p'=>66));
@@ -105,5 +130,43 @@
 		?>
 	</section>
 
+	<section class="home-prods py-5">
+		<div class="container">
+			<div class="row align-items-center">
+				<?php 
+					$the_query = new WP_Query(array('post_type'=>'blurbs', 'p'=>78));
+					while ( $the_query->have_posts() ) : $the_query->the_post();
+				?>
+				<div class="col-lg-6 col-md-5">
+					<?php the_content(); ?>
+					<a href="" class="h-c-white white rounded bg-blue py-3 px-5 d-inline-block">Show Now</a>
+				</div>
+				<?php 
+					endwhile; wp_reset_query(); 
+				?>
+				<div class="col-lg-6 col-md-7">
+					<div class="grid" id="feat-prod-list">
+						<div class="grid-sizer"></div>
+						<?php 
+							$the_query = new WP_Query(array('post_type'=>'products', 'featured'=>'yes', 'orderby'=>'rand', 'posts_per_page'=>6));
+							while ( $the_query->have_posts() ) : $the_query->the_post();
+						?>
+							<div class="grid-item">
+								<a href="<?php the_permalink(); ?>">
+									<?php
+									 the_post_thumbnail('home-prods', array('class' => 'img-fluid mx-auto d-block ')); 
+									?>
+								</a>
+							</div>
+						<?php 
+							endwhile; wp_reset_query(); 
+						?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
+	<?php get_sidebar('testimonies'); ?>
+	<?php get_sidebar('connect'); ?>
 <?php get_footer();  ?>

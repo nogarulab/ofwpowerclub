@@ -29,6 +29,12 @@
 				$(this).parent('.item').remove();
 			}
 		})
+
+		$('.carousel-testi').matchHeight();
+
+		$('#testi-carousel').find('.carousel-item').first().addClass('active');
+		$('#testi-carousel .carousel-indicators').find('li').first().addClass('active');
+
     
     
 	});

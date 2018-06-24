@@ -65,6 +65,7 @@ if ( ! is_user_logged_in() ) :
     		$b_address 					= $_POST['b_address'];
     		$b_contactnumber			= $_POST['b_contactnumber'];
     		$b_contactperson 			= $_POST['b_contactperson'];
+    		$partner_category 			= $_POST['partner_category'];
 
 
 			if ( $title == '' )
@@ -138,6 +139,10 @@ if ( ! is_user_logged_in() ) :
 		        $attachment_id = media_handle_upload( 'featured_img', $new_partner );
 		        add_post_meta( $new_partner, '_thumbnail_id', $attachment_id);
 
+		        
+		        wp_set_post_terms( $new_partner, $partner_category, 'partner_category', false );
+		        
+
 	            $success = 1;  
 	   			echo "<div>You have successfully sent your application. Please wait for our staff to get in touch with you for the next step.</div>";
 	            //header( 'Location:' . get_bloginfo('url') . '/login/?success=1&u=' . $username ); 
@@ -187,6 +192,24 @@ if ( ! is_user_logged_in() ) :
 	    		</li>
 	    	</ul>
     		<span class="add">Add another branch</button>
+	    </div>
+	</div>
+	<hr>
+    <div>
+	    <h3>Establishment Category</h3>
+	    <p>Tell us the what kind/type of business you have. Please take note that you can only choose 3 categories.</p>
+	    <div>
+	    	<ul>
+	    	<?php
+	    		$terms = get_terms( array(
+				    'taxonomy' => 'partner_category',
+				    'hide_empty' => false,
+				) );
+				foreach ($terms as $term) {
+					echo '<li><input type="checkbox" name="partner_category[]" value="'.$term->name.'"> '.$term->name.'</li>';
+				}
+	    	?>
+	    	</ul>
 	    </div>
 	</div>
 	<hr>

@@ -123,6 +123,9 @@ function html5blank_header_scripts()
 function html5blank_conditional_scripts()
 {
     if (is_page('home')) {
+        wp_register_script('load', '//unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js', array(), '1.0'); 
+        wp_enqueue_script('load'); // Enqueue it!
+
         wp_register_script('masonry', '//unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js', array(), '4.2.1'); 
         wp_enqueue_script('masonry'); // Enqueue it!
 

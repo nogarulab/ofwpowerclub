@@ -18,7 +18,9 @@
 
 		$('#partners-carousel').find('.carousel-item').first().addClass('active');
 		$('.carousel-indicators').find('li').first().addClass('active');
-    
+
+		// $('#feat-prod-list').find('.featured-product-item').first().removeClass( "col-sm-4" ).addClass('col-sm-8');
+  //   	$('#feat-prod-list').find('.featured-product-item').last().removeClass( "col-sm-4" ).addClass('col-sm-8');
     
 	});
 	

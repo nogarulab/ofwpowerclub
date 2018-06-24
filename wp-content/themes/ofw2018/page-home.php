@@ -105,5 +105,51 @@
 		?>
 	</section>
 
-
+	<section class="home-prods py-5">
+		<div class="container">
+			<div class="row align-items-center">
+				<?php 
+					$the_query = new WP_Query(array('post_type'=>'blurbs', 'p'=>78));
+					while ( $the_query->have_posts() ) : $the_query->the_post();
+				?>
+				<div class="col-lg-6 col-md-5">
+					<?php the_content(); ?>
+					<a href="" class="h-c-white white rounded bg-blue py-3 px-5 d-inline-block">Show Now</a>
+				</div>
+				<?php 
+					endwhile; wp_reset_query(); 
+				?>
+				<div class="col-lg-6 col-md-7" id="feat-prod-list">
+					<div class="row no-gutters">
+					<?php 
+						$the_query = new WP_Query(array('post_type'=>'products', 'featured'=>'yes', 'orderby'=>'ID','order'=>'ASC','posts_per_page'=>3));
+						while ( $the_query->have_posts() ) : $the_query->the_post();
+					?>
+					<div class="featured-product-item col-sm-4">
+						<?php
+						 the_post_thumbnail('home-prods', array('class' => 'img-fluid mx-auto d-block ')); 
+						 ?>
+					</div>
+					<?php 
+						endwhile; wp_reset_query(); 
+					?>
+					</div>
+					<div class="row">
+					<?php 
+						$the_query = new WP_Query(array('post_type'=>'products', 'featured'=>'yes', 'orderby'=>'ID','order'=>'DESC','posts_per_page'=>3));
+						while ( $the_query->have_posts() ) : $the_query->the_post();
+					?>
+					<div class="featured-product-item col-sm-4">
+						<?php
+						 the_post_thumbnail('home-prods', array('class' => 'img-fluid mx-auto d-block ')); 
+						 ?>
+					</div>
+					<?php 
+						endwhile; wp_reset_query(); 
+					?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 <?php get_footer();  ?>

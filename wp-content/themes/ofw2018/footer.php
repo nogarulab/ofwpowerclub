@@ -1,15 +1,39 @@
-			<!-- footer -->
-			<footer class="footer" role="contentinfo">
 
-				<!-- copyright -->
-				<p class="copyright">
-					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'html5blank'); ?>
-					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//html5blank.com" title="HTML5 Blank">HTML5 Blank</a>.
-				</p>
-				<!-- /copyright -->
+			<footer class="footer py-5  text-center" role="contentinfo">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-lg-10 col-12">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/logo-white.png" alt="Logo" class="img-fluid d-block mx-auto mb-4">
+							<?php wp_nav_menu(array('menu' => 'Main Menu'))?>
+							<h6 class="mt-5">FOLLOW US</h6>
+							<ul class="social-footer">
+								<?php 
+									$the_query = new WP_Query(array('post_type'=>'page', 'pagename'=> 'contact-us'));
+									while ( $the_query->have_posts() ) : $the_query->the_post();
+								?>
+								<li>
+									<a href="<?php the_field('facebook'); ?>" target="_blank"><i class="fab fa-facebook-square"></i></a>
+								</li>
+								<li>
+									<a href="<?php the_field('twitter'); ?>" target="_blank"><i class="fab fa-twitter-square"></i></a>
+								</li>
+								<li>
+									<a href="<?php the_field('google_plus'); ?>" target="_blank"><i class="fab fa-google-plus-square"></i></a>
+								</li>
+								<li>
+									<a href="<?php the_field('youtube'); ?>" target="_blank"><i class="fab fa-youtube-square"></i></a>
+								</li>
+								<?php 
+									endwhile; wp_reset_query(); 
+								?>
+							</ul>
+							<hr>
+							<p>Copyright <?php bloginfo('name'); ?><br>All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
 
 			</footer>
-			<!-- /footer -->
 
 		</div>
 		<!-- /wrapper -->

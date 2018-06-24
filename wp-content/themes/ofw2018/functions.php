@@ -143,6 +143,9 @@ function html5blank_styles()
     wp_register_style('font', '//fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900', array(), '1.0', 'all');
     wp_enqueue_style('font'); // Enqueue it!
 
+    wp_register_style('fontawesome', '//use.fontawesome.com/releases/v5.1.0/css/all.css', array(), '5.1.0', 'all');
+    wp_enqueue_style('fontawesome'); // Enqueue it!
+
     wp_register_style('main', get_template_directory_uri() . '/css/styles.css', array(), '1.0', 'all');
     wp_enqueue_style('main'); // Enqueue it!
 }

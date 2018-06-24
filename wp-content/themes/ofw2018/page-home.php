@@ -148,7 +148,7 @@
 					<div class="grid" id="feat-prod-list">
 						<div class="grid-sizer"></div>
 						<?php 
-							$the_query = new WP_Query(array('post_type'=>'products', 'featured'=>'yes', 'orderby'=>'rand', 'posts_per_page'=>6));
+							$the_query = new WP_Query(array('post_type'=>'products', 'posts_per_page'=>6));
 							while ( $the_query->have_posts() ) : $the_query->the_post();
 						?>
 							<div class="grid-item">

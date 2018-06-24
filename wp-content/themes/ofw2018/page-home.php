@@ -62,7 +62,7 @@
 	
 	<section id="join-us" class="member-partner">
 		<?php 
-			$the_query = new WP_Query(array('post_type'=>'blurbs', 'p'=>66));
+			$the_query = new WP_Query(array('post_type'=>'blurbs', 'p'=>88));
 			while ( $the_query->have_posts() ) : $the_query->the_post();
 		?>
 		<div class="join-member pt-5">
@@ -82,7 +82,7 @@
 			endwhile; wp_reset_query(); 
 		?>
 		<?php 
-			$the_query = new WP_Query(array('post_type'=>'blurbs', 'p'=>68));
+			$the_query = new WP_Query(array('post_type'=>'blurbs', 'p'=>90));
 			while ( $the_query->have_posts() ) : $the_query->the_post();
 		?>
 		<div class="join-partner">
@@ -134,7 +134,7 @@
 		<div class="container">
 			<div class="row align-items-center">
 				<?php 
-					$the_query = new WP_Query(array('post_type'=>'blurbs', 'p'=>78));
+					$the_query = new WP_Query(array('post_type'=>'blurbs', 'p'=>94));
 					while ( $the_query->have_posts() ) : $the_query->the_post();
 				?>
 				<div class="col-lg-6 col-md-5">

@@ -675,6 +675,39 @@ function add_branches_meta_box() {
 }
 add_action("add_meta_boxes", "add_branches_meta_box");
 
+function remove_product_category_meta_boxes() {
+    remove_meta_box( 'tagsdiv-partner_category', 'partners', 'side' );
+}
+add_action( 'admin_menu', 'remove_product_category_meta_boxes' );
+
+function partner_category_meta_box($object) {
+    wp_nonce_field(basename(__FILE__), "meta-box-nonce");
+
+    $terms = get_terms( array(
+        'taxonomy' => 'partner_category',
+        'hide_empty' => false,
+    ) );
+    $selected_cats = get_the_terms( $object->ID, 'partner_category' );
+    if (!empty($selected_cats)) {
+        $selected_cat_names = [];
+        foreach($selected_cats as $selected_cat) {
+            $selected_cat_names[] = $selected_cat->name;
+        }
+    }
+    
+    echo '<ul>';
+    foreach ($terms as $term) {
+        echo '<li><input type="checkbox" name="partner_category[]" value="'.$term->name.'" '. ( !empty($selected_cats) && in_array($term->name, $selected_cat_names) ? 'checked="checked"' : '' ) .'> '.$term->name.'</li>';
+    }
+    echo '</ul>';
+    
+}
+
+function add_partner_category_meta_box() {
+    add_meta_box("partner-category-meta-box", "Categories", "partner_category_meta_box", "partners", "side", "default", null);
+}
+add_action("add_meta_boxes", "add_partner_category_meta_box");
+
 function save_benefits_meta_box($post_id, $post, $update) {
     if (!isset($_POST["meta-box-nonce"]) || !wp_verify_nonce($_POST["meta-box-nonce"], basename(__FILE__)))
         return $post_id;
@@ -698,6 +731,7 @@ function save_benefits_meta_box($post_id, $post, $update) {
     $b_address              = "";
     $b_contactnumber        = "";
     $b_contactperson        = "";
+    $partner_category       = "";
 
     if(isset($_POST["benefitname"])) {
         $benefitname = $_POST["benefitname"];
@@ -728,7 +762,7 @@ function save_benefits_meta_box($post_id, $post, $update) {
 
     $branches = array('location' => $b_location, 'address' => $b_address, 'contact_no' => $b_contactnumber, 'contact_person' => $b_contactperson);
     update_post_meta($post_id, 'branches', $branches );
-    
+
     if(isset($_POST["establishment_owner"])) {
         $establishment_owner = $_POST["establishment_owner"];
     }
@@ -739,6 +773,11 @@ function save_benefits_meta_box($post_id, $post, $update) {
     }
     update_post_meta($post_id, 'establishmentwebsite', $establishmentwebsite );
     update_post_meta($post_id, 'receive_sticker', $sticker );
+
+    if (isset($_POST['partner_category'])) {
+        $partner_category = $_POST['partner_category'];
+    }
+    wp_set_post_terms( $post_id, $partner_category, 'partner_category', false );
 
 }
 add_action("save_post", "save_benefits_meta_box", 10, 3);

@@ -65,6 +65,7 @@ if ( ! is_user_logged_in() ) :
     		$b_address 					= $_POST['b_address'];
     		$b_contactnumber			= $_POST['b_contactnumber'];
     		$b_contactperson 			= $_POST['b_contactperson'];
+    		$partner_category 			= isset($_POST['partner_category']);
 
 
 			if ( $title == '' )
@@ -87,11 +88,24 @@ if ( ! is_user_logged_in() ) :
 		    	$errors['owner'] = "Please tell us the owner of the establishment.";
 		    }
 
+		    if (empty($partner_category)) {
+		    	$errors['category'] = "Please tell us what type of business you have.";
+		    }
+
+		    $noofcat = count($_POST['partner_category']);
+		    if ($noofcat > 3) {
+		    	$errors['category'] = "Please choose not more than 3 categories.";
+		    }
+
 		    require_once(ABSPATH . "wp-admin" . '/includes/image.php');
 	        require_once(ABSPATH . "wp-admin" . '/includes/file.php');
 	        require_once(ABSPATH . "wp-admin" . '/includes/media.php');
 
 	        $file = $_FILES['featured_img']['tmp_name'];
+
+	        if($_FILES['featured_img']['size'] == 0) {
+	        	$errors['b_logo'] = "You should upload your logo.";
+	        }
 
 	        if (file_exists($file)) {
 	            $imagesizedata = getimagesize($file);
@@ -138,11 +152,16 @@ if ( ! is_user_logged_in() ) :
 		        $attachment_id = media_handle_upload( 'featured_img', $new_partner );
 		        add_post_meta( $new_partner, '_thumbnail_id', $attachment_id);
 
+		        
+		        wp_set_post_terms( $new_partner, $partner_category, 'partner_category', false );
+		        
+
 	            $success = 1;  
 	   			echo "<div>You have successfully sent your application. Please wait for our staff to get in touch with you for the next step.</div>";
 	            //header( 'Location:' . get_bloginfo('url') . '/login/?success=1&u=' . $username ); 
 	   
 	        }  else {
+
 	        	foreach ($errors as $error) {
 	        		echo "<div>".$error."</div>";
 	        	}
@@ -187,6 +206,24 @@ if ( ! is_user_logged_in() ) :
 	    		</li>
 	    	</ul>
     		<span class="add">Add another branch</button>
+	    </div>
+	</div>
+	<hr>
+    <div>
+	    <h3>Establishment Category</h3>
+	    <p>Tell us the what kind/type of business you have. Please take note that you can only choose 3 categories.</p>
+	    <div>
+	    	<ul>
+	    	<?php
+	    		$terms = get_terms( array(
+				    'taxonomy' => 'partner_category',
+				    'hide_empty' => false,
+				) );
+				foreach ($terms as $term) {
+					echo '<li><input type="checkbox" name="partner_category[]" value="'.$term->name.'"> '.$term->name.'</li>';
+				}
+	    	?>
+	    	</ul>
 	    </div>
 	</div>
 	<hr>

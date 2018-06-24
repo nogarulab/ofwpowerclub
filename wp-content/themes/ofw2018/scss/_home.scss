@@ -3,9 +3,8 @@
 	min-height: 80vh;
 	width: 100%;
 	.banner-text-container {
-		position: relative;
 		z-index: 90;
-		max-width: 555px;
+		top: 20%;
 		color: #fff;
 		h1 {
 			font-size: 3.250em;
@@ -94,6 +93,10 @@
 	}
 }
 
+.ofw-power-club-cont {
+	
+}
+
 .member-partner {
 	min-height: 100vh;
 	margin-bottom: -320px;
@@ -172,5 +175,22 @@
 	p {
 		font-size: 0.952em;
 		margin-bottom: 35px;
+	}
+	.grid {
+		&:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.grid-sizer {
+			width: 33.333%;
+		}
+		.grid-item { 
+			width: 33.333%; 
+			float: left;
+			&.grid-item-large {
+				width: 66.3%;
+			}
+		}
 	}
 }

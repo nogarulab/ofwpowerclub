@@ -65,7 +65,7 @@ if ( ! is_user_logged_in() ) :
     		$b_address 					= $_POST['b_address'];
     		$b_contactnumber			= $_POST['b_contactnumber'];
     		$b_contactperson 			= $_POST['b_contactperson'];
-    		$partner_category 			= $_POST['partner_category'];
+    		$partner_category 			= isset($_POST['partner_category']);
 
 
 			if ( $title == '' )
@@ -88,11 +88,24 @@ if ( ! is_user_logged_in() ) :
 		    	$errors['owner'] = "Please tell us the owner of the establishment.";
 		    }
 
+		    if (empty($partner_category)) {
+		    	$errors['category'] = "Please tell us what type of business you have.";
+		    }
+
+		    $noofcat = count($_POST['partner_category']);
+		    if ($noofcat > 3) {
+		    	$errors['category'] = "Please choose not more than 3 categories.";
+		    }
+
 		    require_once(ABSPATH . "wp-admin" . '/includes/image.php');
 	        require_once(ABSPATH . "wp-admin" . '/includes/file.php');
 	        require_once(ABSPATH . "wp-admin" . '/includes/media.php');
 
 	        $file = $_FILES['featured_img']['tmp_name'];
+
+	        if($_FILES['featured_img']['size'] == 0) {
+	        	$errors['b_logo'] = "You should upload your logo.";
+	        }
 
 	        if (file_exists($file)) {
 	            $imagesizedata = getimagesize($file);
@@ -148,6 +161,7 @@ if ( ! is_user_logged_in() ) :
 	            //header( 'Location:' . get_bloginfo('url') . '/login/?success=1&u=' . $username ); 
 	   
 	        }  else {
+
 	        	foreach ($errors as $error) {
 	        		echo "<div>".$error."</div>";
 	        	}

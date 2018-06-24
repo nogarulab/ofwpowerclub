@@ -5,7 +5,7 @@
 
 
 	<section class="banner d-flex align-items-center justify-content-center px-5">
-		<a href="#join-us" class="scroll white">
+		<a href="#join-us" class="scroll white d-none d-lg-block">
 			<span></span>SCROLL
 		</a>		
 		<div data-ride="carousel" class="carousel carousel-fade" id="banner-carousel">
@@ -139,7 +139,7 @@
 				?>
 				<div class="col-lg-6 col-md-5">
 					<?php the_content(); ?>
-					<a href="" class="h-c-white white rounded bg-blue py-3 px-5 d-inline-block">Show Now</a>
+					<a href="" class="h-c-white white rounded bg-blue py-3 px-5 d-inline-block mb-3">Show Now</a>
 				</div>
 				<?php 
 					endwhile; wp_reset_query(); 

@@ -29,3 +29,37 @@
 		}
 	}
 }
+
+.connect {
+	background-image: url('../img/ofw-grey.png');
+	background-repeat: no-repeat;
+	background-position: center 30px;
+	h3 {
+		font-size: 1.875em;
+		letter-spacing: 6px;
+	}
+	h2 {
+		font-size: 6.313em;
+	}
+	p {
+		font-size: 3.125em;
+		font-weight: 600;
+		letter-spacing: 6px;
+	}
+	.social-cont {
+		height: 106px;
+		width: 106px;
+		&.fb {
+			background: url('../img/social.png') -10px -10px;
+		}
+		&.tw {
+			background: url('../img/social.png') -10px -136px;
+		}
+		&.gp {
+			background: url('../img/social.png') -136px -10px;
+		}
+		&.yt {
+			background: url('../img/social.png') -136px -136px;
+		}
+	}
+}

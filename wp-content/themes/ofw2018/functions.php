@@ -681,7 +681,7 @@ add_action("add_meta_boxes", "add_branches_meta_box");
 function remove_product_category_meta_boxes() {
     remove_meta_box( 'tagsdiv-partner_category', 'partners', 'side' );
 }
-add_action( 'admin_menu', 'remove_product_category_meta_boxes' );
+add_action( 'admin_menu', 'remove_product_category_meta_boxes' ); 
 
 function partner_category_meta_box($object) {
     wp_nonce_field(basename(__FILE__), "meta-box-nonce");

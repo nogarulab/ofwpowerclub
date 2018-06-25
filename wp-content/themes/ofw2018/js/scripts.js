@@ -35,7 +35,10 @@
 		$('#testi-carousel').find('.carousel-item').first().addClass('active');
 		$('#testi-carousel .carousel-indicators').find('li').first().addClass('active');
 
-    
+    	var msg_from = $('.contact-admin').data('from');
+    	var msg_email = $('.contact-admin').data('email');
+    	$('.contact-admin your-name input').val(msg_from);
+    	$('.contact-admin your-email input').val(msg_email);
     
 	});
 	

@@ -1,0 +1,55 @@
+.about-us-container {
+	h3 {
+		font-size: 1.875em;
+		text-transform: uppercase;
+		font-weight: bold;
+		margin-bottom: 20px;
+	}
+	p {
+		font-size: 0.952em;
+	}
+}
+
+.page-banner {
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	position: relative;
+	&:before {
+		background-color: rgba(37,37,37, 0.70);
+		content: '';
+		display: block;
+		height: 100%;
+		position: absolute;
+		width: 100%;
+		top: 0;
+	}
+	h2 {
+		font-size: 1.875em;
+	}
+	span {
+		font-size: 0.875em;
+	}
+}
+
+.about-ofw {
+	h3 {
+		color: $red;
+	}
+	.nav-link {
+		font-size: 2.188em;
+		color: #c5c5c5;
+		&.active {
+			color: $yellow;
+			font-size: 4.375em;
+		}
+	}
+	ul {
+		height: 120px;
+	}
+}
+
+.what-we-do {
+	
+}
+

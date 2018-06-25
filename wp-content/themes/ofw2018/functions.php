@@ -603,7 +603,7 @@ function my_membership_custom_redirect( $redirect, $userid ) {
     } elseif ( 'partner_applicant' === $role_name ) {
         wp_logout();
     } else {
-        home_url('/account')
+        home_url('/account');
     }
     return $redirect;
 }
@@ -619,7 +619,7 @@ function my_membership_custom_url_redirect( $redirect, $enforce ) {
     } elseif ( 'partner_applicant' === $role_name ) {
         wp_logout();
     } else {
-        home_url('/account')
+        home_url('/account');
     }
     return $redirect;
 }

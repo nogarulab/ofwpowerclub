@@ -24,7 +24,7 @@ $slug = $post->post_name;
 				</a>
 			</div>
 			<div class="col-md-4">
-				<a href="#">
+				<a href="<?php echo home_url(); ?>/contact-administrator">
 					<h4>Contact Administrator</h4>
 					<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.</p>
 				</a>

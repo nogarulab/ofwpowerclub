@@ -65,7 +65,11 @@ if ( ! is_user_logged_in() ) :
     		$b_address 					= $_POST['b_address'];
     		$b_contactnumber			= $_POST['b_contactnumber'];
     		$b_contactperson 			= $_POST['b_contactperson'];
-    		$partner_category 			= isset($_POST['partner_category']);
+    		$partner_category 			= $_POST['partner_category'];
+    		$partner_category_list		= [];
+    		foreach($partner_category as $category) {
+        		$partner_category_list[] = $category;
+        	}
 
 
 			if ( $title == '' )
@@ -151,9 +155,10 @@ if ( ! is_user_logged_in() ) :
 		        add_post_meta( $new_partner, 'branches', $branches );
 		        $attachment_id = media_handle_upload( 'featured_img', $new_partner );
 		        add_post_meta( $new_partner, '_thumbnail_id', $attachment_id);
+		        add_user_meta( $new_user_id, 'partner_page_id', $new_partner);
 
 		        
-		        wp_set_post_terms( $new_partner, $partner_category, 'partner_category', false );
+		        wp_set_post_terms( $new_partner, $partner_category_list, 'partner_category', false );
 		        
 
 	            $success = 1;  
@@ -161,7 +166,6 @@ if ( ! is_user_logged_in() ) :
 	            //header( 'Location:' . get_bloginfo('url') . '/login/?success=1&u=' . $username ); 
 	   
 	        }  else {
-
 	        	foreach ($errors as $error) {
 	        		echo "<div>".$error."</div>";
 	        	}

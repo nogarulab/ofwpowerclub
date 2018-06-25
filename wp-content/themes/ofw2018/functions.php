@@ -788,6 +788,7 @@ add_action("save_post", "save_benefits_meta_box", 10, 3);
 function modify_contact_methods($profile_fields) {
 
     $profile_fields['contact_number'] = 'Contact Number';
+    $profile_fields['id_number'] = 'ID Number';
     return $profile_fields;
 }
 add_filter('user_contactmethods', 'modify_contact_methods');

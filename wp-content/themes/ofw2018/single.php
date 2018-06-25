@@ -4,7 +4,7 @@
 <?php
 
 if (is_singular('partners')) :
-	get_template_part( 'partners/single-partner-template.php', get_post_format() );
+	get_template_part( 'partners/single-partner-template', get_post_format() );
 else :
 
 ?>

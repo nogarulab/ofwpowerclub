@@ -6,14 +6,14 @@
 			<img src="<?php  echo $feat_img[0] ?>" alt="" />
 			<h1>Name of Establishment: <?php the_title(); ?></h1>
 			<div>Description of Establishment: <?php the_content(); ?></div>
-			<div>Owner: <?php get_post_meta(get_the_ID(), 'establishment_owner', true); ?></div>
-			<div><a href="<?php get_post_meta(get_the_ID(), 'establishmentwebsite', true); ?>">Click Here To Visit Our Website</a></div>
+			<div>Owner: <?php echo get_post_meta(get_the_ID(), 'establishment_owner', true); ?></div>
+			<div><a href="<?php echo get_post_meta(get_the_ID(), 'establishmentwebsite', true); ?>">Click Here To Visit Our Website</a></div>
 			<div>
 				<h2>Benefits Offered</h2>
 				<ul>
 					<?php
 
-					$benefits_offered = get_post_meta($object->ID, 'benefits_offered', true);
+					$benefits_offered = get_post_meta(get_the_ID(), 'benefits_offered', true);
 				    $benefits = [];
 
 				    for ($i=0;$i<count($benefits_offered['name']);$i++) {
@@ -38,7 +38,7 @@
 				<ul>
 					<?php
 
-					$available_branches = get_post_meta($object->ID, 'branches', true);
+					$available_branches = get_post_meta(get_the_ID(), 'branches', true);
 				    $branches = [];
 
 				    for ($i=0;$i<count($available_branches['location']);$i++) {

@@ -37,8 +37,8 @@
 
     	var msg_from = $('.contact-admin').data('from');
     	var msg_email = $('.contact-admin').data('email');
-    	$('.contact-admin your-name input').val(msg_from);
-    	$('.contact-admin your-email input').val(msg_email);
+    	$('.contact-admin input.your-name').val(msg_from);
+    	$('.contact-admin input.your-email').val(msg_email);
     
 	});
 	

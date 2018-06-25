@@ -2,6 +2,10 @@
 
 if ( is_user_logged_in() && current_user_can('partner') ) :
 $current_user = wp_get_current_user();
+$current_user = wp_get_current_user();
+$partner_page_id = get_user_meta( $current_user->ID, 'partner_page_id', true ); 
+$post = get_post($partner_page_id); 
+$slug = $post->post_name;
 ?>
 	<div class="container">
 		<h3>Hello <?php echo get_user_meta( $current_user->ID, 'first_name', true );  ?></h3>
@@ -14,7 +18,7 @@ $current_user = wp_get_current_user();
 				</a>
 			</div>
 			<div class="col-md-4">
-				<a href="#">
+				<a href="<?php echo home_url(); ?>/partners/<?php echo $slug; ?>">
 					<h4>View Your Page</h4>
 					<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.</p>
 				</a>

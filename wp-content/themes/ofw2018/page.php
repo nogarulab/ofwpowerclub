@@ -232,6 +232,10 @@ if ( is_page('partner-dashboard') ) {
                 get_template_part( 'partners/form', get_post_format() );
             }
 
+            if ( is_page('contact-administration') ) {
+                get_template_part( 'partners/contact', get_post_format() );
+            }
+
 
             ?>
 

@@ -588,6 +588,22 @@ function my_custom_dashboard_access_handler() {
    }
 }
 
+function my_login_redirect( $redirect_to, $request, $user ) {
+    if (isset($user->roles) && is_array($user->roles)) {
+        if (in_array('partner', $user->roles)) {
+            $redirect_to =  home_url().'/partner-dashboard';
+        } elseif (in_array('agent', $user->roles)) {
+            $redirect_to =  home_url().'/agent-dashboard';
+        } elseif (in_array('partner_applicant', $user->roles)) {
+            wp_logout();
+        }
+    }
+
+    return $redirect_to;
+}
+
+add_filter( 'login_redirect', 'my_login_redirect', 10, 3 );
+
 function wps_change_role_name() {
 global $wp_roles;
 if ( ! isset( $wp_roles ) )
@@ -788,6 +804,7 @@ add_action("save_post", "save_benefits_meta_box", 10, 3);
 function modify_contact_methods($profile_fields) {
 
     $profile_fields['contact_number'] = 'Contact Number';
+    $profile_fields['id_number'] = 'ID Number';
     return $profile_fields;
 }
 add_filter('user_contactmethods', 'modify_contact_methods');

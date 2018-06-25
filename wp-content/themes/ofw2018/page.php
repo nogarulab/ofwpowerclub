@@ -4,16 +4,7 @@ get_header();
 
 if ( is_page('partner-dashboard') ) {
 
-    if ( is_user_logged_in() && current_user_can('partner') ) :
-
-        echo 'This is the partner dashboard';
-        echo '<a href="'. wp_logout_url( home_url() ) .'">Logout</a>';
-
-    else :
-
-        echo 'You do not have permission to view this page. Please login as a partner or wait until your account has been activated.';
-
-    endif;
+    get_template_part( 'partners/dashboard', get_post_format() );
 
 } elseif ( is_page('agent-dashboard') ) {
 
@@ -239,6 +230,10 @@ if ( is_page('partner-dashboard') ) {
 
             if ( is_page('request-for-partnership') ) {
                 get_template_part( 'partners/form', get_post_format() );
+            }
+
+            if ( is_page('contact-administrator') ) {
+                get_template_part( 'partners/contact', get_post_format() );
             }
 
 

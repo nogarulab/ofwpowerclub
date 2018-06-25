@@ -588,41 +588,21 @@ function my_custom_dashboard_access_handler() {
    }
 }
 
-add_filter( 'ms-ajax-login-redirect', 'my_membership_custom_redirect', 10, 2 );
-add_filter( 'ms_url_after_login', 'my_membership_custom_url_redirect', 10, 2 );
-
-function my_membership_custom_redirect( $redirect, $userid ) {
-    
-    $current_user   = wp_get_current_user();
-    $role_name      = $current_user->roles[0];
-
-    if ( 'partner' === $role_name ) {
-        return home_url('/partner-dashboard');
-    } elseif ( 'agent' === $role_name ) {
-        return home_url('/agent-dashboard');
-    } elseif ( 'partner_applicant' === $role_name ) {
-        wp_logout();
-    } else {
-        home_url('/account');
+function my_login_redirect( $redirect_to, $request, $user ) {
+    if (isset($user->roles) && is_array($user->roles)) {
+        if (in_array('partner', $user->roles)) {
+            $redirect_to =  home_url().'/partner-dashboard';
+        } elseif (in_array('agent', $user->roles)) {
+            $redirect_to =  home_url().'/agent-dashboard';
+        } elseif (in_array('partner_applicant', $user->roles)) {
+            wp_logout();
+        }
     }
-    return $redirect;
+
+    return $redirect_to;
 }
 
-function my_membership_custom_url_redirect( $redirect, $enforce ) {
-    $current_user   = wp_get_current_user();
-    $role_name      = $current_user->roles[0];
-
-    if ( 'partner' === $role_name ) {
-        return home_url('/partner-dashboard');
-    } elseif ( 'agent' === $role_name ) {
-        return home_url('/agent-dashboard');
-    } elseif ( 'partner_applicant' === $role_name ) {
-        wp_logout();
-    } else {
-        home_url('/account');
-    }
-    return $redirect;
-}
+add_filter( 'login_redirect', 'my_login_redirect', 10, 3 );
 
 function wps_change_role_name() {
 global $wp_roles;

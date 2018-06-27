@@ -236,6 +236,10 @@ if ( is_page('partner-dashboard') ) {
                 get_template_part( 'partners/contact', get_post_format() );
             }
 
+            if ( is_page('member-search') ) {
+                get_template_part( 'partners/member-search', get_post_format() );
+            }
+
 
             ?>
 

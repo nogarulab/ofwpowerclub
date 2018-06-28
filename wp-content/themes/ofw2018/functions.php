@@ -132,6 +132,14 @@ function html5blank_conditional_scripts()
         wp_register_script('homejs', get_template_directory_uri() . '/js/home.js', array('jquery'), '1.0.0'); // Conditional script(s)
         wp_enqueue_script('homejs'); // Enqueue it!
     }
+
+    if (is_page('about')) {
+        wp_register_script('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), '1.8.1'); 
+        wp_enqueue_script('slick'); // Enqueue it!
+
+        wp_register_script('aboutjs', get_template_directory_uri() . '/js/about.js', array('jquery'), '1.0.0'); // Conditional script(s)
+        wp_enqueue_script('aboutjs'); // Enqueue it!
+    }
 }
 
 // Load HTML5 Blank styles
@@ -142,6 +150,9 @@ function html5blank_styles()
 
     wp_register_style('bootstrap', '//stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', array(), '4.1.0', 'all');
     wp_enqueue_style('bootstrap'); // Enqueue it!
+
+    wp_register_style('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', array(), '1.8.1', 'all');
+    wp_enqueue_style('slick'); // Enqueue it!
 
     wp_register_style('font', '//fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900', array(), '1.0', 'all');
     wp_enqueue_style('font'); // Enqueue it!

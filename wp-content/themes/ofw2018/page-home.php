@@ -97,7 +97,7 @@
 								<?php if($images): ?>
 									<?php foreach( $images as $image ): ?>
 									    <div class="carousel-item">
-									    	<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['title']; ?>" class="img-fluid d-block mx-auto">
+									    	<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['title']; ?>" >
 									    </div>
 									    <?php $counter++; ?>
 									<?php endforeach; ?>

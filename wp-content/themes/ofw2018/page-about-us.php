@@ -70,6 +70,11 @@
 				</div>
 			</div>
 		</div>
+		<div class="row justify-content-center">
+			<div class="col-lg-12 col-xl-10 mt-3">
+				<?php echo do_shortcode('[stack_slider id="119"]'); ?>
+			</div>
+		</div>
 	</div>
 </section>	
 

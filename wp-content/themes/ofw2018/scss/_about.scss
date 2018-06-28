@@ -52,4 +52,36 @@
 .team {
 	background-image: url('../img/pattern1.jpg');
 	background-attachment: fixed;
+	.profile-photo {
+		background-image: url('../img/bubbles.png');
+		background-size: contain;
+		background-position: top center;
+		background-repeat: no-repeat;
+	}
+	h4 {
+		font-size: 1.714em;
+	}
+	span.position {
+		font-size: 1.125em;
+	}
+	.slick-slide {
+		&:focus {
+			outline: none;
+		}
+	}
+	.slick-arrow {
+		position: absolute;
+		bottom: -70px;
+		font-size: 30px;
+		cursor: pointer;
+		&:hover {
+			color: $red;
+		}
+		&.slick-prev {
+			left: 60px;
+		}
+		&.slick-next {
+			left: 0;
+		}
+	}
 }

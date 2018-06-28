@@ -78,8 +78,46 @@
 	</div>
 </section>	
 
-<section class="team py-5">
-	
+<section class="team pt-5 mb-5">
+	<div class="container">
+		<div class="row">
+				
+				
+			
+				<div class="col-md-6 order-md-last">
+					<h3 class="mb-2 mb-md-5">Know the<br>OFW Power Club Team</h3>
+					<div class="match-team slick-content">
+						<?php $images = get_field('the_team'); ?>
+						<?php if($images): ?>
+						<?php foreach( $images as $image ): ?>	
+						<div>
+							<h4 class="blue font-weight-bold text-uppercase mb-0"><?php echo $image['title']; ?></h4>
+							<span class="d-block position text-uppercase mb-2 mb-md-3"><?php echo $image['caption']; ?></span>
+							<br>
+							<div class="content">
+								<?php echo $image['description']; ?>
+							</div>
+						</div>
+						<?php endforeach; ?>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class="col-md-6 order-md-first">
+					<div class="slick-prof">
+						<?php $images = get_field('the_team'); ?>
+						<?php if($images): ?>
+						<?php foreach( $images as $image ): ?>	
+						<div class="profile-photo match-team">
+							<img src="<?php echo $image['url']; ?>" alt="" class="img-fluid d-block mx-auto">
+						</div>
+						<?php endforeach; ?>
+						<?php endif; ?>
+					</div>
+				</div>
+			
+		</div>
+	</div>
 </section>
 <?php 
 	endwhile; wp_reset_query(); 

@@ -7,11 +7,24 @@
 		
 		// DOM ready, take it away
 		
-		// $('.what-we-do-slider').slick({
-		//     centerMode: true,
-		// 	centerPadding: '60px',
-		// 	slidesToShow: 1
-		// });
+
+		$('.slick-prof').slick({
+		    slidesToShow: 1,
+		    infinite: true,
+			slidesToScroll: 1,
+			arrows: false,
+			fade: true,
+			asNavFor: '.slick-content'
+		  });
+
+		$('.slick-content').slick({
+		    slidesToShow: 1,
+		    infinite: true,
+			slidesToScroll: 1,
+			asNavFor: '.slick-prof',
+			nextArrow: '<i class="fas slick-prev transition fa-long-arrow-alt-right"></i>',
+  			prevArrow: '<i class="fas slick-next transition fa-long-arrow-alt-left"></i>'
+		  });
     
 	});
 	

@@ -72,13 +72,13 @@
 		</div>
 		<div class="row justify-content-center">
 			<div class="col-lg-12 col-xl-10 mt-3">
-				<?php echo do_shortcode('[stack_slider id="119"]'); ?>
+				<?php echo do_shortcode('[stack_slider id="184"]'); ?>
 			</div>
 		</div>
 	</div>
 </section>	
 
-<section class="team pt-5 mb-5">
+<section class="team pt-5">
 	<div class="container">
 		<div class="row">
 				

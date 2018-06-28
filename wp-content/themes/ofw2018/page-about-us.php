@@ -78,7 +78,9 @@
 	</div>
 </section>	
 
-
+<section class="team py-5">
+	
+</section>
 <?php 
 	endwhile; wp_reset_query(); 
 ?>

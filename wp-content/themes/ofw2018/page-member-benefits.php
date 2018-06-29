@@ -41,6 +41,17 @@
 	endwhile; wp_reset_query(); 
 ?>
 
-</div>
 <?php get_sidebar('testimonies'); ?>
+
+<section class="send-testimonials py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h3 class="my-5"><span class="share">SHARE</span><br><span class="experience blue">YOUR EXPERIENCE</span></h3>
+				<a href="" class="white transition h-c-white rounded bg-blue py-3 px-5 d-inline-block mb-5">Submit Testimonial</a>
+			</div>
+		</div>
+	</div>
+</section>
+</div>
 <?php get_footer();  ?>

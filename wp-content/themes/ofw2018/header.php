@@ -6,12 +6,11 @@
 
 		<link href="//www.google-analytics.com" rel="dns-prefetch">
         <link href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico" rel="shortcut icon">
-
+        
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="<?php bloginfo('description'); ?>">
 		<meta name="keywords" content="Power Club, Pinoy Power Club, Filipino Power Club, OFW Power Club, OFW Membership">
-
 		<meta name="keywords" content="">
 
 		<?php wp_head(); ?>
@@ -26,6 +25,7 @@
 
 	</head>
 	<body <?php body_class(); ?>>
+
     	<div id="preloader">
 			<div id="status">&nbsp;</div>
 		</div>
@@ -42,12 +42,17 @@
 									<h1 class="d-none"><?php bloginfo('name'); ?></h1>
 								</a>
 							</div>
+							<?php if ( is_user_logged_in() && current_user_can('partner') ) { ?>
+								<?php get_template_part( 'partners/partner-dashboard-menu', get_post_format() ); ?>
+							<?php } else { ?>
 							<div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
 								<?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
 							</div>
+							<?php } ?>
 						</div>
 					</div>
 				</div>
+				<?php if ( ! current_user_can('partner') ) { ?>
 				<nav class="navbar navbar-expand-lg navbar-dark">
 					<div class="container">
 						
@@ -62,9 +67,7 @@
 							<?php wp_nav_menu(array('menu' => 'Main Menu', 'items_wrap' => '<ul class="navbar-nav d-flex order-lg-first">%3$s</ul>'))?>
 						</div>
 						
-						
-		
-						
 					</div>
 				</nav>
+				<?php } ?>
 			</header>

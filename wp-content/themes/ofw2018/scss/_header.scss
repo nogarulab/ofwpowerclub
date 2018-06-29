@@ -57,3 +57,25 @@
 		}
 	}
 }
+
+.page-banner {
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	position: relative;
+	&:before {
+		background-color: rgba(37,37,37, 0.70);
+		content: '';
+		display: block;
+		height: 100%;
+		position: absolute;
+		width: 100%;
+		top: 0;
+	}
+	h2 {
+		font-size: 1.875em;
+	}
+	span {
+		font-size: 0.875em;
+	}
+}

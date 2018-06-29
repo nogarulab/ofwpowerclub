@@ -22,10 +22,12 @@
 		$('#feat-prod-list').find('div:nth-child(2)').addClass('grid-item-large');
     	$('#feat-prod-list').find('div:nth-child(6)').last().addClass('grid-item-large');
 
-    	$('.grid').masonry({
+		var $grid = $('.grid').imagesLoaded( function() {
+		  $grid.masonry({
 		    itemSelector: '.grid-item',
 		    columnWidth: '.grid-sizer',
   			percentPosition: true
+		  });
 		});
     
 	});

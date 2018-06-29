@@ -17,7 +17,15 @@
 			}
 		}
 	}
-
+	.connect {
+		h2 {
+			font-size: 4.8em;
+		}
+		p {
+			font-size: 2.125em;
+			font-weight: 600;
+		}
+	}
 }
 
 
@@ -40,6 +48,20 @@
 			}
 		}
 	} 
+	.connect {
+		h2 {
+			font-size: 3.8em;
+		}
+		p {
+			font-size: 2.125em;
+			font-weight: 600;
+		}
+	}
+	.team {
+		.order-md-first {
+			margin-top: 80px;
+		}
+	}
 }
 
 
@@ -57,6 +79,39 @@
 				width: 100%;
 				&.grid-item-large {
 					width: 100%;
+				}
+			}
+		}
+	}
+	.connect {
+		h2 {
+			font-size: 2.8em;
+		}
+		p {
+			font-size: 1.125em;
+			font-weight: 600;
+		}
+	}
+	.benefits-container { 
+		.send-testimonials {
+			h3 {
+				font-size: 14px;
+				.share {
+					font-size: 1.500em;
+				}
+				.experience {
+					font-size: 2.125em;
+				}
+			}
+			a {
+				font-size: 1em;
+				&:after {
+					border-width: 24.5px 25px 24.5px 0;
+					right: -30px;
+				}
+				&:before {
+					border-width: 24.5px 0 24.5px 25px;
+					left: -30px;
 				}
 			}
 		}

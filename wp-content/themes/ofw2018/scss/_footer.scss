@@ -1,0 +1,34 @@
+.footer {
+	background: #3a3a3a;
+	color: #fff;
+	ul {
+		padding-left: 0;
+		li {
+			padding: 18px;
+			list-style: none;
+			display: inline; 
+			font-size: 0.875em;
+			text-transform: uppercase;
+			a {
+				color: #fff;
+			}
+		}
+		&.social-footer {
+			li {
+				a {
+					color: $yellow;
+					font-size: 1.714em;
+				}
+			}
+		}
+	}
+	h6 {
+		font-size: 1.125em;
+	}
+	hr {
+		border-top: 2px solid #5c5c5c;
+	}
+	p {
+		font-size: 0.563em;
+	}
+}

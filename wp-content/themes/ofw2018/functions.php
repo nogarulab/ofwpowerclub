@@ -123,11 +123,22 @@ function html5blank_header_scripts()
 function html5blank_conditional_scripts()
 {
     if (is_page('home')) {
+        wp_register_script('load', '//unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js', array(), '1.0'); 
+        wp_enqueue_script('load'); // Enqueue it!
+
         wp_register_script('masonry', '//unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js', array(), '4.2.1'); 
         wp_enqueue_script('masonry'); // Enqueue it!
 
         wp_register_script('homejs', get_template_directory_uri() . '/js/home.js', array('jquery'), '1.0.0'); // Conditional script(s)
         wp_enqueue_script('homejs'); // Enqueue it!
+    }
+
+    if (is_page('about')) {
+        wp_register_script('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), '1.8.1'); 
+        wp_enqueue_script('slick'); // Enqueue it!
+
+        wp_register_script('aboutjs', get_template_directory_uri() . '/js/about.js', array('jquery'), '1.0.0'); // Conditional script(s)
+        wp_enqueue_script('aboutjs'); // Enqueue it!
     }
 }
 
@@ -140,8 +151,14 @@ function html5blank_styles()
     wp_register_style('bootstrap', '//stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', array(), '4.1.0', 'all');
     wp_enqueue_style('bootstrap'); // Enqueue it!
 
+    wp_register_style('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', array(), '1.8.1', 'all');
+    wp_enqueue_style('slick'); // Enqueue it!
+
     wp_register_style('font', '//fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900', array(), '1.0', 'all');
     wp_enqueue_style('font'); // Enqueue it!
+
+    wp_register_style('fontawesome', '//use.fontawesome.com/releases/v5.1.0/css/all.css', array(), '5.1.0', 'all');
+    wp_enqueue_style('fontawesome'); // Enqueue it!
 
     wp_register_style('main', get_template_directory_uri() . '/css/styles.css', array(), '1.0', 'all');
     wp_enqueue_style('main'); // Enqueue it!
@@ -582,6 +599,22 @@ function my_custom_dashboard_access_handler() {
    }
 }
 
+function my_login_redirect( $redirect_to, $request, $user ) {
+    if (isset($user->roles) && is_array($user->roles)) {
+        if (in_array('partner', $user->roles)) {
+            $redirect_to =  home_url().'/partner-dashboard';
+        } elseif (in_array('agent', $user->roles)) {
+            $redirect_to =  home_url().'/agent-dashboard';
+        } elseif (in_array('partner_applicant', $user->roles)) {
+            wp_logout();
+        }
+    }
+
+    return $redirect_to;
+}
+
+add_filter( 'login_redirect', 'my_login_redirect', 10, 3 );
+
 function wps_change_role_name() {
 global $wp_roles;
 if ( ! isset( $wp_roles ) )
@@ -672,6 +705,39 @@ function add_branches_meta_box() {
 }
 add_action("add_meta_boxes", "add_branches_meta_box");
 
+function remove_product_category_meta_boxes() {
+    remove_meta_box( 'tagsdiv-partner_category', 'partners', 'side' );
+}
+add_action( 'admin_menu', 'remove_product_category_meta_boxes' ); 
+
+function partner_category_meta_box($object) {
+    wp_nonce_field(basename(__FILE__), "meta-box-nonce");
+
+    $terms = get_terms( array(
+        'taxonomy' => 'partner_category',
+        'hide_empty' => false,
+    ) );
+    $selected_cats = get_the_terms( $object->ID, 'partner_category' );
+    if (!empty($selected_cats)) {
+        $selected_cat_names = [];
+        foreach($selected_cats as $selected_cat) {
+            $selected_cat_names[] = $selected_cat->name;
+        }
+    }
+    
+    echo '<ul>';
+    foreach ($terms as $term) {
+        echo '<li><input type="checkbox" name="partner_category[]" value="'.$term->name.'" '. ( !empty($selected_cats) && in_array($term->name, $selected_cat_names) ? 'checked="checked"' : '' ) .'> '.$term->name.'</li>';
+    }
+    echo '</ul>';
+    
+}
+
+function add_partner_category_meta_box() {
+    add_meta_box("partner-category-meta-box", "Categories", "partner_category_meta_box", "partners", "side", "default", null);
+}
+add_action("add_meta_boxes", "add_partner_category_meta_box");
+
 function save_benefits_meta_box($post_id, $post, $update) {
     if (!isset($_POST["meta-box-nonce"]) || !wp_verify_nonce($_POST["meta-box-nonce"], basename(__FILE__)))
         return $post_id;
@@ -695,6 +761,7 @@ function save_benefits_meta_box($post_id, $post, $update) {
     $b_address              = "";
     $b_contactnumber        = "";
     $b_contactperson        = "";
+    $partner_category       = "";
 
     if(isset($_POST["benefitname"])) {
         $benefitname = $_POST["benefitname"];
@@ -725,7 +792,7 @@ function save_benefits_meta_box($post_id, $post, $update) {
 
     $branches = array('location' => $b_location, 'address' => $b_address, 'contact_no' => $b_contactnumber, 'contact_person' => $b_contactperson);
     update_post_meta($post_id, 'branches', $branches );
-    
+
     if(isset($_POST["establishment_owner"])) {
         $establishment_owner = $_POST["establishment_owner"];
     }
@@ -737,12 +804,18 @@ function save_benefits_meta_box($post_id, $post, $update) {
     update_post_meta($post_id, 'establishmentwebsite', $establishmentwebsite );
     update_post_meta($post_id, 'receive_sticker', $sticker );
 
+    if (isset($_POST['partner_category'])) {
+        $partner_category = $_POST['partner_category'];
+    }
+    wp_set_post_terms( $post_id, $partner_category, 'partner_category', false );
+
 }
 add_action("save_post", "save_benefits_meta_box", 10, 3);
 
 function modify_contact_methods($profile_fields) {
 
     $profile_fields['contact_number'] = 'Contact Number';
+    $profile_fields['id_number'] = 'ID Number';
     return $profile_fields;
 }
 add_filter('user_contactmethods', 'modify_contact_methods');

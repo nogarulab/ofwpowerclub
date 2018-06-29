@@ -1,0 +1,66 @@
+.about-us-container {
+	h3 {
+		font-size: 1.875em;
+		text-transform: uppercase;
+		font-weight: bold;
+		margin-bottom: 20px;
+	}
+	p {
+		font-size: 0.952em;
+	}
+}
+
+
+.about-ofw {
+	h3 {
+		color: $red;
+	}
+	.nav-link {
+		font-size: 2.188em;
+		color: #c5c5c5;
+		&.active {
+			color: $yellow;
+			font-size: 4.375em;
+		}
+	}
+	ul {
+		height: 120px;
+	}
+}
+
+.team {
+	background-image: url('../img/pattern1.jpg');
+	background-attachment: fixed;
+	.profile-photo {
+		background-image: url('../img/bubbles.png');
+		background-size: contain;
+		background-position: top center;
+		background-repeat: no-repeat;
+	}
+	h4 {
+		font-size: 1.714em;
+	}
+	span.position {
+		font-size: 1.125em;
+	}
+	.slick-slide {
+		&:focus {
+			outline: none;
+		}
+	}
+	.slick-arrow {
+		position: absolute;
+		bottom: -70px;
+		font-size: 30px;
+		cursor: pointer;
+		&:hover {
+			color: $red;
+		}
+		&.slick-prev {
+			left: 60px;
+		}
+		&.slick-next {
+			left: 0;
+		}
+	}
+}

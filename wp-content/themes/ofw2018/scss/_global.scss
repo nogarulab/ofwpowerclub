@@ -108,3 +108,35 @@ button {
     color: $black;
   }
 }
+
+.yellow {
+  color: $yellow;
+}
+
+.red {
+  color: $red;
+}
+
+.blue {
+  color: $blue;
+}
+
+.transition {
+  transition: all .3s;
+}
+
+p {
+  line-height: 1.7;
+}
+
+.about-us-container, .benefits-container {
+  h3 {
+    font-size: 1.875em;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 0.952em;
+  }
+}

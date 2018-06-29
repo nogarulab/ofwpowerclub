@@ -1,4 +1,14 @@
 <?php get_header(); ?>
+	
+
+<?php
+
+if (is_singular('partners')) :
+	get_template_part( 'partners/single-partner-template', get_post_format() );
+else :
+
+?>
+
 
 	<main role="main">
 	<!-- section -->
@@ -64,4 +74,8 @@
 
 <?php get_sidebar(); ?>
 
-<?php get_footer(); ?>
+<?php
+
+endif;
+
+get_footer(); ?>

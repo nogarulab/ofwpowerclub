@@ -5,7 +5,7 @@
 
 
 	<section class="banner d-flex align-items-center justify-content-center px-5">
-		<a href="#join-us" class="scroll white">
+		<a href="#join-us" class="scroll white d-none d-lg-block">
 			<span></span>SCROLL
 		</a>		
 		<div data-ride="carousel" class="carousel carousel-fade" id="banner-carousel">
@@ -62,7 +62,7 @@
 	
 	<section id="join-us" class="member-partner">
 		<?php 
-			$the_query = new WP_Query(array('post_type'=>'blurbs', 'p'=>66));
+			$the_query = new WP_Query(array('post_type'=>'blurbs', 'p'=>88));
 			while ( $the_query->have_posts() ) : $the_query->the_post();
 		?>
 		<div class="join-member pt-5">
@@ -82,7 +82,7 @@
 			endwhile; wp_reset_query(); 
 		?>
 		<?php 
-			$the_query = new WP_Query(array('post_type'=>'blurbs', 'p'=>68));
+			$the_query = new WP_Query(array('post_type'=>'blurbs', 'p'=>90));
 			while ( $the_query->have_posts() ) : $the_query->the_post();
 		?>
 		<div class="join-partner">
@@ -97,7 +97,7 @@
 								<?php if($images): ?>
 									<?php foreach( $images as $image ): ?>
 									    <div class="carousel-item">
-									    	<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['title']; ?>" class="img-fluid d-block mx-auto">
+									    	<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['title']; ?>" >
 									    </div>
 									    <?php $counter++; ?>
 									<?php endforeach; ?>
@@ -134,12 +134,12 @@
 		<div class="container">
 			<div class="row align-items-center">
 				<?php 
-					$the_query = new WP_Query(array('post_type'=>'blurbs', 'p'=>78));
+					$the_query = new WP_Query(array('post_type'=>'blurbs', 'p'=>94));
 					while ( $the_query->have_posts() ) : $the_query->the_post();
 				?>
 				<div class="col-lg-6 col-md-5">
 					<?php the_content(); ?>
-					<a href="" class="h-c-white white rounded bg-blue py-3 px-5 d-inline-block">Show Now</a>
+					<a href="" class="h-c-white white rounded bg-blue py-3 px-5 d-inline-block mb-3">Show Now</a>
 				</div>
 				<?php 
 					endwhile; wp_reset_query(); 
@@ -148,7 +148,7 @@
 					<div class="grid" id="feat-prod-list">
 						<div class="grid-sizer"></div>
 						<?php 
-							$the_query = new WP_Query(array('post_type'=>'products', 'featured'=>'yes', 'orderby'=>'rand', 'posts_per_page'=>6));
+							$the_query = new WP_Query(array('post_type'=>'products', 'posts_per_page'=>6));
 							while ( $the_query->have_posts() ) : $the_query->the_post();
 						?>
 							<div class="grid-item">

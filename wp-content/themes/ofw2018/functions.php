@@ -634,183 +634,183 @@ if( get_role('editor') ){
     remove_role( 'editor' );
 }
 
-// function benefits_form_meta_box($object) {
-//     wp_nonce_field(basename(__FILE__), "meta-box-nonce");
+function benefits_form_meta_box($object) {
+    wp_nonce_field(basename(__FILE__), "meta-box-nonce");
 
-//     $benefits_offered = get_post_meta($object->ID, 'benefits_offered', true);
-//     $benefits = [];
+    $benefits_offered = get_post_meta($object->ID, 'benefits_offered', true);
+    $benefits = [];
 
-//     for ($i=0;$i<count($benefits_offered['name']);$i++) {
-//         array_push($benefits, array($benefits_offered['name'][$i]));
-//         array_push($benefits[$i], $benefits_offered['description'][$i]);
-//     }
+    for ($i=0;$i<count($benefits_offered['name']);$i++) {
+        array_push($benefits, array($benefits_offered['name'][$i]));
+        array_push($benefits[$i], $benefits_offered['description'][$i]);
+    }
 
-//     echo '<div class="benefit-list incremental-item" data-itemhtml="<li class=item><div><label>Name</label><input type=text name=benefitname[] placeholder=Benefit Name></div><div><label>Description</label><textarea name=benefitdesc[]></textarea></div><span class=remove>x</span></li>"><ul>';
-//     foreach ($benefits as $benefit) {
-//         echo '<li class="item">';
-//         echo '<div><label>Name</label><input type="text" name="benefitname[]" value="'.$benefit[0].'"></div>';
-//         echo '<div><label>Description</label><textarea name="benefitdesc[]">'.$benefit[1].'</textarea></div><span class=remove>x</span>';
-//         echo '</li>';
-//     }
-//     echo '</ul><span class="add">Add Another Benefit</button></div>';
-// }
+    echo '<div class="benefit-list incremental-item" data-itemhtml="<li class=item><div><label>Name</label><input type=text name=benefitname[] placeholder=Benefit Name></div><div><label>Description</label><textarea name=benefitdesc[]></textarea></div><span class=remove>x</span></li>"><ul>';
+    foreach ($benefits as $benefit) {
+        echo '<li class="item">';
+        echo '<div><label>Name</label><input type="text" name="benefitname[]" value="'.$benefit[0].'"></div>';
+        echo '<div><label>Description</label><textarea name="benefitdesc[]">'.$benefit[1].'</textarea></div><span class=remove>x</span>';
+        echo '</li>';
+    }
+    echo '</ul><span class="add">Add Another Benefit</button></div>';
+}
 
-// function add_benefits_form_meta_box() {
-//     add_meta_box("benefits-list-meta-box", "Benefits/Perks", "benefits_form_meta_box", "partners", "normal", "default", null);
-// }
-// add_action("add_meta_boxes", "add_benefits_form_meta_box");
+function add_benefits_form_meta_box() {
+    add_meta_box("benefits-list-meta-box", "Benefits/Perks", "benefits_form_meta_box", "partners", "normal", "default", null);
+}
+add_action("add_meta_boxes", "add_benefits_form_meta_box");
 
-// function establishmen_details_form_meta_box($object) {
-//     wp_nonce_field(basename(__FILE__), "meta-box-nonce");
+function establishmen_details_form_meta_box($object) {
+    wp_nonce_field(basename(__FILE__), "meta-box-nonce");
 
-//     $receive_sticker = get_post_meta($object->ID, "receive_sticker", true);
+    $receive_sticker = get_post_meta($object->ID, "receive_sticker", true);
 
-//     echo '<div><label>Owner/CEO/Proprietor(s)</label><input type="text" name="establishment_owner" value="'.get_post_meta($object->ID, "establishment_owner", true).'"></div>';
-//     echo '<div><label>Website URL</label><input type="text" name="establishmentwebsite" value="'.get_post_meta($object->ID, "establishmentwebsite", true).'"></div>';
-//     echo '<div class="check"><input type="checkbox" name="receivesticker" '. (!empty($receive_sticker) && $receive_sticker == 1 ? 'checked="checked"' : "") .'>Agreed to receive OFW Power Club stickers.</div>';
-//     echo '<p>Please take note that this partner agreed to the terms and condition of our organization.</p>';
-// }
+    echo '<div><label>Owner/CEO/Proprietor(s)</label><input type="text" name="establishment_owner" value="'.get_post_meta($object->ID, "establishment_owner", true).'"></div>';
+    echo '<div><label>Website URL</label><input type="text" name="establishmentwebsite" value="'.get_post_meta($object->ID, "establishmentwebsite", true).'"></div>';
+    echo '<div class="check"><input type="checkbox" name="receivesticker" '. (!empty($receive_sticker) && $receive_sticker == 1 ? 'checked="checked"' : "") .'>Agreed to receive OFW Power Club stickers.</div>';
+    echo '<p>Please take note that this partner agreed to the terms and condition of our organization.</p>';
+}
 
-// function add_establishment_details_meta_box() {
-//     add_meta_box("establishment-details-meta-box", "Additional Details", "establishmen_details_form_meta_box", "partners", "side", "default", null);
-// }
-// add_action("add_meta_boxes", "add_establishment_details_meta_box");
+function add_establishment_details_meta_box() {
+    add_meta_box("establishment-details-meta-box", "Additional Details", "establishmen_details_form_meta_box", "partners", "side", "default", null);
+}
+add_action("add_meta_boxes", "add_establishment_details_meta_box");
 
-// function branches_form_meta_box($object) {
-//     wp_nonce_field(basename(__FILE__), "meta-box-nonce");
+function branches_form_meta_box($object) {
+    wp_nonce_field(basename(__FILE__), "meta-box-nonce");
 
-//     $available_branches = get_post_meta($object->ID, 'branches', true);
-//     $branches = [];
+    $available_branches = get_post_meta($object->ID, 'branches', true);
+    $branches = [];
 
-//     for ($i=0;$i<count($available_branches['location']);$i++) {
-//         array_push($branches, array($available_branches['location'][$i]));
-//         array_push($branches[$i], $available_branches['address'][$i]);
-//         array_push($branches[$i], $available_branches['contact_no'][$i]);
-//         array_push($branches[$i], $available_branches['contact_person'][$i]);
-//     }
+    for ($i=0;$i<count($available_branches['location']);$i++) {
+        array_push($branches, array($available_branches['location'][$i]));
+        array_push($branches[$i], $available_branches['address'][$i]);
+        array_push($branches[$i], $available_branches['contact_no'][$i]);
+        array_push($branches[$i], $available_branches['contact_person'][$i]);
+    }
 
-//     echo '<div class="branch-list incremental-item" data-itemhtml="<li class=item><div><label>Address</label><input type=text name=b_address[]></div><div class=column><em><label>Location</label><input type=text name=b_location[]></em><em><label>Contact Number</label><input type=number name=b_contactnumber[]></em><em><label>Contact Person</label><input type=text name=b_contactperson[]></em></div><span class=remove>x</span></li>"><ul>';
-//     foreach ($branches as $branch) {
-//         echo '<li class="item">';
-//         echo '<div><label>Address</label><input type="text" name="b_address[]" value="'.$branch[1].'"></div>';
-//         echo '<div class="column"><em><label>Location</label><input type="text" name="b_location[]" value="'.$branch[0].'"></em><em><label>Contact Number</label><input type="number" name="b_contactnumber[]" value="'.$branch[2].'"></em><em><label>Contact Person</label><input type="text" name="b_contactperson[]" value="'.$branch[3].'"></em></div>';
-//         echo '<span class=remove>x</span></li>';
-//     }
-//     echo '</ul><span class="add">Add Another Branch</button></div>';
+    echo '<div class="branch-list incremental-item" data-itemhtml="<li class=item><div><label>Address</label><input type=text name=b_address[]></div><div class=column><em><label>Location</label><input type=text name=b_location[]></em><em><label>Contact Number</label><input type=number name=b_contactnumber[]></em><em><label>Contact Person</label><input type=text name=b_contactperson[]></em></div><span class=remove>x</span></li>"><ul>';
+    foreach ($branches as $branch) {
+        echo '<li class="item">';
+        echo '<div><label>Address</label><input type="text" name="b_address[]" value="'.$branch[1].'"></div>';
+        echo '<div class="column"><em><label>Location</label><input type="text" name="b_location[]" value="'.$branch[0].'"></em><em><label>Contact Number</label><input type="number" name="b_contactnumber[]" value="'.$branch[2].'"></em><em><label>Contact Person</label><input type="text" name="b_contactperson[]" value="'.$branch[3].'"></em></div>';
+        echo '<span class=remove>x</span></li>';
+    }
+    echo '</ul><span class="add">Add Another Branch</button></div>';
     
-// }
+}
 
-// function add_branches_meta_box() {
-//     add_meta_box("branches-meta-box", "Branches", "branches_form_meta_box", "partners", "normal", "default", null);
-// }
-// add_action("add_meta_boxes", "add_branches_meta_box");
+function add_branches_meta_box() {
+    add_meta_box("branches-meta-box", "Branches", "branches_form_meta_box", "partners", "normal", "default", null);
+}
+add_action("add_meta_boxes", "add_branches_meta_box");
 
-// function remove_product_category_meta_boxes() {
-//     remove_meta_box( 'tagsdiv-partner_category', 'partners', 'side' );
-// }
-// add_action( 'admin_menu', 'remove_product_category_meta_boxes' ); 
+function remove_product_category_meta_boxes() {
+    remove_meta_box( 'tagsdiv-partner_category', 'partners', 'side' );
+}
+add_action( 'admin_menu', 'remove_product_category_meta_boxes' ); 
 
-// function partner_category_meta_box($object) {
-//     wp_nonce_field(basename(__FILE__), "meta-box-nonce");
+function partner_category_meta_box($object) {
+    wp_nonce_field(basename(__FILE__), "meta-box-nonce");
 
-//     $terms = get_terms( array(
-//         'taxonomy' => 'partner_category',
-//         'hide_empty' => false,
-//     ) );
-//     $selected_cats = get_the_terms( $object->ID, 'partner_category' );
-//     if (!empty($selected_cats)) {
-//         $selected_cat_names = [];
-//         foreach($selected_cats as $selected_cat) {
-//             $selected_cat_names[] = $selected_cat->name;
-//         }
-//     }
+    $terms = get_terms( array(
+        'taxonomy' => 'partner_category',
+        'hide_empty' => false,
+    ) );
+    $selected_cats = get_the_terms( $object->ID, 'partner_category' );
+    if (!empty($selected_cats)) {
+        $selected_cat_names = [];
+        foreach($selected_cats as $selected_cat) {
+            $selected_cat_names[] = $selected_cat->name;
+        }
+    }
     
-//     echo '<ul>';
-//     foreach ($terms as $term) {
-//         echo '<li><input type="checkbox" name="partner_category[]" value="'.$term->name.'" '. ( !empty($selected_cats) && in_array($term->name, $selected_cat_names) ? 'checked="checked"' : '' ) .'> '.$term->name.'</li>';
-//     }
-//     echo '</ul>';
+    echo '<ul>';
+    foreach ($terms as $term) {
+        echo '<li><input type="checkbox" name="partner_category[]" value="'.$term->name.'" '. ( !empty($selected_cats) && in_array($term->name, $selected_cat_names) ? 'checked="checked"' : '' ) .'> '.$term->name.'</li>';
+    }
+    echo '</ul>';
      
-// }
+}
 
-// function add_partner_category_meta_box() {
-//     add_meta_box("partner-category-meta-box", "Categories", "partner_category_meta_box", "partners", "side", "default", null);
-// }
-// add_action("add_meta_boxes", "add_partner_category_meta_box");
+function add_partner_category_meta_box() {
+    add_meta_box("partner-category-meta-box", "Categories", "partner_category_meta_box", "partners", "side", "default", null);
+}
+add_action("add_meta_boxes", "add_partner_category_meta_box");
 
-// function save_benefits_meta_box($post_id, $post, $update) {
-//     if (!isset($_POST["meta-box-nonce"]) || !wp_verify_nonce($_POST["meta-box-nonce"], basename(__FILE__)))
-//         return $post_id;
+function save_benefits_meta_box($post_id, $post, $update) {
+    if (!isset($_POST["meta-box-nonce"]) || !wp_verify_nonce($_POST["meta-box-nonce"], basename(__FILE__)))
+        return $post_id;
 
-//     if(!current_user_can("edit_post", $post_id))
-//         return $post_id;
+    if(!current_user_can("edit_post", $post_id))
+        return $post_id;
 
-//     if(defined("DOING_AUTOSAVE") && DOING_AUTOSAVE)
-//         return $post_id;
+    if(defined("DOING_AUTOSAVE") && DOING_AUTOSAVE)
+        return $post_id;
 
-//     $slug = "partners";
-//     if($slug != $post->post_type)
-//         return $post_id;
+    $slug = "partners";
+    if($slug != $post->post_type)
+        return $post_id;
 
-//     $benefitname            = "";
-//     $benefitdesc            = "";
-//     $establishment_owner    = "";
-//     $establishmentwebsite   = "";
-//     $sticker                = isset($_POST['receivesticker']);
-//     $b_location             = "";
-//     $b_address              = "";
-//     $b_contactnumber        = "";
-//     $b_contactperson        = "";
-//     $partner_category       = "";
+    $benefitname            = "";
+    $benefitdesc            = "";
+    $establishment_owner    = "";
+    $establishmentwebsite   = "";
+    $sticker                = isset($_POST['receivesticker']);
+    $b_location             = "";
+    $b_address              = "";
+    $b_contactnumber        = "";
+    $b_contactperson        = "";
+    $partner_category       = "";
 
-//     if(isset($_POST["benefitname"])) {
-//         $benefitname = $_POST["benefitname"];
-//     }
+    if(isset($_POST["benefitname"])) {
+        $benefitname = $_POST["benefitname"];
+    }
 
-//     if(isset($_POST["benefitdesc"])) {
-//         $benefitdesc = $_POST["benefitdesc"];
-//     }
+    if(isset($_POST["benefitdesc"])) {
+        $benefitdesc = $_POST["benefitdesc"];
+    }
 
-//     $benefits_offered = array('name' => $benefitname, 'description' => $benefitdesc);
-//     update_post_meta($post_id, 'benefits_offered', $benefits_offered );
+    $benefits_offered = array('name' => $benefitname, 'description' => $benefitdesc);
+    update_post_meta($post_id, 'benefits_offered', $benefits_offered );
 
-//     if(isset($_POST["b_location"])) {
-//         $b_location = $_POST["b_location"];
-//     }
+    if(isset($_POST["b_location"])) {
+        $b_location = $_POST["b_location"];
+    }
 
-//     if(isset($_POST["b_address"])) {
-//         $b_address = $_POST["b_address"];
-//     }
+    if(isset($_POST["b_address"])) {
+        $b_address = $_POST["b_address"];
+    }
 
-//     if(isset($_POST["b_contactnumber"])) {
-//         $b_contactnumber = $_POST["b_contactnumber"];
-//     }
+    if(isset($_POST["b_contactnumber"])) {
+        $b_contactnumber = $_POST["b_contactnumber"];
+    }
 
-//     if(isset($_POST["b_contactperson"])) {
-//         $b_contactperson = $_POST["b_contactperson"];
-//     }
+    if(isset($_POST["b_contactperson"])) {
+        $b_contactperson = $_POST["b_contactperson"];
+    }
 
-//     $branches = array('location' => $b_location, 'address' => $b_address, 'contact_no' => $b_contactnumber, 'contact_person' => $b_contactperson);
-//     update_post_meta($post_id, 'branches', $branches );
+    $branches = array('location' => $b_location, 'address' => $b_address, 'contact_no' => $b_contactnumber, 'contact_person' => $b_contactperson);
+    update_post_meta($post_id, 'branches', $branches );
 
-//     if(isset($_POST["establishment_owner"])) {
-//         $establishment_owner = $_POST["establishment_owner"];
-//     }
-//     update_post_meta($post_id, 'establishment_owner', $establishment_owner );
+    if(isset($_POST["establishment_owner"])) {
+        $establishment_owner = $_POST["establishment_owner"];
+    }
+    update_post_meta($post_id, 'establishment_owner', $establishment_owner );
 
-//     if(isset($_POST["establishmentwebsite"])) {
-//         $establishmentwebsite = $_POST["establishmentwebsite"];
-//     }
-//     update_post_meta($post_id, 'establishmentwebsite', $establishmentwebsite );
-//     update_post_meta($post_id, 'receive_sticker', $sticker );
+    if(isset($_POST["establishmentwebsite"])) {
+        $establishmentwebsite = $_POST["establishmentwebsite"];
+    }
+    update_post_meta($post_id, 'establishmentwebsite', $establishmentwebsite );
+    update_post_meta($post_id, 'receive_sticker', $sticker );
 
-//     if (isset($_POST['partner_category'])) {
-//         $partner_category = $_POST['partner_category'];
-//     }
-//     wp_set_post_terms( $post_id, $partner_category, 'partner_category', false );
+    if (isset($_POST['partner_category'])) {
+        $partner_category = $_POST['partner_category'];
+    }
+    wp_set_post_terms( $post_id, $partner_category, 'partner_category', false );
 
-// }
-// add_action("save_post", "save_benefits_meta_box", 10, 3);
+}
+add_action("save_post", "save_benefits_meta_box", 10, 3);
 
 function modify_contact_methods($profile_fields) {
 

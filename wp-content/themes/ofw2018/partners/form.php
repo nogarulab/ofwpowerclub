@@ -192,7 +192,7 @@ if ( ! is_user_logged_in() ) :
 	    <h3>About Your Establishment</h3>
 	    <p>Tell us more about your establishments.</p>
 	    <div><input type="text" name="establishmentname" id="establishmentname" placeholder="Establishment/Business Name"></div>
-	    <div><textarea name="establishmentdescription">Tell Us about your establishment/business</textarea></div>
+	    <div><textarea name="establishmentdescription" placeholder="Tell Us about your establishment/business"></textarea></div>
 	    <div><input type="text" name="e_owner" value="" placeholder="Name of Proprietor"></div>
 	    <div><input type="text" name="e_website_url" value="" placeholder="Website Link"></div>
 	</div>

@@ -65,12 +65,15 @@ if ( ! is_user_logged_in() ) :
     		$b_address 					= $_POST['b_address'];
     		$b_contactnumber			= $_POST['b_contactnumber'];
     		$b_contactperson 			= $_POST['b_contactperson'];
-    		$partner_category 			= $_POST['partner_category'];
-    		$partner_category_list		= [];
-    		foreach($partner_category as $category) {
-        		$partner_category_list[] = $category;
-        	}
 
+    		$partner_category 			= isset($_POST['partner_category']);
+    		$partner_category_list		= [];
+    		if (!empty($partner_category)) {
+    			$partner_category = $_POST['partner_category'];
+	    		foreach($partner_category as $category) {
+	        		$partner_category_list[] = $category;
+	        	}
+	        }
 
 			if ( $title == '' )
 			{
@@ -96,7 +99,7 @@ if ( ! is_user_logged_in() ) :
 		    	$errors['category'] = "Please tell us what type of business you have.";
 		    }
 
-		    $noofcat = count($_POST['partner_category']);
+		    $noofcat = count(isset($_POST['partner_category']));
 		    if ($noofcat > 3) {
 		    	$errors['category'] = "Please choose not more than 3 categories.";
 		    }
@@ -180,21 +183,21 @@ if ( ! is_user_logged_in() ) :
 	<div>
 		<h3>Create Account</h3>
 		<p>Please register first on our website.</p>
-	    <div><input type="text" name="email" id="email" placeholder="Email Address"></div>
+	    <div><input type="text" name="email" id="email" placeholder="Email Address" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>"></div>
 	    <div><input type="password" name="password" id="password" placeholder="Password">  </div>
 	    <div><input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password">  </div>
-	    <div><input type="text" name="firstname" id="firstname" placeholder="First Name"></div>
-	    <div><input type="text" name="lastname" id="lastname" placeholder="Last Name">  </div>
-	    <div><input type="number" name="contactnumber" id="contactnumber" placeholder="Contact Number"></div>
+	    <div><input type="text" name="firstname" id="firstname" placeholder="First Name" value="<?php echo isset($_POST['firstname']) ? $_POST['firstname'] : ''; ?>"></div>
+	    <div><input type="text" name="lastname" id="lastname" placeholder="Last Name" value="<?php echo isset($_POST['lastname']) ? $_POST['lastname'] : ''; ?>"></div>
+	    <div><input type="number" name="contactnumber" id="contactnumber" placeholder="Contact Number" value="<?php echo isset($_POST['contactnumber']) ? $_POST['contactnumber'] : ''; ?>"></div>
 	</div>
     <hr>
     <div>
 	    <h3>About Your Establishment</h3>
 	    <p>Tell us more about your establishments.</p>
-	    <div><input type="text" name="establishmentname" id="establishmentname" placeholder="Establishment/Business Name"></div>
-	    <div><textarea name="establishmentdescription" placeholder="Tell Us about your establishment/business"></textarea></div>
-	    <div><input type="text" name="e_owner" value="" placeholder="Name of Proprietor"></div>
-	    <div><input type="text" name="e_website_url" value="" placeholder="Website Link"></div>
+	    <div><input type="text" name="establishmentname" id="establishmentname" placeholder="Establishment/Business Name" value="<?php echo isset($_POST['establishmentname']) ? $_POST['establishmentname'] : ''; ?>"></div>
+	    <div><textarea name="establishmentdescription" placeholder="Tell Us about your establishment/business"><?php echo isset($_POST['establishmentdescription']) ? $_POST['establishmentdescription'] : ''; ?></textarea></div>
+	    <div><input type="text" name="e_owner" placeholder="Name of Proprietor" value="<?php echo isset($_POST['e_owner']) ? $_POST['e_owner'] : ''; ?>"></div>
+	    <div><input type="text" name="e_website_url" placeholder="Website Link" value="<?php echo isset($_POST['e_website_url']) ? $_POST['e_website_url'] : ''; ?>"></div>
 	</div>
 	<hr>
     <div>
@@ -224,7 +227,7 @@ if ( ! is_user_logged_in() ) :
 				    'hide_empty' => false,
 				) );
 				foreach ($terms as $term) {
-					echo '<li><input type="checkbox" name="partner_category[]" value="'.$term->name.'"> '.$term->name.'</li>';
+					echo '<li><input '.( !empty($partner_category_list) && in_array($term->name, $partner_category_list) ? 'checked="checked"' : '' ).' type="checkbox" name="partner_category[]" value="'.$term->name.'"> '.$term->name.'</li>';
 				}
 	    	?>
 	    	</ul>
@@ -250,9 +253,9 @@ if ( ! is_user_logged_in() ) :
     	<div><input type="file" name="featured_img" id="featured_img" accept="image/*" /></div>
     </div>
 
-    <div><input type="checkbox" name="receivesticker" value="" /> Receive OFW Power Club Sticker(s)</div>
+    <div><input type="checkbox" name="receivesticker" value="" <?php echo (isset($_POST['receivesticker'])) ? 'checked=checked' : ''; ?> /> Receive OFW Power Club Sticker(s)</div>
     <div>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</div>
-    <div><input type="checkbox" name="terms_condition" value="" /> Accept terms and condition</div>
+    <div><input type="checkbox" name="terms_condition" value="" <?php echo (isset($_POST['terms_condition'])) ? 'checked=checked' : ''; ?> /> Accept terms and condition</div>
     <div><input type="submit" id="submitbtn" name="submit" value="Sign Up" />  </div>
     <input type="hidden" name="post-type" id="post-type" value="<?php echo $posttype; ?>" />
 	<input type="hidden" name="action" value="<?php echo $posttype; ?>" />

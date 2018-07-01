@@ -637,19 +637,31 @@ if( get_role('editor') ){
 function benefits_form_meta_box($object) {
     wp_nonce_field(basename(__FILE__), "meta-box-nonce");
 
-    $benefits_offered = get_post_meta($object->ID, 'benefits_offered', true);
-    $benefits = [];
+    global $current_screen;
+    
+    if ($current_screen->action != 'add') {
 
-    for ($i=0;$i<count($benefits_offered['name']);$i++) {
-        array_push($benefits, array($benefits_offered['name'][$i]));
-        array_push($benefits[$i], $benefits_offered['description'][$i]);
+        $benefits_offered = get_post_meta($object->ID, 'benefits_offered', true);
+        $benefits = [];
+        for ($i=0;$i<count($benefits_offered['name']);$i++) {
+            array_push($benefits, array($benefits_offered['name'][$i]));
+            array_push($benefits[$i], $benefits_offered['description'][$i]);
+        }
+
     }
 
     echo '<div class="benefit-list incremental-item" data-itemhtml="<li class=item><div><label>Name</label><input type=text name=benefitname[] placeholder=Benefit Name></div><div><label>Description</label><textarea name=benefitdesc[]></textarea></div><span class=remove>x</span></li>"><ul>';
-    foreach ($benefits as $benefit) {
+    if ($current_screen->action != 'add') {
+        foreach ($benefits as $benefit) {
+            echo '<li class="item">';
+            echo '<div><label>Name</label><input type="text" name="benefitname[]" value="'.$benefit[0].'"></div>';
+            echo '<div><label>Description</label><textarea name="benefitdesc[]">'.$benefit[1].'</textarea></div><span class=remove>x</span>';
+            echo '</li>';
+        }
+    } else {
         echo '<li class="item">';
-        echo '<div><label>Name</label><input type="text" name="benefitname[]" value="'.$benefit[0].'"></div>';
-        echo '<div><label>Description</label><textarea name="benefitdesc[]">'.$benefit[1].'</textarea></div><span class=remove>x</span>';
+        echo '<div><label>Name</label><input type="text" name="benefitname[]" value=""></div>';
+        echo '<div><label>Description</label><textarea name="benefitdesc[]"></textarea></div><span class=remove>x</span>';
         echo '</li>';
     }
     echo '</ul><span class="add">Add Another Benefit</button></div>';
@@ -679,26 +691,37 @@ add_action("add_meta_boxes", "add_establishment_details_meta_box");
 function branches_form_meta_box($object) {
     wp_nonce_field(basename(__FILE__), "meta-box-nonce");
 
-    $available_branches = get_post_meta($object->ID, 'branches', true);
-    $branches = [];
-    print_r($available_branches);
+    global $current_screen;
     
-    for ($i=0;$i<count($available_branches['location']);$i++) {
-        array_push($branches, array($available_branches['location'][$i]));
-        array_push($branches[$i], $available_branches['address'][$i]);
-        array_push($branches[$i], $available_branches['contact_no'][$i]);
-        array_push($branches[$i], $available_branches['contact_person'][$i]);
+    if ($current_screen->action != 'add') {
+
+        $available_branches = get_post_meta($object->ID, 'branches', true);
+        $branches = [];
+        
+        for ($i=0;$i<count($available_branches['location']);$i++) {
+            array_push($branches, array($available_branches['location'][$i]));
+            array_push($branches[$i], $available_branches['address'][$i]);
+            array_push($branches[$i], $available_branches['contact_no'][$i]);
+            array_push($branches[$i], $available_branches['contact_person'][$i]);
+        }
+
     }
 
     echo '<div class="branch-list incremental-item" data-itemhtml="<li class=item><div><label>Address</label><input type=text name=b_address[]></div><div class=column><em><label>Location</label><input type=text name=b_location[]></em><em><label>Contact Number</label><input type=number name=b_contactnumber[]></em><em><label>Contact Person</label><input type=text name=b_contactperson[]></em></div><span class=remove>x</span></li>"><ul>';
-    foreach ($branches as $branch) {
+    if ($current_screen->action != 'add') {
+        foreach ($branches as $branch) {
+            echo '<li class="item">';
+            echo '<div><label>Address</label><input type="text" name="b_address[]" value="'.$branch[1].'"></div>';
+            echo '<div class="column"><em><label>Location</label><input type="text" name="b_location[]" value="'.$branch[0].'"></em><em><label>Contact Number</label><input type="number" name="b_contactnumber[]" value="'.$branch[2].'"></em><em><label>Contact Person</label><input type="text" name="b_contactperson[]" value="'.$branch[3].'"></em></div>';
+            echo '<span class=remove>x</span></li>';
+        }
+    } else {
         echo '<li class="item">';
-        echo '<div><label>Address</label><input type="text" name="b_address[]" value="'.$branch[1].'"></div>';
-        echo '<div class="column"><em><label>Location</label><input type="text" name="b_location[]" value="'.$branch[0].'"></em><em><label>Contact Number</label><input type="number" name="b_contactnumber[]" value="'.$branch[2].'"></em><em><label>Contact Person</label><input type="text" name="b_contactperson[]" value="'.$branch[3].'"></em></div>';
+        echo '<div><label>Address</label><input type="text" name="b_address[]" value=""></div>';
+        echo '<div class="column"><em><label>Location</label><input type="text" name="b_location[]" value=""></em><em><label>Contact Number</label><input type="number" name="b_contactnumber[]" value=""></em><em><label>Contact Person</label><input type="text" name="b_contactperson[]" value=""></em></div>';
         echo '<span class=remove>x</span></li>';
     }
     echo '</ul><span class="add">Add Another Branch</button></div>';
-
     
 }
 

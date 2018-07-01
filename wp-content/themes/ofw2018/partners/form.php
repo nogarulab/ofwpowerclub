@@ -238,7 +238,7 @@ if ( ! is_user_logged_in() ) :
     		<ul>
 	    		<li class="item">
 	    			<div><input type="text" name="benefitname[]" placeholder="Benefit Name"></div>
-	    			<div><textarea name="benefitdesc[]">About the benefit</textarea></div>
+	    			<div><textarea name="benefitdesc[]" placeholder="About the benefit"></textarea></div>
 	    		</li>
 	    	</ul>
     		<span class="add">Add another benefit/perks</button>

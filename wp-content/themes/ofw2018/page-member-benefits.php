@@ -28,6 +28,25 @@
 			<div class="col-lg-6 px-lg-4">
 				<?php the_content(); ?>
 				<br>
+
+                <form action="http://ofwpowerclub.nogarulab.com/register/" class="ms-membership-form" method="post">
+                    <input type="hidden" id="_wpnonce" name="_wpnonce" value="a4b0edf8b1">
+                    <input type="hidden" name="_wp_http_referer" value="/register/">
+                    <div id="ms-membership-wrapper-119" class="ms-membership-details-wrapper ms-signup ms-membership-119 ms-type-simple ms-payment-permanent ms-no-trial ms-status-none ms-subscription-none">
+                        <div class="ms-top-bar">
+                            <h4><span class="ms-title">Member</span></h4>
+                        </div> <div class="ms-price-details">
+                            <div class="ms-description"></div>
+                            <div class="ms-price price">USD 100.00</div>
+                        </div> <div class="ms-bottom-bar">
+                            <input class="wpmui-field-input wpmui-hidden" type="hidden" id="membership_id" name="membership_id" value="119">
+                            <input class="wpmui-field-input wpmui-hidden" type="hidden" id="action" name="action" value="membership_signup">
+                            <input class="wpmui-field-input wpmui-hidden" type="hidden" id="step" name="step" value="payment_table">
+                            <button class="wpmui-field-input button ms-signup-button membership_signup wpmui-submit button-primary" type="submit" id="submit" name="submit" value="">Signup</button>
+                        </div>
+                    </div>
+                </form>
+
 				<a href="" class="black rounded bg-yellow py-3 px-5 d-inline-block mb-3">Apply Now</a>
 			</div>
 			<div class="col-lg-6">

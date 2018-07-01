@@ -681,7 +681,8 @@ function branches_form_meta_box($object) {
 
     $available_branches = get_post_meta($object->ID, 'branches', true);
     $branches = [];
-
+    print_r($available_branches);
+    
     for ($i=0;$i<count($available_branches['location']);$i++) {
         array_push($branches, array($available_branches['location'][$i]));
         array_push($branches[$i], $available_branches['address'][$i]);
@@ -697,6 +698,7 @@ function branches_form_meta_box($object) {
         echo '<span class=remove>x</span></li>';
     }
     echo '</ul><span class="add">Add Another Branch</button></div>';
+
     
 }
 

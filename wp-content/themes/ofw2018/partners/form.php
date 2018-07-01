@@ -205,7 +205,7 @@ if ( ! is_user_logged_in() ) :
 	    		<li class="item">
 	    			<div><input type="text" name="b_location[]" placeholder="Location"></div>
 	    			<div><input type="text" name="b_address[]" placeholder="Address"></div>
-	    			<div><input type="text" name="b_contactnumber[]" placeholder="Contact Number"></div>
+	    			<div><input type="number" name="b_contactnumber[]" placeholder="Contact Number"></div>
 	    			<div><input type="text" name="b_contactperson[]" placeholder="Contact Person"></div>
 	    		</li>
 	    	</ul>

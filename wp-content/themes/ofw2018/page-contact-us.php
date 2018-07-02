@@ -4,7 +4,7 @@
 	<div class="row">
 		
 		<div class="col-md-6">
-			<?php echo do_shortcode("[contact-form-7 id="155" title="Contact Us"]"); ?>
+			<?php echo do_shortcode("[contact-form-7 id='155' title='Contact Us']"); ?>
 		</div>
 		<div class="col-md-6">
 			yellow bar

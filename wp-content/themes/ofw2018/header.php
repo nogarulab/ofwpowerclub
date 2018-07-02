@@ -61,6 +61,9 @@
 	  					</button> 
 	  					<div class="d-flex align-items-center order-lg-last">
 							<div class="login-links"><button class="btn-member">Member Login</button></div>
+							<?php 
+								// echo do_shortcode('[ms-membership-signup]'); 
+							?>
 							<div class="login-links"><button class="btn-partner">Partner Login</button></div>
 						</div>
 	  					<div class="collapse navbar-collapse mt-3 mt-lg-0" id="mainNav">

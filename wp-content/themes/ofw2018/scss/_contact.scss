@@ -9,7 +9,7 @@
 	h4 {
 		text-transform: uppercase;
 		font-size:24px;
-		margin:0 0 20px;
+		margin:0 0 10px;
 		font-weight: 600;
 	}
 
@@ -19,9 +19,9 @@
 		input[type="text"],
 		input[type="email"],
 		textarea {
-			border:0;
-			border-bottom:1px solid #898989;
-			padding:15px 0;
+			border:1px solid #898989;
+			padding:15px;
+			width:100%;
 
 			&::-webkit-input-placeholder { color: #ed4036; text-transform: uppercase; }
 			&::-moz-placeholder { color: #ed4036; text-transform: uppercase; }
@@ -31,7 +31,6 @@
 		}
 
 		textarea {
-			border:1px solid #898989;
 			height:150px;
 		}
 
@@ -44,6 +43,7 @@
 				@include borderradius(5px);
 				font-size:25px;
 				padding:20px 40px;
+				font-weight: normal;
 			}
 
 		}

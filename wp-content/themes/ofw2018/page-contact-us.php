@@ -1,6 +1,5 @@
 <?php get_header();
 $featuredImage = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); 
-$office_location = get_field('our_office_map');
 ?>
 <div class="contact-us">
 
@@ -44,13 +43,6 @@ $office_location = get_field('our_office_map');
 get_sidebar('connect');
 ?>
 <div class="map">
-	<div class="mapouter">
-		<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
-		<div style='overflow:hidden;height:440px;width:100%;'>
-			<div id='gmap_canvas' style='height:440px;width:700px;'></div>
-			<style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
-		</div>
-		<script type='text/javascript'>function init_map(){var myOptions = {zoom:17,center:new google.maps.LatLng(22.368768119460814,114.12125813214266),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(22.368768119460814,114.12125813214266)});infowindow = new google.maps.InfoWindow({content:'<strong>Title</strong><br>Hong Kong<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
-	</div>
+	<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=75783264975-ifp0r5qbu52kqasavb2b3ch97ce9tj18&center=-33.8569,151.2152&zoom=18" allowfullscreen></iframe>
 </div>
 <?php get_footer();  ?>

@@ -50,7 +50,7 @@ if (have_posts()):
 get_sidebar('connect');
 ?>
 <div class="map">
-	<iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDVVukLQZn45iP0fWF7iEAQyky83u48GGo&center=<?php echo $office_lat; ?>,<?php echo $office_lng; ?>&zoom=18&q=in+HongKong" allowfullscreen></iframe>
+	<iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDVVukLQZn45iP0fWF7iEAQyky83u48GGo&center=<?php echo $office_lat; ?>,<?php echo $office_lng; ?>&zoom=14" allowfullscreen></iframe>
 </div>
 <?php 
 	endwhile;

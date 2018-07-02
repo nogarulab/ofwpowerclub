@@ -1,4 +1,6 @@
-<?php get_header();  ?>
+<?php get_header();
+$featuredImage = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); 
+?>
 <div class="contact-us">
 
 	<section class="page-banner py-5 white text-uppercase" style="background-image:url(<?php echo $featuredImage; ?>);">
@@ -16,21 +18,20 @@
 		<div class="row">
 			
 			<div class="col-md-6">
-				<h4>Drop us a line and we will be in touch soon</h4>
 				<?php echo do_shortcode("[contact-form-7 id='155' title='Contact Us']"); ?>
 			</div>
 			<div class="col-md-6">
 				<div class="contact-details">
-					<p><strong>Phone</strong> +63.917.456.1234</p>
-					<p><strong>Email</strong> info@ofwpowerclub.com</p>
-					<p>
+					<div><strong>Phone</strong> +63.917.456.1234</div>
+					<div><strong>Email</strong> info@ofwpowerclub.com</div>
+					<div>
 						<strong>Location</strong>
 						<address>
 							<span>88 Connaught Road West</span>
 							<span>Central and Western District</span>
 							<span>Hong Kong</span>
 						</address>
-					</p>
+					</div>
 				</div>
 			</div>
 

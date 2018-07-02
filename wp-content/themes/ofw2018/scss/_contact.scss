@@ -1,0 +1,36 @@
+.wpcf7 .contact-us-form {
+
+	h4 {
+		text-transform: uppercase;
+		font-size:24px;
+		margin:0 0 20px;
+	}
+
+	div {
+		margin-bottom:15px;
+
+		&.action {
+			margin-bottom:0;
+		}
+
+	}
+
+}
+
+.contact-details {
+	background:$yellow;
+	padding:50px;
+
+	div {
+		margin-bottom:15px;
+
+		strong {
+			display: block;
+		}
+
+		&:last-child {
+			margin-bottom:0;
+		}
+	}
+
+}

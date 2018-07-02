@@ -43,6 +43,6 @@ $featuredImage = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 get_sidebar('connect');
 ?>
 <div class="map">
-	<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=75783264975-ifp0r5qbu52kqasavb2b3ch97ce9tj18&center=-33.8569,151.2152&zoom=18" allowfullscreen></iframe>
+	<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=75783264975-ifp0r5qbu52kqasavb2b3ch97ce9tj18&center=-33.8569,151.2152&zoom=18&q=in+HongKong" allowfullscreen></iframe>
 </div>
 <?php get_footer();  ?>

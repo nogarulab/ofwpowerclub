@@ -32,6 +32,7 @@
 
 		textarea {
 			border:1px solid #898989;
+			height:150px;
 		}
 
 		&.action {
@@ -40,7 +41,7 @@
 			input.wpcf7-submit {
 				background: $blue;
 				color: $white;
-				@include border-radius($radius: 5px);
+				@include borderradius(5px);
 				font-size:25px;
 				padding:20px 40px;
 			}

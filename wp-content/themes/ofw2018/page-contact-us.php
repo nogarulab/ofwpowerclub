@@ -40,5 +40,5 @@ $featuredImage = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 
 </div>
 <?php get_sidebar('connect'); ?>
-<div class="map"></div>
+<div class="map"><?php the_field('our_office_map'); ?></div>
 <?php get_footer();  ?>

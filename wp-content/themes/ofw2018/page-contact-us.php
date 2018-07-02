@@ -44,6 +44,13 @@ $office_location = get_field('our_office_map');
 get_sidebar('connect');
 ?>
 <div class="map">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1388.7881621846902!2d<?php echo $office_location['lng']; ?>!3d<?php echo $office_location['lat']; ?>!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403e2eda332980f%3A0xf08ab3badbeac97c!2sHong+Kong!5e0!3m2!1sen!2sph!4v1530518337607" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+	<div class="mapouter">
+		<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+		<div style='overflow:hidden;height:440px;width:100%;'>
+			<div id='gmap_canvas' style='height:440px;width:700px;'></div>
+			<style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
+		</div>
+		<script type='text/javascript'>function init_map(){var myOptions = {zoom:17,center:new google.maps.LatLng(22.368768119460814,114.12125813214266),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(22.368768119460814,114.12125813214266)});infowindow = new google.maps.InfoWindow({content:'<strong>Title</strong><br>Hong Kong<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+	</div>
 </div>
 <?php get_footer();  ?>

@@ -56,11 +56,6 @@
         content: "";
         display: none;
     }
-
-@media (min-width:$largedevices) {
-    &:before { display: block; }
-}
-
 }
 .squarebox:before { padding-top: 100%; }
 .semisquarebox:before { padding-top: 65%; }

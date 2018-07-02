@@ -42,9 +42,10 @@ $featuredImage = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 <?php 
 get_sidebar('connect');
 $map_coordinates = get_field('our_office_map');
-print_r($map_coordinates);
+echo $map_coordinates['lat'];
+echo $map_coordinates['lng'];
 ?>
 <div class="map">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1388.7881621846902!2d114.17474205945706!3d22.308680799898188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403e2eda332980f%3A0xf08ab3badbeac97c!2sHong+Kong!5e0!3m2!1sen!2sph!4v1530518337607" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1388.7881621846902!2d114.17474205945706!3d22.308680799898188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403e2eda332980f%3A0xf08ab3badbeac97c!2sHong+Kong!5e0!3m2!1sen!2sph!4v1530518337607" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
 </div>
 <?php get_footer();  ?>

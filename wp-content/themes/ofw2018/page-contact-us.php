@@ -5,9 +5,8 @@ if (have_posts()):
 
         $featuredImage = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); 
 
-        $office_location = get_field('office_location');
-        echo $office_location['lat']; 
-        echo $office_location['lng'];
+        $office_lat = get_field('latitude');
+        $office_lng = get_field('longitude');
 ?>
 <div class="contact-us">
 
@@ -51,7 +50,7 @@ if (have_posts()):
 get_sidebar('connect');
 ?>
 <div class="map">
-	<iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDVVukLQZn45iP0fWF7iEAQyky83u48GGo&center=,&zoom=18&q=in+HongKong" allowfullscreen></iframe>
+	<iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDVVukLQZn45iP0fWF7iEAQyky83u48GGo&center=<?php echo $office_lat; ?>,<?php echo $office_lng; ?>&zoom=18&q=in+HongKong" allowfullscreen></iframe>
 </div>
 <?php 
 	endwhile;

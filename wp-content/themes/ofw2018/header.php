@@ -70,7 +70,7 @@
 								} else {
 							?>	
 								<div class="login-links">
-									<a href=""><button class="btn-member">Member Login</button></a>
+									<a href="/account"><button class="btn-member">Member Login</button></a>
 								</div>
 								<div class="login-links">
 									<a href=""><button class="btn-partner">Partner Login</button></a>

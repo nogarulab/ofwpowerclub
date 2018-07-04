@@ -38,7 +38,8 @@
 						<div class="row align-items-center justify-content-between">
 							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-5">
 								<a href="<?php echo home_url(); ?>">
-									<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img img-fluid d-block mx-auto">
+									<?php echo file_get_contents(get_template_directory_uri().'/img/logo.svg'); ?>
+									<!-- <img src="<?php #echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img img-fluid d-block mx-auto"> -->
 									<h1 class="d-none"><?php bloginfo('name'); ?></h1>
 								</a>
 							</div>

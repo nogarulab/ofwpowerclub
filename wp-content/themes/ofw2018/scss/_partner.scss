@@ -42,10 +42,42 @@
 }
 
 .partner-dashboard {
-	
+	background: $blue;
+
+	.wrapper {
+		max-width:1140px;
+		margin: 0 auto;
+		position: relative;
+		padding:30px 0 0 240px;
+		min-height:1000px;
+	}
 
 	header.header {
+		border-top:0;
+		position: absolute;
+		width:240px;
+		left:0;
+		top:30px;
 
+		svg {
+			width: 100%;
+			height:auto;
+			path,
+			polygon {
+				fill:$white;
+			}
+		}
+
+		.row div {
+			max-width: 100%;
+    		flex: 100%;
+		}
+
+	}
+
+	.partner-dashboard-home {
+		background:$white;
+		padding:50px;
 	}
 
 	footer.footer {

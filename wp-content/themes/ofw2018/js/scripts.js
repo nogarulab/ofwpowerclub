@@ -39,6 +39,8 @@
     	var msg_email = $('.contact-admin').data('email');
     	$('.contact-admin input.your-name').val(msg_from);
     	$('.contact-admin input.your-email').val(msg_email);
+
+    	$('.logo-cont').matchHeight();
     
 	});
 	

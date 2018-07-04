@@ -6,4 +6,151 @@
 			text-transform: uppercase;
 		}
 	}
+	ul {
+		list-style-type: none;
+		padding-left: 0;
+		border-right: 2px solid #ccd;
+		li {
+			a {
+				color: $black;
+				font-size: 1em;
+				&:hover {
+					padding-left: 10px;
+					color: $blue;
+				}
+			}
+		}
+	}
+}
+
+.post-type-archive {
+	.all {
+		color: $blue;
+	}
+}
+
+.logo-cont {
+	background-color: #f8f8f8;
+	padding: 20px;
+	&:hover {
+		background-color: $blue;
+		img {
+			-webkit-filter: brightness(0) invert(1);
+  			filter: brightness(0) invert(1);
+		}
+	}
+}
+
+.partner-dashboard {
+	background: $blue;
+	@include vertalignmidhoralignleft;
+
+	.wrapper {
+		max-width:1140px;
+		margin: 0 auto;
+		position: relative;
+		padding:30px 0 30px 240px;
+	}
+
+	header.header {
+		border-top:0;
+		position: absolute;
+		width:240px;
+		left:0;
+		top:30px;
+		padding-right:30px;
+
+		.mid-header {
+			padding-top:0!important;
+		}
+
+		svg {
+			width: 100%;
+			height:auto;
+			path,
+			polygon {
+				fill:$white;
+			}
+		}
+
+		.row div {
+			max-width: 100%;
+    		flex: 100%;
+    		padding:0;
+		}
+
+		ul {
+			list-style: none;
+			margin:20px 0 0;
+			padding:0;
+			border-top:1px solid lighten($blue, 5%);
+
+			li {
+				border-bottom:1px solid lighten($blue, 5%);
+			}
+
+			a {
+				display: block;
+				padding:15px 0 15px 50px;
+				color:$white;
+				font-weight: 300;
+				@include transition(all 0.5s ease);
+				&:hover {
+					color:$yellow
+				}
+			}
+
+		}
+
+	}
+
+	.partner-dashboard-home {
+		background:$white;
+		padding:50px;
+		min-height:376px;
+		font-weight: 300;
+
+		header {
+			margin-bottom:25px;
+
+			p {
+				line-height: 24px;
+				margin:0;
+			}
+
+		}
+
+		.tools{
+
+			a {
+				display: block;
+				border:1px solid #eee;
+				padding:25px;
+				color:$black;
+				@include transition(all 0.5s ease);
+				@include borderradius(5px);
+				&:hover {
+					background: darken($white, 3%);
+				}
+			}
+
+			h5 {
+				margin:0 0 15px;
+			}
+
+			p {
+				
+				font-size:14px;
+				line-height: 22px;
+				margin:0;	
+			}
+
+		}
+
+	}
+
+	footer.footer {
+		display: none;
+	}
+
 }

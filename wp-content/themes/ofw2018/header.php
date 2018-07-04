@@ -38,7 +38,8 @@
 						<div class="row align-items-center justify-content-between">
 							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-5">
 								<a href="<?php echo home_url(); ?>">
-									<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img img-fluid d-block mx-auto">
+									<?php echo file_get_contents(get_template_directory_uri().'/img/logo.svg'); ?>
+									<!-- <img src="<?php #echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img img-fluid d-block mx-auto"> -->
 									<h1 class="d-none"><?php bloginfo('name'); ?></h1>
 								</a>
 							</div>
@@ -60,11 +61,25 @@
 	    					<span class="navbar-toggler-icon"></span>
 	  					</button> 
 	  					<div class="d-flex align-items-center order-lg-last">
-							<div class="login-links"><button class="btn-member">Member Login</button></div>
 							<?php 
-								// echo do_shortcode('[ms-membership-signup]'); 
+								if ( is_user_logged_in() ) {
 							?>
-							<div class="login-links"><button class="btn-partner">Partner Login</button></div>
+								<div class="login-links">
+									<a href="<?php echo wp_logout_url( home_url() ); ?>"><button class="btn-partner">Log Out</button></a>
+								</div>
+							<?php 
+								} else {
+							?>	
+								<div class="login-links">
+									<a href="/account"><button class="btn-member">Member Login</button></a>
+								</div>
+								<div class="login-links">
+									<a href=""><button class="btn-partner">Partner Login</button></a>
+								</div>
+							<?php 
+								}
+							?>
+
 						</div>
 	  					<div class="collapse navbar-collapse mt-3 mt-lg-0" id="mainNav">
 							<?php wp_nav_menu(array('menu' => 'Main Menu', 'items_wrap' => '<ul class="navbar-nav d-flex order-lg-first">%3$s</ul>'))?>

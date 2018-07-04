@@ -26,6 +26,33 @@
 			font-weight: 600;
 		}
 	}
+	.partners-container {
+		ul {
+			border-right: 0;
+			text-align: center;
+			li {
+				white-space: nowrap;
+				margin: 5px;
+				a {
+					padding: 5px;
+					background: $red;
+					color: #fff;
+					border-radius: 3px;
+					&:hover {
+						background: $blue;
+						padding: 5px;
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+	.post-type-archive {
+		.all {
+			background: $blue;
+			color: #fff;
+		}
+	}
 }
 
 

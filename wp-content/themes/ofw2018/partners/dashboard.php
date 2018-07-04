@@ -8,24 +8,26 @@ $post = get_post($partner_page_id);
 $slug = $post->post_name;
 ?>
 	<div class="partner-dashboard-home">
-		<h3>Hello <?php echo get_user_meta( $current_user->ID, 'first_name', true );  ?></h3>
-		<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione</p>
-		<div class="row">
-			<div class="col-md-4">
-				<a href="#">
-					<h4>Search Member</h4>
+		<header>
+			<h3>Hello <?php echo get_user_meta( $current_user->ID, 'first_name', true );  ?>!</h3>
+			<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione</p>
+		</header>
+		<div class="row tools">
+			<div class="col-lg-4">
+				<a href="<?php echo home_url(); ?>/member-search">
+					<h5>Search Member</h5>
 					<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.</p>
 				</a>
 			</div>
-			<div class="col-md-4">
-				<a href="<?php echo home_url(); ?>/partners/<?php echo $slug; ?>">
-					<h4>View Your Page</h4>
+			<div class="col-lg-4">
+				<a href="<?php echo home_url(); ?>/partners/<?php echo $slug; ?>" target="_blank">
+					<h5>View Your Page</h5>
 					<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.</p>
 				</a>
 			</div>
-			<div class="col-md-4">
+			<div class="col-lg-4">
 				<a href="<?php echo home_url(); ?>/contact-administrator">
-					<h4>Contact Administrator</h4>
+					<h5>Contact Admin</h5>
 					<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.</p>
 				</a>
 			</div>

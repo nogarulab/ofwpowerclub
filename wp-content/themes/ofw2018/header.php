@@ -30,21 +30,7 @@
 			<div id="status">&nbsp;</div>
 		</div>
 
-		<?php
-
-		if (
-			is_user_logged_in() && 
-			current_user_can('partner') &&
-			is_page('partner-dashboard')
-		) {
-			$parentclass = 'partner-dashboard';
-		} else {
-			$parentclass = '';
-		}
-
-		?>
-
-		<div class="wrapper <?php echo $parentclass; ?>">
+		<div class="wrapper">
 
 			<header class="header clear" role="banner">
 				<div class="mid-header py-2">

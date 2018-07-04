@@ -994,4 +994,22 @@ function add_user_with_roles(){
 }
 add_action('add_members', 'add_user_with_roles');
 
+function add_slug_body_class( $classes ) {
+    global $post;
+
+    if (
+        is_user_logged_in() && 
+        current_user_can('partner') &&
+        is_page('partner-dashboard') ||
+        is_page('member-search')
+    ) {
+        $classes[] = 'partner-dashboard';
+    } else {
+        $classes[] = '';
+    }
+
+    return $classes;
+}
+add_filter( 'body_class', 'add_slug_body_class' );
+
 ?>

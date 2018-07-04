@@ -870,7 +870,21 @@ function add_user_with_roles(){
         extract($_POST);
 
         update_user_meta( $user_id, 'agent_id', get_current_user_id());
+
         update_user_meta( $user_id, 'middle_name', $middle_name);
+        update_user_meta( $user_id, 'gender', $gender);
+        update_user_meta( $user_id, 'dob_month', $dob_month);
+        update_user_meta( $user_id, 'dob_day', $dob_day);
+        update_user_meta( $user_id, 'dob_year', $dob_year);
+        update_user_meta( $user_id, 'mobile', $mobile);
+        update_user_meta( $user_id, 'country_work', $country_work);
+        update_user_meta( $user_id, 'address_work', $address_work);
+        update_user_meta( $user_id, 'passport_number', $passport_number);
+        update_user_meta( $user_id, 'beneficiary_name', $beneficiary_name);
+        update_user_meta( $user_id, 'beneficiary_address', $beneficiary_address);
+        update_user_meta( $user_id, 'beneficiary_contact', $beneficiary_contact);
+        update_user_meta( $user_id, 'beneficiary_relationship', $beneficiary_relationship);
+
         update_user_meta( $user_id, 'ms_custom_data', "a:0:{}");
         update_user_meta( $user_id, 'ms_email', $user_email);
         update_user_meta( $user_id, 'ms_gateway_profiles', "a:0:{}");

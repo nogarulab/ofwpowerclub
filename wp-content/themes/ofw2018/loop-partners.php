@@ -2,7 +2,7 @@
 
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-	<div class="col-md-4 col-6 mb-4">
+	<div class="col-sm-4 mb-4">
 
 		<?php if ( has_post_thumbnail()) : ?>
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">

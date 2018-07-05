@@ -1,0 +1,52 @@
+.edit-my-personal-details {
+
+	.profile-picture {
+
+		.updatephoto {
+			border:1px solid #ddd;
+			position: relative;
+		}
+
+		img {
+			width:100%;
+		}
+
+		input[type="file"] {
+			opacity: 0;
+			position: absolute;
+			width:100%;
+			height:100%;
+			top:0;
+			left:0;
+		}
+
+	}
+
+	form {
+
+		label {
+			text-transform: uppercase;
+			color:#666;
+			font-size:12px;
+			font-weight: 300;
+		}
+
+		.form-row {
+			margin-left:-10px;
+			margin-right:-10px;
+		}
+
+		.form-row>.col, .form-row>[class*=col-] {
+			padding-left:10px;
+			padding-right:10px;
+		}
+
+	}
+
+	section h1 { display: none }
+
+	article.page.hentry {
+		display: none;
+	}
+
+}

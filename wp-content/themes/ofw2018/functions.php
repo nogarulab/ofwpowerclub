@@ -1012,4 +1012,6 @@ function add_slug_body_class( $classes ) {
 }
 add_filter( 'body_class', 'add_slug_body_class' );
 
+update_option( 'show_avatars', 0 );
+
 ?>

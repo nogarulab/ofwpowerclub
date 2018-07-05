@@ -41,6 +41,9 @@
     	$('.contact-admin input.your-email').val(msg_email);
 
     	$('.logo-cont').matchHeight();
+
+    	var home_url = $('.header .mid-header a').attr('href');
+    	$('.ms-edit-profile').attr('href', home_url+'/edit-my-personal-details/');
     
 	});
 	

@@ -1,0 +1,43 @@
+.store-container {
+	.categories {
+		padding-left: 0;
+		li {
+			list-style: none;
+			a {
+				color: $black;
+			}
+			
+		}
+		> li {
+			font-size: 1.125em;
+			font-weight: bold;
+			margin-bottom: 30px;
+			> a:hover {
+				color: $blue;
+			}
+			ul {
+				padding-left: 0;
+				li {
+					a {
+						font-weight: 400;
+						font-size: 0.938rem;
+						&:hover {
+							color: $red;
+						}
+					}
+				}
+			}
+		}
+	}
+	.prod-list {
+		a {
+			color: $black;
+			&:hover {
+				color: $red;
+			}
+		}
+		b {
+			font-size: 1.125em;
+		}
+	}
+}

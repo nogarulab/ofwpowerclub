@@ -42,7 +42,7 @@
 			</div>
 			<div class="col-lg-9">
 				<?php get_template_part('loop-partners'); ?>
-				<?php get_template_part('pagination'); ?>
+				<?php wp_pagenavi(); ?>
 			</div>
 		</div>
 	</div>

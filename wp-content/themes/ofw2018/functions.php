@@ -141,12 +141,18 @@ function html5blank_conditional_scripts()
         wp_enqueue_script('aboutjs'); // Enqueue it!
     }
 
+
     if (is_singular('products')) {
         wp_register_script('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), '1.8.1'); 
         wp_enqueue_script('slick'); // Enqueue it!
 
         wp_register_script('prodjs', get_template_directory_uri() . '/js/prod.js', array('jquery'), '1.0.0'); // Conditional script(s)
         wp_enqueue_script('prodjs'); // Enqueue it!
+    }
+
+    if (is_page('edit-my-personal-details')) {
+        wp_register_script('editprofilejs', get_template_directory_uri() . '/js/editprofile.js', array('jquery'), '1.0.0'); // Conditional script(s)
+        wp_enqueue_script('editprofilejs');
     }
 }
 

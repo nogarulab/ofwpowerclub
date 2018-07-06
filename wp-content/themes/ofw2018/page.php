@@ -23,7 +23,7 @@ if ( is_page('partner-dashboard') ) {
                     <div class="col-sm-12">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <form name="adding_members" method="POST" >
+                                <form name="adding_members" method="POST">
                                     <h5>Personal Information</h5>
                                     <div class="row">
                                         <div class="col-sm-6">

@@ -141,7 +141,6 @@ function html5blank_conditional_scripts()
         wp_enqueue_script('aboutjs'); // Enqueue it!
     }
 
-
     if (is_singular('products')) {
         wp_register_script('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), '1.8.1'); 
         wp_enqueue_script('slick'); // Enqueue it!

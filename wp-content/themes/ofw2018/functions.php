@@ -29,7 +29,7 @@ if (function_exists('add_theme_support'))
     add_theme_support('post-thumbnails');
     add_image_size('large', 700, '', true); // Large Thumbnail
     add_image_size('medium', 250, '', true); // Medium Thumbnail
-    add_image_size('small', 120, '', true); // Small Thumbnail
+    add_image_size('small', 70, 70, true); // Small Thumbnail
     add_image_size('home-prods', 500, 375, true); 
     add_image_size('testimonials', 180, 180, true); 
 
@@ -139,6 +139,14 @@ function html5blank_conditional_scripts()
 
         wp_register_script('aboutjs', get_template_directory_uri() . '/js/about.js', array('jquery'), '1.0.0'); // Conditional script(s)
         wp_enqueue_script('aboutjs'); // Enqueue it!
+    }
+
+    if (is_singular('products')) {
+        wp_register_script('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), '1.8.1'); 
+        wp_enqueue_script('slick'); // Enqueue it!
+
+        wp_register_script('prodjs', get_template_directory_uri() . '/js/prod.js', array('jquery'), '1.0.0'); // Conditional script(s)
+        wp_enqueue_script('prodjs'); // Enqueue it!
     }
 }
 

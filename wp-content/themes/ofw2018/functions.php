@@ -986,7 +986,7 @@ function add_user_with_roles(){
          * JUST AND PROMPT
          */
         echo "User created  ";
-        echo '<div class="sendtouser" data-toemail="'.$user_email.'">';
+        echo '<div class="sendtouser" data-toemail="'.$user_email.'" data-name="'.$first_name.' '.$last_name.'">';
         echo do_shortcode('[contact-form-7 id="270" title="Send Payment Options To User Email"]');
         echo '</div>';
         print_r($_POST);

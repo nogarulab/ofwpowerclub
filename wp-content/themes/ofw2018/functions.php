@@ -148,12 +148,10 @@ function html5blank_conditional_scripts()
         wp_register_script('prodjs', get_template_directory_uri() . '/js/prod.js', array('jquery'), '1.0.0'); // Conditional script(s)
         wp_enqueue_script('prodjs'); // Enqueue it!
     }
-
     if (is_page('edit-my-personal-details')) {
         wp_register_script('editprofilejs', get_template_directory_uri() . '/js/editprofile.js', array('jquery'), '1.0.0'); // Conditional script(s)
         wp_enqueue_script('editprofilejs');
     }
-}
 
 // Load HTML5 Blank styles
 function html5blank_styles()

@@ -2,6 +2,8 @@
 
 	<?php
 
+	if ( is_user_logged_in() && current_user_can( 'subscriber' ) ) :
+
 		$current_user = wp_get_current_user();
 		$profileimg = get_field('profile_picture', 'user_'.$current_user->ID);
 		
@@ -238,4 +240,9 @@
 		<?php wp_nonce_field( 'update_user', 'update_user_nonce' ); ?>
         <input name="action" type="hidden" id="action" value="update_user" />
 	</form>
+	<?php 
+	else :
+		echo '<p>You should be a member to access this page.</p>';
+	endif;
+	?>
 </div>

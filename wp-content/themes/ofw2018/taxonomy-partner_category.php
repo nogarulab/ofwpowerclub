@@ -1,5 +1,9 @@
 <?php get_header();  ?>
 
+<?php $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );  ?>
+
+<?php $termname = $term->name; ?>
+
 <div class="partners-container">
 <?php 
 	$the_query = new WP_Query(array('post_type'=>'page', 'pagename'=>'partners'));
@@ -11,7 +15,7 @@
 	<div class="container py-5">
 		<div class="row">
 			<div class="col text-center">
-				<h2 class="font-weight-bold "><?php the_title(); ?></h2>
+				<h2 class="font-weight-bold "><?php echo $termname; ?></h2>
 				<span class="bread-crumbs">Home // <a href="<?php the_permalink() ?>" class="yellow transition"><?php the_title(); ?></a></span>
 			</div>
 		</div>

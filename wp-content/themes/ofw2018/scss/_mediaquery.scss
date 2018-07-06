@@ -47,6 +47,11 @@
 			}
 		}
 	}
+	.store-container {
+		ul {
+			border-right: 0;
+		}
+	}
 	.post-type-archive {
 		.all {
 			background: $blue;

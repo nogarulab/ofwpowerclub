@@ -1,12 +1,17 @@
 .store-container {
 	.categories {
 		padding-left: 0;
+		border-right: 2px solid #ccd;
 		li {
 			list-style: none;
+			transition: all .3s;
 			a {
 				color: $black;
+				transition: all .3s;
+				&:hover {
+					padding-left: 10px;
+				}
 			}
-			
 		}
 		> li {
 			font-size: 1.125em;

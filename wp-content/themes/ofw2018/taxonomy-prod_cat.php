@@ -3,6 +3,10 @@
 
 <?php get_header();  ?>
 
+<?php $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );  ?>
+
+<?php $termname = $term->name; ?>
+
 <div class="store-container">
 <?php 
 	$the_query = new WP_Query(array('post_type'=>'page', 'pagename'=>'store'));
@@ -14,7 +18,7 @@
 	<div class="container py-5">
 		<div class="row">
 			<div class="col text-center">
-				<h2 class="font-weight-bold "><?php the_title(); ?></h2>
+				<h2 class="font-weight-bold "><?php echo $termname; ?></h2>
 				<span class="bread-crumbs">Home // <a href="<?php the_permalink() ?>" class="yellow transition"><?php the_title(); ?></a></span>
 			</div>
 		</div>
@@ -32,24 +36,8 @@
 			<div class="col-lg-9 prod-list order-lg-last">
 
 				<div class="row">
-
-				<?php 
-					$the_query = new WP_Query(array('post_type'=>'products', 'posts_per_page'=>6));
-					while ( $the_query->have_posts() ) : $the_query->the_post();
-				?>
-					<div class="col-sm-4 mb-4">
-						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-							<div class="transition">
-								<?php the_post_thumbnail('home-prods', array('class' => 'img-fluid mx-auto d-block')); ?>
-								<p class="mb-0"><?php the_title(); ?></p>
-							</div>
-						</a>
-						<b class="font-weight-bold yellow"><?php the_field('price') ?></b>
-					</div>
-				<?php 
-					endwhile; wp_reset_query(); 
-				?>
-
+					<?php get_template_part('loop-products'); ?>
+					<?php wp_pagenavi(); ?>
 				</div>
 
 			</div>

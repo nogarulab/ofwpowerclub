@@ -895,7 +895,7 @@ function add_user_with_roles(){
         update_user_meta( $user_id, 'ms_last_name', $last_name);
         update_user_meta( $user_id, 'ms_name', $first_name.' '.$last_name);
         update_user_meta( $user_id, 'ms_subscriptions', 'a:1:{i:0;O:21:"MS_Model_Relationship":28:{s:16:"');
-        update_user_meta( $user_id, 'ms_username', $user_login);
+        update_user_meta( $user_id, 'ms_username', $user_email);
 
         /***
         ms_custom_data : a:0:{}

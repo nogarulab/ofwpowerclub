@@ -8,8 +8,9 @@ if ( is_page('partner-dashboard') ) {
 
 } elseif ( is_page('agent-dashboard') ) {
 
-    if ( is_user_logged_in() && current_user_can('agent') ) :
+    echo '<div class="container">';
 
+    if ( is_user_logged_in() && current_user_can('agent') ) :
 
         /* SUBMIT do action Add Members*/
         if(isset($_POST['submit']))
@@ -130,10 +131,6 @@ if ( is_page('partner-dashboard') ) {
 <!--                                    <hr/>-->
                                     <h5>Account Credentials</h5>
                                     <div class="form-group">
-                                        <label for="">Username</label>
-                                        <input type="text" name="user_login" required class="input-sm form-control" value="member6"/>
-                                    </div>
-                                    <div class="form-group">
                                         <label for="">Password</label>
                                         <input type="text" name="user_pass" required class="input-sm form-control" value="qweqwe"/>
                                     </div>
@@ -181,6 +178,8 @@ if ( is_page('partner-dashboard') ) {
         echo 'You do not have permission to view this page. Please login as an agent to view this page';
 
     endif;
+
+    echo '</div>';
 
 } else {
 

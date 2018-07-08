@@ -181,9 +181,16 @@
 					<div class="form-group col-md-4">
 						<label for="inputCountry">Country Of Work</label>
 						<select name="country" id="inputCountry" class="form-control">
-							<option>Hong Kong</option>
-							<option>Macau</option>
-							<option>China</option>
+							<?php
+							$chosen_country = get_user_meta($user_ID, 'country', true);
+							$fields = get_field_object('field_5b3de51a64f76');
+							$choices = $fields['choices'];
+							foreach($choices as $choice):
+							?>
+								<option <?php echo ($chosen_country == $choice) ? 'selected="selected"' : ''; ?> value="<?php echo $choice; ?>"><?php echo $choice; ?></option>
+							<?php
+							endforeach;
+							?>
 						</select>
 					</div>
 					<div class="form-group col-md-4">

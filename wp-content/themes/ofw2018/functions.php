@@ -883,6 +883,8 @@ function add_user_with_roles(){
          */
         extract($_POST);
 
+        echo $user_pass1;
+
         update_user_meta( $user_id, 'agent_id', get_current_user_id());
         update_user_meta( $user_id, 'middle_name', $middle_name);
         update_user_meta( $user_id, 'ms_custom_data', "a:0:{}");
@@ -976,7 +978,7 @@ function add_user_with_roles(){
         $membership_post['pinged'] = "";
         $membership_post['post_type'] = "ms_event";
 
-        $post_meta_id = wp_insert_post( $membership_post);
+        $post_meta_id = wp_insert_post( $membership_post );
 
         $post_meta =[];
         $post_meta['custom_data'] = 'a:0:{}';
@@ -1000,7 +1002,7 @@ function add_user_with_roles(){
          * JUST AND PROMPT
          */
         echo "User created  ";
-        echo '<div class="sendtouser" data-username="'.$user_email.'" data-password="'..'" data-toemail="'.$user_email.'" data-name="'.$first_name.' '.$last_name.'">';
+        echo '<div class="sendtouser" data-username="'.$user_email.'" data-password="" data-toemail="'.$user_email.'" data-name="'.$first_name.' '.$last_name.'">';
         echo do_shortcode('[contact-form-7 id="270" title="Send Payment Options To User Email"]');
         echo '</div>';
         print_r($_POST);

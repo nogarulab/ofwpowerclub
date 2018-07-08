@@ -1,5 +1,8 @@
 
 .ms-membership-form-wrapper {
+	max-width: 500px;
+	display: block;
+	margin: auto;
 	legend {
 		font-size: 2em;
 	    font-weight: 600;
@@ -21,9 +24,12 @@
 	    border: 1px solid #ced4da;
 	    border-radius: .25rem;
 	}
-	.ms-login-form {
-		max-width: 500px;
-		display: block;
-		margin: auto;
+	.login-submit {
+		#wp-submit {
+			max-width: 200px;
+		    margin: auto;
+		    background: $blue;
+		    color: #fff;
+		}
 	}
 }

@@ -41,6 +41,13 @@
     	$('.contact-admin input.your-email').val(msg_email);
 
     	$('.logo-cont').matchHeight();
+
+    	var useremail = $('.sendtouser').data('toemail');
+		var name = $('.sendtouser').data('name');
+		$('.sendtouser .your-name input').val(name);
+		$('.sendtouser .your-email input').val(useremail);
+		$('.sendtouser .your-message textarea').val('this is a message from ofw power club');
+		$('.sendtouser .your-subject input').val('OFW Power Club Membership Payment Options');
     
 	});
 	

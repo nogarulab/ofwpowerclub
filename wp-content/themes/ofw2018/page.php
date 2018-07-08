@@ -8,9 +8,11 @@ if ( is_page('partner-dashboard') ) {
 
 } elseif ( is_page('agent-dashboard') ) {
 
+    echo '<div class="container">';
+
     if ( is_user_logged_in() && current_user_can('agent') ) :
 
-
+<<<<<<< HEAD
         /* SUBMIT do action Add Members*/
         if(isset($_POST['submit']))
         {
@@ -175,12 +177,18 @@ if ( is_page('partner-dashboard') ) {
         }
 
         echo '<a href="'. wp_logout_url( home_url() ) .'">Logout</a>';
+=======
+        get_template_part( 'agents/stats', get_post_format() );
+        get_template_part( 'agents/addmember', get_post_format() );
+>>>>>>> 6b73703f11274a133b1bb569f9e97326caa7e2e5
 
     else :
 
         echo 'You do not have permission to view this page. Please login as an agent to view this page';
 
     endif;
+
+    echo '</div>';
 
 } else {
 
@@ -238,6 +246,10 @@ if ( is_page('partner-dashboard') ) {
 
             if ( is_page('member-search') ) {
                 get_template_part( 'partners/member-search', get_post_format() );
+            }
+
+            if ( is_page('edit-my-personal-details') ) {
+                get_template_part( 'members/edit-profile', get_post_format() );
             }
 
 

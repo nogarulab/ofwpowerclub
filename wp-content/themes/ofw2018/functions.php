@@ -29,7 +29,7 @@ if (function_exists('add_theme_support'))
     add_theme_support('post-thumbnails');
     add_image_size('large', 700, '', true); // Large Thumbnail
     add_image_size('medium', 250, '', true); // Medium Thumbnail
-    add_image_size('small', 120, '', true); // Small Thumbnail
+    add_image_size('small', 70, 70, true); // Small Thumbnail
     add_image_size('home-prods', 500, 375, true); 
     add_image_size('testimonials', 180, 180, true); 
 
@@ -140,6 +140,20 @@ function html5blank_conditional_scripts()
         wp_register_script('aboutjs', get_template_directory_uri() . '/js/about.js', array('jquery'), '1.0.0'); // Conditional script(s)
         wp_enqueue_script('aboutjs'); // Enqueue it!
     }
+
+    if (is_singular('products')) {
+        wp_register_script('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), '1.8.1'); 
+        wp_enqueue_script('slick'); // Enqueue it!
+
+        wp_register_script('prodjs', get_template_directory_uri() . '/js/prod.js', array('jquery'), '1.0.0'); // Conditional script(s)
+        wp_enqueue_script('prodjs'); // Enqueue it!
+    }
+
+    if (is_page('edit-my-personal-details')) {
+        wp_register_script('editprofilejs', get_template_directory_uri() . '/js/editprofile.js', array('jquery'), '1.0.0'); // Conditional script(s)
+        wp_enqueue_script('editprofilejs');
+    }
+
 }
 
 // Load HTML5 Blank styles
@@ -869,6 +883,8 @@ function add_user_with_roles(){
          */
         extract($_POST);
 
+        echo $user_pass1;
+
         update_user_meta( $user_id, 'agent_id', get_current_user_id());
 
         update_user_meta( $user_id, 'middle_name', $middle_name);
@@ -895,7 +911,7 @@ function add_user_with_roles(){
         update_user_meta( $user_id, 'ms_last_name', $last_name);
         update_user_meta( $user_id, 'ms_name', $first_name.' '.$last_name);
         update_user_meta( $user_id, 'ms_subscriptions', 'a:1:{i:0;O:21:"MS_Model_Relationship":28:{s:16:"');
-        update_user_meta( $user_id, 'ms_username', $user_login);
+        update_user_meta( $user_id, 'ms_username', $user_email);
 
         /***
         ms_custom_data : a:0:{}
@@ -976,7 +992,7 @@ function add_user_with_roles(){
         $membership_post['pinged'] = "";
         $membership_post['post_type'] = "ms_event";
 
-        $post_meta_id = wp_insert_post( $membership_post);
+        $post_meta_id = wp_insert_post( $membership_post );
 
         $post_meta =[];
         $post_meta['custom_data'] = 'a:0:{}';
@@ -1000,6 +1016,9 @@ function add_user_with_roles(){
          * JUST AND PROMPT
          */
         echo "User created  ";
+        echo '<div class="sendtouser" data-username="'.$user_email.'" data-password="" data-toemail="'.$user_email.'" data-name="'.$first_name.' '.$last_name.'">';
+        echo do_shortcode('[contact-form-7 id="270" title="Send Payment Options To User Email"]');
+        echo '</div>';
         print_r($_POST);
 
     }else{
@@ -1025,5 +1044,46 @@ function add_slug_body_class( $classes ) {
     return $classes;
 }
 add_filter( 'body_class', 'add_slug_body_class' );
+
+update_option( 'show_avatars', 0 );
+
+
+/**
+ * Get taxonomies terms links.
+ *
+ * @see get_object_taxonomies()
+ */
+function wpdocs_custom_taxonomies_terms_links() {
+    // Get post by post ID.
+    if ( ! $post = get_post() ) {
+        return '';
+    }
+ 
+    // Get post type by post.
+    $post_type = $post->post_type;
+ 
+    // Get post type taxonomies.
+    $taxonomies = get_object_taxonomies( $post_type, 'objects' );
+ 
+    $out = array();
+ 
+    foreach ( $taxonomies as $taxonomy_slug => $taxonomy ){
+ 
+        // Get the terms related to post.
+        $terms = get_the_terms( $post->ID, $taxonomy_slug );
+ 
+        if ( ! empty( $terms ) ) {
+            $out[] = "<ul class='tax-terms pl-0 mb-0'>";
+            foreach ( $terms as $term ) {
+                $out[] = sprintf( '<li class="d-inline mr-2"><a class="px-2 py-1 rounded bg-yellow black h-c-black transition" href="%1$s">%2$s</a></li>',
+                    esc_url( get_term_link( $term->slug, $taxonomy_slug ) ),
+                    esc_html( $term->name )
+                );
+            }
+            $out[] = "</ul>";
+        }
+    }
+    return implode( '', $out );
+}
 
 ?>

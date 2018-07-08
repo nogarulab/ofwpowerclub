@@ -23,7 +23,7 @@ if ( ! is_user_logged_in() ) :
 	        $email = esc_sql($_REQUEST['email']);  
 	        if( !is_email( $email ) ) 
 	        {   
-	            $errors['email'] = "Please enter a valid email";  
+	        $errors['email'] = "Please enter a valid email";  
 	        } elseif( email_exists( $email ) ) 
 	        {  
 	            $errors['email'] = "This email address is already in use";  
@@ -282,8 +282,14 @@ if ( ! is_user_logged_in() ) :
 
     <div><input type="checkbox" name="receivesticker" value="" <?php echo (isset($_POST['receivesticker'])) ? 'checked=checked' : ''; ?> /> Receive OFW Power Club Sticker(s)</div>
     <div>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</div>
+<<<<<<< HEAD
     <div><input type="checkbox" name="terms_condition" required="" value="" <?php echo (isset($_POST['terms_condition'])) ? 'checked=checked' : ''; ?> /> Accept terms and condition</div>
     <div><input type="submit" id="submitbtn" name="submit" value="Sign Up" />  </div>
+=======
+    <div><input type="checkbox" name="terms_condition" value="" <?php echo (isset($_POST['terms_condition'])) ? 'checked=checked' : ''; ?> /> Accept terms and condition</div>
+    
+    <div><input type="submit" id="submitbtn" name="submit" value="Sign Up" /></div>
+>>>>>>> 6b73703f11274a133b1bb569f9e97326caa7e2e5
     <input type="hidden" name="post-type" id="post-type" value="<?php echo $posttype; ?>" />
 	<input type="hidden" name="action" value="<?php echo $posttype; ?>" />
 	<?php wp_nonce_field( 'submit_'.$posttype,'client_'.$posttype.'_nonce' ); ?>

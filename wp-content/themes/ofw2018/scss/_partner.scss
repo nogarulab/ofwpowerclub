@@ -32,6 +32,7 @@
 .logo-cont {
 	background-color: #f8f8f8;
 	padding: 20px;
+	min-height: 150px;
 	&:hover {
 		background-color: $blue;
 		img {
@@ -41,9 +42,38 @@
 	}
 }
 
+
+/*single-partner*/
+.single-partners {
+	.single-banner {
+		background-color: #f0f0f0;
+	    background-image: -webkit-linear-gradient(165deg, $yellow 60%, #f0f0f0 50%);
+	}
+	h2 {
+		font-size: 2.188em;
+	}
+	p {
+		font-size: 0.952em;
+	}
+	.owner-container {
+		border-top: 1px solid #adadad;
+		border-bottom: 1px solid #adadad;
+	}
+	h3 {
+		font-size: 1.500em;
+	}
+	ul {
+		li {
+			list-style: none;
+		}
+	}
+	h4 {
+		font-size: 1.2em;
+	}
+}
+
 .partner-dashboard {
 	background: $blue;
-	@include vertalignmidhoralignleft;
 
 	.wrapper {
 		max-width:1140px;
@@ -91,7 +121,7 @@
 
 			a {
 				display: block;
-				padding:15px 0 15px 50px;
+				padding:15px 0 15px 15px;
 				color:$white;
 				font-weight: 300;
 				@include transition(all 0.5s ease);
@@ -103,6 +133,15 @@
 		}
 
 	}
+
+	main section {
+		h1,
+		article.page {
+			display: none;
+		}
+	}
+
+	.sidebar { display:none }
 
 	.partner-dashboard-home {
 		background:$white;
@@ -147,10 +186,99 @@
 
 		}
 
-	}
+		.member-search {
 
+			div {
+				position: relative;
+				padding-right:120px;
+			}
+
+			input[type="text"] {
+				border:1px solid #ddd;
+				padding:17px 20px;
+				font-size:16px;
+				@include borderradius(0);
+
+				&::-webkit-input-placeholder { font-weight:300; color:#aaa; }
+				&::-moz-placeholder { font-weight:300; color:#aaa; }
+				&:-ms-input-placeholder { font-weight:300; color:#aaa; }
+				&:-moz-placeholder { font-weight:300; color:#aaa; }
+
+			}
+
+			input[type="submit"] {
+				position: absolute;
+				right:0;
+				top:0;
+				border:0;
+				font-size:16px;
+				padding: 20px;
+				background: $blue;
+				color:$white;
+				width:120px;
+			}
+		}
+
+		.search-results {
+
+			h4 {
+				margin:35px 0 15px;
+			}
+			
+			ul {
+				list-style: none;
+				//margin:0;
+				padding:0;
+			}
+
+			li {
+
+				div {
+					border:1px solid #eee;
+					padding:25px 25px 25px 130px;
+					@include transition(all 0.5s ease);
+					@include borderradius(5px);
+					position: relative;
+
+					img {
+						@include borderradius(200px);
+						width:90px;
+						height: auto;
+						position: absolute;
+						left:25px;
+						top:25px;
+					}
+
+				}
+
+				strong, em, span {
+					display: block;
+				}
+
+				strong {
+					font-weight: 400;
+					font-size:20px;
+				}
+
+				em {
+					margin:2px 0;
+					font-style: normal
+				}
+
+				em, span {
+					font-size:14px;
+					color:#999
+				}
+
+			}
+
+		}
+
+	}
+ 
 	footer.footer {
 		display: none;
 	}
 
 }
+

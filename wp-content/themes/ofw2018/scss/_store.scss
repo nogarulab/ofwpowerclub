@@ -1,0 +1,85 @@
+.store-container {
+	.categories {
+		padding-left: 0;
+		border-right: 2px solid #ccd;
+		li {
+			list-style: none;
+			transition: all .3s;
+			a {
+				color: $black;
+				transition: all .3s;
+				&:hover {
+					padding-left: 10px;
+				}
+			}
+		}
+		> li {
+			font-size: 1.125em;
+			font-weight: bold;
+			margin-bottom: 30px;
+			> a:hover {
+				color: $blue;
+			}
+			ul {
+				padding-left: 0;
+				li {
+					a {
+						font-weight: 400;
+						font-size: 0.938rem;
+						&:hover {
+							color: $red;
+						}
+					}
+				}
+			}
+		}
+	}
+	.prod-list {
+		a {
+			color: $black;
+			&:hover {
+				color: $red;
+			}
+		}
+		b {
+			font-size: 1.125em;
+		}
+	}
+}
+
+.single-product-page {
+	.first-col {
+		width: 20%;
+		float: left;
+		padding-right: 10px;
+		img {
+			cursor: pointer;
+		}
+	}
+	.sec-col {
+		width: 80%;
+		height: 50% !important;
+		float: right;
+	}
+	h3 {
+		font-size: 1.563em;
+	}
+	.tax-terms {
+		a {
+			font-size: 0.750em;
+		}
+	}
+	.single-price {
+		font-size: 1.563em;
+	}
+	.related {
+		a {
+			&:hover {
+				color: $red;
+			}
+			b {
+				font-size: 1.125em;
+			}
+		}
+	}
+}

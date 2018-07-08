@@ -1,3 +1,7 @@
+:focus {
+  outline: none
+}
+
 #preloader {
   position: fixed;
   top: 0;
@@ -140,3 +144,22 @@ p {
     font-size: 0.952em;
   }
 }
+
+.wp-pagenavi {
+    .current {
+      background: $red;
+      border-color: $red;
+      color: #fff;
+      border-radius: 3px;
+    }
+    .page.larger, .nextpostslink, .page.smaller , .previouspostslink  {
+      color: $red;
+      transition: all .3s;
+      border-radius: 3px;
+      &:hover {
+        background: $red;
+        border-color: $red;
+        color: #fff;
+      }
+    }
+  }

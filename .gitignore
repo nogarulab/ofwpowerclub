@@ -12,3 +12,6 @@
 !/wp-content/*/*/*/*/*/*
 /wp-content/themes/.DS_Store
 /wp-content/themes/ofw2018/.DS_Store
+/wp-content/themes/ofw2018/css/styles.css
+/wp-content/plugins/*
+/wp-content/uploads/*

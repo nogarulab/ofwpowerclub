@@ -8,20 +8,26 @@
 		// DOM ready, take it away
 		
 
-		$('.main-img').slick({
+		$('#thumb-prods').slick({
+		    slidesToShow: 4,
+			slidesToScroll: 1,
+			vertical: true,
+			// centerMode: true,
+			focusOnSelect: true,
+			arrows: false,
+			asNavFor: '#main-img'
+		});
+
+		$('#main-img').slick({
 		    slidesToShow: 1,
 		    infinite: true,
-			slidesToScroll: 1,
 			arrows: false,
 			fade: true,
-			asNavFor: '.thumb-prods'
-		  });
+			asNavFor: '#thumb-prods'
+		});
 
-		$('.thumb-prods').slick({
-		    slidesToShow: 1,
-			slidesToScroll: 1,
-			asNavFor: '.main-img'
-		  });
+		
+
     
 	});
 	

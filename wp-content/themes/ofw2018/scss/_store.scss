@@ -48,7 +48,38 @@
 }
 
 .single-product-page {
-	.thumb-prods {
-		width: 100px;
+	.first-col {
+		width: 20%;
+		float: left;
+		padding-right: 10px;
+		img {
+			cursor: pointer;
+		}
+	}
+	.sec-col {
+		width: 80%;
+		height: 50% !important;
+		float: right;
+	}
+	h3 {
+		font-size: 1.563em;
+	}
+	.tax-terms {
+		a {
+			font-size: 0.750em;
+		}
+	}
+	.single-price {
+		font-size: 1.563em;
+	}
+	.related {
+		a {
+			&:hover {
+				color: $red;
+			}
+			b {
+				font-size: 1.125em;
+			}
+		}
 	}
 }

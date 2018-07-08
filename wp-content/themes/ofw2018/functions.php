@@ -1033,4 +1033,43 @@ add_filter( 'body_class', 'add_slug_body_class' );
 
 update_option( 'show_avatars', 0 );
 
+
+/**
+ * Get taxonomies terms links.
+ *
+ * @see get_object_taxonomies()
+ */
+function wpdocs_custom_taxonomies_terms_links() {
+    // Get post by post ID.
+    if ( ! $post = get_post() ) {
+        return '';
+    }
+ 
+    // Get post type by post.
+    $post_type = $post->post_type;
+ 
+    // Get post type taxonomies.
+    $taxonomies = get_object_taxonomies( $post_type, 'objects' );
+ 
+    $out = array();
+ 
+    foreach ( $taxonomies as $taxonomy_slug => $taxonomy ){
+ 
+        // Get the terms related to post.
+        $terms = get_the_terms( $post->ID, $taxonomy_slug );
+ 
+        if ( ! empty( $terms ) ) {
+            $out[] = "<ul class='tax-terms pl-0 mb-0'>";
+            foreach ( $terms as $term ) {
+                $out[] = sprintf( '<li class="d-inline mr-2"><a class="px-2 py-1 rounded bg-yellow black h-c-black transition" href="%1$s">%2$s</a></li>',
+                    esc_url( get_term_link( $term->slug, $taxonomy_slug ) ),
+                    esc_html( $term->name )
+                );
+            }
+            $out[] = "</ul>";
+        }
+    }
+    return implode( '', $out );
+}
+
 ?>

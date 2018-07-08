@@ -1,12 +1,11 @@
-<?php get_header();
+<?php /* Template Name: Contact Us */ 
+
+ get_header();
 if (have_posts()):
     while (have_posts()) :
         the_post();
 
         $featuredImage = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); 
-
-        $office_lat = get_field('latitude');
-        $office_lng = get_field('longitude');
 ?>
 <div class="contact-us">
 
@@ -21,11 +20,6 @@ if (have_posts()):
 		</div>
 	</section>
 	
-<?php 
-	$the_query = new WP_Query(array('post_type'=>'page', 'pagename'=>'contact-us'));
-	while ( $the_query->have_posts() ) : $the_query->the_post();
-?>
-
 	<div class="container">
 		<div class="row">
 			
@@ -47,10 +41,6 @@ if (have_posts()):
 
 		</div>
 	</div>
-
-<?php 
-	endwhile; wp_reset_query(); 
-?>
 
 </div>
 <?php 

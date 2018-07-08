@@ -1,45 +1,50 @@
-<?php /* Template Name: Demo Page Template */ get_header(); ?>
+<?php /* Template Name: OFW Power Club Template */ 
 
-	<main role="main">
-		<!-- section -->
-		<section>
+get_header();
 
-			<h1><?php the_title(); ?></h1>
+if (have_posts()):
+    while (have_posts()) :
+        the_post();
 
-		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+        $featuredImage = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); 
+?>
+<div class="default-template">
 
-			<!-- article -->
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<section class="page-banner py-5 white text-uppercase" style="background-image:url(<?php echo $featuredImage; ?>);">
+		<div class="container py-5">
+			<div class="row">
+				<div class="col text-center">
+					<h2 class="font-weight-bold "><?php the_title(); ?></h2>
+					<span class="bread-crumbs">Home // <a href="<?php the_permalink() ?>" class="yellow transition"><?php the_title(); ?></a></span>
+				</div>
+			</div>
+		</div>
+	</section>
+	
 
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<section class="py-5">
 				<?php the_content(); ?>
+				
+			</section>
+		</div>
+	</div>
+</div>
+<?php endwhile; ?>
+<?php else: ?>
+	<div class="container">
+		<div class="row">
+			<div class="col-12 py-5">
+				<h3>Sorry, nothing to display.</h3>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>
 
-				<?php comments_template( '', true ); // Remove if you don't want comments ?>
+<?php get_sidebar('testimonies') ?>
 
-				<br class="clear">
 
-				<?php edit_post_link(); ?>
-
-			</article>
-			<!-- /article -->
-
-		<?php endwhile; ?>
-
-		<?php else: ?>
-
-			<!-- article -->
-			<article>
-
-				<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
-
-			</article>
-			<!-- /article -->
-
-		<?php endif; ?>
-
-		</section>
-		<!-- /section -->
-	</main>
-
-<?php get_sidebar(); ?>
-
+</div>
 <?php get_footer(); ?>

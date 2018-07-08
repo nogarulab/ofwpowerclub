@@ -4,6 +4,11 @@
 	}
 }
 
+.backward {
+	unicode-bidi:bidi-override;
+    direction: rtl;
+}
+
 .wpcf7 .contact-us-form {
 
 	h4 {

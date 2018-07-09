@@ -29,9 +29,9 @@
 				<?php the_content(); ?>
 				<br>
                 <form action="http://ofwpowerclub.nogarulab.com/register/" class="ms-membership-form" method="post">
-                    <input type="hidden" id="_wpnonce" name="_wpnonce" value="a4b0edf8b1">
+                    <input type="hidden" id="_wpnonce" name="_wpnonce" value="a925eefc72">
                     <input type="hidden" name="_wp_http_referer" value="/register/">
-                    <input class="wpmui-field-input wpmui-hidden" type="hidden" id="membership_id" name="membership_id" value="119">
+                    <input class="wpmui-field-input wpmui-hidden" type="hidden" id="membership_id" name="membership_id" value="342">
                     <input class="wpmui-field-input wpmui-hidden" type="hidden" id="action" name="action" value="membership_signup">
                     <input class="wpmui-field-input wpmui-hidden" type="hidden" id="step" name="step" value="payment_table">
                     <button class="wpmui-field-input button ms-signup-button membership_signup wpmui-submit button-primary black rounded bg-yellow py-3 px-5 d-inline-block mb-3" type="submit" id="submit" name="submit" value="">Apply Now</button>

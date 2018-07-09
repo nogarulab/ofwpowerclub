@@ -218,7 +218,7 @@
 						<select name="e_country" id="inputCountry" class="form-control">
 							<?php
 							$chosen_country = get_user_meta($user_ID, 'country', true);
-							$fields = get_field_object('field_5b3de51a64f76');
+							$fields = get_field_object('field_5b3ff14d13d65');
 							$choices = $fields['choices'];
 							foreach($choices as $choice):
 							?>

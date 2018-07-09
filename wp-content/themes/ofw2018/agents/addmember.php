@@ -236,7 +236,11 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 
         } else {
 
-        	echo 'Errors';
+        	echo '<ul>';
+        	foreach ($errors as $error) {
+        		echo '<li>'.$error.'</li>';
+        	}
+        	echo '</ul>';
 
         }
 

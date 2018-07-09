@@ -47,17 +47,14 @@
 									<h1 class="d-none"><?php bloginfo('name'); ?></h1>
 								</a>
 							</div>
-							<?php if ( is_user_logged_in() && current_user_can('partner') ) { ?>
-								<?php get_template_part( 'partners/partner-dashboard-menu', get_post_format() ); ?>
-							<?php } else { ?>
-							<div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+							<?php get_template_part( 'partners/partner-dashboard-menu', get_post_format() ); ?>
+							<div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 site-search">
 								<?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
 							</div>
-							<?php } ?>
 						</div>
 					</div>
 				</div>
-				<?php if ( ! current_user_can('partner') ) { ?>
+				
 				<nav class="navbar navbar-expand-lg navbar-dark">
 					<div class="container">
 						
@@ -91,5 +88,5 @@
 						
 					</div>
 				</nav>
-				<?php } ?>
+				
 			</header>

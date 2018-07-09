@@ -874,7 +874,8 @@ function add_slug_body_class( $classes ) {
         is_user_logged_in() && 
         current_user_can('partner') &&
         is_page('partner-dashboard') ||
-        is_page('member-search')
+        is_page('member-search') ||
+        is_page('contact-administrator')
     ) {
         $classes[] = 'partner-dashboard';
     } else {

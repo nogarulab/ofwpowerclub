@@ -1,3 +1,8 @@
+<div class="partner-dashboard-home">
+	<header>
+		<h3>Member Search</h3>
+		<p>Verify customers if they are OFW Power Club members by searching them here. Please enter full name or email address.</p>
+	</header>
 <?php
 if ( is_user_logged_in() && current_user_can('partner') ) :
 	$current_user = wp_get_current_user();
@@ -8,3 +13,4 @@ else :
 	echo '<p>You do not have permission to use this form!</p>';
 endif;
 ?>
+</div>

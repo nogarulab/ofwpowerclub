@@ -75,6 +75,14 @@
 .partner-dashboard {
 	background: $blue;
 
+	.partner-dashboard-menu {
+		display: block;
+	}
+
+	.site-search {
+		display: none;
+	}
+
 	.wrapper {
 		max-width:1140px;
 		margin: 0 auto;
@@ -130,6 +138,10 @@
 				}
 			}
 
+		}
+
+		nav.navbar {
+			display: none;
 		}
 
 	}

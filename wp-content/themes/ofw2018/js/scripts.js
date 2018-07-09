@@ -48,6 +48,9 @@
 		$('.sendtouser .your-email input').val(useremail);
 		$('.sendtouser .your-message textarea').val('this is a message from ofw power club');
 		$('.sendtouser .your-subject input').val('OFW Power Club Membership Payment Options');
+
+		var home_url = $('.header .mid-header a').attr('href');
+		$('.ms-edit-profile').attr('href', home_url+'/edit-my-personal-details/');
     
 	});
 	

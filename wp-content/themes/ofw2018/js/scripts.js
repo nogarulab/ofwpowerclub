@@ -44,9 +44,11 @@
 
     	var useremail = $('.sendtouser').data('toemail');
 		var name = $('.sendtouser').data('name');
+		var password = $('.sendtouser').data('password');
+		var message = 'Hello '+name+', You have successfully sent your application for OFW Power Club Membership blah blah blah. Your OFW Power Club Account Details is: USERNAME: '+useremail+' and your PASSWORD: '+password;
 		$('.sendtouser .your-name input').val(name);
 		$('.sendtouser .your-email input').val(useremail);
-		$('.sendtouser .your-message textarea').val('this is a message from ofw power club');
+		$('.sendtouser .your-message textarea').val(message);
 		$('.sendtouser .your-subject input').val('OFW Power Club Membership Payment Options');
 
 		var home_url = $('.header .mid-header a').attr('href');

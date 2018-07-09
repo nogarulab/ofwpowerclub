@@ -6,6 +6,39 @@
 
 		$current_user = wp_get_current_user();
 		$profileimg = get_field('profile_picture', 'user_'.$current_user->ID);
+
+		// $bdate = get_user_meta($user_ID, 'birthday', true);
+		// $bdate 	= new DateTime($bdate);
+		// $byear 	= $bdate->format('Y');
+		// $bmonth	= $bdate->format('n');
+		// $bday 	= $bdate->format('j');
+
+
+		// if (isset($_POST['e_month'])) {
+		// 	$b_month = $_POST['b_month'];
+		// } else {
+		// 	$b_month = $bmonth;
+		// }
+
+		// if (isset($_POST['e_day'])) {
+		// 	$b_day = $_POST['b_day'];
+		// } else {
+		// 	$b_day = $bday;
+		// }
+
+		// if (isset($_POST['e_year'])) {
+		// 	$b_year = $_POST['b_year'];
+		// } else {
+		// 	$b_year = $byear;
+		// }
+
+		// $birthdate = $bmonth.'-'.$bday.'-'.$byear;
+		// echo $birthdate.'<br>';
+		// $date = DateTime::createFromFormat('m-j-Y', $birthdate);
+		// $birthdate_formated = $date->format('Ymd');
+		// echo $birthdate_formated;
+
+		// $months = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
 		
 		$user_ID = $current_user->ID;
 
@@ -35,7 +68,7 @@
 		    	$errors['lastname'] = "Please make sure you repeat your password correctly.";
 		    }
 
-		    if (strlen($_POST['new_password']) < 8) {
+		    if (strlen($_POST['new_password']) > 1 && strlen($_POST['new_password']) < 8) {
 		    	$errors['lastname'] = "Password should be more than 8 characters";
 		    }
 
@@ -45,7 +78,10 @@
 				update_user_meta( $user_ID, 'last_name', $_POST['lastname'] );
 				update_user_meta( $user_ID, 'contact_number', $_POST['contact_number'] );
 				update_user_meta( $user_ID, 'gender', $_POST['gender'] );
-				update_user_meta( $user_ID, 'birthday', $_POST['gender'] );
+				update_user_meta( $user_ID, 'birthday_year', $_POST['e_year'] );
+				update_user_meta( $user_ID, 'birthday_day', $_POST['e_day'] );
+				update_user_meta( $user_ID, 'birthday_month', $_POST['e_month'] );
+            	update_user_meta( $user_ID, 'country', $_POST['e_country'] );
 				update_user_meta( $user_ID, 'hk_id_number', $_POST['hk_id_number'] );
 				update_user_meta( $user_ID, 'address', $_POST['address'] );
 				update_user_meta( $user_ID, 'beneficiary_name', $_POST['beneficiary_name'] );
@@ -66,6 +102,9 @@
 		        	wp_update_user( array( 'ID' => $user_ID, 'user_pass' => esc_attr( $_POST['new_password'] ) ) );
 		        }
 
+		        echo 'You have successfully edited your profile. <a href="'.home_url().'/account">Back To My Account</a>';
+		        exit;
+
 			} else {
 				echo '<ul>';
 				foreach ($errors as $error) {
@@ -78,7 +117,7 @@
 
 	?>
 
-	<form id="edit_profile_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
+	<form id="edit_profile_form" action="" method="post" enctype="multipart/form-data" class="form-layout">
 		<div class="row">
 			<div class="col-lg-3">
 				
@@ -86,6 +125,7 @@
 					<div class="updatephoto">
 						<img class="profile-photo" id="profile_photo" src="<?php echo $profileimg; ?>" alt="" />
 						<input type="file" name="profile_picture" id="profile_picture"  multiple="false" accept="image/gif, image/jpeg, image/png" />
+						<div class="upload-text">Upload Profile Picture</div>
 					</div>
 					<div class="details">
 						<p><strong>Username:</strong> <?php echo $current_user->user_login; ?></p>
@@ -126,47 +166,42 @@
 					</div>
 					<div class="col-md-8">
 						<label for="inputBirthday">Birthday</label>
-						<?php
-							$bdate = get_user_meta($user_ID, 'birthday', true);
-							$bdate 	= new DateTime($bdate);
-							$year 	= $bdate->format('Y');
-							$bmonth	= $bdate->format('n');
-							$day 	= $bdate->format('j');
-							$months = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
-						?>	
 						<div class="form-row">
 							<div class="form-group col-md-6">
-								<select name="month" class="form-control">
+								<select name="e_month" class="form-control">
 									<?php 
-									$m_counter = 0;
+									$b_month = get_user_meta( $user_ID, 'birthday_month', true );
+									$months = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
 									foreach ($months as $month) {
-										$m_counter++;
-										if ($m_counter < 10) {
-											$m_counter = '0'.$m_counter;
-										}
 									?>
-									<option <?php echo ($months[$bmonth-1] == $month) ? 'selected="selected"' : ''; ?> value="<?php echo $m_counter; ?>"><?php echo $month; ?></option>
+									<option <?php echo ($b_month == $month) ? 'selected="selected"' : ''; ?> value="<?php echo $month; ?>"><?php echo $month; ?></option>
 									<?php } ?>
 								</select>
 							</div>
 							<div class="form-group col-md-3">
-								<select name="day" class="form-control">
+								<select name="e_day" class="form-control">
 									<?php
+									$b_day = get_user_meta( $user_ID, 'birthday_day', true );
 									$d_counter = 0;
+									$d_counter_value = 0;
 									for ($i=1; $i<=31; $i++) {
 										$d_counter++;
+										$d_counter_value++;
 										if ($d_counter < 10) {
 											$d_counter = '0'.$d_counter;
 										}
 									?>
-											<option <?php echo ($day == $i) ? 'selected="selected"' : ''; ?> value="<?php echo $d_counter; ?>"><?php echo $i; ?></option>
+											<option <?php echo ($b_day == $i) ? 'selected="selected"' : ''; ?> value="<?php echo $d_counter_value; ?>"><?php echo $i; ?></option>
 									<?php } ?>
 								</select>
 							</div>
 							<div class="form-group col-md-3">
-								<select name="year" class="form-control">
-									<?php for ($i=1940; $i<=(date('Y')-10); $i++) { ?>
-									<option <?php echo ($year == $i) ? 'selected="selected"' : ''; ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+								<select name="e_year" class="form-control">
+									<?php 
+									$b_year = get_user_meta( $user_ID, 'birthday_year', true );
+									for ($i=1940; $i<=(date('Y')-10); $i++) {
+									?>
+									<option <?php echo ($b_year == $i) ? 'selected="selected"' : ''; ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
 									<?php } ?>
 								</select>
 							</div>
@@ -180,10 +215,10 @@
 					</div>
 					<div class="form-group col-md-4">
 						<label for="inputCountry">Country Of Work</label>
-						<select name="country" id="inputCountry" class="form-control">
+						<select name="e_country" id="inputCountry" class="form-control">
 							<?php
 							$chosen_country = get_user_meta($user_ID, 'country', true);
-							$fields = get_field_object('field_5b3de51a64f76');
+							$fields = get_field_object('field_5b3ff14d13d65');
 							$choices = $fields['choices'];
 							foreach($choices as $choice):
 							?>
@@ -231,11 +266,11 @@
 				<div class="form-row">
 					<div class="form-group col-md-6">
 						<label for="inputPassword">New Password</label>
-						<input type="text" value="" name="new_password" id="inputPassword" class="form-control" />
+						<input type="password" value="" name="new_password" id="inputPassword" class="form-control" />
 					</div>
 					<div class="form-group col-md-6">
 						<label for="inputRPassword">New Password</label>
-						<input type="text" value="" name="repeat_password" id="inputRPassword" class="form-control" />
+						<input type="password" value="" name="repeat_password" id="inputRPassword" class="form-control" />
 					</div>
 				</div>
 			</div>

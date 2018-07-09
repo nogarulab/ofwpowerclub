@@ -33,27 +33,45 @@
 		<div class="wrapper">
 
 			<header class="header clear" role="banner">
+				<div class="logged-in-account">
+					<div class="container text-right">
+					<?php
+					if ( is_user_logged_in() ) {
+						$acurrent_user = wp_get_current_user();
+						$firstname = get_user_meta($acurrent_user->ID, 'first_name', true);
+						$user = wp_get_current_user();
+    					$role = ( array ) $user->roles;
+    					if ( $role[0] == 'subscriber' ) {
+    						echo '<span>Hello '.$firstname.' | <a href="'.home_url().'/account">My Account</a> | <a href="'.wp_logout_url( home_url() ).'">Logout</a></span>';
+    					} else {
+    						echo '<span>Hello '.$firstname.' | <a href="'.home_url().'/wp-admin">My Dashboard</a> | <a href="'.wp_logout_url( home_url() ).'">Logout</a></span>';
+    					}
+					}
+					?>						
+					</div>
+				</div>
 				<div class="mid-header py-2">
 					<div class="container">
 						<div class="row align-items-center justify-content-between">
 							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-5">
 								<a href="<?php echo home_url(); ?>">
-									<?php echo file_get_contents(get_template_directory_uri().'/img/logo.svg'); ?>
+									<?php 
+									//echo file_get_contents(get_template_directory_uri().'/img/logo.svg');
+									$data = url_get_contents(get_template_directory_uri().'/img/logo.svg');
+									echo $data;
+									?>
 									<!-- <img src="<?php #echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img img-fluid d-block mx-auto"> -->
 									<h1 class="d-none"><?php bloginfo('name'); ?></h1>
 								</a>
 							</div>
-							<?php if ( is_user_logged_in() && current_user_can('partner') ) { ?>
-								<?php get_template_part( 'partners/partner-dashboard-menu', get_post_format() ); ?>
-							<?php } else { ?>
-							<div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+							<?php get_template_part( 'partners/partner-dashboard-menu', get_post_format() ); ?>
+							<div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 site-search">
 								<?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
 							</div>
-							<?php } ?>
 						</div>
 					</div>
 				</div>
-				<?php if ( ! current_user_can('partner') ) { ?>
+				
 				<nav class="navbar navbar-expand-lg navbar-dark">
 					<div class="container">
 						
@@ -87,5 +105,5 @@
 						
 					</div>
 				</nav>
-				<?php } ?>
+				
 			</header>

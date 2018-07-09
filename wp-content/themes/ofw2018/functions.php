@@ -149,8 +149,8 @@ function html5blank_conditional_scripts()
         wp_enqueue_script('prodjs'); // Enqueue it!
     }
 
-    if (is_page('edit-my-personal-details')) {
-        wp_register_script('editprofilejs', get_template_directory_uri() . '/js/editprofile.js', array('jquery'), '1.0.0'); // Conditional script(s)
+    if (is_page('edit-my-personal-details') || is_page('agent-dashboard')) {
+        wp_register_script('editprofilejs', get_template_directory_uri() . '/js/editprofile.js', '', '', true);
         wp_enqueue_script('editprofilejs');
     }
 
@@ -867,166 +867,6 @@ function custom_admin_js() {
 }
 add_action('admin_footer', 'custom_admin_js');
 
-/* Adding Members */
-function add_user_with_roles(){
-    /* Inserting Users in WP*/
-    $user_id = wp_insert_user( $_POST ) ;
-    /* Checking if not error*/
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
-//    return '';
-    if ( ! is_wp_error( $user_id ) ) {
-        /***
-         * Adding additional metakey in user meta
-         * agent_id ~ Current User ID
-         */
-        extract($_POST);
-
-        echo $user_pass1;
-
-        update_user_meta( $user_id, 'agent_id', get_current_user_id());
-
-        update_user_meta( $user_id, 'middle_name', $middle_name);
-        update_user_meta( $user_id, 'gender', $gender);
-        update_user_meta( $user_id, 'dob_month', $dob_month);
-        update_user_meta( $user_id, 'dob_day', $dob_day);
-        update_user_meta( $user_id, 'dob_year', $dob_year);
-        update_user_meta( $user_id, 'mobile', $mobile);
-        update_user_meta( $user_id, 'country_work', $country_work);
-        update_user_meta( $user_id, 'address_work', $address_work);
-        update_user_meta( $user_id, 'passport_number', $passport_number);
-        update_user_meta( $user_id, 'beneficiary_name', $beneficiary_name);
-        update_user_meta( $user_id, 'beneficiary_address', $beneficiary_address);
-        update_user_meta( $user_id, 'beneficiary_contact', $beneficiary_contact);
-        update_user_meta( $user_id, 'beneficiary_relationship', $beneficiary_relationship);
-
-        update_user_meta( $user_id, 'ms_custom_data', "a:0:{}");
-        update_user_meta( $user_id, 'ms_email', $user_email);
-        update_user_meta( $user_id, 'ms_gateway_profiles', "a:0:{}");
-        update_user_meta( $user_id, 'ms_id', $user_id);
-        update_user_meta( $user_id, 'ms_is_member', 1);
-        update_user_meta( $user_id, 'ms_first_name', $first_name);
-        update_user_meta( $user_id, 'contact_number', '');
-        update_user_meta( $user_id, 'ms_last_name', $last_name);
-        update_user_meta( $user_id, 'ms_name', $first_name.' '.$last_name);
-        update_user_meta( $user_id, 'ms_subscriptions', 'a:1:{i:0;O:21:"MS_Model_Relationship":28:{s:16:"');
-        update_user_meta( $user_id, 'ms_username', $user_email);
-
-        /***
-        ms_custom_data : a:0:{}
-        ms_email : user_email
-        ms_first_name : first_name
-        ms_gateway_profiles : a:0:{}
-        ms_id : $user_id
-        ms_is_member : 1
-        ms_last_name : last_name
-        ms_name : first_name.' '.last_name
-        ms_subscriptions : a:1:{i:0;O:21:"MS_Model_Relationship":28:{s:16:"
-        ms_username : user_login
-         *
-         * update_post_meta( $post_id, $meta_key, $meta_value, $prev_value ); ?>
-         */
-        $membership_id = 25;
-        $membership_post = [];
-        $membership_post['post_author'] = $user_id;
-        $membership_post['post_content'] = "user_id: ".$user_id.", membership_id: ".$membership_id;
-        $membership_post['post_title'] = "user_id-$user_id-membership_id-$membership_id";
-        $membership_post['post_excerpt'] = "user_id: ".$user_id.", membership_id: ".$membership_id;
-        $membership_post['post_status'] = "private";
-        $membership_post['comment_status'] = "closed";
-        $membership_post['ping_status'] = "closed";
-        $membership_post['post_password'] = "";
-        $membership_post['post_name'] = "user_id-$user_id-membership_id-$membership_id";
-        $membership_post['to_ping'] = "";
-        $membership_post['pinged'] = "";
-        $membership_post['post_type'] = "ms_relationship";
-
-        $post_id = wp_insert_post( $membership_post);
-
-        $membership_post_update['id'] = $post_id;
-        $membership_post_update['guid'] = "http://localhost/ofwpowerclub/ms_relationship/$post_id/";
-        wp_insert_post( $membership_post_update);
-
-        $post_meta =[];
-        $post_meta['cancelled_memberships'] = '';
-        $post_meta['current_invoice_number'] = 1;
-        $post_meta['custom_data'] = 'a:0:{}';
-        $post_meta['description'] = $membership_post['post_content'];
-        $post_meta['email_log'] = 'a:0:{}';
-        $post_meta['expire_date'] = date('Y-m-d',strtotime("+30 days"));
-        $post_meta['gateway_id'] = 'admin';
-        $post_meta['id'] = $post_id;
-        $post_meta['is_simulated'] = '';
-        $post_meta['membership_id'] = $membership_id;
-        $post_meta['move_from_id'] = 0;
-        $post_meta['cancelled_memberships'] = '';
-        $post_meta['name'] = $membership_post['post_content'];
-        $post_meta['payment_type'] = 'recurring';
-        $post_meta['payments'] = 'a:0:{}';
-        $post_meta['post_modified'] = date('Y-m-d H:i:s');
-        $post_meta['source'] = '';
-        $post_meta['source_id'] = '';
-        $post_meta['start_date'] = date('Y-m-d');
-        $post_meta['status'] = 'active';
-        $post_meta['title'] = '';
-        $post_meta['trial_expire_date'] = '';
-        $post_meta['trial_period_completed'] = '';
-        $post_meta['user_id'] = $user_id;
-
-        foreach($post_meta as $key=>$pm){
-            add_post_meta( $post_id,  $key,  $pm );
-        }
-
-        $membership_post = [];
-        $membership_post['post_author'] = $user_id;
-        $membership_post['post_content'] = "Has signed up to membership member.";
-        $membership_post['post_title'] = "user-".$first_name."-".$last_name."-membership-member-type-signed_up";
-        $membership_post['post_excerpt'] = "Has signed up to membership member.";
-        $membership_post['post_status'] = "private";
-        $membership_post['comment_status'] = "closed";
-        $membership_post['ping_status'] = "closed";
-        $membership_post['post_password'] = "";
-        $membership_post['post_name'] = "user-".$first_name."-".$last_name."-membership-member-type-signed_up";
-        $membership_post['to_ping'] = "";
-        $membership_post['pinged'] = "";
-        $membership_post['post_type'] = "ms_event";
-
-        $post_meta_id = wp_insert_post( $membership_post );
-
-        $post_meta =[];
-        $post_meta['custom_data'] = 'a:0:{}';
-        $post_meta['date'] = date('Y-m-d');
-        $post_meta['description'] = 'Has signed up to membership member.';
-        $post_meta['id'] = 0;
-        $post_meta['ms_relationship_id'] = $post_id;
-        $post_meta['membership_id'] = $membership_id;
-        $post_meta['name'] = "user: ".$first_name." ".$last_name.", membership: member, type: signed_up";
-        $post_meta['post_modified'] = date('Y-m-d H:i:s');
-        $post_meta['title'] = '';
-        $post_meta['topic'] = 'membership';
-        $post_meta['type'] = 'singed_up';
-        $post_meta['user_id'] = $user_id;
-
-        foreach($post_meta as $key=>$pm){
-            add_post_meta( $post_meta_id,  $key,  $pm );
-        }
-
-        /***
-         * JUST AND PROMPT
-         */
-        echo "User created  ";
-        echo '<div class="sendtouser" data-username="'.$user_email.'" data-password="" data-toemail="'.$user_email.'" data-name="'.$first_name.' '.$last_name.'">';
-        echo do_shortcode('[contact-form-7 id="270" title="Send Payment Options To User Email"]');
-        echo '</div>';
-        print_r($_POST);
-
-    }else{
-        echo "there was an error";
-    }
-}
-add_action('add_members', 'add_user_with_roles');
-
 function add_slug_body_class( $classes ) {
     global $post;
 
@@ -1034,7 +874,8 @@ function add_slug_body_class( $classes ) {
         is_user_logged_in() && 
         current_user_can('partner') &&
         is_page('partner-dashboard') ||
-        is_page('member-search')
+        is_page('member-search') ||
+        is_page('contact-administrator')
     ) {
         $classes[] = 'partner-dashboard';
     } else {
@@ -1084,6 +925,25 @@ function wpdocs_custom_taxonomies_terms_links() {
         }
     }
     return implode( '', $out );
+}
+
+function url_get_contents ($url) {
+    if (function_exists('curl_exec')){ 
+        $conn = curl_init($url);
+        curl_setopt($conn, CURLOPT_SSL_VERIFYPEER, true);
+        curl_setopt($conn, CURLOPT_FRESH_CONNECT,  true);
+        curl_setopt($conn, CURLOPT_RETURNTRANSFER, 1);
+        $url_get_contents_data = (curl_exec($conn));
+        curl_close($conn);
+    }elseif(function_exists('file_get_contents')){
+        $url_get_contents_data = file_get_contents($url);
+    }elseif(function_exists('fopen') && function_exists('stream_get_contents')){
+        $handle = fopen ($url, "r");
+        $url_get_contents_data = stream_get_contents($handle);
+    }else{
+        $url_get_contents_data = false;
+    }
+return $url_get_contents_data;
 }
 
 ?>

@@ -78,8 +78,21 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 
             wp_update_user( array ('ID' => $new_user_id,  'display_name' => $display_name) ) ;
             update_user_meta( $new_user_id, 'first_name', sanitize_text_field( $first_name ) );
+            update_user_meta( $new_user_id, 'middle_name', sanitize_text_field( $_POST['m_middlename'] ) );
             update_user_meta( $new_user_id, 'last_name', sanitize_text_field( $last_name ) );
+            update_user_meta( $new_user_id, 'gender', $_POST['m_gender'] );
+            update_user_meta( $new_user_id, 'contact_number', $_POST['m_contact_number'] );
+            update_user_meta( $new_user_id, 'country', $_POST['m_country'] );
             update_user_meta( $new_user_id, 'agent_id', $current_user->ID );
+            update_user_meta( $new_user_id, 'hk_id_number', $_POST['hk_id_number'] );
+            update_user_meta( $new_user_id, 'address', $_POST['m_address'] );
+            update_user_meta( $new_user_id, 'birthday_year', $_POST['b_year'] );
+            update_user_meta( $new_user_id, 'birthday_month', $_POST['b_month'] );
+            update_user_meta( $new_user_id, 'birthday_day', $_POST['b_day'] );
+            update_user_meta( $new_user_id, 'beneficiary_name', $_POST['beneficiary_name'] );
+            update_user_meta( $new_user_id, 'beneficiary_contactnumber', $_POST['beneficiary_contactnumber'] );
+            update_user_meta( $new_user_id, 'relationship_with_beneficiary', $_POST['relationship_with_beneficiary'] );
+            update_user_meta( $new_user_id, 'beneficiary_address', $_POST['beneficiary_address'] );
             update_user_meta( $new_user_id, 'ms_custom_data', 'a:0:{}' );
             update_user_meta( $new_user_id, 'ms_gateway_profiles', 'a:0:{}' );
             update_user_meta( $new_user_id, 'ms_id', $new_user_id );
@@ -90,6 +103,15 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
             update_user_meta( $new_user_id, 'ms_subscription', 'a:0:{}' );
             update_user_meta( $new_user_id, 'ms_username', $m_email );
             update_user_meta( $new_user_id, 'ms_email', $m_email );
+
+            require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+	        require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+	        require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+	        
+	        $attachment_id = media_handle_upload( 'profile_picture', $new_user_id );
+	        if (!empty($attachment_id) && !is_wp_error( $attachment_id )) {
+	        	update_user_meta( $new_user_id, 'profile_picture', $attachment_id );
+	        }
 
 	        $m_email_clean = strtolower($m_email);
 	        $m_email_clean = str_replace("@", " ", $m_email_clean);
@@ -120,7 +142,7 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
             add_post_meta( $new_ms_event, 'type', 'registered' );
 
             //Relationship
-            $membership_id = 11;
+            $membership_id = 342;
             $add_ms_relationship = array(
             	'post_author' 		=> $new_user_id,
             	'post_content'		=> 'user_id: '.$new_user_id.', membership: '.$membership_id,
@@ -214,7 +236,11 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 
         } else {
 
-        	echo 'Errors';
+        	echo '<ul>';
+        	foreach ($errors as $error) {
+        		echo '<li>'.$error.'</li>';
+        	}
+        	echo '</ul>';
 
         }
 
@@ -222,7 +248,7 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 	
 ?>
 
-<form id="wp_addmember_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">  
+<form id="wp_addmember_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data" class="form-layout">  
 
 	<h1>Add A Member</h1>
 
@@ -232,6 +258,7 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 				<div class="updatephoto">
 					<img class="profile-photo" id="profile_photo" src="<?php echo get_template_directory_uri().'/img/no-profile-pic.png'; ?>" alt="" />
 					<input type="file" name="profile_picture" id="profile_picture"  multiple="false" accept="image/gif, image/jpeg, image/png" />
+					<div class="upload-text">Upload Profile Picture</div>
 				</div>
 			</div>
 		</div>
@@ -263,7 +290,7 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 		</div>
 		<div class="form-group col-md-4">
 			<label for="inputMiddlename">Middle Name</label>
-			<input type="text" value="Mid Name" name="m_firstname" id="inputMiddlename" class="form-control" />
+			<input type="text" value="Mid Name" name="m_middlename" id="inputMiddlename" class="form-control" />
 		</div>
 		<div class="form-group col-md-4">
 			<label for="inputLastname">Last Name</label>
@@ -274,7 +301,8 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 		<div class="form-group col-md-4">
 			<label for="inputGender">Gender</label>
 			<?php $gender_lists = array('Male', 'Female'); ?>
-			<select name="gender" id="inputGender" class="form-control">
+			<select name="m_gender" id="inputGender" class="form-control">
+				<option>--</option>
 				<?php foreach ($gender_lists as $gender_list) { ?>
 					<option><?php echo $gender_list; ?></option>
 				<?php } ?>
@@ -287,21 +315,18 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 			?>	
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<select name="month" class="form-control">
+					<select name="b_month" class="form-control">
+						<option>--</option>
 						<?php 
-						$m_counter = 0;
 						foreach ($months as $month) {
-							$m_counter++;
-							if ($m_counter < 10) {
-								$m_counter = '0'.$m_counter;
-							}
-							echo '<option value="'.$m_counter.'">'.$month.'</option>';
+							echo '<option value="'.$month.'">'.$month.'</option>';
 						}
 						?>
 					</select>
 				</div>
 				<div class="form-group col-md-3">
-					<select name="day" class="form-control">
+					<select name="b_day" class="form-control">
+						<option>--</option>
 						<?php
 						$d_counter = 0;
 						for ($i=1; $i<=31; $i++) {
@@ -315,7 +340,8 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 					</select>
 				</div>
 				<div class="form-group col-md-3">
-					<select name="year" class="form-control">
+					<select name="b_year" class="form-control">
+						<option>--</option>
 						<?php
 						for ($i=1940; $i<=(date('Y')-10); $i++) {
 							echo '<option value="'.$i.'">'.$i.'</option>';
@@ -329,13 +355,14 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 	<div class="form-row">
 		<div class="form-group col-md-4">
 			<label for="inputContactnumber">Contact Number</label>
-			<input type="text" value="" name="contact_number" id="inputContactnumber" class="form-control" />
+			<input type="text" value="" name="m_contact_number" id="inputContactnumber" class="form-control" />
 		</div>
 		<div class="form-group col-md-4">
 			<label for="inputCountry">Country Of Work</label>
-			<select name="country" id="inputCountry" class="form-control">
+			<select name="m_country" id="inputCountry" class="form-control">
+				<option>--</option>
 				<?php
-				$fields = get_field_object('field_5b3de51a64f76');
+				$fields = get_field_object('field_5b3ff14d13d65');
 				$choices = $fields['choices'];
 				foreach($choices as $choice):
 					echo '<option value="'.$choice.'">'.$choice.'</option>';
@@ -351,7 +378,7 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 	<div class="form-row">
 		<div class="form-group col-md-12">
 			<label for="inputAddress">Address In Hong Kong/Place Of Work</label>
-			<input type="text" value="" name="address" id="inputAddress" class="form-control" />
+			<input type="text" value="" name="m_address" id="inputAddress" class="form-control" />
 		</div>
 	</div>
 	<hr />

@@ -4,7 +4,7 @@ $partner_page_id = get_user_meta( $current_user->ID, 'partner_page_id', true );
 $post = get_post($partner_page_id); 
 $slug = $post->post_name;
 ?>
-<div>
+<div class="partner-dashboard-menu">
 	<ul>
 		<li><a href="<?php echo home_url(); ?>/partner-dashboard">Dashboard</a></li>
 		<li><a href="<?php echo home_url(); ?>/member-search">Search Member</a></li>

@@ -246,3 +246,11 @@ p {
 .partner-dashboard-menu {
   display: none;
 }
+
+.logged-in-account {
+  font-size:13px;
+  a {
+    text-transform: uppercase;
+    color:$black;
+  }
+}

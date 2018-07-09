@@ -1,5 +1,8 @@
 .header {
-	border-top: 12px solid $yellow;
+	.logged-in-account {
+		padding:6px 0;
+		background: $yellow;
+	}
 
 	svg {
 		width:160px;

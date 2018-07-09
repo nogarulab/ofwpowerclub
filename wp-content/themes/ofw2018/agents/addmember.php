@@ -142,7 +142,7 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
             add_post_meta( $new_ms_event, 'type', 'registered' );
 
             //Relationship
-            $membership_id = 11;
+            $membership_id = 342;
             $add_ms_relationship = array(
             	'post_author' 		=> $new_user_id,
             	'post_content'		=> 'user_id: '.$new_user_id.', membership: '.$membership_id,

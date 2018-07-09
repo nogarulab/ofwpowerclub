@@ -38,7 +38,10 @@
 						<div class="row align-items-center justify-content-between">
 							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-5">
 								<a href="<?php echo home_url(); ?>">
-									<?php echo file_get_contents(get_template_directory_uri().'/img/logo.svg'); ?>
+									<?php 
+									echo file_get_contents(get_template_directory_uri().'/img/logo.svg');
+									echo 'allow_url_fopen = ', ini_get('allow_url_fopen');
+									?>
 									<!-- <img src="<?php #echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img img-fluid d-block mx-auto"> -->
 									<h1 class="d-none"><?php bloginfo('name'); ?></h1>
 								</a>

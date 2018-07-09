@@ -24,12 +24,20 @@
 	    border: 1px solid #ced4da;
 	    border-radius: .25rem;
 	}
-	.login-submit {
-		#wp-submit {
-			max-width: 200px;
-		    margin: auto;
-		    background: $blue;
-		    color: #fff;
-		}
+	#wp-submit, #register {
+		max-width: 200px;
+		margin-left: auto;
+		margin-right: auto;
+		background: $blue;
+		color: #fff;
+		border: none;
+		padding: .375rem .75rem;
+		line-height: 1.5;
+		border-radius: .25rem;
 	}
+}
+
+svg {
+	max-width: 200px;
+	height: auto;
 }

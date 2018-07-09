@@ -40,7 +40,8 @@
 								<a href="<?php echo home_url(); ?>">
 									<?php 
 									//echo file_get_contents(get_template_directory_uri().'/img/logo.svg');
-									include(get_template_directory_uri().'/img/logo.svg');
+									$data = url_get_contents(get_template_directory_uri().'/img/logo.svg');
+									echo $data;
 									?>
 									<!-- <img src="<?php #echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img img-fluid d-block mx-auto"> -->
 									<h1 class="d-none"><?php bloginfo('name'); ?></h1>

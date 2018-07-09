@@ -14,8 +14,11 @@ if ( ! is_user_logged_in() ) :
 	    $errors = array();  
 	   
 	    if( $_SERVER['REQUEST_METHOD'] == 'POST' ) 
-	    {  
-	   
+	    {
+            echo "<pre>";
+            print_r($_POST);
+            echo "</pre>";
+
 	        // Check email address is present and valid  
 	        $email = esc_sql($_REQUEST['email']);  
 	        if( !is_email( $email ) ) 
@@ -104,6 +107,30 @@ if ( ! is_user_logged_in() ) :
 		    	$errors['category'] = "Please choose not more than 3 categories.";
 		    }
 
+            if (empty($b_location)) {
+                $errors['b_location'] = "Please input at least 1 Branch Location.";
+            }
+
+            if (empty($b_address)) {
+                $errors['b_address'] = "Please provide us at least 1 Branch Address.";
+            }
+
+            if (empty($b_contactnumber)) {
+                $errors['b_contactnumber'] = "Please provide us your Branch Contact Number.";
+            }
+
+            if (empty($b_contactperson)) {
+                $errors['b_contactperson'] = "Please provide us your Branch Contact Person.";
+            }
+
+            if (empty($benefitname)) {
+                $errors['benefitname'] = "Please provide us at least 1 Beneficiary.";
+            }
+
+            if (empty($benefitdesc)) {
+                $errors['benefitname'] = "Please tell us about the Beneficiary.";
+            }
+
 		    require_once(ABSPATH . "wp-admin" . '/includes/image.php');
 	        require_once(ABSPATH . "wp-admin" . '/includes/file.php');
 	        require_once(ABSPATH . "wp-admin" . '/includes/media.php');
@@ -183,21 +210,21 @@ if ( ! is_user_logged_in() ) :
 	<div>
 		<h3>Create Account</h3>
 		<p>Please register first on our website.</p>
-	    <div><input type="text" name="email" id="email" placeholder="Email Address" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>"></div>
-	    <div><input type="password" name="password" id="password" placeholder="Password">  </div>
-	    <div><input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password">  </div>
-	    <div><input type="text" name="firstname" id="firstname" placeholder="First Name" value="<?php echo isset($_POST['firstname']) ? $_POST['firstname'] : ''; ?>"></div>
-	    <div><input type="text" name="lastname" id="lastname" placeholder="Last Name" value="<?php echo isset($_POST['lastname']) ? $_POST['lastname'] : ''; ?>"></div>
-	    <div><input type="number" name="contactnumber" id="contactnumber" placeholder="Contact Number" value="<?php echo isset($_POST['contactnumber']) ? $_POST['contactnumber'] : ''; ?>"></div>
+	    <div><input type="email" name="email" id="email" required="" placeholder="Email Address" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>"></div>
+	    <div><input type="password" name="password" id="password" required="" placeholder="Password" >  </div>
+	    <div><input type="password" name="password_confirmation" required="" id="password_confirmation" placeholder="Confirm Password">  </div>
+	    <div><input type="text" name="firstname" id="firstname" required="" placeholder="First Name" value="<?php echo isset($_POST['firstname']) ? $_POST['firstname'] : ''; ?>"></div>
+	    <div><input type="text" name="lastname" id="lastname" required="" placeholder="Last Name" value="<?php echo isset($_POST['lastname']) ? $_POST['lastname'] : ''; ?>"></div>
+	    <div><input type="number" name="contactnumber" id="contactnumber" required="" placeholder="Contact Number" value="<?php echo isset($_POST['contactnumber']) ? $_POST['contactnumber'] : ''; ?>"></div>
 	</div>
     <hr>
     <div>
 	    <h3>About Your Establishment</h3>
 	    <p>Tell us more about your establishments.</p>
-	    <div><input type="text" name="establishmentname" id="establishmentname" placeholder="Establishment/Business Name" value="<?php echo isset($_POST['establishmentname']) ? $_POST['establishmentname'] : ''; ?>"></div>
-	    <div><textarea name="establishmentdescription" placeholder="Tell Us about your establishment/business"><?php echo isset($_POST['establishmentdescription']) ? $_POST['establishmentdescription'] : ''; ?></textarea></div>
-	    <div><input type="text" name="e_owner" placeholder="Name of Proprietor" value="<?php echo isset($_POST['e_owner']) ? $_POST['e_owner'] : ''; ?>"></div>
-	    <div><input type="text" name="e_website_url" placeholder="Website Link" value="<?php echo isset($_POST['e_website_url']) ? $_POST['e_website_url'] : ''; ?>"></div>
+	    <div><input type="text" name="establishmentname" id="establishmentname" required="" placeholder="Establishment/Business Name" value="<?php echo isset($_POST['establishmentname']) ? $_POST['establishmentname'] : ''; ?>"></div>
+	    <div><textarea name="establishmentdescription" required="" placeholder="Tell Us about your establishment/business"><?php echo isset($_POST['establishmentdescription']) ? $_POST['establishmentdescription'] : ''; ?></textarea></div>
+	    <div><input type="text" name="e_owner" required="" placeholder="Name of Proprietor" value="<?php echo isset($_POST['e_owner']) ? $_POST['e_owner'] : ''; ?>"></div>
+	    <div><input type="text" name="e_website_url" required="" placeholder="Website Link" value="<?php echo isset($_POST['e_website_url']) ? $_POST['e_website_url'] : ''; ?>"></div>
 	</div>
 	<hr>
     <div>
@@ -206,10 +233,10 @@ if ( ! is_user_logged_in() ) :
 	    <div class='branches incremental-item' data-itemhtml='<li class="item"><div><input type="text" name="b_location[]" placeholder="Location"></div><div><input type="text" name="b_address[]" placeholder="Address"></div><div><input type="text" name="b_contactnumber[]" placeholder="Contact Number"></div><div><input type="text" name="b_contactperson[]" placeholder="Contact Person"></div><span class="remove">Remove</span></li>'>
 	    	<ul>
 	    		<li class="item">
-	    			<div><input type="text" name="b_location[]" placeholder="Location"></div>
-	    			<div><input type="text" name="b_address[]" placeholder="Address"></div>
-	    			<div><input type="number" name="b_contactnumber[]" placeholder="Contact Number"></div>
-	    			<div><input type="text" name="b_contactperson[]" placeholder="Contact Person"></div>
+	    			<div><input type="text" required="" name="b_location[]" placeholder="Location"></div>
+	    			<div><input type="text" required="" name="b_address[]" placeholder="Address"></div>
+	    			<div><input type="number" required="" name="b_contactnumber[]" placeholder="Contact Number"></div>
+	    			<div><input type="text" required="" name="b_contactperson[]" placeholder="Contact Person"></div>
 	    		</li>
 	    	</ul>
     		<span class="add">Add another branch</button>
@@ -255,9 +282,14 @@ if ( ! is_user_logged_in() ) :
 
     <div><input type="checkbox" name="receivesticker" value="" <?php echo (isset($_POST['receivesticker'])) ? 'checked=checked' : ''; ?> /> Receive OFW Power Club Sticker(s)</div>
     <div>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</div>
+<<<<<<< HEAD
+    <div><input type="checkbox" name="terms_condition" required="" value="" <?php echo (isset($_POST['terms_condition'])) ? 'checked=checked' : ''; ?> /> Accept terms and condition</div>
+    <div><input type="submit" id="submitbtn" name="submit" value="Sign Up" />  </div>
+=======
     <div><input type="checkbox" name="terms_condition" value="" <?php echo (isset($_POST['terms_condition'])) ? 'checked=checked' : ''; ?> /> Accept terms and condition</div>
     
     <div><input type="submit" id="submitbtn" name="submit" value="Sign Up" /></div>
+>>>>>>> 6b73703f11274a133b1bb569f9e97326caa7e2e5
     <input type="hidden" name="post-type" id="post-type" value="<?php echo $posttype; ?>" />
 	<input type="hidden" name="action" value="<?php echo $posttype; ?>" />
 	<?php wp_nonce_field( 'submit_'.$posttype,'client_'.$posttype.'_nonce' ); ?>

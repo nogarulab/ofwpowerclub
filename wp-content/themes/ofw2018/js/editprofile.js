@@ -1,6 +1,6 @@
+var $=jQuery.noConflict();
+
 $(function() {
-	var home_url = $('.header .mid-header a').attr('href');
-	$('.ms-edit-profile').attr('href', home_url+'/edit-my-personal-details/');
 
 	$('#edit_profile_form').prepend('<h2>'+$('.edit-my-personal-details section h1').text()+'</h2>');
 
@@ -11,4 +11,5 @@ $(function() {
 	    };
 	    reader.readAsDataURL(this.files[0]);
 	};
+
 })

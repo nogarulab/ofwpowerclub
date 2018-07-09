@@ -1,12 +1,11 @@
-<?php get_header();
+<?php /* Template Name: Contact Us */ 
+
+ get_header();
 if (have_posts()):
     while (have_posts()) :
         the_post();
 
         $featuredImage = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); 
-
-        $office_lat = get_field('latitude');
-        $office_lng = get_field('longitude');
 ?>
 <div class="contact-us">
 
@@ -29,14 +28,12 @@ if (have_posts()):
 			</div>
 			<div class="col-md-6">
 				<div class="contact-details">
-					<div><strong>Phone</strong> +63.917.456.1234</div>
-					<div><strong>Email</strong> info@ofwpowerclub.com</div>
+					<div><strong>Phone</strong> <?php the_field('phone'); ?></div>
+					<div><strong>Email</strong> <span class="backward"><?php the_field('email'); ?></div></span>
 					<div>
 						<strong>Location</strong>
 						<address>
-							<span>88 Connaught Road West</span>
-							<span>Central and Western District</span>
-							<span>Hong Kong</span>
+							<?php the_field('location'); ?>
 						</address>
 					</div>
 				</div>
@@ -47,10 +44,10 @@ if (have_posts()):
 
 </div>
 <?php 
-get_sidebar('connect');
+	get_sidebar('connect');
 ?>
 <div class="map">
-	<div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=university%20of%20san%20francisco&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div><style>.mapouter{text-align:right;height:500px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}</style></div>
+	<?php echo do_shortcode('[put_wpgm id=1]'); ?>
 </div>
 <?php 
 	endwhile;

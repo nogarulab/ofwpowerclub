@@ -70,7 +70,7 @@
 				<div class="row align-items-center">
 					<div class="col-md-6">
 						<?php the_content(); ?>
-						<a href="" class="h-c-white white rounded bg-blue py-3 px-5 d-inline-block">Learn More</a>
+						<a href="<?php echo home_url(); ?>/how-to-become-a-member" class="h-c-white white rounded bg-blue py-3 px-5 d-inline-block">Learn More</a>
 					</div>
 					<div class="col-md-6">
 						<?php the_post_thumbnail('full', array('class' => 'img-fluid mx-auto d-block mt-5 mt-md-0')); ?>
@@ -119,7 +119,7 @@
 					<div class="col-md-6">
 						<div class="partner-cont bg-yellow py-5 px-sm-5 px-3">
 							<?php the_content(); ?>
-							<a href="" class="h-c-white white rounded bg-blue py-3 px-5 d-inline-block">Learn More</a>
+							<a href="<?php echo home_url(); ?>/be-our-trusted-partner" class="h-c-white white rounded bg-blue py-3 px-5 d-inline-block">Learn More</a>
 						</div>
 					</div>
 				</div>
@@ -139,7 +139,7 @@
 				?>
 				<div class="col-lg-6 col-md-5">
 					<?php the_content(); ?>
-					<a href="" class="h-c-white white rounded bg-blue py-3 px-5 d-inline-block mb-3">Show Now</a>
+					<a href="<?php echo home_url();?>/store" class="h-c-white white rounded bg-blue py-3 px-5 d-inline-block mb-3">Show Now</a>
 				</div>
 				<?php 
 					endwhile; wp_reset_query(); 

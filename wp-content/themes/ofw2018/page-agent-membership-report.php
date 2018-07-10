@@ -22,6 +22,11 @@
 		</div>
 	</section>
 
+	<?php 
+		endwhile; wp_reset_query(); 
+	?>
+
+
 	<section class="report-page py-5">
 		<div class="container">
 			<div class="row">
@@ -29,9 +34,9 @@
 					
 
 
+					<!-- EARL DGD K MGCODE -->
 
 
-					
 				</div>
 			</div>
 		</div>

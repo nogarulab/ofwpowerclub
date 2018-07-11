@@ -1,7 +1,9 @@
 
 <?php get_header();  ?>
 
+<?php $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );  ?>
 
+<?php $termname = $term->name; ?>
 
 <div class="store-container">
 <?php 
@@ -33,7 +35,7 @@
 
 				
 					<?php get_template_part('loop-products'); ?>
-					<?php wp_pagenavi(); ?>
+					<!-- <?php #wp_pagenavi(); ?> -->
 				
 
 			</div>

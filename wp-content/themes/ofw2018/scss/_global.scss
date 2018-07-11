@@ -243,7 +243,8 @@ p {
 
 }
 
-.partner-dashboard-menu {
+.partner-dashboard-menu,
+.agent-dashboard-menu {
   display: none;
 }
 
@@ -257,10 +258,6 @@ p {
 
 .user-dashboard {
   background: $blue;
-
-  .partner-dashboard-menu {
-    display: block;
-  }
 
   .site-search,
   .logged-in-account {
@@ -477,4 +474,9 @@ p {
     display: none;
   }
 
+}
+
+.partner-dashboard .partner-dashboard-menu,
+.agent-dashboard .agent-dashboard-menu {
+  display: block;
 }

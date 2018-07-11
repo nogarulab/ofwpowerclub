@@ -11,8 +11,8 @@ if ( is_user_logged_in() && current_user_can('agent') ) :
 			<div class="col-lg-6"></div>
 			<div class="col-lg-6"></div>
 		</div>
+		<?php get_template_part( 'agents/stats', get_post_format() ); ?>
 	</div>
 <?php
-	get_template_part( 'agents/stats', get_post_format() );
 endif;
 ?>

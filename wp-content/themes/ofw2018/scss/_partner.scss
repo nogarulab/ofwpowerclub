@@ -72,3 +72,27 @@
 	}
 }
 
+.contact-admin {
+	label {
+		display: block;
+	}
+	br { display: none }
+	i {
+		display: block;
+		text-transform: uppercase;
+		font-size:13px;
+		letter-spacing: 1px;
+		color:#666;
+		font-style: normal;
+		padding-bottom:5px;
+	}
+	.wpcf7-select,
+	.wpcf7-textarea {
+		width:100%;
+	}
+	.wpcf7-textarea {
+		height:180px;
+	}
+	div.wpcf7 .ajax-loader { margin-right:-20px; }
+}
+

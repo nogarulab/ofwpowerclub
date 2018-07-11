@@ -38,6 +38,11 @@
                     $wp_users = $wpdb->prefix.'users';
                     $wp_usermeta = $wpdb->prefix.'usermeta';
 
+                    $meta = $wpdb->get_results( "SELECT * FROM $wp_usermeta where meta_key = 'wp_capabilities'");
+                    echo "<pre>";
+                    print_r($meta);
+                    echo "</pre>";
+
                     $agent = $wpdb->get_results( "SELECT * FROM $wp_usermeta where meta_value LIKE '%agent%' and meta_key = 'wp_capabilities'");
                     echo "<pre>";
                     print_r($agent);

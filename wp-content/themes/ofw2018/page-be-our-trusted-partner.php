@@ -26,7 +26,7 @@ get_header();
 			<div class="col-12">
 				<section class="py-5">
 					<?php the_content(); ?>
-					<a href="<?php echo home_url(); ?>/request-for-partnership" class="h-c-white partner-link bg-blue white text-uppercase py-2 px-4">Be A Partner</a>
+					<a href="<?php echo home_url(); ?>/request-for-partnership" class="h-c-white rounded partner-link bg-blue white text-uppercase py-3 px-5">Be A Partner</a>
 				</section>
 			</div>
 		</div>

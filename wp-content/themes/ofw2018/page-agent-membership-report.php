@@ -34,9 +34,9 @@
                     Earl
                     <?php
                     global $wpdb;
-                    $posts = 'wp_posts';
-                    $wp_users = 'wp_users';
-                    $wp_usermeta = 'wp_usermeta';
+                    $posts = $wpdb->prefix."posts";
+                    $wp_users = $wpdb->prefix.'users';
+                    $wp_usermeta = $wpdb->prefix.'usermeta';
                     $ms_mem = $wpdb->get_results( "SELECT * FROM $posts WHERE post_type = 'ms_membership'");
                     echo "<pre>";
                     print_r($ms_mem);

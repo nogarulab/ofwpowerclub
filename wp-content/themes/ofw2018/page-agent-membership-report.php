@@ -36,6 +36,10 @@
                     $posts = 'wp_posts';
                     $wp_users = 'wp_users';
                     $wp_usermeta = 'wp_usermeta';
+                    $ms_mem = $wpdb->get_row( "SELECT * FROM $posts WHERE post_type = 'ms_membership'");
+                    echo "<pre>";
+                    print_r($ms_mem);
+                    echo "</pre>";
                     $agent_row = $wpdb->get_row( "SELECT * FROM $posts WHERE post_title ='agent' and post_type = 'ms_membership'");
                     $ms_agent_id = $agent_row->ID;
                     $membership_agent = "membership_id: ".$ms_agent_id;

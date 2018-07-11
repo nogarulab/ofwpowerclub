@@ -17,6 +17,7 @@ if ( isset( $_POST['update_user_nonce'], $current_user->ID ) && wp_verify_nonce(
         	wp_update_user( array( 'ID' => $user_ID, 'user_pass' => esc_attr( $_POST['new_password'] ) ) );
         }
         echo 'You have successfully changed your password.';
+        exit;
     } else {
     	echo '<ul>';
 		foreach ($errors as $error) {

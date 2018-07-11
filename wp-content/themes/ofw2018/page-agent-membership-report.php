@@ -37,16 +37,10 @@
                     $posts = $wpdb->prefix."posts";
                     $wp_users = $wpdb->prefix.'users';
                     $wp_usermeta = $wpdb->prefix.'usermeta';
-                    $ms_mem = $wpdb->get_results( "SELECT * FROM $posts WHERE post_type = 'ms_membership'");
+
+                    $agent = $wpdb->get_results( "SELECT * FROM $wp_usermeta where meta_value LIKE '%agent%' and meta_key = 'wp_capabilities'");
                     echo "<pre>";
-                    print_r($ms_mem);
-                    echo "</pre>";
-                    $agent_row = $wpdb->get_row( "SELECT * FROM $posts WHERE post_title ='agent' and post_type = 'ms_membership'");
-                    $ms_agent_id = $agent_row->ID;
-                    $membership_agent = "membership_id: ".$ms_agent_id;
-                    $ms_post_relations = $wpdb->get_results( "SELECT * FROM $posts WHERE post_type = 'ms_relationship' AND post_content LIKE '%$membership_agent' ");
-                    echo "<pre>";
-                    print_r($ms_post_relations);
+                    print_r($agent);
                     echo "</pre>";
 
                     $agents = $wpdb->get_results( "SELECT * FROM $wp_usermeta JOIN $wp_users on $wp_usermeta.user_id =$wp_users.ID  WHERE meta_value LIKE '%\"agent\"%' AND meta_key = 'wp_capabilities' ");

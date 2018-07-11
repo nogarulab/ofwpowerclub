@@ -58,11 +58,6 @@
 			var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
 			return results[1] || 0;
 		}
-
-		var showform = $.urlParam('showform')
-		if (showform == 1) {
-			$('#agent-change-password').show();
-		}
     
 	});
 	

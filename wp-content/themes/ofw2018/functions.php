@@ -149,9 +149,14 @@ function html5blank_conditional_scripts()
         wp_enqueue_script('prodjs'); // Enqueue it!
     }
 
-    if (is_page('edit-my-personal-details') || is_page('agent-dashboard')) {
+    if (is_page('edit-my-personal-details') || is_page('add-a-member')) {
         wp_register_script('editprofilejs', get_template_directory_uri() . '/js/editprofile.js', '', '', true);
         wp_enqueue_script('editprofilejs');
+    }
+
+    if ( is_page('agent-dashboard') ) {
+        wp_register_script('agentdash', get_template_directory_uri() . '/js/agent-dashboard.js', '', '', true);
+        wp_enqueue_script('agentdash');
     }
 
 }

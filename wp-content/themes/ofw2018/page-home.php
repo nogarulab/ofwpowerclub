@@ -21,7 +21,7 @@
 					    <div class="carousel-item" style="background-image:url(<?php echo $featuredImage; ?>);">
 					    	<div class="banner-text-container text-center carousel-caption">
 								<h1 class="text-uppercase"><?php the_title(); ?></h1>
-								<div>
+								<div class="caption-content">
 									<?php the_content(); ?>
 								</div>
 								<?php if( $posts ): ?>

@@ -1,12 +1,11 @@
-<?php /* Template Name: OFW Power Club Template */ 
+<?php /* Template Name: Be A Partner */ 
 
 get_header();
 
-if (have_posts()):
-    while (have_posts()) :
-        the_post();
 
-        $featuredImage = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); 
+	$the_query = new WP_Query(array('post_type'=>'page', 'pagename'=>'be-our-trusted-partner'));
+	while ( $the_query->have_posts() ) : $the_query->the_post();
+		$featuredImage = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); 
 ?>
 	<div class="default-template">
 
@@ -27,21 +26,15 @@ if (have_posts()):
 			<div class="col-12">
 				<section class="py-5">
 					<?php the_content(); ?>
-					
+					<a href="<?php echo home_url(); ?>/request-for-partnership" class="h-c-white partner-link bg-blue white text-uppercase py-2 px-4">Be A Partner</a>
 				</section>
 			</div>
 		</div>
 	</div>
-<?php endwhile; ?>
-<?php else: ?>
-	<div class="container">
-		<div class="row">
-			<div class="col-12 py-5">
-				<h3>Sorry, nothing to display.</h3>
-			</div>
-		</div>
-	</div>
-<?php endif; ?>
+<?php 
+	endwhile; wp_reset_query(); 
+?>
+	
 
 <?php get_sidebar('testimonies') ?>
 

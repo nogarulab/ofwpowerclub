@@ -27,7 +27,7 @@ get_header();
 				<section class="py-5">
 					<?php the_content(); ?>
 
-					<?php if ( is_user_logged_in() ) { ?>
+					<?php if ( ! is_user_logged_in() ) { ?>
 						<form class="ms-membership-form" action="http://ofwpowerclub.nogarulab.com/register/" method="post">
 							<input id="_wpnonce" name="_wpnonce" type="hidden" value="1b47ff460d" />
 							<input name="_wp_http_referer" type="hidden" value="/register/" />

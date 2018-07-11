@@ -31,6 +31,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
+                    Earl
                     <?php
                     global $wpdb;
                     $posts = 'wp_posts';

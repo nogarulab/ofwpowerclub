@@ -28,7 +28,7 @@ if (have_posts()):
 		<div class="col-12">
 			<section class="py-5">
 				<?php the_content(); ?>
-				<?php if( $post->ID == 325): { ?>
+				<!-- <?php if( $post->ID == 325): { ?>
 					<form class="ms-membership-form" action="http://ofwpowerclub.nogarulab.com/register/" method="post"><input id="_wpnonce" name="_wpnonce" type="hidden" value="1b47ff460d" />
 						<input name="_wp_http_referer" type="hidden" value="/register/" />
 						<input id="membership_id" class="wpmui-field-input wpmui-hidden" name="membership_id" type="hidden" value="342" />
@@ -36,7 +36,7 @@ if (have_posts()):
 						<input id="step" class="wpmui-field-input wpmui-hidden" name="step" type="hidden" value="payment_table" />
 						<button id="submit" class="wpmui-field-input button ms-signup-button membership_signup wpmui-submit button-primary black rounded bg-yellow py-3 px-5 d-inline-block mb-3" name="submit" type="submit" value="">Apply Now</button>
 					</form>
-				<?php } ?>
+				<?php } ?> -->
 			</section>
 		</div>
 	</div>

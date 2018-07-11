@@ -26,7 +26,7 @@ if ( is_user_logged_in() && current_user_can('partner') ) :
 	$user_query = new WP_User_Query( $args );
 	$user_found = $user_query->get_total();
     $users = $user_query->get_results();
-    print_r($users);
+    //print_r($users);
 
     if (isset($_GET['ms'])) {
     	if ($user_found != 0) :

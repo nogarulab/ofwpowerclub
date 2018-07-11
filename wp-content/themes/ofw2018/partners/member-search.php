@@ -16,7 +16,7 @@ if ( is_user_logged_in() && current_user_can('partner') ) :
 		$m_name = '*';
 	}
 	$args = array(
-				'role' 				=> 'Subscriber',
+				'role' 				=> 'Member',
 	            'meta_key'  		=> 'ms_is_member',
 	            'meta_value'    	=> 1,
 	            'search'         	=> $m_name,

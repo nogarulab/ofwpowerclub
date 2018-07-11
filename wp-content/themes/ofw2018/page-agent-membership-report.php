@@ -37,7 +37,7 @@
                     $posts = 'wp_posts';
                     $wp_users = 'wp_users';
                     $wp_usermeta = 'wp_usermeta';
-                    $ms_mem = $wpdb->get_row( "SELECT * FROM $posts WHERE post_type = 'ms_membership'");
+                    $ms_mem = $wpdb->get_results( "SELECT * FROM $posts WHERE post_type = 'ms_membership'");
                     echo "<pre>";
                     print_r($ms_mem);
                     echo "</pre>";

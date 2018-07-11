@@ -85,7 +85,7 @@ if ( is_page('partner-dashboard') ) {
             }
 
             if ( is_page('add-a-member') ) {
-                get_template_part( 'agent/addmember', get_post_format() );
+                get_template_part( 'agents/addmember', get_post_format() );
             }
 
 

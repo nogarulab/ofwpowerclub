@@ -1,6 +1,15 @@
 <?php
 
 if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
+
+?>
+<div class="user-dashboard-home">
+    <header>
+        <h3>Add A Member</h3>
+        <p>Verify customers if they are OFW Power Club members by searching them here. Please enter full name or email address.</p>
+    </header>
+
+<?php
 	$posttype = 'ms_invoice';
 	$current_user = wp_get_current_user();
 	$errors = array(); 
@@ -409,6 +418,8 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 	</div>
 
 </form>
+
+</div>
 
 <?php
 

@@ -53,6 +53,16 @@
 
 		var home_url = $('.header .mid-header a').attr('href');
 		$('.ms-edit-profile').attr('href', home_url+'/edit-my-personal-details/');
+
+		$.urlParam = function(name){
+			var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+			return results[1] || 0;
+		}
+
+		var showform = $.urlParam('showform')
+		if (showform == 1) {
+			$('#agent-change-password').show();
+		}
     
 	});
 	

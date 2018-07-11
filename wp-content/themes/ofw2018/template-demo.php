@@ -1,7 +1,6 @@
 <?php /* Template Name: OFW Power Club Template */ 
 
 get_header();
-global $post;
 
 if (have_posts()):
     while (have_posts()) :

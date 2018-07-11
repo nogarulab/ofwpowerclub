@@ -33,16 +33,16 @@
 				<div class="col-12">
                     <?php
                     global $wpdb;
-                    $table_name = 'wp_posts';
+                    $posts = 'wp_posts';
                     $wp_users = 'wp_users';
                     $wp_usermeta = 'wp_usermeta';
-                    $users = $wpdb->get_results( "SELECT * FROM $wp_users ");
-
+                    $agent_row = $wpdb->get_row( "SELECT * FROM $posts WHERE post_title ='agent' and post_type = 'ms_membership'");
+                    $ms_agent_id = $agent_row->ID;
+                    $membership_agent = "membership_id: ".$ms_agent_id;
+                    $ms_post_relations = $wpdb->get_results( "SELECT * FROM $posts WHERE post_type = 'ms_relationship' AND post_content LIKE '%$membership_agent' ");
                     echo "<pre>";
-                    print_r($users);
+                    print_r($ms_post_relations);
                     echo "</pre>";
-
-
 
                     $agents = $wpdb->get_results( "SELECT * FROM $wp_usermeta JOIN $wp_users on $wp_usermeta.user_id =$wp_users.ID  WHERE meta_value LIKE '%\"agent\"%' AND meta_key = 'wp_capabilities' ");
                     ?>

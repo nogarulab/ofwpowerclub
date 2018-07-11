@@ -36,8 +36,15 @@
                     $table_name = 'wp_posts';
                     $wp_users = 'wp_users';
                     $wp_usermeta = 'wp_usermeta';
-//                    $results = $wpdb->get_results( "SELECT DISTINCT user_id FROM $wp_usermeta WHERE meta_value LIKE '%agent%' ");
-                    $results = $wpdb->get_results( "SELECT * FROM $wp_usermeta JOIN $wp_users on $wp_usermeta.user_id =$wp_users.ID  WHERE meta_value LIKE '%\"agent\"%' AND meta_key = 'wp_capabilities' ");
+                    $users = $wpdb->get_results( "SELECT * FROM $wp_users ");
+
+                    echo "<pre>";
+                    print_r($users);
+                    echo "</pre>";
+
+
+
+                    $agents = $wpdb->get_results( "SELECT * FROM $wp_usermeta JOIN $wp_users on $wp_usermeta.user_id =$wp_users.ID  WHERE meta_value LIKE '%\"agent\"%' AND meta_key = 'wp_capabilities' ");
                     ?>
 
                     <table width="100%">
@@ -50,9 +57,9 @@
                         </thead>
                         <tbody>
                     <?php
-                    if(!empty($results))
+                    if(!empty($agents))
                     {
-                        foreach($results as $result ){
+                        foreach($agents as $result ){
                             echo "<tr>";
                             echo "<td>".$result->display_name."</td>";
                             echo "<td>0</td>";

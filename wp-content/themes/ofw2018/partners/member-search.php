@@ -7,7 +7,7 @@
 if ( is_user_logged_in() && current_user_can('partner') ) :
 ?>
 	<form action="<?php echo home_url(); ?>/member-search?ms=<?php echo $s_query; ?>" method="GET" class="member-search">
-		<div><input type="text" name="ms" value="" class="form-control" placeholder="Name or Email Address" /><input type="submit" value="Search"></div>
+		<div><input type="text" name="ms" value="" class="form-control" placeholder="Email Address" /><input type="submit" value="Search"></div>
 	</form>
 <?php
 	if (isset($_GET['ms'])) {
@@ -20,7 +20,7 @@ if ( is_user_logged_in() && current_user_can('partner') ) :
 	            'meta_key'  		=> 'ms_is_member',
 	            'meta_value'    	=> 1,
 	            'search'         	=> $m_name,
-				'search_columns' 	=> array( 'display_name, user_email' ),
+				'search_columns' 	=> array( 'user_email' ),
 				'number'			=> -1
 	        );
 	$user_query = new WP_User_Query( $args );

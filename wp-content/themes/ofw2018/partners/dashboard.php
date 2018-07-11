@@ -7,7 +7,7 @@ $partner_page_id = get_user_meta( $current_user->ID, 'partner_page_id', true );
 $post = get_post($partner_page_id); 
 $slug = $post->post_name;
 ?>
-	<div class="partner-dashboard-home">
+	<div class="user-dashboard-home">
 		<header>
 			<h3>Hello <?php echo get_user_meta( $current_user->ID, 'first_name', true );  ?>!</h3>
 			<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione</p>

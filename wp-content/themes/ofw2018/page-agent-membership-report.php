@@ -31,11 +31,42 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					
+                    <?php
+                    global $wpdb;
+                    $table_name = 'wp_posts';
+                    $wp_users = 'wp_users';
+                    $wp_usermeta = 'wp_usermeta';
+//                    $results = $wpdb->get_results( "SELECT DISTINCT user_id FROM $wp_usermeta WHERE meta_value LIKE '%agent%' ");
+                    $results = $wpdb->get_results( "SELECT * FROM $wp_usermeta JOIN $wp_users on $wp_usermeta.user_id =$wp_users.ID  WHERE meta_value LIKE '%\"agent\"%' AND meta_key = 'wp_capabilities' ");
+                    ?>
 
+                    <table width="100%">
+                        <thead>
+                        <tr>
+                            <th>Agent</th>
+                            <th>Members</th>
+                            <th>Points</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                    <?php
+                    if(!empty($results))
+                    {
+                        foreach($results as $result ){
+                            echo "<tr>";
+                            echo "<td>".$result->display_name."</td>";
+                            echo "<td>0</td>";
+                            echo "<td>0</td>";
+                            echo "</tr>";
+                        }
+                    }
+                    ?>
+                        </tbody>
+                    </table>
 
-					<!-- EARL DGD K MGCODE -->
+                    <!-- EARL DGD K MGCODE  -->
 
+                    <!-- K -->
 
 				</div>
 			</div>

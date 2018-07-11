@@ -1,4 +1,4 @@
-<div class="partner-dashboard-home">
+<div class="user-dashboard-home">
 	<header>
 		<h3>Member Search</h3>
 		<p>Verify customers if they are OFW Power Club members by searching them here. Please enter full name or email address.</p>

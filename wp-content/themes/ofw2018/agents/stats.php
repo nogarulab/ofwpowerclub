@@ -2,7 +2,6 @@
 	<?php
 	$current_user = wp_get_current_user();
 
-    echo '<h2>Hello '.$current_user->first_name.'</h2>';
     echo '<h3>Statistics</h3>';
 	$total_ma_args = array(
 		'role' 			=> 'Subscriber',

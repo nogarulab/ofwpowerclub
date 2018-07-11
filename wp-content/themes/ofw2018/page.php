@@ -12,8 +12,7 @@ if ( is_page('partner-dashboard') ) {
 
     if ( is_user_logged_in() && current_user_can('agent') ) :
 
-        get_template_part( 'agents/stats', get_post_format() );
-        get_template_part( 'agents/addmember', get_post_format() );
+        get_template_part( 'agents/dashboard', get_post_format() );
 
     else :
 
@@ -83,6 +82,10 @@ if ( is_page('partner-dashboard') ) {
 
             if ( is_page('edit-my-personal-details') ) {
                 get_template_part( 'members/edit-profile', get_post_format() );
+            }
+
+            if ( is_page('add-a-member') ) {
+                get_template_part( 'agent/addmember', get_post_format() );
             }
 
 

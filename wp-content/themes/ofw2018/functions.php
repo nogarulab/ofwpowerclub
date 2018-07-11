@@ -877,7 +877,7 @@ function add_slug_body_class( $classes ) {
         is_page('member-search') ||
         is_page('contact-administrator')
     ) {
-        $classes[] = 'partner-dashboard';
+        $classes[] = 'user-dashboard';
     } else {
         $classes[] = '';
     }

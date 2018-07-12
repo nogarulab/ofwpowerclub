@@ -138,3 +138,24 @@ svg {
 	border-top-color: $yellow;
 	color: $black;
 }
+
+.ms-top-bar {
+	text-align: center;
+}
+
+#submit.ms-signup-button {
+	padding: 16px 48px;
+    background: $blue;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+
+.ms-price-details {
+	padding: 30px 10px;
+}
+
+.ms-top-bar {
+	background: $red;
+	color: #fff;
+}

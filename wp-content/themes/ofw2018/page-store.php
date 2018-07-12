@@ -35,7 +35,7 @@
 
 				<?php 
 					$paged = get_query_var('paged') ? get_query_var('paged') : 1;
-					$the_query = new WP_Query(array('post_type'=>'products', 'posts_per_page'=>1, 'paged'=>$paged));
+					$the_query = new WP_Query(array('post_type'=>'products', 'posts_per_page'=>6, 'paged'=>$paged));
 					while ( $the_query->have_posts() ) : $the_query->the_post();
 				?>
 					<div class="col-sm-4 mb-4">

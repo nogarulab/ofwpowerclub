@@ -35,7 +35,7 @@
 
 				
 					<?php get_template_part('loop-products'); ?>
-					<!-- <?php #wp_pagenavi(); ?> -->
+					<?php wp_pagenavi(); ?> 
 				
 
 			</div>

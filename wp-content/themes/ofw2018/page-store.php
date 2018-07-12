@@ -47,6 +47,9 @@
 						</a>
 						<b class="font-weight-bold yellow"><?php the_field('price') ?></b>
 					</div>
+					<?php 
+						endwhile;  
+					?>
 					<div class="col-12">
 				<?php wp_pagenavi( array( 'query' => $the_query ) ); wp_reset_postdata(); ?>
 					</div>

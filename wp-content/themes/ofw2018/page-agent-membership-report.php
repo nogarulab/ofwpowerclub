@@ -31,47 +31,53 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-                    Earl
                     <?php
-                    global $wpdb;
-                    $posts = $wpdb->prefix."posts";
-                    $wp_users = $wpdb->prefix.'users';
-                    $wp_usermeta = $wpdb->prefix.'usermeta';
+                    $start_week = date("Y-m-d",strtotime( 'last Sunday' ));
+                    $end_week = date("Y-m-d",strtotime( 'this Saturday' ));
 
-                    $meta = $wpdb->get_results( "SELECT * FROM $wp_usermeta where meta_key = '{$wpdb->prefix}capabilities'");
-                    echo "<pre>";
-                    print_r($meta);
-                    echo "</pre>";
+                    $start_month = date("Y-m-d",strtotime( 'first day of this month' ));
+                    $end_month = date("Y-m-d",strtotime( 'last day of this month' ));
 
-                    $agent = $wpdb->get_results( "SELECT * FROM $wp_usermeta where meta_value LIKE '%agent%' and meta_key = '{$wpdb->prefix}capabilities'");
-                    echo "<pre>";
-                    print_r($agent);
-                    echo "</pre>";
+                    $start_year = date("Y-01-01");
+                    $end_year = date("Y-12-31");
 
-                    $agents = $wpdb->get_results( "SELECT * FROM $wp_usermeta JOIN $wp_users on $wp_usermeta.user_id =$wp_users.ID  WHERE meta_value LIKE '%\"agent\"%' AND meta_key = '{$wpdb->prefix}capabilities' ");
                     ?>
+                    <style>
+                        .membership_report{
+                            width: 100%;
+                            font-size: 10px;
+                        }
+                        .membership_report thead th:not(:first-child),
+                        .membership_report tbody td:not(:first-child){
+                            text-align: center;
+                        }
+                    </style>
 
-                    <table width="100%">
+                    <table class="table table-bordered membership_report" width="100%">
+                        <colgroup>
+                            <col width="20%"/>
+                        </colgroup>
                         <thead>
                         <tr>
-                            <th>Agent</th>
-                            <th>Members</th>
+                            <th rowspan="2">Agent</th>
+                            <th colspan="3">Current Week</th>
+                            <th colspan="3">Current Month</th>
+                            <th colspan="3">Overall Total</th>
+                        </tr>
+                        <tr>
+                            <th>No. of Applicants Registered</th>
+                            <th>No. of Applicants with Membership </th>
+                            <th>Points</th>
+                            <th>No. of Applicants Registered</th>
+                            <th>No. of Applicants with Membership </th>
+                            <th>Points</th>
+                            <th>No. of Applicants Registered</th>
+                            <th>No. of Applicants with Membership </th>
                             <th>Points</th>
                         </tr>
                         </thead>
                         <tbody>
-                    <?php
-                    if(!empty($agents))
-                    {
-                        foreach($agents as $result ){
-                            echo "<tr>";
-                            echo "<td>".$result->display_name."</td>";
-                            echo "<td>0</td>";
-                            echo "<td>0</td>";
-                            echo "</tr>";
-                        }
-                    }
-                    ?>
+
                         </tbody>
                     </table>
 

@@ -163,10 +163,24 @@ svg {
 .ms-alert-box {
 	max-width: 600px;
     margin: auto;
+    margin-bottom: 20px;
 }
 
 #ms-shortcode-register-user-form {
 	background: #f6f6f6;
     padding: 20px 0;
     border-radius: 10px;
+}
+
+.ms-purchase-table {
+	width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    text-align: left;
+    td {
+    	padding: .75rem;
+	    vertical-align: top;
+	    border-top: 1px solid #dee2e6;
+    }
 }

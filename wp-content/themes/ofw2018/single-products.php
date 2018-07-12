@@ -76,7 +76,7 @@
 
 	<section class="related pb-5">
 		<div class="container">
-			<h3 class="blue font-weight-bold mb-3">Related Products</h3>
+			
 			<div class="row">
 				<?php 
 					$custom_taxterms = wp_get_object_terms( $post->ID, 'prod_cat', array('fields' => 'ids') );
@@ -96,8 +96,10 @@
 					);
 					$related_items = new WP_Query( $args );
 
-					if ($related_items->have_posts()) :
-					while ( $related_items->have_posts() ) : $related_items->the_post();
+					if ($related_items->have_posts()) : ?>
+					<h3 class="blue font-weight-bold mb-3">Related Products</h3>
+					<?php
+						while ( $related_items->have_posts() ) : $related_items->the_post();
 					?>
 					    <div class="col-md-3 col-sm-6 mb-3">
 					    	<a class="black" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">

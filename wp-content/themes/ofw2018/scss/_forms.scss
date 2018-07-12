@@ -194,3 +194,17 @@ svg {
 	    border-radius: 5px;
     }
 }
+
+.jasper {
+	max-width: 600px;
+	background: #f6f6f6;
+	padding: 20px;
+	display: block;
+	margin: auto;
+	.ms-manual-price {
+		font-size: 1.5em;
+		.ms-price {
+			font-weight: 800;
+		}
+	}
+}

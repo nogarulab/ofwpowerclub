@@ -19,9 +19,10 @@
 								<h2 class="text-uppercase font-weight-bold blue">About <?php the_title(); ?></h2>
 								<?php the_content(); ?>
 
-								<?php if (get_post_meta(get_the_ID(), 'establishmentwebsite', true);): ?>
+								<?php $web = get_post_meta( $post->ID, 'establishmentwebsite', true ); ?>
+								<?php if(!($web == null || $web == '')){ ?>
 									<a href="<?php echo get_post_meta(get_the_ID(), 'establishmentwebsite', true); ?>" class="white transition h-c-white rounded bg-red py-3 px-5 d-inline-block mt-3">Visit our Website</a>
-								<?php endif ?>
+								<?php } ?> 
 
 							</div>
 						</div>

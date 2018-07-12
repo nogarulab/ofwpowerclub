@@ -97,7 +97,9 @@
 					$related_items = new WP_Query( $args );
 
 					if ($related_items->have_posts()) : ?>
-					<h3 class="blue font-weight-bold mb-3">Related Products</h3>
+					<div class="col-12">
+						<h3 class="blue font-weight-bold mb-3">Related Products</h3>
+					</div>
 					<?php
 						while ( $related_items->have_posts() ) : $related_items->the_post();
 					?>

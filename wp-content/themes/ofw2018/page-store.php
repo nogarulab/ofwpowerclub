@@ -35,7 +35,7 @@
 
 				<?php 
 					$paged = get_query_var('paged') ? get_query_var('paged') : 1;
-					$the_query = new WP_Query(array('post_type'=>'products', 'posts_per_page'=>1, 'paged'=>$paged));
+					$the_query = new WP_Query(array('post_type'=>'products', 'posts_per_page'=>6, 'paged'=>$paged));
 					while ( $the_query->have_posts() ) : $the_query->the_post();
 				?>
 					<div class="col-sm-4 mb-4">
@@ -47,6 +47,9 @@
 						</a>
 						<b class="font-weight-bold yellow"><?php the_field('price') ?></b>
 					</div>
+					<?php 
+						endwhile;  
+					?>
 					<div class="col-12">
 				<?php wp_pagenavi( array( 'query' => $the_query ) ); wp_reset_postdata(); ?>
 					</div>

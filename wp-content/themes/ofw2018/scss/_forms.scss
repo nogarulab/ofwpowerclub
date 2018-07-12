@@ -183,4 +183,14 @@ svg {
 	    vertical-align: top;
 	    border-top: 1px solid #dee2e6;
     }
+    .ms-title-column {
+    	font-weight: 600;
+    }
+    .wpmui-field-input {
+    	padding: 0.375rem 0.75rem;;
+	    background: $blue;
+	    border: none;
+	    color: white;
+	    border-radius: 5px;
+    }
 }

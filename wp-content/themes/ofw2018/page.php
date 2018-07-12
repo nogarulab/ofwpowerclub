@@ -101,8 +101,6 @@ if ( is_page('partner-dashboard') ) {
 
     <?php
 
-    get_sidebar();
-
 }
 
 get_footer();

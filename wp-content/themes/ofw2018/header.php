@@ -90,7 +90,7 @@
 								} else {
 							?>	
 								<div class="login-links">
-									<a href="/account"><button class="btn-member">Member Login</button></a>
+									<a href="<?php echo home_url(); ?>/member-login"><button class="btn-member">Member Login</button></a>
 								</div>
 								<div class="login-links">
 									<a href="<?php echo esc_url( wp_login_url() ); ?>"><button class="btn-partner">Partner Login</button></a>

@@ -30,6 +30,8 @@ if ( is_page('partner-dashboard') ) {
         <!-- section -->
         <section>
 
+            <div class="container">
+
             <h1><?php the_title(); ?></h1>
 
             <?php
@@ -91,13 +93,13 @@ if ( is_page('partner-dashboard') ) {
 
             ?>
 
+            </div>
+
         </section>
         <!-- /section -->
     </main>
 
     <?php
-
-    get_sidebar();
 
 }
 

@@ -42,7 +42,7 @@ if ( is_user_logged_in() && current_user_can('partner') ) :
 	    	}
 	    	echo '</ul></div>';
 	    else :
-	    	echo '<p>No member found.</p>';
+	    	echo '<p class="no-member-found">Sorry! No member found.</p>';
 	    endif;
     }
 

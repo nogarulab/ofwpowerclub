@@ -33,10 +33,10 @@
 			
 			<div class="col-lg-9 prod-list order-lg-last">
 
-				<div class="row">
+				
 					<?php get_template_part('loop-products'); ?>
 					<?php wp_pagenavi(); ?>
-				</div>
+				
 
 			</div>
 			<div class="col-lg-3 order-lg-first">

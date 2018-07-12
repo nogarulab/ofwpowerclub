@@ -58,6 +58,10 @@
 			var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
 			return results[1] || 0;
 		}
+
+		$('#terms .btn-accept').click(function() {
+			$('input.termsinput').attr('checked', 'checked');
+		})
     
 	});
 	

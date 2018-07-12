@@ -72,3 +72,180 @@
 	}
 }
 
+.contact-admin {
+	label {
+		display: block;
+	}
+	br { display: none }
+	i {
+		display: block;
+		text-transform: uppercase;
+		font-size:13px;
+		letter-spacing: 1px;
+		color:#666;
+		font-style: normal;
+		padding-bottom:5px;
+	}
+	.wpcf7-select,
+	.wpcf7-textarea {
+		width:100%;
+	}
+	.wpcf7-textarea {
+		height:180px;
+	}
+	div.wpcf7 .ajax-loader { margin-right:-20px; }
+}
+
+.user-dashboard {
+
+	.user-dashboard-home {
+
+	    .member-search {
+
+			div {
+				position: relative;
+				padding-right:120px;
+			}
+
+			input[type="text"] {
+				border:1px solid #ddd;
+				padding:17px 20px;
+				font-size:16px;
+				@include borderradius(0);
+
+				&::-webkit-input-placeholder { font-weight:300; color:#aaa; }
+				&::-moz-placeholder { font-weight:300; color:#aaa; }
+				&:-ms-input-placeholder { font-weight:300; color:#aaa; }
+				&:-moz-placeholder { font-weight:300; color:#aaa; }
+			}
+
+			input[type="submit"] {
+				position: absolute;
+				right:0;
+				top:0;
+				border:0;
+				font-size:16px;
+				padding: 20px;
+				background: $blue;
+				color:$white;
+				width:120px;
+			}
+
+	    }
+
+	    .no-member-found {
+			margin: 20px 0 0;
+		}
+
+	    .search-results {
+
+			h4 { margin:35px 0 15px; }
+	      
+	      	ul { list-style: none; padding:0; }
+
+			li {
+
+				div {
+					border:1px solid #eee;
+					padding:25px 25px 25px 130px;
+					@include transition(all 0.5s ease);
+					@include borderradius(5px);
+					position: relative;
+
+					img {
+						@include borderradius(200px);
+						width:90px;
+						height: auto;
+						position: absolute;
+						left:20px;
+						top:50%;
+						margin-top:-45px;
+					}
+
+				}
+
+	        	strong, em, span { display: block; }
+
+				strong {
+					font-weight: 400;
+					font-size:20px;
+				}
+
+				em {
+					margin:2px 0;
+					font-style: normal
+				}
+
+				em, span {
+					font-size:14px;
+					color:#999
+				}
+
+	      	}
+
+	    }
+
+	}
+
+}
+
+#wp_signup_form {
+	padding:0 0 100px;
+
+	.upload-text { display: none!important }
+
+	ul {
+		list-style: none;
+		margin:0;
+		padding:0;
+
+		li.item {
+			padding:25px 0;
+			border-top:1px dotted #ddd;
+
+			&:first-child {
+				border-top:0;
+				padding-top:0;
+			}
+
+		}
+
+	}
+
+	.about-establishment,
+	.perks {
+		textarea {
+			height:200px;
+		}
+	}
+
+	section {
+		padding:50px 0;
+		border-bottom:1px solid #ddd;
+		p {
+			margin-bottom:30px;
+		}
+		&:first-child {
+			border:0;
+			background: #fafafa;
+			padding:50px;
+		}
+	}
+
+	.action {
+		margin-top:30px;
+		span {
+			display: block;
+			padding:2px 0;
+		}
+	}
+
+}
+
+.request-for-partnership {
+	main .container { 
+		padding-top:80px;
+		h1 { margin-top:0 }
+	}
+	.sidebar { display: none }
+}

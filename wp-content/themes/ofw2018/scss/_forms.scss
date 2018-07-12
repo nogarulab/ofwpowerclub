@@ -129,3 +129,75 @@ svg {
 	top: 0;
 	left: 0;
 }
+
+#submit.b-member-btn {
+	border: none !important; 
+}
+
+.ms-alert-box.ms-alert-success {
+	border-top-color: $yellow;
+	color: $black;
+}
+
+.ms-top-bar {
+	text-align: center;
+}
+
+#submit.ms-signup-button {
+	padding: 0.375rem 0.75rem;;
+    background: $blue;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+
+.ms-price-details {
+	padding: 30px 10px;
+}
+
+.ms-top-bar {
+	background: $red;
+	color: #fff;
+}
+
+.ms-alert-box {
+	max-width: 600px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+#ms-shortcode-register-user-form {
+	background: #f6f6f6;
+    padding: 20px 0;
+    border-radius: 10px;
+}
+
+.ms-purchase-table {
+	width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    text-align: left;
+    td {
+    	padding: .75rem;
+	    vertical-align: top;
+	    border-top: 1px solid #dee2e6;
+    }
+    .ms-title-column {
+    	font-weight: 600;
+    }
+    .wpmui-field-input {
+    	padding: 0.375rem 0.75rem;;
+	    background: $blue;
+	    border: none;
+	    color: white;
+	    border-radius: 5px;
+    }
+}
+
+	.ms-manual-price {
+		font-size: 1.5em;
+		.ms-price {
+			font-weight: 800;
+		}
+	}

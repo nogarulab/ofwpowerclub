@@ -27,14 +27,14 @@ get_header();
 				<section class="py-5">
 					<?php the_content(); ?>
 
-					<?php if ( is_user_logged_in() ) { ?>
+					<?php if ( ! is_user_logged_in() ) { ?>
 						<form class="ms-membership-form" action="http://ofwpowerclub.nogarulab.com/register/" method="post">
 							<input id="_wpnonce" name="_wpnonce" type="hidden" value="1b47ff460d" />
 							<input name="_wp_http_referer" type="hidden" value="/register/" />
 							<input id="membership_id" class="wpmui-field-input wpmui-hidden" name="membership_id" type="hidden" value="342" />
 							<input id="action" class="wpmui-field-input wpmui-hidden" name="action" type="hidden" value="membership_signup" />
 							<input id="step" class="wpmui-field-input wpmui-hidden" name="step" type="hidden" value="payment_table" />
-							<button id="submit" class="wpmui-field-input button ms-signup-button membership_signup wpmui-submit button-primary black rounded bg-yellow py-3 px-5 d-inline-block mb-3" name="submit" type="submit" value="">Apply Now</button>
+							<button id="submit" class="b-member-btn wpmui-field-input button ms-signup-button membership_signup wpmui-submit button-primary black rounded bg-yellow py-3 px-5 d-inline-block mb-3" name="submit" type="submit" value="">Apply Now</button>
 						</form>
 					<?php } ?>
 

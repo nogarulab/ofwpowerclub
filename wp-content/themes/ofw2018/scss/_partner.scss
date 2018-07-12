@@ -241,5 +241,9 @@
 }
 
 .request-for-partnership {
+	main .container { 
+		padding-top:80px;
+		h1 { margin-top:0 }
+	}
 	.sidebar { display: none }
 }

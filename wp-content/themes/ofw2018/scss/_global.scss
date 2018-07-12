@@ -146,7 +146,7 @@ p {
 }
 
 .wp-pagenavi {
-  .current {
+  span.current {
     background: $red;
     border-color: $red;
     color: #fff;

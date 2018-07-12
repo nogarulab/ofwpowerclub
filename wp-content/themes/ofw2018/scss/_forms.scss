@@ -133,3 +133,8 @@ svg {
 #submit.b-member-btn {
 	border: none !important; 
 }
+
+.ms-alert-box.ms-alert-success {
+	border-top-color: $yellow;
+	color: $black;
+}

@@ -34,6 +34,17 @@
 		line-height: 1.5;
 		border-radius: .25rem;
 	}
+
+	.ms-cancel-button {
+		padding: 0.50rem 0.75rem;
+	    background: #1b75ba;
+	    border: none;
+	    color: white;
+	    border-radius: 5px;
+	    display: inline-block;
+	    float: left;
+	    margin-left: 6px;
+	}
 }
 
 svg {
@@ -203,13 +214,3 @@ svg {
 	}
 
 
-.ms-cancel-button {
-	padding: 0.50rem 0.75rem;
-    background: #1b75ba;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    display: inline-block;
-    float: left;
-    margin-left: 6px;
-}

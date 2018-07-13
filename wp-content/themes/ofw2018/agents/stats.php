@@ -94,7 +94,7 @@
     $week_ma_args = array(
         'post_type' => 'ms_event',
         'post_status' => 'private',
-        's' => 'cancelled',
+        's' => 'user-membership-ofw-power-club-membership-type-paid',
         'author'    => implode(',',$ma_IDS),
         'number'    => -1,
         'date_query' => array(
@@ -111,7 +111,7 @@
     $month_ma_args = array(
         'post_type' => 'ms_event',
         'post_status' => 'private',
-//        's' => 'cancelled',
+        's' => 'user-membership-ofw-power-club-membership-type-paid',
         'author'    => implode(',',$ma_IDS),
         'number'    => -1,
         'date_query' => array(
@@ -137,7 +137,7 @@
     $year_ma_args = array(
         'post_type' => 'ms_event',
         'post_status' => 'private',
-        's' => 'cancelled',
+        's' => 'user-membership-ofw-power-club-membership-type-paid',
         'author'    => implode(',',$ma_IDS),
         'number'    => -1,
         'date_query' => array(

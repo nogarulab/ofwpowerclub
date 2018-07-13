@@ -276,8 +276,8 @@
 					</div>
 				</div>
 				<div class="action text-right">
-					<a class="h-c-white white rounded bg-blue py-3 px-5 d-inline-block" href="<?php echo home_url(); ?>/account">Cancel</a>
-					<input name="updateuser" type="submit" id="updateuser" class="nbtn primary h-c-white white rounded bg-yellow py-3 px-5 d-inline-block" value="<?php _e('Update', 'profile'); ?>" />
+					<a class="h-c-white white rounded bg-red py-3 px-5 d-inline-block" href="<?php echo home_url(); ?>/account">Cancel</a>
+					<input name="updateuser" type="submit" id="updateuser" class="nbtn primary h-c-white white rounded bg-blue border-0 py-3 px-5 d-inline-block" value="<?php _e('Update', 'profile'); ?>" />
 				</div>
 			</div>
 			<?php wp_nonce_field( 'update_user', 'update_user_nonce' ); ?>

@@ -97,7 +97,7 @@
         $overall_aa_query = new WP_Query( $overall_aa_args );
         $overall_aa_count = count($overall_aa_query->get_posts());
     }else{
-        $week_aa_query = 0;
+        $month_aa_count = 0;
         $month_aa_count = 0;
         $year_aa_count = 0;
         $overall_aa_count=0;

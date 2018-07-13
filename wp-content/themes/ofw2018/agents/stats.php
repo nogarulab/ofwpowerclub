@@ -57,16 +57,9 @@
     );
     $week_aa_query = new WP_Query( $week_aa_args );
 
-//    if ( $week_aa_query->have_posts() ) {
-//        // The 2nd Loop
-//        while ( $week_aa_query->have_posts() ) {
-//            $week_aa_query->the_post();
-//            echo '<li>' . get_the_title( ) . '</li>';
-//        }
-//
-//        // Restore original Post Data
-//        wp_reset_postdata();
-//    }
+    echo "<pre>";
+    print_r($week_aa_query);
+    echo "</pre>";
     $week_aa_count = count($week_aa_query->get_posts());
     $month_aa_args = array(
         'post_type' => 'ms_invoice',

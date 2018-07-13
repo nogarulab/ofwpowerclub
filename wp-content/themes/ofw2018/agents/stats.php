@@ -167,7 +167,7 @@
 
     }else{
 
-        $week_ma_query = 0;
+        $week_ma_count = 0;
         $month_ma_count = 0;
         $year_ma_count = 0;
         $overall_ma_count=0;

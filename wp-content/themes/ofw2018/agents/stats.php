@@ -37,6 +37,9 @@
     foreach ( $total_aa_query->get_results() as $user ) {
         $aa_IDS[] = $user->ID;
     }
+    echo "<pre>";
+    print_r($ma_IDS);
+    echo "</pre>";
     $week_aa_args = array(
         'post_type' => 'ms_invoice',
         'post_status' => 'private',
@@ -252,7 +255,7 @@
                             </tr>
                             <tr>
                                 <th>Points</th>
-                                <td><?php echo ($ma_IDS * 5); ?></td>
+                                <td><?php echo (count($ma_IDS) * 5); ?></td>
                             </tr>
                         </tbody>
                     </table>

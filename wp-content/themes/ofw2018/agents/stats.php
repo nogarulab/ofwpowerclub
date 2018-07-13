@@ -28,8 +28,7 @@
     $total_aa_query = new WP_User_Query( $total_aa_args );
     
     $total_np_query = abs($total_aa_query->get_total() - $total_ma_query->get_total());
-    $overall_aa = $total_aa_query->get_total();
-    $overall_ma = $total_ma_query->get_total();
+
     $aa_IDS = [];
     $ma_IDS = [];
     foreach ( $total_ma_query->get_results() as $user ) {
@@ -52,16 +51,16 @@
     );
     $week_aa_query = new WP_Query( $week_aa_args );
 
-    if ( $week_aa_query->have_posts() ) {
-        // The 2nd Loop
-        while ( $week_aa_query->have_posts() ) {
-            $week_aa_query->the_post();
-            echo '<li>' . get_the_title( ) . '</li>';
-        }
-
-        // Restore original Post Data
-        wp_reset_postdata();
-    }
+//    if ( $week_aa_query->have_posts() ) {
+//        // The 2nd Loop
+//        while ( $week_aa_query->have_posts() ) {
+//            $week_aa_query->the_post();
+//            echo '<li>' . get_the_title( ) . '</li>';
+//        }
+//
+//        // Restore original Post Data
+//        wp_reset_postdata();
+//    }
     $week_aa_count = count($week_aa_query->get_posts());
     $month_aa_args = array(
         'post_type' => 'ms_invoice',
@@ -124,15 +123,15 @@
     );
     $month_ma_query = new WP_Query( $month_ma_args );
 
-    if ( $month_ma_query->have_posts() ) {
-        // The 2nd Loop
-        while ( $month_ma_query->have_posts() ) {
-            $month_ma_query->the_post();
-            echo '<li>' . get_the_title( ) . '</li>';
-        }
-
-        wp_reset_postdata();
-    }
+//    if ( $month_ma_query->have_posts() ) {
+//        // The 2nd Loop
+//        while ( $month_ma_query->have_posts() ) {
+//            $month_ma_query->the_post();
+//            echo '<li>' . get_the_title( ) . '</li>';
+//        }
+//
+//        wp_reset_postdata();
+//    }
     $month_ma_count = count($month_ma_query->get_posts());
     $year_ma_args = array(
         'post_type' => 'ms_event',
@@ -149,7 +148,7 @@
     );
     $year_ma_query = new WP_Query( $year_ma_args );
     $year_ma_count = count($year_ma_query->get_posts());
-
+        
     //	 echo '<p>Total Applicants Added: '.$total_aa_query->get_total().'</p>';
      //    echo "<p>Applicant's Membership Activated: ".$total_ma_query->get_total()."</p>";
      //    echo '<p>Applicants Not Yet Activated: '.$total_np_query.'</p>';
@@ -245,15 +244,15 @@
                         <tbody>
                             <tr>
                                 <th>Registered</th>
-                                <td><?php echo $overall_aa; ?></td>
+                                <td><?php echo count($aa_IDS); ?></td>
                             </tr>
                             <tr>
                                 <th>Members</th>
-                                <td><?php echo $overall_ma; ?></td>
+                                <td><?php echo count($ma_IDS); ?></td>
                             </tr>
                             <tr>
                                 <th>Points</th>
-                                <td><?php echo ($overall_ma * 5); ?></td>
+                                <td><?php echo ($ma_IDS * 5); ?></td>
                             </tr>
                         </tbody>
                     </table>

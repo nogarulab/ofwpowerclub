@@ -44,6 +44,9 @@
 	    display: inline-block;
 	    float: left;
 	    margin-left: 6px;
+	    &:hover {
+	    	background: #1b75ba;
+	    }
 	}
 }
 

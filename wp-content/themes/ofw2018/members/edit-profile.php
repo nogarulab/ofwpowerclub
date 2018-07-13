@@ -117,8 +117,6 @@
 			}
 
 		?>
-		<br><br>
-
 		<form id="edit_profile_form" action="" method="post" enctype="multipart/form-data" class="form-layout">
 			<div class="row">
 				<div class="col-lg-3 col-sm-4">

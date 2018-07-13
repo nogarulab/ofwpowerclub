@@ -57,9 +57,9 @@
 							    <input class="wpmui-field-input wpmui-hidden" type="hidden" id="membership_id" name="membership_id" value="342">
 							    <input class="wpmui-field-input wpmui-hidden" type="hidden" id="action" name="action" value="membership_signup">
 							    <input class="wpmui-field-input wpmui-hidden" type="hidden" id="step" name="step" value="payment_table">
-							    <button class="wpmui-field-input button ms-signup-button membership_signup wpmui-submit button-primary black rounded bg-yellow py-2 px-4 d-inline-block mb-3 b-member-btn" type="submit" id="submit" name="submit" value="">Be A Member</button>
+							    <button class="wpmui-field-input button ms-signup-button membership_signup wpmui-submit button-primary black rounded bg-yellow py-2 text-uppercase px-4 d-inline-block mb-3 b-member-btn" type="submit" id="submit" name="submit" value="">Be A Member</button>
 							</form>
-							<a href="<?php echo home_url(); ?>/request-for-partnership" class="h-c-white partner-link bg-blue white text-uppercase py-2 px-4">Be A Partner</a>
+							<a href="<?php echo home_url(); ?>/request-for-partnership" class="h-c-white partner-link bg-blue rounded white text-uppercase py-2 px-4">Be A Partner</a>
 					<?php } ?>
 					</div>
 				</div>

@@ -5,7 +5,7 @@
 <section class="py-5">
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-12 text-center jasper">
+			<div class="col-12 text-center">
 				<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 					<?php echo file_get_contents(get_template_directory_uri().'/img/logo.svg'); ?>
 					<?php the_content(); ?>

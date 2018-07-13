@@ -42,90 +42,98 @@ svg {
 	height: auto;
 }
 
-.ms-account-wrapper {
-	position: relative;
-	padding-top: 50px;
-	> div {
-		border-top: 1px solid #cecece;
-		padding: 10px 0;
+section.py-5 {
+	
+	.ms-account-wrapper {
+		position: relative;
+		padding-top: 50px;
+		> div {
+			border-top: 1px solid #cecece;
+			padding: 10px 0;
 
-		h2 {
-			text-align: left;
-			color: #1b75ba;
-			font-size: 20px;
-			font-weight: bold;
-			margin-bottom: 30px;
-
-			a {
-				color: #ed4036;
-				font-size: 15px;
-				font-weight: normal;
-				margin-right: 15px;
-				position: relative;
-			}
-
-			a:after {
-				position: absolute;
-				content: '\f0da';
-
-			}
-		}
-
-		table {
-			width: 100%;
-			th {
-				color: #ed4036;
+			h2 {
+				text-align: left;
+				color: #1b75ba;
+				font-size: 20px;
 				font-weight: bold;
-				text-transform: uppercase;
+				margin-bottom: 30px;
+
+				a {
+					color: #ed4036;
+					font-size: 15px;
+					font-weight: normal;
+					margin-right: 15px;
+					position: relative;
+				}
+
+				a:after {
+					position: absolute;
+					content: '\f0da';
+					font-family: 'FontAwesome';
+				}
+			}
+
+			table {
+				width: 100%;
+				th {
+					color: #ed4036;
+					font-weight: bold;
+					text-transform: uppercase;
+				}
 			}
 		}
-	}
 
-	#account-membership {
-		.ms-col-membership {
-			text-align: left;
-		}
-		.ms-col-status {
-			text-align: left;
-		}
-		.ms-col-expire-date {
-			text-align: right;
-		}
-	}
-
-	#account-profile {
-		.ms-label-title {
-			text-align: left;
-		}
-		.ms-label-field {
-			text-align: right;
-		}
-	}
-
-	#account-invoices, #account-activity {
-		thead {
-			th {
+		#account-membership {
+			.ms-col-membership {
 				text-align: left;
 			}
-			th:last-child {
+			.ms-col-status {
+				text-align: left;
+			}
+			.ms-col-expire-date {
 				text-align: right;
 			}
 		}
-		tbody {
-			td {
+
+		#account-profile {
+			.ms-label-title {
 				text-align: left;
 			}
-			td:last-child {
+			.ms-label-field {
 				text-align: right;
 			}
 		}
-	}
-}
 
-.ms-account-wrapper:before {
-	position: absolute;
-	content: 'Account';
-	font-size: 30px;
-	top: 0;
-	left: 0;
+		#account-invoices, #account-activity {
+			thead {
+				th {
+					text-align: left;
+				}
+				th:last-child {
+					text-align: right;
+				}
+			}
+			tbody {
+				td {
+					text-align: left;
+				}
+				td:last-child {
+					text-align: right;
+				}
+			}
+		}
+	}
+
+	.ms-account-wrapper:before {
+		position: absolute;
+		content: 'Account';
+		font-size: 30px;
+		top: 0;
+		left: 0;
+	}
+
+	.ms-logout-form {
+		display: none;
+	}
+
 }

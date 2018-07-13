@@ -19,7 +19,7 @@
 	);
 	$total_ma_query = new WP_User_Query( $total_ma_args );
 
-    print_r($total_ma_args);
+    print_r($total_ma_query);
 	$total_aa_args = array(
         'role'          => 'Subscriber',
         'meta_key'      => 'agent_id',

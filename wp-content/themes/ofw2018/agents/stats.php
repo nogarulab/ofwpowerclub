@@ -19,6 +19,7 @@
 	);
 	$total_ma_query = new WP_User_Query( $total_ma_args );
 
+    print_r($total_ma_args);
 	$total_aa_args = array(
         'role'          => 'Subscriber',
         'meta_key'      => 'agent_id',
@@ -28,6 +29,7 @@
     $total_aa_query = new WP_User_Query( $total_aa_args );
     
     $total_np_query = abs($total_aa_query->get_total() - $total_ma_query->get_total());
+
 
     $aa_IDS = [];
     $ma_IDS = [];

@@ -12,8 +12,7 @@ if ( is_page('partner-dashboard') ) {
 
     if ( is_user_logged_in() && current_user_can('agent') ) :
 
-        get_template_part( 'agents/stats', get_post_format() );
-        get_template_part( 'agents/addmember', get_post_format() );
+        get_template_part( 'agents/dashboard', get_post_format() );
 
     else :
 
@@ -30,6 +29,8 @@ if ( is_page('partner-dashboard') ) {
     <main role="main">
         <!-- section -->
         <section>
+
+            <div class="container">
 
             <h1><?php the_title(); ?></h1>
 
@@ -85,16 +86,20 @@ if ( is_page('partner-dashboard') ) {
                 get_template_part( 'members/edit-profile', get_post_format() );
             }
 
+            if ( is_page('add-a-member') ) {
+                get_template_part( 'agents/addmember', get_post_format() );
+            }
+
 
             ?>
+
+            </div>
 
         </section>
         <!-- /section -->
     </main>
 
     <?php
-
-    get_sidebar();
 
 }
 

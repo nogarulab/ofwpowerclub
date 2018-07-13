@@ -149,9 +149,14 @@ function html5blank_conditional_scripts()
         wp_enqueue_script('prodjs'); // Enqueue it!
     }
 
-    if (is_page('edit-my-personal-details') || is_page('agent-dashboard')) {
+    if (is_page('edit-my-personal-details') || is_page('add-a-member') || is_page('request-for-partnership')) {
         wp_register_script('editprofilejs', get_template_directory_uri() . '/js/editprofile.js', '', '', true);
         wp_enqueue_script('editprofilejs');
+    }
+
+    if ( is_page('agent-dashboard') ) {
+        wp_register_script('agentdash', get_template_directory_uri() . '/js/agent-dashboard.js', '', '', true);
+        wp_enqueue_script('agentdash');
     }
 
 }
@@ -870,16 +875,38 @@ add_action('admin_footer', 'custom_admin_js');
 function add_slug_body_class( $classes ) {
     global $post;
 
+    // if (
+    //     is_user_logged_in() && 
+    //     current_user_can('partner') &&
+    //     is_page('partner-dashboard') ||
+    //     is_page('member-search') ||
+    //     is_page('contact-administrator')
+    // ) {
+    //     $classes[] = 'user-dashboard';
+    // } else {
+    //     $classes[] = '';
+    // }
+
     if (
+        // (is_user_logged_in() && current_user_can('partner')) ||
+        // (is_user_logged_in() && current_user_can('agent'))
         is_user_logged_in() && 
-        current_user_can('partner') &&
-        is_page('partner-dashboard') ||
-        is_page('member-search') ||
-        is_page('contact-administrator')
+        current_user_can('partner') ||
+        current_user_can('agent')
     ) {
-        $classes[] = 'partner-dashboard';
-    } else {
-        $classes[] = '';
+        
+        if (
+            is_page('partner-dashboard') ||
+            is_page('member-search') ||
+            is_page('contact-administrator') ||
+            is_page('agent-dashboard') ||
+            is_page('add-a-member')
+        ) {
+            $classes[] = 'user-dashboard';
+        } else {
+            $classes[] = '';
+        }
+
     }
 
     return $classes;

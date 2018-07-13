@@ -10,8 +10,12 @@
 			font-size: 3.250em;
 			font-weight: 700;
 		}
+		.caption-content {
+			overflow: auto;
+		}
 		p {
 			font-size: 0.938em;
+			line-height: initial;
 		}
 		a {
 			font-weight: 500;

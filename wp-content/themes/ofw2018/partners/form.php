@@ -1,3 +1,4 @@
+
 <?php 
 
 if ( ! is_user_logged_in() ) :
@@ -192,7 +193,7 @@ if ( ! is_user_logged_in() ) :
 		        
 
 	            $success = 1;  
-	   			echo "<div>You have successfully sent your application. Please wait for our staff to get in touch with you for the next step.</div>";
+	   			echo "<div><h5>You have successfully sent your application.</h5><p>Please wait for our staff to get in touch with you for the next step.</p></div>";
 	            //header( 'Location:' . get_bloginfo('url') . '/login/?success=1&u=' . $username ); 
 	   
 	        }  else {
@@ -207,93 +208,139 @@ if ( ! is_user_logged_in() ) :
 ?>
 
 <form id="wp_signup_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">  
-	<div>
-		<h3>Create Account</h3>
-		<p>Please register first on our website.</p>
-	    <div><input type="email" name="email" id="email" required="" placeholder="Email Address" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>"></div>
-	    <div><input type="password" name="password" id="password" required="" placeholder="Password" >  </div>
-	    <div><input type="password" name="password_confirmation" required="" id="password_confirmation" placeholder="Confirm Password">  </div>
-	    <div><input type="text" name="firstname" id="firstname" required="" placeholder="First Name" value="<?php echo isset($_POST['firstname']) ? $_POST['firstname'] : ''; ?>"></div>
-	    <div><input type="text" name="lastname" id="lastname" required="" placeholder="Last Name" value="<?php echo isset($_POST['lastname']) ? $_POST['lastname'] : ''; ?>"></div>
-	    <div><input type="number" name="contactnumber" id="contactnumber" required="" placeholder="Contact Number" value="<?php echo isset($_POST['contactnumber']) ? $_POST['contactnumber'] : ''; ?>"></div>
-	</div>
-    <hr>
-    <div>
+	<section class="create-an-account">
+		<h3>Create An Account</h3>
+		<p>Please register an account first in our website.</p>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-row">
+					<div class="form-group col-md-12"><input class="form-control" type="email" name="email" id="email" required="" placeholder="Email Address" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>"></div>
+				</div>
+				<div class="form-row">
+				    <div class="form-group col-md-6"><input class="form-control" type="password" name="password" id="password" required="" placeholder="Password" >  </div>
+				    <div class="form-group col-md-6"><input class="form-control" type="password" name="password_confirmation" required="" id="password_confirmation" placeholder="Confirm Password">  </div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-row">
+				    <div class="form-group col-md-6"><input class="form-control" type="text" name="firstname" id="firstname" required="" placeholder="First Name" value="<?php echo isset($_POST['firstname']) ? $_POST['firstname'] : ''; ?>"></div>
+				    <div class="form-group col-md-6"><input class="form-control" type="text" name="lastname" id="lastname" required="" placeholder="Last Name" value="<?php echo isset($_POST['lastname']) ? $_POST['lastname'] : ''; ?>"></div>
+				</div>
+				<div class="form-row">
+				    <div class="form-group col-md-12"><input class="form-control" type="number" name="contactnumber" id="contactnumber" required="" placeholder="Contact Number" value="<?php echo isset($_POST['contactnumber']) ? $_POST['contactnumber'] : ''; ?>"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+    <section class="about-establishment">
 	    <h3>About Your Establishment</h3>
 	    <p>Tell us more about your establishments.</p>
-	    <div><input type="text" name="establishmentname" id="establishmentname" required="" placeholder="Establishment/Business Name" value="<?php echo isset($_POST['establishmentname']) ? $_POST['establishmentname'] : ''; ?>"></div>
-	    <div><textarea name="establishmentdescription" required="" placeholder="Tell Us about your establishment/business"><?php echo isset($_POST['establishmentdescription']) ? $_POST['establishmentdescription'] : ''; ?></textarea></div>
-	    <div><input type="text" name="e_owner" required="" placeholder="Name of Proprietor" value="<?php echo isset($_POST['e_owner']) ? $_POST['e_owner'] : ''; ?>"></div>
-	    <div><input type="text" name="e_website_url" required="" placeholder="Website Link" value="<?php echo isset($_POST['e_website_url']) ? $_POST['e_website_url'] : ''; ?>"></div>
-	</div>
-	<hr>
-    <div>
+	    <div class="row">
+		    <div class="col-md-3">
+		    	<div class="profile-picture form-group">
+		    		<div class="updatephoto">
+		    			<img class="profile-photo" id="profile_photo" src="<?php echo get_template_directory_uri();?>/img/upload-logo.png" alt="" />
+		    			<input type="file" name="featured_img" id="profile_picture" multiple="false" accept="image/*" />
+		    			<div class="upload-text">Upload Profile Picture</div>
+		    		</div>
+		    	</div>
+		    </div>
+		    <div class="col-md-9">
+		    	
+	    		<div class="form-row">
+    				<div class="form-group col-md-4"><input class="form-control"  type="text" name="establishmentname" id="establishmentname" required="" placeholder="Establishment/Business Name" value="<?php echo isset($_POST['establishmentname']) ? $_POST['establishmentname'] : ''; ?>"></div>
+    				<div class="form-group col-md-4"><input class="form-control"  type="text" name="e_owner" required="" placeholder="Name of Proprietor" value="<?php echo isset($_POST['e_owner']) ? $_POST['e_owner'] : ''; ?>"></div>
+				    <div class="form-group col-md-4"><input class="form-control"  type="text" name="e_website_url" required="" placeholder="Website Link" value="<?php echo isset($_POST['e_website_url']) ? $_POST['e_website_url'] : ''; ?>"></div>
+	    		</div>
+	    		<div class="form-row">
+    				<div class="form-group col-md-12"><textarea class="form-control"  name="establishmentdescription" required="" placeholder="Tell Us about your establishment/business"><?php echo isset($_POST['establishmentdescription']) ? $_POST['establishmentdescription'] : ''; ?></textarea></div>	
+	    		</div>
+			    
+			</div>
+		</div>
+	</section>
+    <section class="branches clearfix">
 	    <h3>Branches</h3>
 	    <p>Tell us the address, contact number, email &amp; contact person of all your establishment branches.</p>
-	    <div class='branches incremental-item' data-itemhtml='<li class="item"><div><input type="text" name="b_location[]" placeholder="Location"></div><div><input type="text" name="b_address[]" placeholder="Address"></div><div><input type="text" name="b_contactnumber[]" placeholder="Contact Number"></div><div><input type="text" name="b_contactperson[]" placeholder="Contact Person"></div><span class="remove">Remove</span></li>'>
+	    <div class='branches incremental-item' data-itemhtml='<li class="item"><div class="form-row"><div class="form-group col-md-3"><input class="form-control" type="text" name="b_location[]" placeholder="Location"></div><div class="form-group col-md-3"><input class="form-control" type="text" name="b_contactnumber[]" placeholder="Contact Number"></div><div class="form-group col-md-6"><input class="form-control" type="text" name="b_contactperson[]" placeholder="Contact Person"></div></div><div class="form-row"><div class="form-group col-md-12"><input class="form-control" type="text" name="b_address[]" placeholder="Address"></div></div><span class="remove">Remove</span></li>'>
 	    	<ul>
 	    		<li class="item">
-	    			<div><input type="text" required="" name="b_location[]" placeholder="Location"></div>
-	    			<div><input type="text" required="" name="b_address[]" placeholder="Address"></div>
-	    			<div><input type="number" required="" name="b_contactnumber[]" placeholder="Contact Number"></div>
-	    			<div><input type="text" required="" name="b_contactperson[]" placeholder="Contact Person"></div>
+	    			<div class="form-row">
+		    			<div class="form-group col-md-3"><input class="form-control" type="text" required="" name="b_location[]" placeholder="Location"></div>
+		    			<div class="form-group col-md-3"><input class="form-control" type="number" required="" name="b_contactnumber[]" placeholder="Contact Number"></div>
+		    			<div class="form-group col-md-6"><input class="form-control" type="text" required="" name="b_contactperson[]" placeholder="Contact Person"></div>
+	    			</div>
+	    			<div class="form-row">
+	    				<div class="form-group col-md-12"><input class="form-control" type="text" required="" name="b_address[]" placeholder="Address"></div>
+	    			</div>
 	    		</li>
 	    	</ul>
-    		<span class="add">Add another branch</button>
+    		<span class="add btn btn-md btn-secondary float-right">Add Another Branch</button>
 	    </div>
-	</div>
-	<hr>
-    <div>
+	</section>
+	<section class="perks clearfix">
+    	<h3>Benefits and Perks</h3>
+    	<p>Tell us the benefits and perks that you're going to offer to our members.</p>
+    	<div class="benefit_perks incremental-item" data-itemhtml="<li class='item'><div class='form-group'><input class='form-control' type='text' name='benefitname[]' placeholder='Benefit Name'></div><div class='form-group'><textarea class='form-control' name='benefitdesc[]'>About the benefit</textarea></div><span class='remove'>Remove</span></li>">
+    		<ul>
+	    		<li class="item">
+	    			<div class="form-group"><input class="form-control" type="text" name="benefitname[]" placeholder="Benefit Name"></div>
+	    			<div class="form-group"><textarea class="form-control" name="benefitdesc[]" placeholder="About the benefit"></textarea></div>
+	    		</li>
+	    	</ul>
+    		<span class="add btn btn-md btn-secondary float-right">Add Another Benefit/Perks</span>
+    	</div>
+    </section>
+    <section>
 	    <h3>Establishment Category</h3>
 	    <p>Tell us the what kind/type of business you have. Please take note that you can only choose 3 categories.</p>
 	    <div>
-	    	<ul>
+	    	<ul class="form-row">
 	    	<?php
 	    		$terms = get_terms( array(
 				    'taxonomy' => 'partner_category',
 				    'hide_empty' => false,
 				) );
 				foreach ($terms as $term) {
-					echo '<li><input '.( !empty($partner_category_list) && in_array($term->name, $partner_category_list) ? 'checked="checked"' : '' ).' type="checkbox" name="partner_category[]" value="'.$term->name.'"> '.$term->name.'</li>';
+					echo '<li class="col-md-3"><input '.( !empty($partner_category_list) && in_array($term->name, $partner_category_list) ? 'checked="checked"' : '' ).' type="checkbox" name="partner_category[]" value="'.$term->name.'"> '.$term->name.'</li>';
 				}
 	    	?>
 	    	</ul>
 	    </div>
-	</div>
-	<hr>
-	<div>
-    	<h3>Benefits and Perks</h3>
-    	<p>Tell us the benefits and perks that you're going to offer to our members.</p>
-    	<div class="benefit_perks incremental-item" data-itemhtml="<li class='item'><div><input type='text' name='benefitname[]' placeholder='Benefit Name'></div><div><textarea name='benefitdesc[]'>About the benefit</textarea></div><span class='remove'>Remove</span></li>">
-    		<ul>
-	    		<li class="item">
-	    			<div><input type="text" name="benefitname[]" placeholder="Benefit Name"></div>
-	    			<div><textarea name="benefitdesc[]" placeholder="About the benefit"></textarea></div>
-	    		</li>
-	    	</ul>
-    		<span class="add">Add another benefit/perks</button>
+	</section>
+    <div class="action clearfix">
+    	<div class="float-left">
+    		<span><input type="checkbox" name="receivesticker" value="" <?php echo (isset($_POST['receivesticker'])) ? 'checked=checked' : ''; ?> /> Receive OFW Power Club Sticker(s)</span>
+    		<span><input type="checkbox" class="termsinput" name="terms_condition" required="" value="" <?php echo (isset($_POST['terms_condition'])) ? 'checked=checked' : ''; ?> /> Accept <a href="#" data-toggle="modal" data-target="#terms">terms and condition</a></span>
     	</div>
+    	<input type="submit" id="submitbtn" name="submit" value="Send Application" class="float-right btn btn-primary btn-lg" />
     </div>
-
-    <div>
-    	<h3>Upload Your Establishment's Logo</h3>
-    	<div><input type="file" name="featured_img" id="featured_img" accept="image/*" /></div>
-    </div>
-
-    <div><input type="checkbox" name="receivesticker" value="" <?php echo (isset($_POST['receivesticker'])) ? 'checked=checked' : ''; ?> /> Receive OFW Power Club Sticker(s)</div>
-    <div>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</div>
-<<<<<<< HEAD
-    <div><input type="checkbox" name="terms_condition" required="" value="" <?php echo (isset($_POST['terms_condition'])) ? 'checked=checked' : ''; ?> /> Accept terms and condition</div>
-    <div><input type="submit" id="submitbtn" name="submit" value="Sign Up" />  </div>
-=======
-    <div><input type="checkbox" name="terms_condition" value="" <?php echo (isset($_POST['terms_condition'])) ? 'checked=checked' : ''; ?> /> Accept terms and condition</div>
-    
-    <div><input type="submit" id="submitbtn" name="submit" value="Sign Up" /></div>
->>>>>>> 6b73703f11274a133b1bb569f9e97326caa7e2e5
     <input type="hidden" name="post-type" id="post-type" value="<?php echo $posttype; ?>" />
 	<input type="hidden" name="action" value="<?php echo $posttype; ?>" />
 	<?php wp_nonce_field( 'submit_'.$posttype,'client_'.$posttype.'_nonce' ); ?>
-</form> 
+</form>
+
+<div class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="terms" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Terms &amp; Conditions</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
+				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
+				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
+				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary btn-accept" data-dismiss="modal">Accept Terms</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 <?php
 

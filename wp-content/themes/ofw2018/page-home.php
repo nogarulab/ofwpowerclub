@@ -21,7 +21,9 @@
 					    <div class="carousel-item" style="background-image:url(<?php echo $featuredImage; ?>);">
 					    	<div class="banner-text-container text-center carousel-caption">
 								<h1 class="text-uppercase"><?php the_title(); ?></h1>
-								<?php the_content(); ?>
+								<div class="caption-content">
+									<?php the_content(); ?>
+								</div>
 								<?php if( $posts ): ?>
 								<?php foreach( $posts as $post): 
 									setup_postdata($post); ?>
@@ -47,9 +49,11 @@
 				<div class="col-md-8">
 					<h1 class="text-uppercase font-weight-bold"><?php bloginfo('name'); ?></h1>
 					<?php the_content(); ?>
-					<div class="buttons d-flex justify-content-around">
-						<a href="" class="h-c-black member-link bg-yellow black text-uppercase py-2 px-4">Be A Member</a>
-						<a href="" class="h-c-white partner-link bg-blue white text-uppercase py-2 px-4">Be A Partner</a>
+					<?php if ( ! is_user_logged_in() ) { ?>
+						<div class="buttons d-flex justify-content-around">
+							<a href="<?php echo home_url(); ?>/register" class="h-c-black member-link bg-yellow black text-uppercase py-2 px-4">Be A Member</a>
+							<a href="<?php echo home_url(); ?>/request-for-partnership" class="h-c-white partner-link bg-blue white text-uppercase py-2 px-4">Be A Partner</a>
+					<?php } ?>
 					</div>
 				</div>
 			</div>

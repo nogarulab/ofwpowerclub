@@ -28,7 +28,8 @@
     $total_aa_query = new WP_User_Query( $total_aa_args );
     
     $total_np_query = abs($total_aa_query->get_total() - $total_ma_query->get_total());
-
+    $overall_aa = $total_aa_query->get_total();
+    $overall_ma = $total_ma_query->get_total();
     $aa_IDS = [];
     $ma_IDS = [];
     foreach ( $total_ma_query->get_results() as $user ) {
@@ -130,7 +131,6 @@
             echo '<li>' . get_the_title( ) . '</li>';
         }
 
-        // Restore original Post Data
         wp_reset_postdata();
     }
     $month_ma_count = count($month_ma_query->get_posts());
@@ -245,15 +245,15 @@
                         <tbody>
                             <tr>
                                 <th>Registered</th>
-                                <td><?php echo $total_aa_query->get_total(); ?></td>
+                                <td><?php echo $overall_aa; ?></td>
                             </tr>
                             <tr>
                                 <th>Members</th>
-                                <td><?php echo $total_ma_query->get_total(); ?></td>
+                                <td><?php echo $overall_ma; ?></td>
                             </tr>
                             <tr>
                                 <th>Points</th>
-                                <td><?php echo ($total_ma_query->get_total() * 5); ?></td>
+                                <td><?php echo ($overall_ma * 5); ?></td>
                             </tr>
                         </tbody>
                     </table>

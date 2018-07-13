@@ -128,15 +128,6 @@
     );
     $month_ma_query = new WP_Query( $month_ma_args );
 
-//    if ( $month_ma_query->have_posts() ) {
-//        // The 2nd Loop
-//        while ( $month_ma_query->have_posts() ) {
-//            $month_ma_query->the_post();
-//            echo '<li>' . get_the_title( ) . '</li>';
-//        }
-//
-//        wp_reset_postdata();
-//    }
     $month_ma_count = count($month_ma_query->get_posts());
     $year_ma_args = array(
         'post_type' => 'ms_event',
@@ -153,7 +144,26 @@
     );
     $year_ma_query = new WP_Query( $year_ma_args );
     $year_ma_count = count($year_ma_query->get_posts());
-    echo count($aa_IDS);
+
+    $overall_aa_args = array(
+        'post_type' => 'ms_invoice',
+        'post_status' => 'private',
+        'author'    => implode(',',$aa_IDS),
+        'number'    => -1,
+    );
+    $overall_aa_query = new WP_Query( $overall_aa_args );
+    $overall_aa_count = count($overall_aa_query->get_posts());
+
+    $overall_ma_args = array(
+        'post_type' => 'ms_event',
+        'post_status' => 'private',
+        's' => 'user-membership-ofw-power-club-membership-type-paid',
+        'author'    => implode(',',$ma_IDS),
+        'number'    => -1,
+    );
+    $overall_ma_query = new WP_Query( $overall_ma_args );
+    $overall_ma_count = count($overall_ma_query->get_posts());
+    
     //	 echo '<p>Total Applicants Added: '.$total_aa_query->get_total().'</p>';
      //    echo "<p>Applicant's Membership Activated: ".$total_ma_query->get_total()."</p>";
      //    echo '<p>Applicants Not Yet Activated: '.$total_np_query.'</p>';
@@ -249,15 +259,15 @@
                         <tbody>
                             <tr>
                                 <th>Registered</th>
-                                <td><?php echo count($aa_IDS); ?></td>
+                                <td><?php echo $overall_aa_count; ?></td>
                             </tr>
                             <tr>
                                 <th>Members</th>
-                                <td><?php echo count($ma_IDS); ?></td>
+                                <td><?php echo $overall_ma_count; ?></td>
                             </tr>
                             <tr>
                                 <th>Points</th>
-                                <td><?php echo (count($ma_IDS) * 5); ?></td>
+                                <td><?php echo ($overall_ma_count * 5); ?></td>
                             </tr>
                         </tbody>
                     </table>

@@ -50,6 +50,17 @@
         ),
     );
     $week_aa_query = new WP_Query( $week_aa_args );
+
+    if ( $week_aa_query->have_posts() ) {
+        // The 2nd Loop
+        while ( $week_aa_query->have_posts() ) {
+            $week_aa_query->the_post();
+            echo '<li>' . get_the_title( ) . '</li>';
+        }
+
+        // Restore original Post Data
+        wp_reset_postdata();
+    }
     $week_aa_count = count($week_aa_query->get_posts());
     $month_aa_args = array(
         'post_type' => 'ms_invoice',
@@ -94,11 +105,13 @@
         ),
     );
     $week_ma_query = new WP_Query( $week_ma_args );
+
+
     $week_ma_count = count($week_ma_query->get_posts());
     $month_ma_args = array(
         'post_type' => 'ms_event',
         'post_status' => 'private',
-        's' => 'cancelled',
+//        's' => 'cancelled',
         'author'    => implode(',',$ma_IDS),
         'number'    => -1,
         'date_query' => array(
@@ -109,6 +122,17 @@
         ),
     );
     $month_ma_query = new WP_Query( $month_ma_args );
+
+    if ( $month_ma_query->have_posts() ) {
+        // The 2nd Loop
+        while ( $month_ma_query->have_posts() ) {
+            $month_ma_query->the_post();
+            echo '<li>' . get_the_title( ) . '</li>';
+        }
+
+        // Restore original Post Data
+        wp_reset_postdata();
+    }
     $month_ma_count = count($month_ma_query->get_posts());
     $year_ma_args = array(
         'post_type' => 'ms_event',

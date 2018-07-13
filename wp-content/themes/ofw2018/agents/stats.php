@@ -148,7 +148,7 @@
     );
     $year_ma_query = new WP_Query( $year_ma_args );
     $year_ma_count = count($year_ma_query->get_posts());
-        
+    echo count($aa_IDS);
     //	 echo '<p>Total Applicants Added: '.$total_aa_query->get_total().'</p>';
      //    echo "<p>Applicant's Membership Activated: ".$total_ma_query->get_total()."</p>";
      //    echo '<p>Applicants Not Yet Activated: '.$total_np_query.'</p>';

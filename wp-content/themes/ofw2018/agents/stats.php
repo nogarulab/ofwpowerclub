@@ -27,7 +27,18 @@
     );
     $total_aa_query = new WP_User_Query( $total_aa_args );
     echo '<pre>';
-    print_r($total_aa_query);
+    print_r($total_aa_query->get_results());
+    echo '</pre>';
+
+
+	$test_total_aa_args = array(
+        'meta_key'      => 'agent_id',
+        'meta_value'    => $current_user->ID,
+        'number'        => -1
+    );
+    $test_total_aa_query = new WP_User_Query( $test_total_aa_args );
+    echo '<pre>';
+    print_r($test_total_aa_query->get_results());
     echo '</pre>';
     $total_np_query = abs($total_aa_query->get_total() - $total_ma_query->get_total());
 
@@ -97,7 +108,7 @@
         $overall_aa_query = new WP_Query( $overall_aa_args );
         $overall_aa_count = count($overall_aa_query->get_posts());
     }else{
-        $month_aa_count = 0;
+        $week_aa_count = 0;
         $month_aa_count = 0;
         $year_aa_count = 0;
         $overall_aa_count=0;

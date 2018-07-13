@@ -51,8 +51,6 @@
 					<?php the_content(); ?>
 					<?php if ( ! is_user_logged_in() ) { ?>
 						<div class="buttons d-flex justify-content-around">
-						<!-- 	<a href="<?php echo home_url(); ?>/register" class="h-c-black member-link bg-yellow black text-uppercase py-2 px-4">Be A Member</a> -->
-
 							<form action="<?php echo get_home_url(); ?>/register/" class="ms-membership-form" method="post">
 							    <input type="hidden" id="_wpnonce" name="_wpnonce" value="463ccc15f6">
 							    <input type="hidden" name="_wp_http_referer" value="/register/">

@@ -117,10 +117,11 @@
 			}
 
 		?>
+		<br><br>
 
 		<form id="edit_profile_form" action="" method="post" enctype="multipart/form-data" class="form-layout">
 			<div class="row">
-				<div class="col-lg-3">
+				<div class="col-lg-3 col-sm-4">
 					
 					<div class="profile-picture">
 						<div class="updatephoto">
@@ -136,7 +137,7 @@
 					</div>
 					
 				</div>
-				<div class="col-lg-9">
+				<div class="col-lg-9 col-sm-8">
 					<h4 class="blue">Personal Information</h4>
 					<div class="form-row">
 						<div class="form-group col-md-4">

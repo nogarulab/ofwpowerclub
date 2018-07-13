@@ -40,123 +40,140 @@
     foreach ( $total_aa_query->get_results() as $user ) {
         $aa_IDS[] = $user->ID;
     }
-    echo "<pre>";
-    print_r($ma_IDS);
-    echo "</pre>";
-    $week_aa_args = array(
-        'post_type' => 'ms_invoice',
-        'post_status' => 'private',
-        'author'    => implode(',',$aa_IDS),
-        'number'    => -1,
-        'date_query' => array(
-            array(
-                'year' => date( 'Y' ),
-                'week' => date( 'W' ),
+    if(count($aa_IDS)>0){
+
+        $week_aa_args = array(
+            'post_type' => 'ms_invoice',
+            'post_status' => 'private',
+            'author'    => implode(',',$aa_IDS),
+            'number'    => -1,
+            'date_query' => array(
+                array(
+                    'year' => date( 'Y' ),
+                    'week' => date( 'W' ),
+                ),
             ),
-        ),
-    );
-    $week_aa_query = new WP_Query( $week_aa_args );
-
-    echo "<pre>";
-    print_r($week_aa_query);
-    echo "</pre>";
-    $week_aa_count = count($week_aa_query->get_posts());
-    $month_aa_args = array(
-        'post_type' => 'ms_invoice',
-        'post_status' => 'private',
-        'author'    => implode(',',$aa_IDS),
-        'number'    => -1,
-        'date_query' => array(
-            array(
-                'year' => date( 'Y' ),
-                'month' => date( 'M' ),
+        );
+        $week_aa_query = new WP_Query( $week_aa_args );
+        $week_aa_count = count($week_aa_query->get_posts());
+//        echo "<pre>";
+//        print_r($week_aa_query);
+//        echo "</pre>";
+        $month_aa_args = array(
+            'post_type' => 'ms_invoice',
+            'post_status' => 'private',
+            'author'    => implode(',',$aa_IDS),
+            'number'    => -1,
+            'date_query' => array(
+                array(
+                    'year' => date( 'Y' ),
+                    'month' => date( 'M' ),
+                ),
             ),
-        ),
-    );
-    $month_aa_query = new WP_Query( $month_aa_args );
-    $month_aa_count = count($month_aa_query->get_posts());
-    $year_aa_args = array(
-        'post_type' => 'ms_invoice',
-        'post_status' => 'private',
-        'author'    => implode(',',$aa_IDS),
-        'number'    => -1,
-        'date_query' => array(
-            array(
-                'year' => date( 'Y' ),
+        );
+        $month_aa_query = new WP_Query( $month_aa_args );
+        $month_aa_count = count($month_aa_query->get_posts());
+
+        $year_aa_args = array(
+            'post_type' => 'ms_invoice',
+            'post_status' => 'private',
+            'author'    => implode(',',$aa_IDS),
+            'number'    => -1,
+            'date_query' => array(
+                array(
+                    'year' => date( 'Y' ),
+                ),
             ),
-        ),
-    );
-    $year_aa_query = new WP_Query( $year_aa_args );
-    $year_aa_count = count($year_aa_query->get_posts());
+        );
+        $year_aa_query = new WP_Query( $year_aa_args );
+        $year_aa_count = count($year_aa_query->get_posts());
+
+        $overall_aa_args = array(
+            'post_type' => 'ms_invoice',
+            'post_status' => 'private',
+            'author'    => implode(',',$aa_IDS),
+            'number'    => -1,
+        );
+        $overall_aa_query = new WP_Query( $overall_aa_args );
+        $overall_aa_count = count($overall_aa_query->get_posts());
+    }else{
+        $week_aa_query = 0;
+        $month_aa_count = 0;
+        $year_aa_count = 0;
+        $overall_aa_count=0;
+    }
+
+    if(count($aa_IDS)>0){
 
 
-    $week_ma_args = array(
-        'post_type' => 'ms_event',
-        'post_status' => 'private',
-        's' => 'user-membership-ofw-power-club-membership-type-paid',
-        'author'    => implode(',',$ma_IDS),
-        'number'    => -1,
-        'date_query' => array(
-            array(
-                'year' => date( 'Y' ),
-                'week' => date( 'W' ),
+        $week_ma_args = array(
+            'post_type' => 'ms_event',
+            'post_status' => 'private',
+            's' => 'user-membership-ofw-power-club-membership-type-paid',
+            'author'    => implode(',',$ma_IDS),
+            'number'    => -1,
+            'date_query' => array(
+                array(
+                    'year' => date( 'Y' ),
+                    'week' => date( 'W' ),
+                ),
             ),
-        ),
-    );
-    $week_ma_query = new WP_Query( $week_ma_args );
+        );
+        $week_ma_query = new WP_Query( $week_ma_args );
 
 
-    $week_ma_count = count($week_ma_query->get_posts());
-    $month_ma_args = array(
-        'post_type' => 'ms_event',
-        'post_status' => 'private',
-        's' => 'user-membership-ofw-power-club-membership-type-paid',
-        'author'    => implode(',',$ma_IDS),
-        'number'    => -1,
-        'date_query' => array(
-            array(
-                'year' => date( 'Y' ),
-                'week' => date( 'W' ),
+        $week_ma_count = count($week_ma_query->get_posts());
+        $month_ma_args = array(
+            'post_type' => 'ms_event',
+            'post_status' => 'private',
+            's' => 'user-membership-ofw-power-club-membership-type-paid',
+            'author'    => implode(',',$ma_IDS),
+            'number'    => -1,
+            'date_query' => array(
+                array(
+                    'year' => date( 'Y' ),
+                    'week' => date( 'W' ),
+                ),
             ),
-        ),
-    );
-    $month_ma_query = new WP_Query( $month_ma_args );
+        );
+        $month_ma_query = new WP_Query( $month_ma_args );
 
-    $month_ma_count = count($month_ma_query->get_posts());
-    $year_ma_args = array(
-        'post_type' => 'ms_event',
-        'post_status' => 'private',
-        's' => 'user-membership-ofw-power-club-membership-type-paid',
-        'author'    => implode(',',$ma_IDS),
-        'number'    => -1,
-        'date_query' => array(
-            array(
-                'year' => date( 'Y' ),
-                'week' => date( 'W' ),
+        $month_ma_count = count($month_ma_query->get_posts());
+        $year_ma_args = array(
+            'post_type' => 'ms_event',
+            'post_status' => 'private',
+            's' => 'user-membership-ofw-power-club-membership-type-paid',
+            'author'    => implode(',',$ma_IDS),
+            'number'    => -1,
+            'date_query' => array(
+                array(
+                    'year' => date( 'Y' ),
+                    'week' => date( 'W' ),
+                ),
             ),
-        ),
-    );
-    $year_ma_query = new WP_Query( $year_ma_args );
-    $year_ma_count = count($year_ma_query->get_posts());
+        );
+        $year_ma_query = new WP_Query( $year_ma_args );
+        $year_ma_count = count($year_ma_query->get_posts());
 
-    $overall_aa_args = array(
-        'post_type' => 'ms_invoice',
-        'post_status' => 'private',
-        'author'    => implode(',',$aa_IDS),
-        'number'    => -1,
-    );
-    $overall_aa_query = new WP_Query( $overall_aa_args );
-    $overall_aa_count = count($overall_aa_query->get_posts());
+        $overall_ma_args = array(
+            'post_type' => 'ms_event',
+            'post_status' => 'private',
+            's' => 'user-membership-ofw-power-club-membership-type-paid',
+            'author'    => implode(',',$ma_IDS),
+            'number'    => -1,
+        );
+        $overall_ma_query = new WP_Query( $overall_ma_args );
+        $overall_ma_count = count($overall_ma_query->get_posts());
 
-    $overall_ma_args = array(
-        'post_type' => 'ms_event',
-        'post_status' => 'private',
-        's' => 'user-membership-ofw-power-club-membership-type-paid',
-        'author'    => implode(',',$ma_IDS),
-        'number'    => -1,
-    );
-    $overall_ma_query = new WP_Query( $overall_ma_args );
-    $overall_ma_count = count($overall_ma_query->get_posts());
+    }else{
+
+        $week_ma_query = 0;
+        $month_ma_count = 0;
+        $year_ma_count = 0;
+        $overall_ma_count=0;
+    }
+
+
     
     //	 echo '<p>Total Applicants Added: '.$total_aa_query->get_total().'</p>';
      //    echo "<p>Applicant's Membership Activated: ".$total_ma_query->get_total()."</p>";

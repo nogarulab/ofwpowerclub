@@ -3,7 +3,7 @@
 	$current_user = wp_get_current_user();
 
 	$total_ma_args = array(
-		'role' 			=> 'Subscriber',
+		'role' 			=> 'Member',
 		'meta_query'    => array(
             'relation'  => 'AND',
             array(
@@ -20,7 +20,7 @@
 	$total_ma_query = new WP_User_Query( $total_ma_args );
 
 	$total_aa_args = array(
-        'role'          => 'Subscriber',
+        'role'          => 'Member',
         'meta_key'      => 'agent_id',
         'meta_value'    => $current_user->ID,
         'number'        => -1

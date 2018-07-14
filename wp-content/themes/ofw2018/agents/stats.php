@@ -26,9 +26,9 @@
         'number'        => -1
     );
     $total_aa_query = new WP_User_Query( $total_aa_args );
-    echo '<pre>';
-    print_r($total_ma_query->get_results());
-    echo '</pre>';
+//    echo '<pre>';
+//    print_r($total_ma_query->get_results());
+//    echo '</pre>';
     $total_np_query = abs($total_aa_query->get_total() - $total_ma_query->get_total());
 
 
@@ -40,9 +40,9 @@
     foreach ( $total_aa_query->get_results() as $user ) {
         $aa_IDS[] = $user->ID;
     }
-    echo '<pre>';
-    print_r($ma_IDS);
-    echo '</pre>';
+//    echo '<pre>';
+//    print_r($ma_IDS);
+//    echo '</pre>';
 
     if(count($aa_IDS)>0){
 
@@ -105,7 +105,8 @@
         $year_aa_count = 0;
         $overall_aa_count=0;
     }
-    $s = 'user-membership-ofw-power-club-membership-type-paid'; //LIVE
+    $s = 'registered'; //LIVE
+//    $s = 'user-membership-ofw-power-club-membership-type-paid'; //LIVE
 //    $s = 'cancel'; //local
 
     if(count($ma_IDS)>0){
@@ -114,7 +115,7 @@
         $week_ma_args = array(
             'post_type' => 'ms_event',
             'post_status' => 'private',
-//            's' => $s,
+            's' => $s,
             'author'    => implode(',',$ma_IDS),
             'number'    => -1,
             'date_query' => array(
@@ -131,7 +132,7 @@
         $month_ma_args = array(
             'post_type' => 'ms_event',
             'post_status' => 'private',
-//            's' => $s,
+            's' => $s,
             'author'    => implode(',',$ma_IDS),
             'number'    => -1,
             'date_query' => array(
@@ -147,7 +148,7 @@
         $year_ma_args = array(
             'post_type' => 'ms_event',
             'post_status' => 'private',
-//            's' => $s,
+            's' => $s,
             'author'    => implode(',',$ma_IDS),
             'number'    => -1,
             'date_query' => array(
@@ -163,16 +164,25 @@
         $overall_ma_args = array(
             'post_type' => 'ms_event',
             'post_status' => 'private',
-//            's' => $s,
+            's' => 'registered',
             'author'    => implode(',',$ma_IDS),
             'number'    => -1,
         );
         $overall_ma_query = new WP_Query( $overall_ma_args );
 
-        echo '<pre>';
-        print_r($overall_ma_query);
-        echo '</pre>';
+//        echo '<pre>';
+//        print_r($overall_ma_query);
+//        echo '</pre>';
+        if ( $overall_ma_query->have_posts() ) {
+            // The 2nd Loop
+            while ( $overall_ma_query->have_posts() ) {
+                 $overall_ma_query->the_post();
+                the_content();
+            }
 
+            // Restore original Post Data
+            wp_reset_postdata();
+        }
         $overall_ma_count = count($overall_ma_query->get_posts());
 
     }else{

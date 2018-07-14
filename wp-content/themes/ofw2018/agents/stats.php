@@ -168,17 +168,11 @@
             'number'    => -1,
         );
         $overall_ma_query = new WP_Query( $overall_ma_args );
-        echo "as";
-        if ( $overall_ma_query->have_posts() ) {
-            // The 2nd Loop
-            while ( $overall_ma_query->have_posts() ) {
-                $overall_ma_query->the_post();
-                echo '<li>' . get_the_title( ) . '</li>';
-            }
 
-            // Restore original Post Data
-            wp_reset_postdata();
-        }
+        echo '<pre>';
+        print_r($overall_ma_query);
+        echo '</pre>';
+
         $overall_ma_count = count($overall_ma_query->get_posts());
 
     }else{

@@ -27,7 +27,7 @@
     );
     $total_aa_query = new WP_User_Query( $total_aa_args );
     echo '<pre>';
-    print_r($total_aa_query->get_results());
+    print_r($total_ma_query->get_results());
     echo '</pre>';
     $total_np_query = abs($total_aa_query->get_total() - $total_ma_query->get_total());
 
@@ -41,7 +41,7 @@
         $aa_IDS[] = $user->ID;
     }
     echo '<pre>';
-    print_r($aa_IDS);
+    print_r($ma_IDS);
     echo '</pre>';
 
     if(count($aa_IDS)>0){

@@ -36,7 +36,7 @@
                     <style>
                         .membership_report{
                             width: 100%;
-                            font-size: 14px;
+                            font-size: 11px;
                         }
                         .membership_report thead th:not(:first-child),
                         .membership_report tbody td:not(:first-child){
@@ -58,7 +58,6 @@
                     <?php
                     
                     function get_agent_report($current_user){
-
                         $total_ma_args = array(
                             'role' 			=> 'Subscriber',
                             'meta_query'    => array(
@@ -69,7 +68,7 @@
                                 ),
                                 array(
                                     'meta_key' => 'agent_id',
-                                    'value'     => $current_user->ID
+                                    'value'     => $current_user
                                 )
                             ),
                             'number'        => -1
@@ -79,13 +78,13 @@
                         $total_aa_args = array(
                             'role'          => 'Subscriber',
                             'meta_key'      => 'agent_id',
-                            'meta_value'    => $current_user->ID,
+                            'meta_value'    => $current_user,
                             'number'        => -1
                         );
                         $total_aa_query = new WP_User_Query( $total_aa_args );
-                        //    echo '<pre>';
-                        //    print_r($total_ma_query->get_results());
-                        //    echo '</pre>';
+//                            echo '<pre>';
+//                            print_r($total_aa_query);
+//                            echo '</pre>';
                         $total_np_query = abs($total_aa_query->get_total() - $total_ma_query->get_total());
 
 
@@ -97,9 +96,9 @@
                         foreach ( $total_aa_query->get_results() as $user ) {
                             $aa_IDS[] = $user->ID;
                         }
-                        //    echo '<pre>';
-                        //    print_r($ma_IDS);
-                        //    echo '</pre>';
+//                            echo '<pre>';
+//                            print_r($ma_IDS);
+//                            echo '</pre>';
 
                         if(count($aa_IDS)>0){
 

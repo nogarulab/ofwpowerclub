@@ -26,9 +26,9 @@
         'number'        => -1
     );
     $total_aa_query = new WP_User_Query( $total_aa_args );
-//    echo '<pre>';
-//    print_r($total_aa_query->get_results());
-//    echo '</pre>';
+    echo '<pre>';
+    print_r($total_aa_query->get_results());
+    echo '</pre>';
     $total_np_query = abs($total_aa_query->get_total() - $total_ma_query->get_total());
 
 
@@ -40,6 +40,10 @@
     foreach ( $total_aa_query->get_results() as $user ) {
         $aa_IDS[] = $user->ID;
     }
+    echo '<pre>';
+    print_r($aa_IDS);
+    echo '</pre>';
+
     if(count($aa_IDS)>0){
 
         $week_aa_args = array(
@@ -56,9 +60,7 @@
         );
         $week_aa_query = new WP_Query( $week_aa_args );
         $week_aa_count = count($week_aa_query->get_posts());
-//        echo "<pre>";
-//        print_r($week_aa_query);
-//        echo "</pre>";
+
         $month_aa_args = array(
             'post_type' => 'ms_invoice',
             'post_status' => 'private',
@@ -96,20 +98,23 @@
         );
         $overall_aa_query = new WP_Query( $overall_aa_args );
         $overall_aa_count = count($overall_aa_query->get_posts());
+
     }else{
         $week_aa_count = 0;
         $month_aa_count = 0;
         $year_aa_count = 0;
         $overall_aa_count=0;
     }
+    $s = 'user-membership-ofw-power-club-membership-type-paid'; //LIVE
+//    $s = 'cancel'; //local
 
-    if(count($aa_IDS)>0){
+    if(count($ma_IDS)>0){
 
 
         $week_ma_args = array(
             'post_type' => 'ms_event',
             'post_status' => 'private',
-            's' => 'user-membership-ofw-power-club-membership-type-paid',
+            's' => $s,
             'author'    => implode(',',$ma_IDS),
             'number'    => -1,
             'date_query' => array(
@@ -126,7 +131,7 @@
         $month_ma_args = array(
             'post_type' => 'ms_event',
             'post_status' => 'private',
-            's' => 'user-membership-ofw-power-club-membership-type-paid',
+            's' => $s,
             'author'    => implode(',',$ma_IDS),
             'number'    => -1,
             'date_query' => array(
@@ -142,7 +147,7 @@
         $year_ma_args = array(
             'post_type' => 'ms_event',
             'post_status' => 'private',
-            's' => 'user-membership-ofw-power-club-membership-type-paid',
+            's' => $s,
             'author'    => implode(',',$ma_IDS),
             'number'    => -1,
             'date_query' => array(
@@ -158,7 +163,7 @@
         $overall_ma_args = array(
             'post_type' => 'ms_event',
             'post_status' => 'private',
-            's' => 'user-membership-ofw-power-club-membership-type-paid',
+            's' => $s,
             'author'    => implode(',',$ma_IDS),
             'number'    => -1,
         );

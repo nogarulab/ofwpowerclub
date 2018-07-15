@@ -81,6 +81,38 @@ svg {
 .ms-account-wrapper {
 	position: relative;
 	padding-top: 50px;
+	max-width: 800px;
+	margin: auto;
+
+	> h2 {
+		text-align: left;
+		color: #1b75ba;
+		font-size: 20px;
+		font-weight: bold;
+		margin-bottom: 30px;
+	}
+
+	> table {
+		border-top: 1px solid #cecece;
+		thead {
+			th {
+				text-align: left;
+				padding: 15px;
+			}
+			th:last-child {
+				text-align: right;
+			}
+		}
+		tbody {
+			td {
+				text-align: left;
+			}
+			td:last-child {
+				text-align: right;
+			}
+		}
+	}
+
 	> div {
 		border-top: 1px solid #cecece;
 		padding: 10px 0;
@@ -121,6 +153,7 @@ svg {
 	}
 
 	#account-membership {
+		position: relative;
 		.ms-col-membership {
 			text-align: left;
 		}
@@ -130,6 +163,14 @@ svg {
 		.ms-col-expire-date {
 			text-align: right;
 		}
+	}
+
+	#account-membership:before {
+		position: absolute;
+		content: 'Account';
+		font-size: 30px;
+		top: -50px;
+		left: 0;
 	}
 
 	#account-profile {
@@ -159,6 +200,7 @@ svg {
 			}
 		}
 	}
+	
 	table {
 		margin-top: 30px;
 		width: 100%;
@@ -176,12 +218,8 @@ svg {
 	}
 }
 
-.ms-account-wrapper:before {
-	position: absolute;
-	content: 'Account';
-	font-size: 30px;
-	top: 0;
-	left: 0;
+.ms-logout-form {
+	display: none;
 }
 
 #submit.b-member-btn {

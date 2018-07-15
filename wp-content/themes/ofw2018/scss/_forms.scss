@@ -1,12 +1,14 @@
 .ms-membership-form-wrapper {
 	max-width: 500px;
 	display: block;
-	margin: auto;
+	margin: 0 auto;
 	legend {
 		font-size: 2em;
 	    font-weight: 600;
 	    text-transform: uppercase;
 	    border-bottom: 0;
+	    margin-bottom:0;
+	    text-align: center;
 	}
 	.ms-alert-error {
 		border-top-color: $red;
@@ -14,7 +16,7 @@
 	input {
 		display: block;
 	    width: 100%;
-	    padding: .375rem .75rem;
+	    padding: 12px 20px;
 	    font-size: 1rem;
 	    line-height: 1.5;
 	    color: #495057;
@@ -24,15 +26,17 @@
 	    border-radius: .25rem;
 	}
 	#wp-submit, #register {
-		max-width: 200px;
+		width:100%;
 		margin-left: auto;
 		margin-right: auto;
 		background: $blue;
 		color: #fff;
 		border: none;
-		padding: .375rem .75rem;
+		padding: 15px;
 		line-height: 1.5;
 		border-radius: .25rem;
+		text-transform: uppercase;
+		letter-spacing: 1px;
 	}
 
 	.ms-cancel-button {
@@ -48,6 +52,24 @@
 	    	background: #1b75ba;
 	    }
 	}
+
+	.ms-form-element-privacy_check label {
+		font-size:14px;
+		line-height: 18px;
+
+		.wpmui-field-checkbox {
+			margin-top:3px;
+		}
+
+	}
+
+	a[title="Login"] {
+		display: block;
+		font-weight: 400;
+		text-align: center;
+		margin-top:-10px;
+	}
+
 }
 
 svg {
@@ -199,8 +221,20 @@ svg {
 
 #ms-shortcode-register-user-form {
 	background: #f6f6f6;
-    padding: 20px 0;
+    padding: 50px;
     border-radius: 10px;
+}
+
+.ms-form-element {
+	margin:0;
+	padding:10px 0;
+}
+
+.wpmui-input-wrapper label {
+	font-size:13px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 300;
 }
 
 .ms-purchase-table {

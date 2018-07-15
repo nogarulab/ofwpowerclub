@@ -167,6 +167,11 @@ svg {
 		.ms-col-expire-date {
 			text-align: right;
 		}
+		h2 {
+			> a {
+				display: none;
+			}
+		}
 	}
 
 	#account-membership:before {

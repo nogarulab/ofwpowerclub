@@ -19,17 +19,19 @@
 					$posts = get_field('partner');
 				?>
 					    <div class="carousel-item" style="background-image:url(<?php echo $featuredImage; ?>);">
-					    	<div class="banner-text-container text-center carousel-caption">
-								<h1 class="text-uppercase"><?php the_title(); ?></h1>
-								<div class="caption-content">
-									<?php the_content(); ?>
+					    	<div class="carousel-caption">
+						    	<div class="banner-text-container text-center">
+									<h1 class="text-uppercase"><?php the_title(); ?></h1>
+									<div class="caption-content">
+										<?php the_content(); ?>
+									</div>
+									<?php if( $posts ): ?>
+									<?php foreach( $posts as $post): 
+										setup_postdata($post); ?>
+										<a href="<?php the_permalink(); ?>" class="h-c-black member-link bg-yellow black text-uppercase py-2 px-4">Learn More</a>
+									<?php endforeach; wp_reset_postdata(); ?>
+									<?php endif; ?>
 								</div>
-								<?php if( $posts ): ?>
-								<?php foreach( $posts as $post): 
-									setup_postdata($post); ?>
-									<a href="<?php the_permalink(); ?>" class="h-c-black member-link bg-yellow black text-uppercase py-2 px-4">Learn More</a>
-								<?php endforeach; wp_reset_postdata(); ?>
-								<?php endif; ?>
 							</div>
 					    </div>
 				<?php 

@@ -2,24 +2,25 @@
 	position: relative;
 	min-height: 80vh;
 	width: 100%;
-	.banner-text-container {
-		z-index: 90;
+	.carousel-caption  {
 		top: 20%;
-		color: #fff;
-		h1 {
-			font-size: 3.250em;
-			font-weight: 700;
-		}
-		.caption-content {
-			overflow: auto;
-		}
-		p {
-			font-size: 0.938em;
-			line-height: initial;
-		}
-		a {
-			font-weight: 500;
-			font-size: 1.250em;
+		bottom: auto;
+		.banner-text-container {
+			color: #fff;
+			h1 {
+				font-size: 3.250em;
+				font-weight: 700;
+			}
+			.caption-content {
+				overflow: auto;
+			}
+			p {
+				font-size: 0.938em;
+			}
+			a {
+				font-weight: 500;
+				font-size: 1.250em;
+			}
 		}
 	}
 	.scroll {

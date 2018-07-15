@@ -16,7 +16,7 @@ if ( is_page('partner-dashboard') ) {
 
     else :
 
-        echo 'You do not have permission to view this page. Please login as an agent to view this page';
+        echo '<div class="no-permission">You do not have permission to view this page. Please login as an agent to view this page</div>';
 
     endif;
 

@@ -72,6 +72,8 @@
 		$('.ms-member.register .emailtomember .your-subject input').val('OFW Power Club Membership Payment Options');
 
 		$('.sendtouser .wpcf7').siblings('#wp_addmember_form').hide();
+
+		$('.no-permission').siblings().hide();
     
 	});
 	

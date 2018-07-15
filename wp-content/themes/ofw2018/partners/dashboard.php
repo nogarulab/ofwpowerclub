@@ -38,7 +38,7 @@ $slug = $post->post_name;
 
 else :
 
-    echo 'You do not have permission to view this page. Please login as a partner or wait until your account has been activated.';
+    echo '<div class='no-permission'>You do not have permission to view this page. Please login as a partner or wait until your account has been activated.</div>';
 
 endif;
 

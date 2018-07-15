@@ -10,7 +10,7 @@ if ( is_user_logged_in() && current_user_can('partner') ) :
 	echo do_shortcode('[contact-form-7 id="166" title="Contact Administrator"]');
 	echo '</div>';
 else :
-	echo '<p>You do not have permission to use this form!</p>';
+	echo '<div class="no-permission">You do not have permission to use this form!</div>';
 endif;
 ?>
 </div>

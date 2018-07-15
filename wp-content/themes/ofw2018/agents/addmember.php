@@ -422,6 +422,6 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 <?php
 
 else :
-	echo "You do not have permission to access this page. Please login as an agent.";
+	echo "<div class='no-permission'>You do not have permission to access this page. Please login as an agent.</div>";
 endif;
 ?>

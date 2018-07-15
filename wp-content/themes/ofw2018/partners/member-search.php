@@ -55,7 +55,7 @@ if ( is_user_logged_in() && current_user_can('partner') ) :
 <?php
 
 else :
-	echo '<p>You do not have permission to use this form!</p>';
+	echo '<div class="no-permission">You do not have permission to use this form!</div>';
 endif;
 ?>
 </div>

@@ -281,11 +281,11 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 	<div class="form-row">
 		<div class="form-group col-md-6">
 			<label for="inputPassword">Password</label>
-			<input type="text" value="testpassword" name="m_pass1" id="inputPassword" class="form-control" />
+			<input type="password" value="" name="m_pass1" id="inputPassword" class="form-control" />
 		</div>
 		<div class="form-group col-md-6">
 			<label for="inputRPassword">Repeat Password</label>
-			<input type="text" value="testpassword" name="m_pass2" id="inputLastname" class="form-control" />
+			<input type="password" value="" name="m_pass2" id="inputLastname" class="form-control" />
 		</div>
 	</div>
 	<hr>
@@ -293,15 +293,15 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 	<div class="form-row">
 		<div class="form-group col-md-4">
 			<label for="inputFirstname">First Name</label>
-			<input type="text" value="Member" name="m_firstname" id="inputFirstname" class="form-control" />
+			<input type="text" value="" name="m_firstname" id="inputFirstname" class="form-control" />
 		</div>
 		<div class="form-group col-md-4">
 			<label for="inputMiddlename">Middle Name</label>
-			<input type="text" value="Mid Name" name="m_middlename" id="inputMiddlename" class="form-control" />
+			<input type="text" value="" name="m_middlename" id="inputMiddlename" class="form-control" />
 		</div>
 		<div class="form-group col-md-4">
 			<label for="inputLastname">Last Name</label>
-			<input type="text" value="Ako" name="m_lastname" id="inputLastname" class="form-control" />
+			<input type="text" value="" name="m_lastname" id="inputLastname" class="form-control" />
 		</div>
 	</div>
 	<div class="form-row">

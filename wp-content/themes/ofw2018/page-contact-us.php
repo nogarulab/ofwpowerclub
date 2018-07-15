@@ -26,18 +26,11 @@ if (have_posts()):
 			<div class="col-md-6">
 				<?php the_content(); ?>
 			</div>
-			<div class="col-md-6">
-				<div class="contact-details">
-					<div><strong>Phone</strong> <?php the_field('phone'); ?></div>
-					<div><strong>Email</strong> <span class="backward"><?php the_field('email'); ?></div></span>
-					<div>
-						<strong>Location</strong>
-						<address>
-							<?php the_field('location'); ?>
-						</address>
-					</div>
-				</div>
-			</div>
+
+			<?php 
+				get_sidebar('contact');
+			?>
+			
 
 		</div>
 	</div>

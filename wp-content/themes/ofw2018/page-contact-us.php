@@ -24,7 +24,7 @@ if (have_posts()):
 		<div class="row">
 			
 			<div class="col-md-6">
-				<?php echo do_shortcode("[contact-form-7 id='155' title='Contact Us']"); ?>
+				<?php the_content(); ?>
 			</div>
 			<div class="col-md-6">
 				<div class="contact-details">

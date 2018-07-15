@@ -245,7 +245,7 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 
         } else {
 
-        	echo '<ul>';
+        	echo '<ul class="errors">';
         	foreach ($errors as $error) {
         		echo '<li>'.$error.'</li>';
         	}
@@ -414,7 +414,7 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 	</div>
 
 	<div class="action">
-		<input type="submit" id="submitbtn" name="submit" value="Sign Up" />
+		<input type="submit" id="submitbtn" name="submit" value="Sign Up" class="btn btn-primary btn-lg" />
 	</div>
 
 </form>

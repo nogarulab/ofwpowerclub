@@ -63,7 +63,7 @@
 				<?php the_content(); ?>
 			</div>
 			<div class="col-xl-7 col-md-5 text-center">
-				<a href="" class="white transition h-c-white rounded bg-blue py-3 px-5 d-inline-block">Be a Partner</a>
+				<a href="<?php echo home_url(); ?>/request-for-partnership" class="white transition h-c-white rounded bg-blue py-3 px-5 d-inline-block">Be a Partner</a>
 			</div>
 		</div>
 	</div>

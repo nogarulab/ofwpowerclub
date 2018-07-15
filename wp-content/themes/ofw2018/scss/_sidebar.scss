@@ -39,27 +39,31 @@
 		letter-spacing: 6px;
 	}
 	h2 {
-		font-size: 6.313em;
+		font-size: 4em;
 	}
 	p {
-		font-size: 3.125em;
+		font-size: 2em;
 		font-weight: 600;
 		letter-spacing: 6px;
 	}
+	.icons {
+		max-width: 720px;
+		margin:0 auto;
+	}
 	.social-cont {
-		height: 106px;
-		width: 106px;
+		height: 84px;
+		width: 84px;
 		&.fb {
-			background: url('../img/social.png') -10px -10px;
+			background: url('../img/social.png') -8px -8px/200px auto;
 		}
 		&.tw {
-			background: url('../img/social.png') -10px -136px;
+			background: url('../img/social.png') -8px -108px/200px auto;  
 		}
 		&.gp {
-			background: url('../img/social.png') -136px -10px;
+			background: url('../img/social.png') -108px -8px/200px auto;
 		}
 		&.yt {
-			background: url('../img/social.png') -136px -136px;
+			background: url('../img/social.png') -108px -108px/200px auto;
 		}
 	}
 }

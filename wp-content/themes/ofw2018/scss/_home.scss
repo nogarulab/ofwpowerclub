@@ -98,8 +98,19 @@
 }
 
 .ofw-power-club-cont {
-	
-}
+	.buttons {
+		height: 40px;
+	}
+	form {
+		margin-top: -6px;
+	}
+	#submit.ms-signup-button {
+		padding: 0.375rem 0.75rem;;
+	    background: $yellow;
+	    border: none;
+	    color: white;
+	}
+} 
 
 .member-partner {
 	min-height: 100vh;

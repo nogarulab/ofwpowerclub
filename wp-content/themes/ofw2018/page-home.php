@@ -51,17 +51,16 @@
 					<?php the_content(); ?>
 					<?php if ( ! is_user_logged_in() ) { ?>
 						<div class="buttons d-flex justify-content-around">
-						<!-- 	<a href="<?php echo home_url(); ?>/register" class="h-c-black member-link bg-yellow black text-uppercase py-2 px-4">Be A Member</a> -->
-
 							<form action="<?php echo get_home_url(); ?>/register/" class="ms-membership-form" method="post">
 							    <input type="hidden" id="_wpnonce" name="_wpnonce" value="463ccc15f6">
 							    <input type="hidden" name="_wp_http_referer" value="/register/">
 							    <input class="wpmui-field-input wpmui-hidden" type="hidden" id="membership_id" name="membership_id" value="342">
 							    <input class="wpmui-field-input wpmui-hidden" type="hidden" id="action" name="action" value="membership_signup">
 							    <input class="wpmui-field-input wpmui-hidden" type="hidden" id="step" name="step" value="payment_table">
-							    <button class="wpmui-field-input button ms-signup-button membership_signup wpmui-submit button-primary black rounded bg-yellow py-3 px-5 d-inline-block mb-3 b-member-btn" type="submit" id="submit" name="submit" value="">Be A Member</button>
+							    <button class="wpmui-field-input button ms-signup-button membership_signup wpmui-submit button-primary black rounded bg-yellow py-2 text-uppercase px-4 d-inline-block mb-3 b-member-btn" type="submit" id="submit" name="submit" value="">Be A Member</button>
 							</form>
-							<a href="<?php echo home_url(); ?>/request-for-partnership" class="h-c-white partner-link bg-blue white text-uppercase py-2 px-4">Be A Partner</a>
+							
+							<a href="<?php echo home_url(); ?>/request-for-partnership" class="h-c-white partner-link bg-blue rounded white text-uppercase py-2 px-4">Be A Partner</a>
 					<?php } ?>
 					</div>
 				</div>

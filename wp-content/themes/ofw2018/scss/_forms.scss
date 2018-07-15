@@ -94,6 +94,7 @@ svg {
 
 	> table {
 		border-top: 1px solid #cecece;
+
 		thead {
 			th {
 				text-align: left;
@@ -104,6 +105,9 @@ svg {
 			}
 		}
 		tbody {
+			tr:nth-of-type(odd) {
+			    background-color: rgba(0,0,0,.05);
+			}
 			td {
 				text-align: left;
 			}

@@ -322,4 +322,38 @@ svg {
 
 }
 
+.payment-instructions {
+	text-align: left;
+	border-top:1px solid #ddd;
+    padding-top: 50px;
+    margin-top: 50px;
 
+    p {
+    	margin-bottom:30px;
+    }
+
+    .bank-details {
+    	margin-bottom:30px;
+    }
+
+    address {
+    	margin-top:-20px;
+    	margin-bottom:50px;
+    	padding-bottom:50px;
+    	border-bottom:1px solid #ddd;
+    }
+
+    .action {
+    	text-align: center;
+    	max-width: 750px;
+    	margin:0 auto;
+    	.ajax-loader { display: none }
+    }
+
+}
+
+.me-member.register .ms-manual-price {
+	background: $blue;
+	color:$white;
+	margin-top:80px;
+}

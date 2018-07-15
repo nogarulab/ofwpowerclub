@@ -44,7 +44,7 @@
 
     	var useremail = $('.sendtouser').data('toemail');
 		var name = $('.sendtouser').data('name');
-		var message = 'Hello '+name+', You have successfully sent your application for OFW Power Club Membership blah blah blah. Your OFW Power Club Account Details is: USERNAME: '+useremail+' ';
+		var message = 'Hello '+name+', You have successfully sent your application for OFW Power Club Membership. Your OFW Power Club USERNAME is: '+useremail+' To complete your application you can pay through bank transfer (Bank Name: Bank of the Philippine Islands | Account Number: 45987612313 | Account Name: Ricky Rueda Sadiosa) or just visit us in our office (Address: Unit 1230 Block B, Profit Industrial Building, 1-15 Kwai Fung Crescent Kwai Chung N. T).';
 		$('.sendtouser .your-name input').val(name);
 		$('.sendtouser .your-email input').val(useremail);
 		$('.sendtouser .your-message textarea').val(message);
@@ -65,7 +65,7 @@
 		var m_useremail = $('.ms-member.register .logged-in-account span').data('memberemail');
 		var m_userlogin = $('.ms-member.register .logged-in-account span').data('memberlogin');
 		var m_username = $('.ms-member.register .logged-in-account span').data('membername');
-		var m_message = 'Hello '+m_username+', You have successfully sent your application for OFW Power Club Membership blah blah blah. Your OFW Power Club Account Details is: USERNAME: '+m_userlogin+' ';
+		var m_message = 'Hello '+m_username+', You have successfully sent your application for OFW Power Club Membership blah blah blah. Your OFW Power Club USERNAME is: '+m_userlogin+'. To complete your application you can pay through bank transfer (Bank Name: Bank of the Philippine Islands | Account Number: 45987612313 | Account Name: Ricky Rueda Sadiosa) or just visit us in our office (Address: Unit 1230 Block B, Profit Industrial Building, 1-15 Kwai Fung Crescent Kwai Chung N. T).';
 		$('.ms-member.register .emailtomember .your-name input').val( m_username);
 		$('.ms-member.register .emailtomember .your-email input').val(m_useremail);
 		$('.ms-member.register .emailtomember .your-message textarea').val(m_message);

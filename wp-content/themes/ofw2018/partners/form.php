@@ -211,7 +211,7 @@ if ( ! is_user_logged_in() ) :
 
 <form id="wp_signup_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">  
 	<section class="create-an-account">
-		<h3>Create An Account</h3>
+		<h3 class="blue">Create An Account</h3>
 		<p>Please register an account first in our website.</p>
 		<div class="row">
 			<div class="col-md-6">
@@ -235,7 +235,7 @@ if ( ! is_user_logged_in() ) :
 		</div>
 	</section>
     <section class="about-establishment">
-	    <h3>About Your Establishment</h3>
+	    <h3 class="blue">About Your Establishment</h3>
 	    <p>Tell us more about your establishments.</p>
 	    <div class="row">
 		    <div class="col-md-3">
@@ -262,7 +262,7 @@ if ( ! is_user_logged_in() ) :
 		</div>
 	</section>
     <section class="branches clearfix">
-	    <h3>Branches</h3>
+	    <h3 class="blue">Branches</h3>
 	    <p>Tell us the address, contact number, email &amp; contact person of all your establishment branches.</p>
 	    <div class='branches incremental-item' data-itemhtml='<li class="item"><div class="form-row"><div class="form-group col-md-3"><input class="form-control" type="text" name="b_location[]" placeholder="Location"></div><div class="form-group col-md-3"><input class="form-control" type="text" name="b_contactnumber[]" placeholder="Contact Number"></div><div class="form-group col-md-6"><input class="form-control" type="text" name="b_contactperson[]" placeholder="Contact Person"></div></div><div class="form-row"><div class="form-group col-md-12"><input class="form-control" type="text" name="b_address[]" placeholder="Address"></div></div><span class="remove">Remove</span></li>'>
 	    	<ul>
@@ -281,7 +281,7 @@ if ( ! is_user_logged_in() ) :
 	    </div>
 	</section>
 	<section class="perks clearfix">
-    	<h3>Benefits and Perks</h3>
+    	<h3 class="blue">Benefits and Perks</h3>
     	<p>Tell us the benefits and perks that you're going to offer to our members.</p>
     	<div class="benefit_perks incremental-item" data-itemhtml="<li class='item'><div class='form-group'><input class='form-control' type='text' name='benefitname[]' placeholder='Benefit Name'></div><div class='form-group'><textarea class='form-control' name='benefitdesc[]'>About the benefit</textarea></div><span class='remove'>Remove</span></li>">
     		<ul>
@@ -294,7 +294,7 @@ if ( ! is_user_logged_in() ) :
     	</div>
     </section>
     <section>
-	    <h3>Establishment Category</h3>
+	    <h3 class="blue">Establishment Category</h3>
 	    <p>Tell us the what kind/type of business you have. Please take note that you can only choose 3 categories.</p>
 	    <div>
 	    	<ul class="form-row">

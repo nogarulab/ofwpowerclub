@@ -49,7 +49,6 @@ if ( is_page('partner-dashboard') ) {
 
                         <br class="clear">
 
-                        <?php edit_post_link(); ?>
 
                     </article>
                     <!-- /article -->

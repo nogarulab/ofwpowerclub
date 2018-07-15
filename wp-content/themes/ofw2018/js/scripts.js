@@ -44,8 +44,7 @@
 
     	var useremail = $('.sendtouser').data('toemail');
 		var name = $('.sendtouser').data('name');
-		var password = $('.sendtouser').data('password');
-		var message = 'Hello '+name+', You have successfully sent your application for OFW Power Club Membership blah blah blah. Your OFW Power Club Account Details is: USERNAME: '+useremail+' and your PASSWORD: '+password;
+		var message = 'Hello '+name+', You have successfully sent your application for OFW Power Club Membership blah blah blah. Your OFW Power Club Account Details is: USERNAME: '+useremail+' ';
 		$('.sendtouser .your-name input').val(name);
 		$('.sendtouser .your-email input').val(useremail);
 		$('.sendtouser .your-message textarea').val(message);
@@ -65,9 +64,8 @@
 
 		var m_useremail = $('.ms-member.register .logged-in-account span').data('memberemail');
 		var m_userlogin = $('.ms-member.register .logged-in-account span').data('memberlogin');
-		var m_userpass = $('.ms-member.register .logged-in-account span').data('memberpass');
 		var m_username = $('.ms-member.register .logged-in-account span').data('membername');
-		var m_message = 'Hello '+m_username+', You have successfully sent your application for OFW Power Club Membership blah blah blah. Your OFW Power Club Account Details is: USERNAME: '+m_userlogin+' and your PASSWORD: '+m_userpass;
+		var m_message = 'Hello '+m_username+', You have successfully sent your application for OFW Power Club Membership blah blah blah. Your OFW Power Club Account Details is: USERNAME: '+m_userlogin+' ';
 		$('.ms-member.register .emailtomember .your-name input').val( m_username);
 		$('.ms-member.register .emailtomember .your-email input').val(m_useremail);
 		$('.ms-member.register .emailtomember .your-message textarea').val(m_message);

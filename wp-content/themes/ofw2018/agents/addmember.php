@@ -237,7 +237,7 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 
             echo "<h3>You've successfully added a member</h3>";
             echo "Please be advised that in order for the membership to be active the, applicant should pay". $membership_price . " " . $currency . "first. Please see below our payment options.";
-            echo '<div class="sendtouser" data-password="'.$user_pass.'" data-toemail="'.$m_email.'" data-name="'.$first_name.' '.$last_name.'">';
+            echo '<div class="sendtouser" data-toemail="'.$m_email.'" data-name="'.$first_name.' '.$last_name.'">';
 	        echo do_shortcode('[contact-form-7 id="270" title="Send Payment Options To User Email"]');
 	        echo '</div>';
 

@@ -42,10 +42,10 @@
 						$lastname = get_user_meta($acurrent_user->ID, 'last_name', true);
 						$user = wp_get_current_user();
     					$role = ( array ) $user->roles;
-    					print_r($acurrent_user);
+    					//print_r($acurrent_user);
     					if ( $acurrent_user != null ) {
 	    					if ( $role[0] == 'subscriber' ) {
-	    						echo '<span data-memberlogin="'.$acurrent_user->user_login.'" data-membername="'.$firstname.' '.$lastname.'" data-memberemail="'.$acurrent_user->user_email.'" data-memberpass="'.$acurrent_user->user_pass.'">Hello '.$firstname.' | <a href="'.home_url().'/account">My Account</a> | <a href="'.wp_logout_url( home_url() ).'">Logout</a></span>';
+	    						echo '<span data-memberlogin="'.$acurrent_user->user_login.'" data-membername="'.$firstname.' '.$lastname.'" data-memberemail="'.$acurrent_user->user_email.'">Hello '.$firstname.' | <a href="'.home_url().'/account">My Account</a> | <a href="'.wp_logout_url( home_url() ).'">Logout</a></span>';
 	    					} else {
 	    						echo '<span>Hello '.$firstname.' | <a href="'.home_url().'/wp-admin">My Dashboard</a> | <a href="'.wp_logout_url( home_url() ).'">Logout</a></span>';
 	    					}

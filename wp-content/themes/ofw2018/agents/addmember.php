@@ -241,8 +241,6 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 	        echo do_shortcode('[contact-form-7 id="270" title="Send Payment Options To User Email"]');
 	        echo '</div>';
 
-	        exit;
-
         } else {
 
         	echo '<ul class="errors">';

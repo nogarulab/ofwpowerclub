@@ -70,6 +70,8 @@
 		$('.ms-member.register .emailtomember .your-email input').val(m_useremail);
 		$('.ms-member.register .emailtomember .your-message textarea').val(m_message);
 		$('.ms-member.register .emailtomember .your-subject input').val('OFW Power Club Membership Payment Options');
+
+		$('.sendtouser .wpcf7').siblings('#wp_addmember_form').hide();
     
 	});
 	

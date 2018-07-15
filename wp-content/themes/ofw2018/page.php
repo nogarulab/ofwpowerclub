@@ -1,8 +1,10 @@
 <?php
 
-get_header();
+get_header(); ?>
 
-if ( is_page('partner-dashboard') ) {
+<div class="page-container py-5">
+
+<?php if ( is_page('partner-dashboard') ) {
 
     get_template_part( 'partners/dashboard', get_post_format() );
 
@@ -100,8 +102,10 @@ if ( is_page('partner-dashboard') ) {
 
     <?php
 
-}
+} ?>
 
+</div>
+<?php
 get_footer();
 
 ?>

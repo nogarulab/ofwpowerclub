@@ -18,7 +18,7 @@
 					<span class="red">T</span>
 				</h2>
 				<p class="mb-5">WITH US!</p>
-				<div class="row">
+				<div class="row icons">
 					<div class="col-6 col-sm-3">
 						<a href="<?php the_field('facebook'); ?>" target="_blank" class="fb social-cont d-block mx-auto my-3"></a>
 						<span class="">FACEBOOK</span>

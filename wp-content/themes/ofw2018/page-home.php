@@ -22,7 +22,7 @@
 					    	<div class="banner-text-container text-center carousel-caption">
 								<h1 class="text-uppercase"><?php the_title(); ?></h1>
 								<div class="caption-content">
-									<p><?php the_content(); ?></p>
+									<?php the_content(); ?>
 								</div>
 								<?php if( $posts ): ?>
 								<?php foreach( $posts as $post): 

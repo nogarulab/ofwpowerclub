@@ -47,8 +47,8 @@ if ( isset( $_POST['update_user_nonce'], $current_user->ID ) && wp_verify_nonce(
 		</div>
 	</div>
 	<div class="action text-right">
-		<a class="h-c-white white rounded bg-red py-3 px-5" href="<?php echo home_url(); ?>/agent-dashboard">Cancel</a>
-		<input name="updateuser" type="submit" id="updateuser" class="btn h-c-white white rounded bg-blue py-3 px-5" value="<?php _e('Change', 'password'); ?>" />
+		<a class="h-c-white white rounded bg-red py-3 d-inline-block px-5" href="<?php echo home_url(); ?>/agent-dashboard">Cancel</a>
+		<input name="updateuser" type="submit" id="updateuser" class="border-0 h-c-white d-inline-block white rounded bg-blue py-3 px-5" value="<?php _e('Change', 'password'); ?>" />
 	</div>
 	<?php wp_nonce_field( 'update_user', 'update_user_nonce' ); ?>
     <input name="action" type="hidden" id="action" value="update_user" />

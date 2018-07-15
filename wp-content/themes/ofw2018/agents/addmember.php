@@ -5,7 +5,7 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 ?>
 <div class="user-dashboard-home">
     <header>
-        <h3>Add A Member</h3>
+        <h3 class="blue">Add A Member</h3>
         <p>Verify customers if they are OFW Power Club members by searching them here. Please enter full name or email address.</p>
     </header>
 
@@ -235,7 +235,7 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
             add_post_meta( $new_ms_invoice, 'custom_invoice_id', $latest_ms_invoice_post_id );
             add_post_meta( $new_ms_invoice, 'currency', $currency );
 
-            echo "<h3>You've successfully added a member</h3>";
+            echo "<h3 class='blue'>You've successfully added a member</h3>";
             echo "Please be advised that in order for the membership to be active the, applicant should pay". $membership_price . " " . $currency . "first. Please see below our payment options.";
             echo '<div class="sendtouser" data-toemail="'.$m_email.'" data-name="'.$first_name.' '.$last_name.'">';
 	        echo do_shortcode('[contact-form-7 id="270" title="Send Payment Options To User Email"]');

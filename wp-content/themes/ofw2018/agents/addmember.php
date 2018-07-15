@@ -241,11 +241,9 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 	        echo do_shortcode('[contact-form-7 id="270" title="Send Payment Options To User Email"]');
 	        echo '</div>';
 
-	        exit;
-
         } else {
 
-        	echo '<ul>';
+        	echo '<ul class="errors">';
         	foreach ($errors as $error) {
         		echo '<li>'.$error.'</li>';
         	}
@@ -414,7 +412,7 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 	</div>
 
 	<div class="action">
-		<input type="submit" id="submitbtn" name="submit" value="Sign Up" />
+		<input type="submit" id="submitbtn" name="submit" value="Sign Up" class="btn btn-primary btn-lg" />
 	</div>
 
 </form>

@@ -46,11 +46,11 @@
 				background: $blue;
 				color: $white;
 				@include borderradius(5px);
-				font-size:25px;
-				padding:15px 40px;
+				font-size:20px;
+				padding:10px 30px;
 				font-weight: 100;
+				border:none;
 			}
-
 		}
 
 	}

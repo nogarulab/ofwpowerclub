@@ -14,7 +14,7 @@
 									<?php the_post_thumbnail('testimonials', array('class' => 'rounded-circle img-fluid mx-auto d-block mb-2 mb-md-5')); ?>
 									<?php the_content(); ?>
 									<div class="break d-block mx-auto mt-4 mb-5"></div>
-									<h3><?php the_title(); ?></h3>
+									<h3 class="blue"><?php the_title(); ?></h3>
 								</div>
 							</div>
 						<?php 

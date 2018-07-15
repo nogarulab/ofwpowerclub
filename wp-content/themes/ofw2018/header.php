@@ -41,11 +41,13 @@
 						$firstname = get_user_meta($acurrent_user->ID, 'first_name', true);
 						$user = wp_get_current_user();
     					$role = ( array ) $user->roles;
-    					if ( $role[0] == 'subscriber' ) {
-    						echo '<span>Hello '.$firstname.' | <a href="'.home_url().'/account">My Account</a> | <a href="'.wp_logout_url( home_url() ).'">Logout</a></span>';
-    					} else {
-    						echo '<span>Hello '.$firstname.' | <a href="'.home_url().'/wp-admin">My Dashboard</a> | <a href="'.wp_logout_url( home_url() ).'">Logout</a></span>';
-    					}
+    					if ( $acurrent_user != null ) {
+	    					if ( $role[0] == 'subscriber' ) {
+	    						echo '<span>Hello '.$firstname.' | <a href="'.home_url().'/account">My Account</a> | <a href="'.wp_logout_url( home_url() ).'">Logout</a></span>';
+	    					} else {
+	    						echo '<span>Hello '.$firstname.' | <a href="'.home_url().'/wp-admin">My Dashboard</a> | <a href="'.wp_logout_url( home_url() ).'">Logout</a></span>';
+	    					}
+	    				}
 					}
 					?>						
 					</div>

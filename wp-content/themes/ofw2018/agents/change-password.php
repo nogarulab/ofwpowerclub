@@ -1,4 +1,4 @@
-<div class="change-password-panel">
+<div class="change-password-panel" id="changepass">
 <?php
 $current_user = wp_get_current_user();
 $user_ID = $current_user->ID;

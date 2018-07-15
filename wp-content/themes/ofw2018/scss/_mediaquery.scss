@@ -101,6 +101,13 @@
 	html, body {
 		font-size: 14px;
 	}
+	.banner {
+		.carousel-caption {
+			bottom: 30%;
+			right: 10%;
+			left: 10%;
+		}
+	}
 	.logo-img {
 		max-width: 235px;
 		margin-bottom: 15px;

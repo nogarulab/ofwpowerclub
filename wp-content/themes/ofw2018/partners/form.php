@@ -193,13 +193,15 @@ if ( ! is_user_logged_in() ) :
 		        
 
 	            $success = 1;  
-	   			echo "<div><h5>You have successfully sent your application.</h5><p>Please wait for our staff to get in touch with you for the next step.</p></div>";
+	   			echo "<div class='success'><h5>You have successfully sent your application.</h5><p>Please wait for our staff to get in touch with you for the next step.</p></div>";
 	            //header( 'Location:' . get_bloginfo('url') . '/login/?success=1&u=' . $username ); 
 	   
 	        }  else {
+	        	echo '<ul class="errors">';
 	        	foreach ($errors as $error) {
-	        		echo "<div>".$error."</div>";
+	        		echo "<li>".$error."</li>";
 	        	}
+	        	echo '</ul>';
 	        }
 	   
 	    }  

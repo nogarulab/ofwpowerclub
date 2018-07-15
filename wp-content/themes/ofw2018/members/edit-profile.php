@@ -103,11 +103,11 @@
 			        	wp_update_user( array( 'ID' => $user_ID, 'user_pass' => esc_attr( $_POST['new_password'] ) ) );
 			        }
 
-			        echo 'You have successfully edited your profile. <a href="'.home_url().'/account">Back To My Account</a>';
+			        echo '<div class="success">You have successfully edited your profile. <a href="'.home_url().'/account">Back To My Account</a></div>';
 			        exit;
 
 				} else {
-					echo '<ul>';
+					echo '<ul class="errors">';
 					foreach ($errors as $error) {
 						echo '<li>'.$error.'</li>'; 
 					}

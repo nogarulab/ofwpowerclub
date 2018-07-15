@@ -66,9 +66,11 @@
 									<h1 class="d-none"><?php bloginfo('name'); ?></h1>
 								</a>
 							</div>
-							<?php 
-							get_template_part( 'partners/partner-dashboard-menu', get_post_format() );
-							get_template_part( 'agents/agent-dashboard-menu', get_post_format() );
+							<?php
+							if ( is_user_logged_in() ) {
+								get_template_part( 'partners/partner-dashboard-menu', get_post_format() );
+								get_template_part( 'agents/agent-dashboard-menu', get_post_format() );
+							}
 							?>
 							<div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 site-search">
 								<?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>

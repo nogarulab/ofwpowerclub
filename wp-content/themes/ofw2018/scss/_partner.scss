@@ -3,13 +3,27 @@
 
 		.container {
 			position: relative;
-			padding-right:245px;
+			padding-right:15px;
 		}
 
 		.partner-invite-text p {
 			&:last-child { margin-bottom:0 }
 		}
 
+		.btn-beapartner {
+			width:100%;
+		}
+
+		h3 {
+			font-weight: 700;
+			font-size: 2.813em;
+			text-transform: uppercase;
+		}
+
+	@media (min-width: 768px) {
+		.container {
+			padding-right:275px;
+		}
 		.btn-beapartner {
 			position: absolute;
 			right:15px;
@@ -18,12 +32,8 @@
 			text-align: center;
 			margin:-28px 0 0;
 		}
+	}
 
-		h3 {
-			font-weight: 700;
-			font-size: 2.813em;
-			text-transform: uppercase;
-		}
 	}
 	ul {
 		list-style-type: none;

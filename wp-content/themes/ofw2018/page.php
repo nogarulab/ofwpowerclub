@@ -2,7 +2,7 @@
 
 get_header(); ?>
 
-<div class="page-container py-5">
+<div class="page-container">
 
 <?php if ( is_page('partner-dashboard') ) {
 

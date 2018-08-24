@@ -61,7 +61,7 @@
 							    <input class="wpmui-field-input wpmui-hidden" type="hidden" id="step" name="step" value="payment_table">
 							    <button class="wpmui-field-input button ms-signup-button membership_signup wpmui-submit button-primary black rounded bg-yellow py-2 text-uppercase px-4 d-inline-block mb-3 b-member-btn" type="submit" id="submit" name="submit" value="">Be A Member</button>
 							</form>-->
-							<a href="<?php echo home_url(); ?>/memberships" class="button-primary black rounded bg-yellow py-2 text-uppercase px-4 d-inline-block mb-3 b-member-btn">Be A Member</a>
+							<a href="<?php echo home_url(); ?>/memberships" class="h-c-white partner-link bg-yellow rounded black text-uppercase py-2 px-4">Be A Member</a>
 							
 							<a href="<?php echo home_url(); ?>/request-for-partnership" class="h-c-white partner-link bg-blue rounded white text-uppercase py-2 px-4">Be A Partner</a>
 					<?php } ?>

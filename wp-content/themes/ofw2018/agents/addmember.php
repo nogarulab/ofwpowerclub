@@ -4,10 +4,6 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 
 ?>
 <div class="user-dashboard-home">
-    <header>
-        <h3 class="blue">Add A Member</h3>
-        <p>Verify customers if they are OFW Power Club members by searching them here. Please enter full name or email address.</p>
-    </header>
 
 <?php
 	$posttype = 'ms_invoice';
@@ -238,7 +234,7 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
             add_post_meta( $new_ms_invoice, 'currency', $currency );
 
             echo "<h3 class='blue'>You've successfully added a member</h3>";
-            echo "Please be advised that in order for the membership to be active the, applicant should pay". $membership_price . " " . $currency . "first. Please see below our payment options.";
+            echo "Please be advised that in order for the membership to be active the, applicant should pay ". $membership_price . " " . $currency . " first. Please see below our payment options.";
             echo '<div class="sendtouser" data-toemail="'.$m_email.'" data-name="'.$first_name.' '.$last_name.'">';
 	        echo do_shortcode('[contact-form-7 id="270" title="Send Payment Options To User Email"]');
 	        echo '</div>';
@@ -259,7 +255,10 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 
 <form id="wp_addmember_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data" class="form-layout">  
 
-	<h1>Add A Member</h1>
+	<header>
+        <h3 class="blue">Add A Member</h3>
+        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+    </header>
 
 	<div class="row">
 		<div class="col-md-3 ml-md-auto mr-md-auto">

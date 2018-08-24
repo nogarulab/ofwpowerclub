@@ -3,15 +3,20 @@
 
 		.container {
 			position: relative;
+			padding-right:245px;
+		}
+
+		.partner-invite-text p {
+			&:last-child { margin-bottom:0 }
 		}
 
 		.btn-beapartner {
 			position: absolute;
-			right:0;
+			right:15px;
 			top:50%;
 			width:200px;
 			text-align: center;
-			margin:-12px 0 0;
+			margin:-28px 0 0;
 		}
 
 		h3 {

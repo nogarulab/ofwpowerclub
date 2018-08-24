@@ -1,8 +1,35 @@
 .ms-membership-form-wrapper {
-	max-width: 500px;
 	display: block;
-	margin: 0 auto;
 	text-align: left;
+
+	#ms-shortcode-register-user-form {
+		max-width:500px;
+		margin: 0 auto;
+	}
+
+	.ms-form-price-boxes {
+		display: flex;
+
+		.ms-membership-form {
+			width:100%;
+			&:first-child { padding-right:0 }
+			&:last-child { padding-left:0 }
+		}
+
+		.ms-membership-details-wrapper.ms-signup {
+			width:100%;
+		}
+
+	@media (min-width:768px) {
+		.ms-membership-form {
+			width:50%;
+			&:first-child { padding-right:1em }
+			&:last-child { padding-left:1em }
+		}		
+	}
+
+	}
+
 	legend {
 		font-size: 2em;
 	    font-weight: 600;
@@ -256,7 +283,18 @@ svg {
 }
 
 .ms-price-details {
-	padding: 30px 10px;
+	padding: 1em 1.4em;
+
+	.ms-description {
+		font-size:15px;
+		p { line-height: 22px; }
+	}
+
+	.ms-price {
+		font-size:26px;
+		font-weight: 600;
+	}
+
 }
 
 .ms-top-bar {

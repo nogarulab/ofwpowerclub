@@ -42,7 +42,9 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
         
 
 
-	if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {  
+	if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+
+        $m_type = $_POST['m_type'];
 
 		// Check email address is present and valid  
         $m_email = esc_sql($_REQUEST['m_email']);  
@@ -151,7 +153,7 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
             add_post_meta( $new_ms_event, 'type', 'registered' );
 
             //Relationship
-            $membership_id = 342;
+            $membership_id = $m_type;
             $add_ms_relationship = array(
             	'post_author' 		=> $new_user_id,
             	'post_content'		=> 'user_id: '.$new_user_id.', membership: '.$membership_id,
@@ -273,10 +275,9 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 	<h4>Account Type</h4>
     <div class="form-row">
         <div class="form-group col-md-12">
-            <label for="membershipType">Membership</label>
-            <select name="m_gender" id="membershipType" class="form-control">
-                <option>Gold (with insurance)</option>
-                <option>Silver (without insurance)</option>
+            <select name="m_type" id="membershipType" class="form-control">
+                <option value="342">Gold (with insurance)</option>
+                <option value="519">Silver (without insurance)</option>
             </select>
         </div>
     </div>

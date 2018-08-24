@@ -5,6 +5,15 @@
 	#ms-shortcode-register-user-form {
 		max-width:500px;
 		margin: 0 auto;
+
+		.ms-top-bar h4 {
+			margin:0;
+		}
+
+		#submit {
+			background-color: #ed4036;
+		}
+
 	}
 
 	.ms-form-price-boxes {

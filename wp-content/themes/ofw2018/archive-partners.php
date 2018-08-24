@@ -54,14 +54,8 @@
 ?>
 <section class="partner-bottom bg-yellow py-4">
 	<div class="container">
-		<div class="row align-items-center">
-			<div class="col-xl-5 col-md-7">
-				<?php the_content(); ?>
-			</div>
-			<div class="col-xl-7 col-md-5 text-center">
-				<a href="<?php echo home_url(); ?>/request-for-partnership" class="white transition h-c-white rounded bg-blue py-3 px-5 d-inline-block">Be a Partner</a>
-			</div>
-		</div>
+		<div class="partner-invite-text"><?php the_content(); ?></div>
+		<a href="<?php echo home_url(); ?>/request-for-partnership" class="white transition h-c-white rounded bg-blue py-3 px-5 d-inline-block btn-beapartner">Be a Partner</a>
 	</div>
 </section>
 <?php 

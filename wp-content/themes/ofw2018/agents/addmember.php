@@ -270,7 +270,17 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 			</div>
 		</div>
 	</div>
-		
+	<h4>Account Type</h4>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="membershipType">Membership</label>
+            <select name="m_gender" id="membershipType" class="form-control">
+                <option>Gold (with insurance)</option>
+                <option>Silver (without insurance)</option>
+            </select>
+        </div>
+    </div>
+    <hr>
 	<h4>Account Creation</h4>
 	<div class="form-row">
 		<div class="form-group col-md-12">

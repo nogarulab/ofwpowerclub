@@ -276,8 +276,8 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
     <div class="form-row">
         <div class="form-group col-md-12">
             <select name="m_type" id="membershipType" class="form-control">
-                <option value="342">Gold (with insurance)</option>
-                <option value="519">Silver (without insurance)</option>
+                <option value="342">Premiere (with insurance)</option>
+                <option value="519">Standard (without insurance)</option>
             </select>
         </div>
     </div>

@@ -6,9 +6,7 @@ get_header(); ?>
 
 <?php if ( is_page('partner-dashboard') ) {
 
-    //get_template_part( 'partners/dashboard', get_post_format() );
-
-    asdfasdfa
+    get_template_part( 'partners/dashboard', get_post_format() );
 
 } elseif ( is_page('agent-dashboard') ) {
 

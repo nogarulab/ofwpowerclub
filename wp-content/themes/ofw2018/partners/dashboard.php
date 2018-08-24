@@ -1,11 +1,11 @@
 <?php
 
 if ( is_user_logged_in() && current_user_can('partner') ) :
-$current_user = wp_get_current_user();
-$current_user = wp_get_current_user();
-$partner_page_id = get_user_meta( $current_user->ID, 'partner_page_id', true ); 
-$post = get_post($partner_page_id); 
-$slug = $post->post_name;
+	$current_user = wp_get_current_user();
+	$current_user = wp_get_current_user();
+	$partner_page_id = get_user_meta( $current_user->ID, 'partner_page_id', true ); 
+	$post = get_post($partner_page_id); 
+	$slug = $post->post_name;
 ?>
 	<div class="user-dashboard-home">
 		<header>
@@ -38,7 +38,7 @@ $slug = $post->post_name;
 
 else :
 
-    echo '<div class='no-permission'>You do not have permission to view this page. Please login as a partner or wait until your account has been activated.</div>';
+    echo '<div class="no-permission">You do not have permission to view this page. Please login as a partner or wait until your account has been activated.</div>';
 
 endif;
 

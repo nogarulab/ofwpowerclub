@@ -120,7 +120,8 @@
             'number'    => -1,
             'date_query' => array(
                 array(
-                    'week' => date( 'W' )
+                    'year' => date( 'Y' ),
+                    'week' => date( 'W' ),
                 ),
             ),
         );
@@ -136,7 +137,8 @@
             'number'    => -1,
             'date_query' => array(
                 array(
-                    'month' => date( 'M' )
+                    'year' => date( 'Y' ),
+                    'month' => date( 'M' ),
                 ),
             ),
         );

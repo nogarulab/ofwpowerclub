@@ -344,13 +344,12 @@
         $all_added_member_ids_list[] = $all_member_id->ID;
     }
 
-    //ger all users registered this week
+    //get all users registered this week
     $rtwui = array(
         'include'       => $all_registered_user_ids_list,
         'date_query'    => array(
             array(
                 'year' => current_time( 'Y' ),
-                //'month' => current_time( 'm' ),
                 'week' => current_time( 'W' )
             )
         ),
@@ -364,7 +363,7 @@
         $registered_this_week_user_ids_list[] = $registered_this_week_user_id->ID;
     }
 
-    //ger all users registered this month
+    //get all users registered this month
     $rtmui = array(
         'include'       => $all_registered_user_ids_list,
         'date_query'    => array(
@@ -383,7 +382,24 @@
         $registered_this_month_user_ids_list[] = $registered_this_month_user_id->ID;
     }
 
-    //ger all users registered this year
+    //get all users that are members for this month
+    $mftm_args = array(
+        'post_type'         => 'ms_invoice',
+        'post_status'       => 'private',
+        'author'            => $all_registered_user_ids_list,
+        'posts_per_page'    => -1,
+        'date_query'    => array(
+            array(
+                'year' => current_time( 'Y' ),
+                'month' => current_time( 'm' ),
+            )
+        )
+    );
+    $members_for_this_month = new WP_Query($mftm_args);
+
+    print_r($members_for_this_month);
+
+    //get all users registered this year
     $rtyui = array(
         'include'       => $all_registered_user_ids_list,
         'date_query'    => array(

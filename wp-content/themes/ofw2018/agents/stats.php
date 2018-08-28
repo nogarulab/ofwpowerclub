@@ -331,9 +331,11 @@
         'meta_key'      => 'ms_is_member',
         'meta_value'    => 1
     );
-    $all_user_ids = get_users( $added_member_ids );
+    $all_member_ids = get_users( $added_member_ids );
 
-    print_r($all_user_ids);
+    foreach($all_member_ids as $all_member_id) {
+        echo '<hr>'.$all_member_id->ID;
+    }
 
     echo 'Total Users Registered By Agent ID '.$current_user->ID.' = '.count($user_ids_list);
 

@@ -398,7 +398,7 @@
     $members_for_this_month = new WP_Query($mftm_args);
 
     foreach ($members_for_this_month as $member_for_this_month) {
-        echo '<div>'.$member_for_this_month->post_date.'</div>';
+        echo '<div>'.$member_for_this_month->post_date.' - '.$member_for_this_month->ID.'</div>';
     }
     //print_r($members_for_this_month->posts->post_date);
 

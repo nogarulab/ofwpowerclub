@@ -310,6 +310,7 @@
 
     $thisUser = $current_user->ID;
     $points = 5;
+    $keyword = 'Has registered.';
 
     //get all the user id's that this user added
     $arui_args = array(
@@ -434,6 +435,7 @@
         'post_type'         => 'ms_event',
         'post_status'       => 'private',
         'author'            => implode(',',$all_added_member_ids_list),
+        's'                 => $keyword,
         'posts_per_page'    => -1,
         'date_query'    => array(
             array(
@@ -563,11 +565,13 @@
 </div>
 
 <?php
-$queried_post_one = get_post(541);
-$queried_post_two = get_post(521);
+print_r($members_for_this_year);
+print_r(count($members_for_this_year));
+// $queried_post_one = get_post(541);
+// $queried_post_two = get_post(521);
 
 
-print_r($queried_post_one);
-echo '<br>';
-print_r($queried_post_two);
+// print_r($queried_post_one);
+// echo '<br>';
+// print_r($queried_post_two);
 ?>

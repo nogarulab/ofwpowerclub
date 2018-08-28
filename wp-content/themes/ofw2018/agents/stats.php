@@ -320,7 +320,7 @@
     );
     $all_user_ids = new WP_User_Query( $user_ids );  
 
-    print_r($all_user_ids->ID);
+    print_r($all_user_ids);
 
     // $all_user_ids_array = [];
 

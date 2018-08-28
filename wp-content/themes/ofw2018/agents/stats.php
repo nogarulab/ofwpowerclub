@@ -397,7 +397,7 @@
     );
     $members_for_this_month = new WP_Query($mftm_args);
 
-    print_r($members_for_this_month);
+    print_r($members_for_this_month->posts);
 
     //get all users registered this year
     $rtyui = array(

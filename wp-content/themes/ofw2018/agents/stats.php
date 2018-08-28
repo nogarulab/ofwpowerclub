@@ -364,25 +364,19 @@
     }
 
     //get all users that are members for this week
-    // $mftw_args = array(
-    //     'post_type'         => 'ms_invoice',
-    //     'post_status'       => 'private',
-    //     'author'            => implode(',',$all_registered_user_ids_list),
-    //     'posts_per_page'    => -1,
-    //     'date_query'    => array(
-    //         array(
-    //             'year' => current_time( 'Y' ),
-    //             'week' => current_time( 'W' )
-    //         )
-    //     )
-    // );
-    // $members_for_this_week = new WP_Query($mftw_args);
-
-    // $members_for_this_week_ids_list = [];
-
-    // foreach ($members_for_this_week as $member_for_this_week) {
-    //     $members_for_this_week_ids_list[] = $member_for_this_week->ID;
-    // }
+    $mftw_args = array(
+        'post_type'         => 'ms_invoice',
+        'post_status'       => 'private',
+        'author'            => implode(',',$all_registered_user_ids_list),
+        'posts_per_page'    => -1,
+        'date_query'    => array(
+            array(
+                'year' => current_time( 'Y' ),
+                'week' => current_time( 'W' )
+            )
+        )
+    );
+    $members_for_this_week = new WP_Query($mftw_args);
 
     //get all users registered this month
     $rtmui = array(
@@ -437,32 +431,26 @@
     }
 
     //get all users that are members for this year
-    // $mfty_args = array(
-    //     'post_type'         => 'ms_invoice',
-    //     'post_status'       => 'private',
-    //     'author'            => implode(',',$all_registered_user_ids_list),
-    //     'posts_per_page'    => -1,
-    //     'date_query'    => array(
-    //         array(
-    //             'year' => current_time( 'Y' ),
-    //         )
-    //     )
-    // );
-    // $members_for_this_year = new WP_Query($mfty_args);
-
-    // $members_for_this_year_ids_list = [];
-
-    // foreach ($members_for_this_year as $member_for_this_year) {
-    //     $members_for_this_year_ids_list[] = $member_for_this_year->ID;
-    // }
+    $mfty_args = array(
+        'post_type'         => 'ms_invoice',
+        'post_status'       => 'private',
+        'author'            => implode(',',$all_registered_user_ids_list),
+        'posts_per_page'    => -1,
+        'date_query'    => array(
+            array(
+                'year' => current_time( 'Y' ),
+            )
+        )
+    );
+    $members_for_this_year = new WP_Query($mfty_args);
 
     echo '<div>Total Users Registered By Agent ID '.$thisUser.' = '.count($all_registered_user_ids_list).'</div>';
     echo '<div>Total Users That Are Members Added By Agent ID '.$thisUser.' = '.count($all_added_member_ids_list).'</div>';
     echo '<div>Total Users Registered This Week By Agent ID '.$thisUser.' = '.count($registered_this_week_user_ids_list).'</div>';
-    //echo '<div>Total Users That Are Member For This Week By Agent ID '.$thisUser.' = '.count($members_for_this_week_ids_list).'</div>';
+    echo '<div>Total Users That Are Member For This Week By Agent ID '.$thisUser.' = '.count($members_for_this_week).'</div>';
     echo '<div>Total Users Registered This Month By Agent ID '.$thisUser.' = '.count($registered_this_month_user_ids_list).'</div>';
     echo '<div>Total Users That Are Member For This Month By Agent ID '.$thisUser.' = '.count($members_for_this_month).'</div>';
     echo '<div>Total Users Registered This Year By Agent ID '.$thisUser.' = '.count($registered_this_year_user_ids_list).'</div>';
-    //echo '<div>Total Users That Are Member For This Year By Agent ID '.$thisUser.' = '.count($members_for_this_year_ids_list).'</div>';
+    echo '<div>Total Users That Are Member For This Year By Agent ID '.$thisUser.' = '.count($members_for_this_year).'</div>';
 
 ?>

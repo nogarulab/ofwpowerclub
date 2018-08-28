@@ -386,7 +386,7 @@
     $mftm_args = array(
         'post_type'         => 'ms_invoice',
         'post_status'       => 'private',
-        'author'            => $all_registered_user_ids_list,
+        'author'            => implode(',',$all_registered_user_ids_list),
         'posts_per_page'    => -1,
         'date_query'    => array(
             array(

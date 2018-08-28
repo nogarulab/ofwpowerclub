@@ -563,8 +563,8 @@
 </div>
 
 <?php
-$queried_post_one = get_post(71);
-$queried_post_two = get_post(64);
+$queried_post_one = get_post(541);
+$queried_post_two = get_post(521);
 
 
 print_r($queried_post_one);

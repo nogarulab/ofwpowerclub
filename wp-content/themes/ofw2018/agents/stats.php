@@ -310,7 +310,7 @@
 
     $thisUser = $current_user->ID;
     $points = 5;
-    $keyword = 'registered.';
+    $keyword = 'Has registered.';
 
     //get all the user id's that this user added
     $arui_args = array(
@@ -566,7 +566,7 @@
 
 <?php
 print_r($members_for_this_year);
-print_r(count($members_for_this_year));
+print_r(count($members_for_this_year->posts));
 // $queried_post_one = get_post(541);
 // $queried_post_two = get_post(521);
 

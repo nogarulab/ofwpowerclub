@@ -318,7 +318,7 @@
         'meta_value'    => $current_user->ID,
         'number'        => -1
     );
-    $all_user_ids = new WP_User_Query( $user_ids );  
+    $all_user_ids = get_users( $user_ids );  
 
     print_r($all_user_ids);
 

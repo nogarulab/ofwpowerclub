@@ -306,3 +306,9 @@
         </div>
     </div>
 </div>
+
+<?php
+
+echo $current_user;
+
+?>

@@ -421,7 +421,7 @@
     $members_for_this_month_ids_list = [];
 
     foreach ($members_for_this_month as $member_for_this_month) {
-        echo $member_for_this_month->ID.'<br>';
+        echo $member_for_this_month->post->ID.'<br>';
     }
 
     //get all users registered this year

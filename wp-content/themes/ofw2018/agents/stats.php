@@ -323,10 +323,11 @@
 
     $all_registered_user_ids_list = [];
 
-    print_r($all_registered_user_ids->user_registered);
+    //print_r($all_registered_user_ids->user_registered);
 
     foreach($all_registered_user_ids as $all_registered_user_id) {
         $all_registered_user_ids_list[] = $all_registered_user_id->ID;
+        echo $all_registered_user_id->data->user_registered;
     }
 
     //ger all users that are members

@@ -343,7 +343,7 @@
 
     //ger all users registered this month
     $rutmi_args = array(
-        'include'       => $all_registered_user_ids_list,
+        'role'          => 'Subscriber',
         'date_query' => array(
             array(
                 'year' => date( 'Y' ),

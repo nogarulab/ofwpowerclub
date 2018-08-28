@@ -350,21 +350,22 @@
         'date_query'    => array(
             array(
                 'year' => current_time( 'Y' ),
-                //'month' => current_time( 'm' ),
+                'month' => current_time( 'm' ),
             )
         ),
         'number'        => -1
     );
     $registered_this_month_user_ids = get_users( $rtmui );
-    echo '<hr>';
-    echo count($registered_this_month_user_ids);
+
+    $registered_this_month_user_ids_list = [];
+
     foreach($registered_this_month_user_ids as $registered_this_month_user_id) {
-        echo $registered_this_month_user_id->data->user_registered.'<br>';
+        $registered_this_month_user_ids_list[] = $registered_this_month_user_id->data->user_registered;
     }
 
     echo '<div>Total Users Registered By Agent ID '.$thisUser.' = '.count($all_registered_user_ids_list).'</div>';
     echo '<div>Total Users That Are Members Added By Agent ID '.$thisUser.' = '.count($all_added_member_ids_list).'</div>';
-
+    echo '<div>Total Users Registered This Month By Agent ID '.$thisUser.' = '.count($registered_this_month_user_ids_list).'</div>'
 
     
 

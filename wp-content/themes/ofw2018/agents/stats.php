@@ -349,20 +349,19 @@
         'include'       => $all_registered_user_ids_list,
         'date_query'    => array(
             array(
-                // 'year' => current_time( 'Y' ),
-                // 'month' => current_time( 'm' ),
+                'year' => current_time( 'Y' ),
+                //'month' => current_time( 'm' ),
                 'week' => current_time( 'W' )
             )
         ),
         'number'        => -1
     );
-    $registered_this_week_user_ids = get_users( $rtmui );
+    $registered_this_week_user_ids = get_users( $rtwui );
 
     $registered_this_week_user_ids_list = [];
 
     foreach($registered_this_week_user_ids as $registered_this_week_user_id) {
         $registered_this_week_user_ids_list[] = $registered_this_week_user_id->ID;
-        echo '<hr>'.$registered_this_week_user_id->data->user_registered.'<br>';
     }
 
     //ger all users registered this month

@@ -310,7 +310,7 @@
 
     $thisUser = $current_user->ID;
     $points = 5;
-    $keyword = 'Has registered.';
+    $keyword = 'registered.';
 
     //get all the user id's that this user added
     $arui_args = array(

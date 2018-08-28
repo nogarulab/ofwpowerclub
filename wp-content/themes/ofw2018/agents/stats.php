@@ -496,7 +496,7 @@
                         </tr>
                         <tr>
                             <th>Points</th>
-                            <td></td>
+                            <td><?php echo $total_members_this_week * $points; ?></td>
                         </tr>
                     </tbody>
                 </table>
@@ -521,7 +521,7 @@
                         </tr>
                         <tr>
                             <th>Points</th>
-                            <td></td>
+                            <td><?php echo $total_members_this_month * $points; ?></td>
                         </tr>
                     </tbody>
                 </table>
@@ -548,7 +548,7 @@
                         </tr>
                         <tr>
                             <th>Points</th>
-                            <td></td>
+                            <td><?php echo $total_members_this_year * $points; ?></td>
                         </tr>
                     </tbody>
                 </table>
@@ -573,7 +573,7 @@
                         </tr>
                         <tr>
                             <th>Points</th>
-                            <td></td>
+                            <td><?php echo $overall_total_member * $points; ?></td>
                         </tr>
                     </tbody>
                 </table>

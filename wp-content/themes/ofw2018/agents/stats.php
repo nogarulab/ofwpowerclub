@@ -327,7 +327,7 @@
 
     foreach($all_registered_user_ids as $all_registered_user_id) {
         $all_registered_user_ids_list[] = $all_registered_user_id->ID;
-        echo $all_registered_user_id->data->user_registered.'<br>';
+        //echo $all_registered_user_id->data->user_registered.'<br>';
     }
 
     //ger all users that are members
@@ -363,9 +363,28 @@
         $registered_this_month_user_ids_list[] = $registered_this_month_user_id->data->user_registered;
     }
 
+    //ger all users registered this year
+    $rtyui = array(
+        'include'       => $all_registered_user_ids_list,
+        'date_query'    => array(
+            array(
+                'year' => current_time( 'Y' )
+            )
+        ),
+        'number'        => -1
+    );
+    $registered_this_year_user_ids = get_users( $rtyui );
+
+    $registered_this_year_user_ids_list = [];
+
+    foreach($registered_this_year_user_ids as $registered_this_year_user_id) {
+        $registered_this_year_user_ids_list[] = $registered_this_year_user_id->data->user_registered;
+    }
+
     echo '<div>Total Users Registered By Agent ID '.$thisUser.' = '.count($all_registered_user_ids_list).'</div>';
     echo '<div>Total Users That Are Members Added By Agent ID '.$thisUser.' = '.count($all_added_member_ids_list).'</div>';
     echo '<div>Total Users Registered This Month By Agent ID '.$thisUser.' = '.count($registered_this_month_user_ids_list).'</div>'
+    echo '<div>Total Users Registered This Year By Agent ID '.$thisUser.' = '.count($registered_this_year_user_ids_list).'</div>'
 
     
 

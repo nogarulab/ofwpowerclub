@@ -454,9 +454,8 @@
     echo '<div>Total Users That Are Member For This Year By Agent ID '.$thisUser.' = '.count($members_for_this_year).'</div>';
 
 ?>
-<div>
-    <?php print_r($all_registered_user_ids_list); ?>
-</div>
+<div><?php print_r($all_registered_user_ids_list); ?></div>
+<div><?php print_r($$year_ma_query); ?></div>
 <div class="points">
     <div class="row">
         <div class="col-lg-6">

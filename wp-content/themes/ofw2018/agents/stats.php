@@ -456,7 +456,7 @@
 
 ?>
 <div><?php print_r($all_registered_user_ids_list); ?></div>
-<div><?php print_r($year_ma_query); ?></div>
+<div><?php print_r($all_added_member_ids_list); ?></div>
 <div class="points">
     <div class="row">
         <div class="col-lg-6">

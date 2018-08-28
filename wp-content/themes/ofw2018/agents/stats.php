@@ -362,6 +362,7 @@
 
     foreach($registered_this_week_user_ids as $registered_this_week_user_id) {
         $registered_this_week_user_ids_list[] = $registered_this_week_user_id->ID;
+        echo '<hr>'.$registered_this_week_user_id->data->user_registered.'<br>';
     }
 
     //ger all users registered this month

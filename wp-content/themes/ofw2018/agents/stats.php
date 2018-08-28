@@ -493,7 +493,7 @@
                     <tbody>
                         <tr>
                             <th>Registered</th>
-                            <td><?php count($registered_this_month_user_ids_list); ?></td>
+                            <td><?php echo count($registered_this_month_user_ids_list); ?></td>
                         </tr>
                         <tr>
                             <th>Members</th>
@@ -524,7 +524,7 @@
                         </tr>
                         <tr>
                             <th>Members</th>
-                            <td>/td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th>Points</th>

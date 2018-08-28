@@ -345,11 +345,13 @@
     $rutmi_args = array(
         'include'       => $all_registered_user_ids_list,
         'date_query' => array(
-            'year' => date( 'Y' ),
-            'week' => date( 'M' ),
+            array(
+                'year' => date( 'Y' ),
+                'month' => date( 'M' )
+            )
         )
     );
-    $registered_users_this_month_ids = get_users( $rutmi_args );
+    $registered_users_this_month_ids = new WP_User_Query( $rutmi_args );
 
     // $all_added_member_ids_list = [];
 

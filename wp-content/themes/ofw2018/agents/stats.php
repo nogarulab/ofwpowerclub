@@ -345,7 +345,18 @@
     }
 
     //ger all users registered this month
-
+    $rtmui = array(
+        'include'       => $all_registered_user_ids_list,
+        'date_query'    => array(
+            array(
+                'year' => current_time( 'Y' ),
+                'month' => current_time( 'm' ),
+            )
+        ),
+        'number'        => -1
+    );
+    $registered_this_month_user_ids = get_users( $rtmui );
+    echo count($registered_this_month_user_ids);
 
     echo '<div>Total Users Registered By Agent ID '.$thisUser.' = '.count($all_registered_user_ids_list).'</div>';
     echo '<div>Total Users That Are Members Added By Agent ID '.$thisUser.' = '.count($all_added_member_ids_list).'</div>';

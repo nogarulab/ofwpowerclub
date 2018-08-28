@@ -2,8 +2,6 @@
 	<?php
 	$current_user = wp_get_current_user();
 
-    echo $current_user->ID;
-
 	$total_ma_args = array(
 		'role' 			=> 'Subscriber',
 		'meta_query'    => array(
@@ -308,3 +306,30 @@
         </div>
     </div>
 </div>
+
+<?php
+
+    echo $current_user->ID;
+
+    //get all the user id's that this user added
+    $user_ids = array(
+        'role'          => 'Subscriber',
+        'meta_query'    => array(
+            array(
+                'meta_key' => 'agent_id',
+                'value'     => $current_user->ID
+            )
+        ),
+        'number'        => -1
+    );
+    $all_user_ids = new WP_User_Query( $total_ma_args );  
+
+    print_r($all_user_ids);
+
+    $all_user_ids_array = [];
+
+    foreach ($all_user_ids as $all_user_id) {
+        //$ma_IDS[] = $user->ID;      
+    }
+
+?>

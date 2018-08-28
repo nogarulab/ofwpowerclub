@@ -324,15 +324,15 @@
     );
     $all_user_ids = new WP_User_Query( $user_ids );  
 
-    print_r($all_user_ids);
+    print_r($all_user_ids->ID);
 
-    $all_user_ids_array = [];
+    // $all_user_ids_array = [];
 
-    foreach ($all_user_ids as $all_user_id) {
-        $all_user_ids_array[] = $all_user_id->ID; 
-        echo $all_user_id->ID;;
-    }
-    echo '<hr>';
-    print_r($all_user_ids_array);
+    // foreach ($all_user_ids as $all_user_id) {
+    //     $all_user_ids_array[] = $all_user_id->ID; 
+    //     echo $all_user_id->ID;;
+    // }
+    // echo '<hr>';
+    // print_r($all_user_ids_array);
 
 ?>

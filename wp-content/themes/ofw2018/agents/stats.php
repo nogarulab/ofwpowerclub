@@ -322,7 +322,7 @@
 
     foreach($all_user_ids as $all_user_id) {
         echo '<hr>';
-        print_r($all_user_id);
+        print_r($all_user_id->ID);
         echo '<hr>';
     }
 

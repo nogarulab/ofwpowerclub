@@ -322,7 +322,7 @@
         ),
         'number'        => -1
     );
-    $all_user_ids = new WP_User_Query( $total_ma_args );  
+    $all_user_ids = new WP_User_Query( $user_ids );  
 
     print_r($all_user_ids);
 

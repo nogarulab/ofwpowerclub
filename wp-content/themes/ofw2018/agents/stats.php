@@ -323,13 +323,10 @@
     $user_ids_list = [];
 
     foreach($all_user_ids as $all_user_id) {
-        echo '<hr>';
-        print_r($all_user_id->ID);
         $user_ids_list[] = $all_user_id->ID;
-        echo '<hr>';
     }
 
-    echo count($user_ids_list);
+    echo 'Total Users Registered By Agent ID '.$current_user->ID.' : '.count($user_ids_list);
 
     // $all_user_ids_array = [];
 

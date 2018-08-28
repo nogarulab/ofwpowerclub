@@ -309,36 +309,41 @@
 
 <?php
 
-    echo $current_user->ID;
+    $thisUser = $current_user->ID;
+    $points = 5;
 
     //get all the user id's that this user added
-    $user_ids = array(
+    $registered_user_ids = array(
         'role'          => 'Subscriber',
         'meta_key'      => 'agent_id',
-        'meta_value'    => $current_user->ID,
+        'meta_value'    => $thisUser,
         'number'        => -1
     );
-    $all_user_ids = get_users( $user_ids );
+    $all_registered_user_ids = get_users( $registered_user_ids );
 
-    $user_ids_list = [];
+    $all_registered_user_ids_list = [];
 
-    foreach($all_user_ids as $all_user_id) {
-        $user_ids_list[] = $all_user_id->ID;
+    foreach($all_registered_user_ids as $all_registered_user_id) {
+        $all_registered_user_ids_list[] = $all_registered_user_id->ID;
     }
 
     $added_member_ids = array(
-        'include'       => $user_ids_list,
+        'include'       => $all_registered_user_ids_list,
         'meta_key'      => 'ms_is_member',
         'meta_value'    => 1
     );
     $all_member_ids = get_users( $added_member_ids );
 
+    $all_added_member_ids_list = [];
+
     foreach($all_member_ids as $all_member_id) {
-        echo '<hr>'.$all_member_id->ID;
+        $all_added_member_ids_list[] = $all_member_id->ID;
     }
 
-    echo 'Total Users Registered By Agent ID '.$current_user->ID.' = '.count($user_ids_list);
-
+    echo '<div>Total Users Registered By Agent ID '.$thisUser.' = '.count($all_registered_user_ids_list).'</div>';
+    echo '<div>Total Users That Are Members Added By Agent ID '.$thisUser.' = '.count($all_added_member_ids_list).'</div>';
+    
+    
     
 
 ?>

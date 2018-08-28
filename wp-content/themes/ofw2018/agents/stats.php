@@ -383,9 +383,7 @@
 
     echo '<div>Total Users Registered By Agent ID '.$thisUser.' = '.count($all_registered_user_ids_list).'</div>';
     echo '<div>Total Users That Are Members Added By Agent ID '.$thisUser.' = '.count($all_added_member_ids_list).'</div>';
-    echo '<div>Total Users Registered This Month By Agent ID '.$thisUser.' = '.count($registered_this_month_user_ids_list).'</div>'
-    echo '<div>Total Users Registered This Year By Agent ID '.$thisUser.' = '.count($registered_this_year_user_ids_list).'</div>'
-
-    
+    echo '<div>Total Users Registered This Month By Agent ID '.$thisUser.' = '.count($registered_this_month_user_ids_list).'</div>';
+    echo '<div>Total Users Registered This Year By Agent ID '.$thisUser.' = '.count($registered_this_year_user_ids_list).'</div>';
 
 ?>

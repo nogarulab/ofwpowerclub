@@ -313,13 +313,13 @@
     $points = 5;
 
     //get all the user id's that this user added
-    $registered_user_ids = array(
+    $arui_args = array(
         'role'          => 'Subscriber',
         'meta_key'      => 'agent_id',
         'meta_value'    => $thisUser,
         'number'        => -1
     );
-    $all_registered_user_ids = get_users( $registered_user_ids );
+    $all_registered_user_ids = get_users( $arui_args );
 
     $all_registered_user_ids_list = [];
 
@@ -327,12 +327,13 @@
         $all_registered_user_ids_list[] = $all_registered_user_id->ID;
     }
 
-    $added_member_ids = array(
+    //ger all users that are members
+    $ami_args = array(
         'include'       => $all_registered_user_ids_list,
         'meta_key'      => 'ms_is_member',
         'meta_value'    => 1
     );
-    $all_member_ids = get_users( $added_member_ids );
+    $all_member_ids = get_users( $ami_args );
 
     $all_added_member_ids_list = [];
 
@@ -340,10 +341,28 @@
         $all_added_member_ids_list[] = $all_member_id->ID;
     }
 
+    //ger all users registered this month
+    $rutmi_args = array(
+        'include'       => $all_registered_user_ids_list,
+        'date_query' => array(
+            array(
+                'year' => date( 'Y' ),
+                'week' => date( 'M' ),
+            ),
+        ),
+    );
+    $registered_users_this_month_ids = get_users( $rutmi_args );
+
+    // $all_added_member_ids_list = [];
+
+    foreach($registered_users_this_month_ids as $registered_users_this_month_id) {
+        echo '<div><hr>'.$registered_users_this_month_id->ID.'</div>';
+    }
+
     echo '<div>Total Users Registered By Agent ID '.$thisUser.' = '.count($all_registered_user_ids_list).'</div>';
     echo '<div>Total Users That Are Members Added By Agent ID '.$thisUser.' = '.count($all_added_member_ids_list).'</div>';
-    
-    
+
+
     
 
 ?>

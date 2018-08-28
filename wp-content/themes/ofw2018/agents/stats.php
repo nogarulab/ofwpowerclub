@@ -418,12 +418,6 @@
     );
     $members_for_this_month = new WP_Query($mftm_args);
 
-    $members_for_this_month_ids_list = [];
-
-    foreach ($members_for_this_month as $member_for_this_month) {
-        echo $member_for_this_month->post->ID.'<br>';
-    }
-
     //get all users registered this year
     $rtyui = array(
         'include'       => $all_registered_user_ids_list,
@@ -467,7 +461,7 @@
     echo '<div>Total Users Registered This Week By Agent ID '.$thisUser.' = '.count($registered_this_week_user_ids_list).'</div>';
     //echo '<div>Total Users That Are Member For This Week By Agent ID '.$thisUser.' = '.count($members_for_this_week_ids_list).'</div>';
     echo '<div>Total Users Registered This Month By Agent ID '.$thisUser.' = '.count($registered_this_month_user_ids_list).'</div>';
-    echo '<div>Total Users That Are Member For This Month By Agent ID '.$thisUser.' = '.count($members_for_this_month_ids_list).'</div>';
+    echo '<div>Total Users That Are Member For This Month By Agent ID '.$thisUser.' = '.count($$members_for_this_month).'</div>';
     echo '<div>Total Users Registered This Year By Agent ID '.$thisUser.' = '.count($registered_this_year_user_ids_list).'</div>';
     //echo '<div>Total Users That Are Member For This Year By Agent ID '.$thisUser.' = '.count($members_for_this_year_ids_list).'</div>';
 

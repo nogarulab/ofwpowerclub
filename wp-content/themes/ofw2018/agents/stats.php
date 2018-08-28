@@ -323,7 +323,7 @@
 
     $all_registered_user_ids_list = [];
 
-    print_r($all_registered_user_ids);
+    print_r($all_registered_user_ids->data->user_registered);
 
     foreach($all_registered_user_ids as $all_registered_user_id) {
         $all_registered_user_ids_list[] = $all_registered_user_id->ID;

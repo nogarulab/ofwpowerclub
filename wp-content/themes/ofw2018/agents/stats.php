@@ -353,7 +353,7 @@
     );
     $registered_users_this_month_ids = new WP_User_Query( $rutmi_args );
 
-    print_r($registered_users_this_month_ids);
+    print_r(count($registered_users_this_month_ids));
 
     // $all_added_member_ids_list = [];
 

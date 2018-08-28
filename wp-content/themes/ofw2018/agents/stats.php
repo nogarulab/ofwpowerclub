@@ -351,13 +351,15 @@
             )
         )
     );
-    $registered_users_this_month_ids = get_users( $rutmi_args );
+    $registered_users_this_month_ids = new WP_User_Query( $rutmi_args );
+
+    print_r($registered_users_this_month_ids);
 
     // $all_added_member_ids_list = [];
 
-    foreach($registered_users_this_month_ids as $registered_users_this_month_id) {
-        echo '<div><hr>'.$registered_users_this_month_id->ID.'</div>';
-    }
+    // foreach($registered_users_this_month_ids as $registered_users_this_month_id) {
+    //     echo '<div><hr>'.$registered_users_this_month_id->ID.'</div>';
+    // }
 
     echo '<div>Total Users Registered By Agent ID '.$thisUser.' = '.count($all_registered_user_ids_list).'</div>';
     echo '<div>Total Users That Are Members Added By Agent ID '.$thisUser.' = '.count($all_added_member_ids_list).'</div>';

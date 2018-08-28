@@ -432,13 +432,13 @@
 
     //get all users that are members for this year
     $mfty_args = array(
-        'post_type'         => 'ms_invoice',
+        'post_type'         => 'ms_event',
         'post_status'       => 'private',
         'author'            => implode(',',$all_registered_user_ids_list),
         'posts_per_page'    => -1,
         'date_query'    => array(
             array(
-                'year' => current_time( 'Y' ),
+                'year' => current_time( 'Y' )
             )
         )
     );

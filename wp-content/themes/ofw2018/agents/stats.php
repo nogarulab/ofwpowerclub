@@ -314,12 +314,8 @@
     //get all the user id's that this user added
     $user_ids = array(
         'role'          => 'Subscriber',
-        'meta_query'    => array(
-            array(
-                'meta_key' => 'agent_id',
-                'value'     => $current_user->ID
-            )
-        ),
+        'meta_key'      => 'agent_id',
+        'meta_value'    => $current_user->ID,
         'number'        => -1
     );
     $all_user_ids = new WP_User_Query( $user_ids );  

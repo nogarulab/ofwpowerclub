@@ -2,6 +2,8 @@
 	<?php
 	$current_user = wp_get_current_user();
 
+    echo $current_user->ID;
+
 	$total_ma_args = array(
 		'role' 			=> 'Subscriber',
 		'meta_query'    => array(
@@ -306,9 +308,3 @@
         </div>
     </div>
 </div>
-
-<?php
-
-echo $current_user;
-
-?>

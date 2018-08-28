@@ -350,7 +350,8 @@
         'date_query'    => array(
             array(
                 'year' => current_time( 'Y' ),
-                'week' => current_time( 'W' ),
+                'month' => current_time( 'm' ),
+                'week' => current_time( 'w' )
             )
         ),
         'number'        => -1

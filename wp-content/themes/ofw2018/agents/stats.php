@@ -126,9 +126,8 @@
             ),
         );
         $week_ma_query = new WP_Query( $week_ma_args );
-
-
         $week_ma_count = count($week_ma_query->get_posts());
+
         $month_ma_args = array(
             'post_type' => 'ms_event',
             'post_status' => 'private',
@@ -143,8 +142,8 @@
             ),
         );
         $month_ma_query = new WP_Query( $month_ma_args );
-
         $month_ma_count = count($month_ma_query->get_posts());
+
         $year_ma_args = array(
             'post_type' => 'ms_event',
             'post_status' => 'private',
@@ -434,7 +433,7 @@
     $mfty_args = array(
         'post_type'         => 'ms_event',
         'post_status'       => 'private',
-        'author'            => implode(',',$all_registered_user_ids_list),
+        'author'            => implode(',',$all_added_member_ids_list),
         'posts_per_page'    => -1,
         'date_query'    => array(
             array(
@@ -562,3 +561,13 @@
         </div>
     </div>
 </div>
+
+<?php
+$queried_post_one = get_post(71);
+$queried_post_two = get_post(64);
+
+
+print_r($queried_post_one);
+echo '<br>';
+print_r($queried_post_two);
+?>

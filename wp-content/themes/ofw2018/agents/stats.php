@@ -378,6 +378,21 @@
     );
     $members_for_this_week = new WP_Query($mftw_args);
 
+    $mftw_args = array(
+        'post_type'         => 'ms_event',
+        'post_status'       => 'private',
+        'author'            => implode(',',$all_added_member_ids_list),
+        's'                 => $keyword,
+        'posts_per_page'    => -1,
+        'date_query'    => array(
+            array(
+                'year' => current_time( 'Y' ),
+                'week' => current_time( 'W' )
+            )
+        )
+    );
+    $members_for_this_week = new WP_Query($mftw_args);
+
     //get all users registered this month
     $rtmui = array(
         'include'       => $all_registered_user_ids_list,
@@ -399,14 +414,15 @@
 
     //get all users that are members for this month
     $mftm_args = array(
-        'post_type'         => 'ms_invoice',
+        'post_type'         => 'ms_event',
         'post_status'       => 'private',
-        'author'            => implode(',',$all_registered_user_ids_list),
+        'author'            => implode(',',$all_added_member_ids_list),
+        's'                 => $keyword,
         'posts_per_page'    => -1,
         'date_query'    => array(
             array(
                 'year' => current_time( 'Y' ),
-                'month' => current_time( 'm' ),
+                'month' => current_time( 'm' )
             )
         )
     );
@@ -445,15 +461,17 @@
     );
     $members_for_this_year = new WP_Query($mfty_args);
 
-    echo '<div>Total Users Registered By Agent ID '.$thisUser.' = '.count($all_registered_user_ids_list).'</div>';
-    echo '<div>Total Users That Are Members Added By Agent ID '.$thisUser.' = '.count($all_added_member_ids_list).'</div>';
-    echo '<div>Total Users Registered This Week By Agent ID '.$thisUser.' = '.count($registered_this_week_user_ids_list).'</div>';
-    echo '<div>Total Users That Are Member For This Week By Agent ID '.$thisUser.' = '.count($members_for_this_week).'</div>';
-    echo '<div>Total Users Registered This Month By Agent ID '.$thisUser.' = '.count($registered_this_month_user_ids_list).'</div>';
-    echo '<div>Total Users That Are Member For This Month By Agent ID '.$thisUser.' = '.count($members_for_this_month).'</div>';
-    echo '<div>Total Users Registered This Year By Agent ID '.$thisUser.' = '.count($registered_this_year_user_ids_list).'</div>';
-    echo '<div>Total Users That Are Member For This Year By Agent ID '.$thisUser.' = '.count($members_for_this_year).'</div>';
+    $total_registered_this_week     = count($registered_this_week_user_ids_list);
+    $total_members_this_week        = count($members_for_this_week->posts);
 
+    $total_registered_this_month    = count($registered_this_month_user_ids_list);
+    $total_members_this_month       = count($members_for_this_month->posts);
+
+    $total_registered_this_year     = count($registered_this_year_user_ids_list);
+    $total_members_this_year        = count($members_for_this_year->posts);
+
+    $overall_total_registered       = count($all_registered_user_ids_list);
+    $overall_total_member           = count($all_added_member_ids_list);
 ?>
 <div><?php print_r($all_registered_user_ids_list); ?></div>
 <div><?php print_r($all_added_member_ids_list); ?></div>
@@ -470,11 +488,11 @@
                     <tbody>
                         <tr>
                             <th>Registered</th>
-                            <td><?php echo count($registered_this_week_user_ids_list); ?></td>
+                            <td><?php echo $total_registered_this_week; ?></td>
                         </tr>
                         <tr>
                             <th>Members</th>
-                            <td></td>
+                            <td><?php echo $total_members_this_week; ?></td>
                         </tr>
                         <tr>
                             <th>Points</th>
@@ -495,11 +513,11 @@
                     <tbody>
                         <tr>
                             <th>Registered</th>
-                            <td><?php echo count($registered_this_month_user_ids_list); ?></td>
+                            <td><?php echo $total_registered_this_month; ?></td>
                         </tr>
                         <tr>
                             <th>Members</th>
-                            <td></td>
+                            <td><?php echo $total_members_this_month; ?></td>
                         </tr>
                         <tr>
                             <th>Points</th>
@@ -522,11 +540,11 @@
                     <tbody>
                         <tr>
                             <th>Registered</th>
-                            <td><?php echo count($registered_this_year_user_ids_list); ?></td>
+                            <td><?php echo $total_registered_this_year; ?></td>
                         </tr>
                         <tr>
                             <th>Members</th>
-                            <td></td>
+                            <td><?php echo $total_members_this_week; ?></td>
                         </tr>
                         <tr>
                             <th>Points</th>
@@ -547,11 +565,11 @@
                     <tbody>
                         <tr>
                             <th>Registered</th>
-                            <td><?php echo count($all_registered_user_ids_list); ?></td>
+                            <td><?php echo $overall_total_registered; ?></td>
                         </tr>
                         <tr>
                             <th>Members</th>
-                            <td></td>
+                            <td><?php echo $overall_total_member; ?></td>
                         </tr>
                         <tr>
                             <th>Points</th>
@@ -565,8 +583,6 @@
 </div>
 
 <?php
-print_r($members_for_this_year);
-print_r(count($members_for_this_year->posts));
 // $queried_post_one = get_post(541);
 // $queried_post_two = get_post(521);
 

@@ -329,7 +329,9 @@
     $all_user_ids_array = [];
 
     foreach ($all_user_ids as $all_user_id) {
-        //$ma_IDS[] = $user->ID;      
+        $all_user_ids_array[] = $all_user_id->ID;      
     }
+
+    print_r($all_user_ids_array);
 
 ?>

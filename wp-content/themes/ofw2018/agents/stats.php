@@ -454,3 +454,110 @@
     echo '<div>Total Users That Are Member For This Year By Agent ID '.$thisUser.' = '.count($members_for_this_year).'</div>';
 
 ?>
+
+<div class="points">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="table-responsive-lg">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th colspan="2">This Week</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Registered</th>
+                            <td><?php echo count($registered_this_week_user_ids_list); ?></td>
+                        </tr>
+                        <tr>
+                            <th>Members</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Points</th>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="table-responsive-lg">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th colspan="2">This Month</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Registered</th>
+                            <td><?php count($registered_this_month_user_ids_list); ?></td>
+                        </tr>
+                        <tr>
+                            <th>Members</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Points</th>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="table-responsive-lg">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th colspan="2">This Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Registered</th>
+                            <td><?php echo count($registered_this_year_user_ids_list); ?></td>
+                        </tr>
+                        <tr>
+                            <th>Members</th>
+                            <td>/td>
+                        </tr>
+                        <tr>
+                            <th>Points</th>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="table-responsive-lg">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Overall Numbers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Registered</th>
+                            <td><?php echo count($all_registered_user_ids_list); ?></td>
+                        </tr>
+                        <tr>
+                            <th>Members</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Points</th>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -345,11 +345,9 @@
     $rutmi_args = array(
         'include'       => $all_registered_user_ids_list,
         'date_query' => array(
-            array(
-                'year' => date( 'Y' ),
-                'week' => date( 'M' ),
-            ),
-        ),
+            'year' => date( 'Y' ),
+            'week' => date( 'M' ),
+        )
     );
     $registered_users_this_month_ids = get_users( $rutmi_args );
 

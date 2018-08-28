@@ -321,7 +321,9 @@
     $all_user_ids = get_users( $user_ids );  
 
     foreach($all_user_ids as $all_user_id) {
+        echo '<hr>';
         print_r($all_user_id);
+        echo '<hr>';
     }
 
     // $all_user_ids_array = [];

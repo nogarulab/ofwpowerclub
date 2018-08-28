@@ -544,7 +544,7 @@
                         </tr>
                         <tr>
                             <th>Members</th>
-                            <td><?php echo $total_members_this_week; ?></td>
+                            <td><?php echo $total_members_this_year; ?></td>
                         </tr>
                         <tr>
                             <th>Points</th>

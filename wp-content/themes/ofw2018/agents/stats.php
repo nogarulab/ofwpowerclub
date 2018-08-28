@@ -349,9 +349,9 @@
         'include'       => $all_registered_user_ids_list,
         'date_query'    => array(
             array(
-                'year' => current_time( 'Y' ),
-                'month' => current_time( 'm' ),
-                'week' => current_time( 'w' )
+                // 'year' => current_time( 'Y' ),
+                // 'month' => current_time( 'm' ),
+                'week' => current_time( 'W' )
             )
         ),
         'number'        => -1
@@ -361,7 +361,7 @@
     $registered_this_week_user_ids_list = [];
 
     foreach($registered_this_week_user_ids as $registered_this_week_user_id) {
-        $registered_this_week_user_ids_list[] = $registered_this_week_user_id->data->user_registered;
+        $registered_this_week_user_ids_list[] = $registered_this_week_user_id->ID;
     }
 
     //ger all users registered this month
@@ -380,7 +380,7 @@
     $registered_this_month_user_ids_list = [];
 
     foreach($registered_this_month_user_ids as $registered_this_month_user_id) {
-        $registered_this_month_user_ids_list[] = $registered_this_month_user_id->data->user_registered;
+        $registered_this_month_user_ids_list[] = $registered_this_month_user_id->ID;
     }
 
     //ger all users registered this year
@@ -398,7 +398,7 @@
     $registered_this_year_user_ids_list = [];
 
     foreach($registered_this_year_user_ids as $registered_this_year_user_id) {
-        $registered_this_year_user_ids_list[] = $registered_this_year_user_id->data->user_registered;
+        $registered_this_year_user_ids_list[] = $registered_this_year_user_id->ID;
     }
 
     echo '<div>Total Users Registered By Agent ID '.$thisUser.' = '.count($all_registered_user_ids_list).'</div>';

@@ -326,15 +326,17 @@
         $user_ids_list[] = $all_user_id->ID;
     }
 
-    echo 'Total Users Registered By Agent ID '.$current_user->ID.' : '.count($user_ids_list);
+    $added_member_ids = array(
+        'include'       => $user_ids_list,
+        'meta_key'      => 'ms_is_member',
+        'meta_value'    => 1
+    );
+    $all_user_ids = get_users( $added_member_ids );
 
-    // $all_user_ids_array = [];
+    print_r($all_user_ids);
 
-    // foreach ($all_user_ids as $all_user_id) {
-    //     $all_user_ids_array[] = $all_user_id->ID; 
-    //     echo $all_user_id->ID;;
-    // }
-    // echo '<hr>';
-    // print_r($all_user_ids_array);
+    echo 'Total Users Registered By Agent ID '.$current_user->ID.' = '.count($user_ids_list);
+
+    
 
 ?>

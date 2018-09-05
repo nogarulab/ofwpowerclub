@@ -5,13 +5,22 @@
 
 <div class="col-md-6">
 	<div class="contact-details">
-		<div><strong>Phone</strong> <?php the_field('phone'); ?></div>
-		<div><strong>Email</strong> <span class="backward"><?php the_field('email'); ?></div></span>
+		<?php $theEmail = get_field('email'); ?>
+		<div><strong>Email</strong> <span><?php echo antispambot( $theEmail ) ?></span></div>
 		<div>
-			<strong>Location</strong>
+			<strong>Offices</strong>
+			<br>
+			<strong class="blue">Hong Kong</strong>
 			<address>
 				<?php the_field('location'); ?>
 			</address>
+			<strong>Phone</strong> <?php the_field('phone'); ?>
+			<br>
+			<strong class="blue">Philippines</strong>
+			<address>
+				<?php the_field('location_phil'); ?>
+			</address>
+			<strong>Phone</strong> <?php the_field('phone_phil'); ?>
 		</div>
 	</div>
 </div>

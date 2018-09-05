@@ -231,7 +231,7 @@ if ( ! is_user_logged_in() ) :
 				    <div class="form-group col-md-6"><input class="form-control" type="text" name="lastname" id="lastname" required="" placeholder="Last Name" value="<?php echo isset($_POST['lastname']) ? $_POST['lastname'] : ''; ?>"></div>
 				</div>
 				<div class="form-row">
-				    <div class="form-group col-md-12"><input class="form-control" type="number" name="contactnumber" id="contactnumber" required="" placeholder="Contact Number" value="<?php echo isset($_POST['contactnumber']) ? $_POST['contactnumber'] : ''; ?>"></div>
+				    <div class="form-group col-md-12"><input class="form-control" type="text" name="contactnumber" id="contactnumber" required="" placeholder="Contact Number" value="<?php echo isset($_POST['contactnumber']) ? $_POST['contactnumber'] : ''; ?>"></div>
 				</div>
 			</div>
 		</div>

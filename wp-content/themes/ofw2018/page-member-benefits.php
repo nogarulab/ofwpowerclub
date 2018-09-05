@@ -29,14 +29,9 @@
 				<?php the_content(); ?>
 				<br>
 				
-				<form action="<?php echo get_home_url(); ?>/register/" class="ms-membership-form" method="post">
-				    <input type="hidden" id="_wpnonce" name="_wpnonce" value="463ccc15f6">
-				    <input type="hidden" name="_wp_http_referer" value="/register/">
-				    <input class="wpmui-field-input wpmui-hidden" type="hidden" id="membership_id" name="membership_id" value="342">
-				    <input class="wpmui-field-input wpmui-hidden" type="hidden" id="action" name="action" value="membership_signup">
-				    <input class="wpmui-field-input wpmui-hidden" type="hidden" id="step" name="step" value="payment_table">
-				    <button class="wpmui-field-input button ms-signup-button membership_signup wpmui-submit button-primary black rounded bg-yellow py-3 px-5 d-inline-block mb-3 b-member-btn" type="submit" id="submit" name="submit" value="">Apply Now</button>
-				</form>
+				<?php if ( ! is_user_logged_in() ) { ?>
+						<a href="<?php echo home_url(); ?>/memberships" class="partner-link bg-yellow rounded black text-uppercase py-3 px-5">Apply Now</a>
+					<?php } ?>
 
 			</div>
 			<div class="col-lg-6">

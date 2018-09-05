@@ -26,9 +26,9 @@ get_header();
 			<div class="col-12">
 				<section class="py-5">
 					<?php the_content(); ?>
-
+				
 					<?php if ( ! is_user_logged_in() ) { ?>
-						<a href="<?php echo home_url(); ?>/memberships" class="h-c-white partner-link bg-yellow rounded black text-uppercase py-2 px-4">Apply Now</a>
+						<a href="<?php echo home_url(); ?>/memberships" class="partner-link bg-yellow rounded black text-uppercase py-3 px-5">Apply Now</a>
 					<?php } ?>
 
 				</section>

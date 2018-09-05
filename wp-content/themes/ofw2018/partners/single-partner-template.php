@@ -35,10 +35,13 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-6 col-md-8 col-sm-10 text-center">
+					<?php $owner = get_post_meta(get_the_ID(), 'establishment_owner', true); ?>
+					<?php if( !empty( $owner) ) : ?> 
 					<div class="owner-container py-1">
-						<h3 class="text-uppercase font-weight-bold mb-0"><?php echo get_post_meta(get_the_ID(), 'establishment_owner', true); ?></h3>
+						<h3 class="text-uppercase font-weight-bold mb-0"><?php echo $owner; ?></h3>
 						<p class="mb-0 owner">OWNER</p>
 					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>

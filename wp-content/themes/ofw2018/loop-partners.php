@@ -3,16 +3,23 @@
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
 	<div class="col-sm-4 mb-4">
+
+		<?php if ( has_post_thumbnail()) ?>
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				<div class="logo-cont transition d-flex">
-					<?php } if ( has_post_thumbnail() ) { ?>
-						<?php the_post_thumbnail('full', array('class' => 'img-fluid transition mx-auto d-block align-self-center')); ?>
-					<?php } else { ?>
-						<img src="<?php echo get_template_directory_uri(); ?>/img/no-logo.png" alt="<?php the_title(); ?>" class="img-fluid transition mx-auto d-block align-self-center"/>
-					<?php } ?>
+					<?php the_post_thumbnail('full', array('class' => 'img-fluid transition mx-auto d-block align-self-center')); ?>
 				</div>
 				<p class="text-center font-weight-bold red"><?php the_title(); ?></p>
 			</a>
+		<?php } else { ?>
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+				<div class="logo-cont transition d-flex">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/no-logo.png" alt="<?php the_title(); ?>" class="img-fluid transition mx-auto d-block align-self-center"/>
+				</div>
+				<p class="text-center font-weight-bold red"><?php the_title(); ?></p>
+			</a>
+		<?php } ?>
+
 	</div>
 
 <?php endwhile; ?>

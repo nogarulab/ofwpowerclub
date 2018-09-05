@@ -9,18 +9,17 @@
 		<div><strong>Email</strong> <span><?php echo antispambot( $theEmail ) ?></span></div>
 		<div>
 			<strong>Offices</strong>
-			<br>
 			<strong class="blue">Hong Kong</strong>
 			<address>
 				<?php the_field('location'); ?>
 			</address>
-			<strong>Phone</strong> <?php the_field('phone'); ?>
-			<br>
+			P: <?php the_field('phone'); ?>
+			<br><br>
 			<strong class="blue">Philippines</strong>
 			<address>
 				<?php the_field('location_phil'); ?>
 			</address>
-			<strong>Phone</strong> <?php the_field('phone_phil'); ?>
+			P: <?php the_field('phone_phil'); ?>
 		</div>
 	</div>
 </div>

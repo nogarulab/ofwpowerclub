@@ -9,6 +9,7 @@
 				<div class="logo-cont transition d-flex">
 					<?php the_post_thumbnail('full', array('class' => 'img-fluid transition mx-auto d-block align-self-center')); ?>
 				</div>
+				<p class="text-center font-weight-bold red"><?php the_title(); ?></p>
 			</a>
 		<?php endif; ?>
 

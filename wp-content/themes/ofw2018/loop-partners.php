@@ -5,8 +5,7 @@
 	<div class="col-sm-4 mb-4">
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				<div class="logo-cont transition d-flex">
-					<?php $logo = the_post_thumbnail(); ?>
-					<?php if (!empty($logo)) { ?>
+					<?php } if ( has_post_thumbnail() ) { ?>
 						<?php the_post_thumbnail('full', array('class' => 'img-fluid transition mx-auto d-block align-self-center')); ?>
 					<?php } else { ?>
 						<img src="<?php echo get_template_directory_uri(); ?>/img/no-logo.png" alt="<?php the_title(); ?>" class="img-fluid transition mx-auto d-block align-self-center"/>

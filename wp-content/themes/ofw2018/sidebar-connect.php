@@ -18,23 +18,29 @@
 					<span class="red">T</span>
 				</h2>
 				<p class="mb-5">WITH US!</p>
-				<div class="row icons">
+				<div class="row icons justify-content-center">
+					<?php if( get_field('facebook') ): ?>
 					<div class="col-6 col-sm-3">
 						<a href="<?php the_field('facebook'); ?>" target="_blank" class="fb social-cont d-block mx-auto my-3"></a>
 						<span class="">FACEBOOK</span>
 					</div>
-					<div class="col-6 col-sm-3">
+					<?php endif; ?>
+<!-- 					<div class="col-6 col-sm-3">
 						<a href="<?php the_field('twitter'); ?>" target="_blank" class="tw social-cont d-block mx-auto my-3"></a>
 						<span class="">TWITTER</span>
-					</div>
+					</div> -->
+					<?php if( get_field('google_plus') ): ?>
 					<div class="col-6 col-sm-3">
 						<a href="<?php the_field('google_plus'); ?>" target="_blank" class="gp social-cont d-block mx-auto my-3"></a>
 						<span class="">GOOGLE PLUS</span>
 					</div>
+					<?php endif; ?>
+					<?php if( get_field('youtube') ): ?>
 					<div class="col-6 col-sm-3">
 						<a href="<?php the_field('youtube'); ?>" target="_blank" class="yt social-cont d-block mx-auto my-3"></a>
 						<span class="">YOUTUBE</span>
 					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>

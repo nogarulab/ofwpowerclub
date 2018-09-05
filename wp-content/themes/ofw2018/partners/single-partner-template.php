@@ -10,7 +10,11 @@
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-4 col-md-5">
-					<img src="<?php  echo $feat_img[0] ?>" alt="<?php the_title(); ?>" class="img-fluid d-block mx-auto mb-5 mb-md-0"/>
+					<?php if (!empty($feat_img)) { ?>
+						<img src="<?php  echo $feat_img[0] ?>" alt="<?php the_title(); ?>" class="img-fluid d-block mx-auto mb-5 mb-md-0"/>
+					<?php } else { ?>
+						<img src="<?php echo get_template_directory_uri(); ?>/img/no-logo.png" alt="<?php the_title(); ?>" class="img-fluid d-block mx-auto mb-5 mb-md-0"/>
+					<?php } ?>
 				</div>
 				<div class="col-lg-8 col-md-7">
 					<div class="about">

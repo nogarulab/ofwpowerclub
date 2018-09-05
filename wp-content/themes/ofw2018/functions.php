@@ -725,18 +725,18 @@ function branches_form_meta_box($object) {
 
     }
 
-    echo '<div class="branch-list incremental-item" data-itemhtml="<li class=item><div><label>Address</label><input type=text name=b_address[]></div><div class=column><em><label>Location</label><input type=text name=b_location[]></em><em><label>Contact Number</label><input type=number name=b_contactnumber[]></em><em><label>Contact Person</label><input type=text name=b_contactperson[]></em></div><span class=remove>x</span></li>"><ul>';
+    echo '<div class="branch-list incremental-item" data-itemhtml="<li class=item><div><label>Address</label><input type=text name=b_address[]></div><div class=column><em><label>Location</label><input type=text name=b_location[]></em><em><label>Contact Number</label><input type=text name=b_contactnumber[]></em><em><label>Contact Person</label><input type=text name=b_contactperson[]></em></div><span class=remove>x</span></li>"><ul>';
     if ($current_screen->action != 'add') {
         foreach ($branches as $branch) {
             echo '<li class="item">';
             echo '<div><label>Address</label><input type="text" name="b_address[]" value="'.$branch[1].'"></div>';
-            echo '<div class="column"><em><label>Location</label><input type="text" name="b_location[]" value="'.$branch[0].'"></em><em><label>Contact Number</label><input type="number" name="b_contactnumber[]" value="'.$branch[2].'"></em><em><label>Contact Person</label><input type="text" name="b_contactperson[]" value="'.$branch[3].'"></em></div>';
+            echo '<div class="column"><em><label>Location</label><input type="text" name="b_location[]" value="'.$branch[0].'"></em><em><label>Contact Number</label><input type="text" name="b_contactnumber[]" value="'.$branch[2].'"></em><em><label>Contact Person</label><input type="text" name="b_contactperson[]" value="'.$branch[3].'"></em></div>';
             echo '<span class=remove>x</span></li>';
         }
     } else {
         echo '<li class="item">';
         echo '<div><label>Address</label><input type="text" name="b_address[]" value=""></div>';
-        echo '<div class="column"><em><label>Location</label><input type="text" name="b_location[]" value=""></em><em><label>Contact Number</label><input type="number" name="b_contactnumber[]" value=""></em><em><label>Contact Person</label><input type="text" name="b_contactperson[]" value=""></em></div>';
+        echo '<div class="column"><em><label>Location</label><input type="text" name="b_location[]" value=""></em><em><label>Contact Number</label><input type="text" name="b_contactnumber[]" value=""></em><em><label>Contact Person</label><input type="text" name="b_contactperson[]" value=""></em></div>';
         echo '<span class=remove>x</span></li>';
     }
     echo '</ul><span class="add">Add Another Branch</button></div>';

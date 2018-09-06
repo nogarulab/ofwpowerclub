@@ -154,7 +154,7 @@ function html5blank_conditional_scripts()
         wp_enqueue_script('editprofilejs');
     }
 
-    if ( is_page('agent-dashboard') ) {
+    if ( is_page('agent-dashboard') || is_page('partner-dashboard') ) {
         wp_register_script('agentdash', get_template_directory_uri() . '/js/agent-dashboard.js', '', '', true);
         wp_enqueue_script('agentdash');
     }

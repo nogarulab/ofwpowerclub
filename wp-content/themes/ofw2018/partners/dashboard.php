@@ -36,6 +36,8 @@ if ( is_user_logged_in() && current_user_can('partner') ) :
 
 <?php
 
+	get_template_part( 'agents/change-password', get_post_format() );
+
 else :
 
     echo '<div class="no-permission">You do not have permission to view this page. Please login as a partner or wait until your account has been activated.</div>';

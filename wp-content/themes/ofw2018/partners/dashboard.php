@@ -32,11 +32,10 @@ if ( is_user_logged_in() && current_user_can('partner') ) :
 				</a>
 			</div>
 		</div>
+		<?php get_template_part( 'agents/change-password', get_post_format() ); ?>
 	</div>
 
 <?php
-
-	get_template_part( 'agents/change-password', get_post_format() );
 
 else :
 

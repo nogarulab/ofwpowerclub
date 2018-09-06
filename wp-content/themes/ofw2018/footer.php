@@ -11,18 +11,24 @@
 									$the_query = new WP_Query(array('post_type'=>'page', 'pagename'=> 'contact-us'));
 									while ( $the_query->have_posts() ) : $the_query->the_post();
 								?>
+								<?php if( get_field('facebook') ): ?>
 								<li>
 									<a href="<?php the_field('facebook'); ?>" target="_blank"><i class="fab fa-facebook-square"></i></a>
 								</li>
-								<li>
+								<?php endif; ?>
+								<!-- <li>
 									<a href="<?php the_field('twitter'); ?>" target="_blank"><i class="fab fa-twitter-square"></i></a>
-								</li>
+								</li> -->
+								<?php if( get_field('google_plus') ): ?>
 								<li>
 									<a href="<?php the_field('google_plus'); ?>" target="_blank"><i class="fab fa-google-plus-square"></i></a>
 								</li>
+								<?php endif; ?>
+								<?php if( get_field('youtube') ): ?>
 								<li>
 									<a href="<?php the_field('youtube'); ?>" target="_blank"><i class="fab fa-youtube-square"></i></a>
 								</li>
+								<?php endif; ?>
 								<?php 
 									endwhile; wp_reset_query(); 
 								?>

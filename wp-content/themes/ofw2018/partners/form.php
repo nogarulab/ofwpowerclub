@@ -315,7 +315,7 @@ if ( ! is_user_logged_in() ) :
     <div class="action clearfix">
     	<div class="float-left">
     		<span><input type="checkbox" name="receivesticker" value="" <?php echo (isset($_POST['receivesticker'])) ? 'checked=checked' : ''; ?> /> Receive OFW Power Club Sticker(s)</span>
-    		<span><input type="checkbox" class="termsinput" name="terms_condition" required="" value="" <?php echo (isset($_POST['terms_condition'])) ? 'checked=checked' : ''; ?> /> Accept <a href="#" data-toggle="modal" data-target="#terms">terms and condition</a></span>
+    		<span><input type="checkbox" class="termsinput" name="terms_condition" required="" value="" <?php echo (isset($_POST['terms_condition'])) ? 'checked=checked' : ''; ?> /> Accept <a href="#" data-toggle="modal" data-target="#terms">Terms and Conditions</a></span>
     	</div>
     	<input type="submit" id="submitbtn" name="submit" value="Send Application" class="float-right btn btn-primary btn-lg" />
     </div>

@@ -50,6 +50,8 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
         wp_set_post_terms( $new_product, $product_category, 'prod_cat', false );
 
+        exit;
+
 	} else {
 		echo '<ul class="errors">';
     	foreach ($errors as $error) {

@@ -108,7 +108,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 				) );
 				foreach ($terms as $term) {
 					if ($term->name != 'Preloved') {
-						echo '<li class="col-md-3"><input type="checkbox" name="product_category[]" value="'.$term->ID.'"> '.$term->name.'</li>';
+						echo '<li class="col-md-3"><input type="checkbox" name="product_category[]" value="'.$term->term_id.'"> '.$term->name.'</li>';
 					}
 				}
 	    	?>
@@ -116,7 +116,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 		</div>
 		<div class="col-md-12 form-group">
 			<div class="form-check">
-				<input class="form-check-input" name="product_category[]" type="checkbox" value="Preloved" id="secondhand">
+				<input class="form-check-input" name="product_category[]" type="checkbox" value="23" id="secondhand">
 				<label class="form-check-label" for="secondhand">This product is second hand.</label>
 			</div>
 		</div>

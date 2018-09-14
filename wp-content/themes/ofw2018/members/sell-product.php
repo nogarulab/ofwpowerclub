@@ -101,7 +101,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 	    	<?php
 	    		$terms = get_terms( array(
 				    'taxonomy' => 'prod_cat',
-				    'parent' => 0,
+				    'parent' => -1,
 				    'hide_empty' => false
 				) );
 				

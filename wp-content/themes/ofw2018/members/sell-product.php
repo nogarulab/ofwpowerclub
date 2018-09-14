@@ -13,8 +13,8 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 	$title 						= $_POST['product_name'];
 	$content 					= $_POST['product_description'];
 	$price 						= $_POST['product_price'];
-
 	$product_category 			= isset($_POST['product_category']);
+
 	$product_category_list		= [];
 	if (!empty($product_category)) {
 		$product_category = $_POST['product_category'];
@@ -49,7 +49,8 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $new_product = wp_insert_post($addproduct);
         $product = get_post($new_product);
         add_post_meta( $new_product, 'price', $price );
-        wp_set_post_terms( $new_product, $product_category_list, 'prod_cat', false );
+        //wp_set_post_terms( $new_product, $product_category_list, 'prod_cat', false );
+        print_r($product_category_list);
 
 	} else {
 		echo '<ul class="errors">';
@@ -98,7 +99,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 	    	<?php
 	    		$terms = get_terms( array(
 				    'taxonomy' => 'prod_cat',
-				    'hide_empty' => false,
+				    'hide_empty' => false
 				) );
 				foreach ($terms as $term) {
 					if ($term->name != 'Preloved') {

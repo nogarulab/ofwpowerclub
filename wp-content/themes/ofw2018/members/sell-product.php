@@ -50,7 +50,9 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $product = get_post($new_product);
         add_post_meta( $new_product, 'price', $price );
 
-        wp_set_post_terms( $new_product, $product_category, 'prod_cat', false );
+        //wp_set_post_terms( $new_product, $product_category, 'prod_cat', false );
+
+        print_r($product_category);
 
         exit;
 

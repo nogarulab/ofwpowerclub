@@ -48,11 +48,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $product = get_post($new_product);
         add_post_meta( $new_product, 'price', $price );
 
-        //wp_set_post_terms( $new_product, $product_category_list, 'prod_cat', true );
-        print_r($new_product);
-        print_r($product_category );
-
-        
+        wp_set_post_terms( $new_product, $product_category, 'prod_cat', false );
 
 	} else {
 		echo '<ul class="errors">';

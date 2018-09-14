@@ -103,11 +103,24 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 				    'taxonomy' => 'prod_cat',
 				    'hide_empty' => false
 				) );
-				print_r($terms);
-				// foreach ($terms as $term) {
-				// 	if ($term->name != 'Preloved') {
-				// 		echo '<li class="col-md-3"><input type="checkbox" name="product_category[]" value="'.$term->term_id.'"> '.$term->name.'</li>';
-				// 	}
+				
+				foreach ($terms as $key => $term) {
+					if ($term->name != 'Preloved') {
+						if ($term->parent !=0) {
+							$terms[$term->parent]->children[] = $term;
+				        	unset($terms[$key]);
+				        	print_r($term);
+						}
+						//echo '<li class="col-md-3"><input type="checkbox" name="product_category[]" value="'.$term->term_id.'"> '.$term->name.'</li>';
+					}
+				}
+
+		  //   	$terms = get_the_terms('prod_cat');
+				// foreach($terms as $key => $term){
+				//     if($term->parent != 0){
+				//         $terms[$term->parent]->children[] = $term;
+				//         unset($terms[$key]);
+				//     }
 				// }
 	    	?>
 	    	</ul>

@@ -51,7 +51,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $new_product = wp_insert_post($addproduct);
         $product = get_post($new_product);
         add_post_meta( $new_product, 'price', $price );
-
+        print_r(get_post_meta(593));
         //wp_set_post_terms( $new_product, $product_category, 'prod_cat', false );
 
 

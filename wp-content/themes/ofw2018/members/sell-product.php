@@ -3,7 +3,7 @@
 $current_user = wp_get_current_user();
 $posttype = 'products';
 
-print_r(get_post(668));
+print_r(get_post_meta(668));
 
 $errors = array(); 
 

@@ -15,13 +15,15 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 	$price 						= $_POST['product_price'];
 	$product_category 			= isset($_POST['product_category']);
 
-	$product_category_list		= [];
-	if (!empty($product_category)) {
-		$product_category = $_POST['product_category'];
-		foreach($product_category as $category) {
-    		$product_category_list[] = $category;
-    	}
-    }
+	// $product_category_list		= [];
+	// if (!empty($product_category)) {
+	// 	$product_category = $_POST['product_category'];
+	// 	foreach($product_category as $category) {
+ //    		$product_category_list[] = $category;
+ //    	}
+ //    }
+
+	print_r($product_category);
 
 	if ( $title == '' )
 	{
@@ -52,7 +54,6 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
         //wp_set_post_terms( $new_product, $product_category, 'prod_cat', false );
 
-        print_r($product_category);
 
         exit;
 

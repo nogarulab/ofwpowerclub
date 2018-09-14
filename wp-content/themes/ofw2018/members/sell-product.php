@@ -31,8 +31,12 @@ foreach ($files['name'] as $key => $value) {
 			<textarea placeholder="Product Description" name="product_description" class="form-control"></textarea>
 		</div>
 		<div class="col-md-12 form-group">
+			<label>Product Price</label>
+			<input type="text" name="product_price" value="" placeholder="Product Price" class="form-control">
+		</div>
+		<div class="col-md-12 form-group">
 			<h5>Add Product Photos</h5>
-			<div class="product_photos incremental-item" data-itemhtml="<li><input type='file' name='product_photo[]' id='profile_picture' multiple='false' accept='image/*' /><span class='remove'>Remove</span></li>">
+			<div class="product_photos incremental-item" data-itemhtml="<li class='item'><input type='file' name='product_photo[]' id='profile_picture' multiple='false' accept='image/*' /><span class='remove'>Remove</span></li>">
 				<ul>
 					<li class="item">
 						<input type="file" name="product_photo[]" id="profile_picture" multiple="false" accept="image/*" />

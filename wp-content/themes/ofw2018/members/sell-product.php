@@ -3,8 +3,6 @@
 $current_user = wp_get_current_user();
 $posttype = 'products';
 
-print_r(get_the_terms(593, 'prod_cat'));
-
 $errors = array(); 
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
@@ -105,11 +103,12 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 				    'taxonomy' => 'prod_cat',
 				    'hide_empty' => false
 				) );
-				foreach ($terms as $term) {
-					if ($term->name != 'Preloved') {
-						echo '<li class="col-md-3"><input type="checkbox" name="product_category[]" value="'.$term->term_id.'"> '.$term->name.'</li>';
-					}
-				}
+				print_r($terms);
+				// foreach ($terms as $term) {
+				// 	if ($term->name != 'Preloved') {
+				// 		echo '<li class="col-md-3"><input type="checkbox" name="product_category[]" value="'.$term->term_id.'"> '.$term->name.'</li>';
+				// 	}
+				// }
 	    	?>
 	    	</ul>
 		</div>

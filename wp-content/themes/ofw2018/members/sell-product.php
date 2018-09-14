@@ -12,7 +12,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 	$files 						= $_FILES['product_photo'];
 	$title 						= $_POST['product_name'];
 	$content 					= $_POST['product_description'];
-	$price 						= $_POST['price'];
+	$price 						= $_POST['product_price'];
 
 	if ( $title == '' )
 	{

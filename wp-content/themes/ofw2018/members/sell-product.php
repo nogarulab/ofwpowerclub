@@ -101,11 +101,11 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 	    	<?php
 	    		$terms = get_terms( array(
 				    'taxonomy' => 'prod_cat',
-				    'parent' => -1,
+				    'parent' => 0,
 				    'hide_empty' => false
 				) );
 				
-				foreach ($terms as $key => $term) {
+				foreach ($terms as $term) {
 					if ($term->name != 'Preloved') {
 						echo '<li class="col-md-3"><input type="checkbox" name="product_category[]" value="'.$term->term_id.'"> '.$term->name.'</li>';
 					}

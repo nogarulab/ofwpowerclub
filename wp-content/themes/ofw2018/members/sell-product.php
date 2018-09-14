@@ -83,6 +83,20 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 			<input type="text" name="product_price" value="" placeholder="Product Price" class="form-control">
 		</div>
 		<div class="col-md-12 form-group">
+			<label>Choose Product Category</label>
+			<ul class="form-row">
+	    	<?php
+	    		$terms = get_terms( array(
+				    'taxonomy' => 'prod_cat',
+				    'hide_empty' => false,
+				) );
+				foreach ($terms as $term) {
+					echo '<li class="col-md-3"><input type="checkbox" name="product_category[]"> '.$term->name.'</li>';
+				}
+	    	?>
+	    	</ul>
+		</div>
+		<div class="col-md-12 form-group">
 			<h5>Add Product Photos</h5>
 			<div class="product_photos incremental-item" data-itemhtml="<li class='item'><input type='file' name='product_photo[]' id='profile_picture' multiple='false' accept='image/*' /><span class='remove'>Remove</span></li>">
 				<ul>
@@ -93,8 +107,8 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 				<span class="add btn btn-md btn-secondary">Add Another Photo</span>
 			</div>
 		</div>
-		<div class="action"><input type="submit" id="submitbtn" name="submit" value="Sell This Product" class="float-right btn btn-primary btn-lg" /></div>
 	</div>
+	<div class="action"><input type="submit" id="submitbtn" name="submit" value="Sell This Product" class="float-right btn btn-primary btn-lg" /></div>
 	<input type="hidden" name="post-type" id="post-type" value="<?php echo $posttype; ?>" />
 	<input type="hidden" name="action" value="<?php echo $posttype; ?>" />
 	<?php wp_nonce_field( 'submit_'.$posttype,'client_'.$posttype.'_nonce' ); ?>

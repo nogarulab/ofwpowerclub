@@ -279,7 +279,7 @@ if ( ! is_user_logged_in() ) :
 	    			</div>
 	    		</li>
 	    	</ul>
-    		<span class="add btn btn-md btn-secondary float-right">Add Another Branch</button>
+    		<span class="add btn btn-md btn-secondary float-right">Add Another Branch</span>
 	    </div>
 	</section>
 	<section class="perks clearfix">

@@ -14,6 +14,15 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 	$content 					= $_POST['product_description'];
 	$price 						= $_POST['product_price'];
 
+	$product_category 			= isset($_POST['product_category']);
+	$product_category_list		= [];
+	if (!empty($product_category)) {
+		$product_category = $_POST['product_category'];
+		foreach($product_category as $category) {
+    		$product_category_list[] = $category;
+    	}
+    }
+
 	if ( $title == '' )
 	{
 		$errors['title'] = "Product name cannot be empty.";
@@ -40,6 +49,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $new_product = wp_insert_post($addproduct);
         $product = get_post($new_product);
         add_post_meta( $new_product, 'price', $price );
+        wp_set_post_terms( $new_product, $product_category_list, 'prod_cat', false );
 
 	} else {
 		echo '<ul class="errors">';
@@ -91,10 +101,18 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 				    'hide_empty' => false,
 				) );
 				foreach ($terms as $term) {
-					echo '<li class="col-md-3"><input type="checkbox" name="product_category[]"> '.$term->name.'</li>';
+					if ($term-name != 'Preloved') {
+						echo '<li class="col-md-3"><input type="checkbox" name="product_category[]"> '.$term->name.'</li>';
+					}
 				}
 	    	?>
 	    	</ul>
+		</div>
+		<div class="col-md-12 form-group">
+			<div class="form-check">
+				<input class="form-check-input" name="product_category[]" type="checkbox" value="" id="secondhand">
+				<label class="form-check-label" for="secondhand">This product is second hand.</label>
+			</div>
 		</div>
 		<div class="col-md-12 form-group">
 			<h5>Add Product Photos</h5>

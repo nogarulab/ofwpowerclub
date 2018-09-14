@@ -87,6 +87,10 @@ get_header(); ?>
                 get_template_part( 'members/edit-profile', get_post_format() );
             }
 
+            if ( is_page('sell-product') ) {
+                get_template_part( 'members/sell-product', get_post_format() );
+            }
+
             if ( is_page('add-a-member') ) {
                 get_template_part( 'agents/addmember', get_post_format() );
             }

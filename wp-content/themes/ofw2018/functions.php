@@ -972,4 +972,19 @@ function url_get_contents ($url) {
 return $url_get_contents_data;
 }
 
+// DELETE A PRODUCT PHOTO
+function delete_post($delete_post_id, $post_id) {
+    wp_delete_post($delete_post_id, true);
+    $productimgs = get_post_meta($post_id, 'product_images', true);
+    $productimgs = array_diff($productimgs, [$delete_post_id]);
+    update_post_meta( $post_id, 'product_images', $productimgs );
+}
+// DELETE A PRODUCT PHOTO
+
+// DELETE A PHOTO
+function delete_product_post($post_id) {
+    wp_delete_post($post_id, true);
+}
+// DELETE A PHOTO
+
 ?>

@@ -74,6 +74,47 @@
 		$('.sendtouser .wpcf7').siblings('#wp_addmember_form').hide();
 
 		$('.no-permission').siblings().hide();
+
+		// $('.nfileupload').each(function() {
+		// 	var _img = $(this).find('img');
+		// 	var _hiddeninput = $(this).find('input[type="hidden"]');
+		// 	var _fileupload = $(this).find('input[type="file"]');
+		// 	if (_img.attr('src') == '') {
+		// 		_img.hide();
+		// 		$(this).find('strong').text('Upload Photo')
+		// 	} else {
+		// 		$(this).find('strong').text('Change Photo');
+		// 		$(this).find('.delete').show();
+		// 	}
+		// 	$(this).find('input[type="file"]').change(function(event) {
+		// 		_img.show();
+		// 		_img.attr('src', URL.createObjectURL(event.target.files[0]));
+		// 		$(this).siblings('strong').text('Change Photo')
+		// 	})
+		// 	$(this).find('.delete').click(function() {
+		// 		_img.attr('src', '').hide();
+		// 		_hiddeninput.val(false);
+		// 		_fileupload.val(null);
+		// 	})
+		// })
+
+		$('.productimgs').each(function() {
+
+			var _img = $(this).find('img');
+			var _fileupload = $(this).find('input[type="file"]');
+
+			_fileupload.change(function(event) {
+				_img.attr('src', URL.createObjectURL(event.target.files[0]));
+			})
+
+		});
+
+		$('.deletepost').on('click', function() {
+			var url = $(this).data('currenturl');
+			$('.modal.delete_an_item').on('shown.bs.modal', function(e) {
+		    	$(this).find('.confirm').attr('href', url)
+		    })
+	    })
     
 	});
 	

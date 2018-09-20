@@ -9,7 +9,7 @@ $current_user = wp_get_current_user();
 $args = array(
 	'post_type' 	=> 'products',
 	'author' 		=> $current_user->ID,
-	'post_status'   => array('pending', 'publish'),
+	// 'post_status'   => array('pending', 'publish'),
 	'post_per_page' => -1
 );
 

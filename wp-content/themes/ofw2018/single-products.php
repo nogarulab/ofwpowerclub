@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 
-<div class="container edit-product">
+<div class="edit-product py-5">
+
+<div class="container">
 
 <?php
 
@@ -267,6 +269,7 @@ if (isset($_GET['edit']) == true) {
 
 ?>
 
+</div>
 <div class="single-product-page">
 	<?php 
 		$the_query = new WP_Query(array('post_type'=>'page', 'pagename'=>'store'));

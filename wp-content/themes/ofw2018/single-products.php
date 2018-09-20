@@ -118,7 +118,7 @@ if (isset($_GET['edit']) == true) {
 		        	}
 		        }
 
-		        echo "<div class='success'><h5>You have successfully edited your product</h5><p>Please wait for our staff to approve your product.</p></div>";
+		        echo "<div class='success mb-5'><h5>You have successfully edited your product</h5><p>Please wait for our staff to approve your product.</p></div>";
 	    		
 			} else {
 				

@@ -1,3 +1,5 @@
+<div><a href="<?php echo home_url(); ?>/sell-product" class="btn btn-primary btn-md">Sell A Product</a></div>
+
 <?php
 
 global $wp;
@@ -16,7 +18,6 @@ $products = new WP_Query( $args );
 if ($products->have_posts()):
 
 ?>
-<div><a href="<?php echo home_url(); ?>/sell-product" class="btn btn-primary btn-md">Sell A Product</a></div>
 <div class="table-responsive-md">
 	<table class="table table-bordered">
 		<thead class="thead-dark">

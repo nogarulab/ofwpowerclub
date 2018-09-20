@@ -72,11 +72,11 @@ if ($products->have_posts()):
 							<!-- <?php #if ($post->post_status == 'publish') { ?>
 								<a href="<?php #the_permalink(); ?>?edit=true">Edit</a>
 							<?php # } ?> -->
-							<?php $edit_post = add_query_arg( 'post', $post->ID, get_permalink( $post->ID + $_POST['_wp_http_referer'] ) ); ?>
+							<?php $edit_post = add_query_arg( 'products', $post->ID, get_permalink( 689 + $_POST['_wp_http_referer'] ) ); ?>
 							<?php if ($post->post_status == 'publish') { ?> 
 								<a href="<?php the_permalink(); ?>?edit=true">
 							<?php } else { ?> 
-								<a href="<?php echo $edit_post; ?>>">
+								<a href="<?php echo $edit_post; ?>">
 							<?php } ?>
 								Edit
 							</a>

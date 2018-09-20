@@ -2,7 +2,7 @@
 
 <div class="edit-product">
 
-<div class="container py-5">
+<div class="container">
 
 <?php
 
@@ -135,7 +135,7 @@ if (isset($_GET['edit']) == true) {
 		
 		<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
 			<header>
-				<h2 class="mb-4 fc-blue">Edit Product: <?php echo $prod_name; ?></h2>
+				<h2 class="my-5 fc-blue">Edit Product: <?php echo $prod_name; ?></h2>
 				<span class="form-check mb-4 d-block">
 					<input class="form-check-input" name="product_sold" type="checkbox" value="Sold" id="sold" <?php echo ($product_status == 'Sold') ? 'checked="checked"' : '' ?>>
 					<label class="form-check-label" for="sold">This product is already sold.</label>
@@ -303,7 +303,8 @@ if (isset($_GET['edit']) == true) {
 					<b class="single-price font-weight-bold d-block"><?php the_field('price'); ?></b>
 					<br>
 					<?php the_content(); ?>
-					
+					<br><br>
+					<button>Contact Seller</button>
 				</div>
 				<div class="col-lg-6 order-lg-first">
 					<div class="first-col d-inline-block">

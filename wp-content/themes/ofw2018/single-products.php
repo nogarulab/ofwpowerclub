@@ -225,7 +225,7 @@ if (isset($_GET['edit']) == true) {
 					</ul>
 				</div>
 			</div>
-			<div class="action clearfix"><input type="submit" id="submitbtn" name="submit" value="Update Product Info" class="float-right btn btn-primary btn-lg" /></div>
+			<div class="action clearfix mb-5"><input type="submit" id="submitbtn" name="submit" value="Update Product Info" class="float-right btn btn-primary btn-lg" /></div>
 			<input type="hidden" name="post-type" id="post-type" value="<?php echo $posttype; ?>" />
 			<input type="hidden" name="action" value="<?php echo $posttype; ?>" />
 			<?php wp_nonce_field( 'submit_'.$posttype,'client_'.$posttype.'_nonce' ); ?>

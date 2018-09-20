@@ -71,7 +71,7 @@ if ($products->have_posts()):
 						<td>
 							<!-- <?php #if ($post->post_status == 'publish') { ?>
 								<a href="<?php #the_permalink(); ?>?edit=true">Edit</a>
-							<?php } ?> -->
+							<?php # } ?> -->
 							<?php if ($post->post_status == 'publish') { ?> 
 								<a href="<?php the_permalink(); ?>?edit=true">
 							<?php } else { ?> 

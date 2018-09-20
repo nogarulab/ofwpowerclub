@@ -2,7 +2,7 @@
 
 <?php get_header();  ?>
 
-<section class="py-5">
+<section class="py-5 test">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-12 text-center">

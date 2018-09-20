@@ -990,7 +990,7 @@ function delete_product_post($post_id) {
 // PREVIEW PRODUCT
 function jv_change_post( $posts ) {
     if(is_preview() && !empty($posts)){
-        if(user_can('Member')) 
+        if(user_can('subscriber')) 
             $posts[0]->post_status = 'publish';
     }
 

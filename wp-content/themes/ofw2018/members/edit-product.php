@@ -30,9 +30,9 @@
 
 global $wp;
 
-echo $wp;
-
 $current_url = home_url(add_query_arg(array(),$wp->request));
+
+echo $current_url;
 
 if (isset($_GET['edit']) == true) {
 	$current_user = wp_get_current_user();

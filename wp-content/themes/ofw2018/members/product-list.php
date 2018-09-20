@@ -9,7 +9,7 @@ $current_user = wp_get_current_user();
 $args = array(
 	'post_type' 	=> 'products',
 	'author' 		=> $current_user->ID,
-	// 'post_status'   => array('pending', 'publish'),
+	'post_status'   => array('pending', 'publish'),
 	'post_per_page' => -1
 );
 
@@ -41,9 +41,9 @@ if ($products->have_posts()):
 			?>
 					<tr>
 						<th>
-							<!-- <?php if ($post->post_status == 'publish') { ?> -->
+							<?php if ($post->post_status == 'publish') { ?>
 							<a href="<?php the_permalink(); ?>">
-							<!-- <?php } ?> -->
+							<?php } ?>
 							<?php 
 								if ($sold == 'Sold') {
 									echo '<em class="text-danger">*Sold</em> - ';
@@ -67,9 +67,9 @@ if ($products->have_posts()):
 							?>
 						</td>
 						<td>
-							<!-- <?php if ($post->post_status == 'publish') { ?> -->
+							<?php if ($post->post_status == 'publish') { ?>
 								<a href="<?php the_permalink(); ?>?edit=true">Edit</a>
-							<!-- <?php } ?> -->
+							<?php } ?>
 							<a href="#" class="deletepost" data-toggle="modal" data-currenturl="<?php echo $current_url.'?id='.$post->ID; ?>" data-target="#deleteProdConfirmation">Delete</a>
 						</td>
 					</tr>

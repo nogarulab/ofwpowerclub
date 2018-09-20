@@ -69,9 +69,16 @@ if ($products->have_posts()):
 							?>
 						</td>
 						<td>
-							<?php if ($post->post_status == 'publish') { ?>
-								<a href="<?php the_permalink(); ?>?edit=true">Edit</a>
+							<!-- <?php #if ($post->post_status == 'publish') { ?>
+								<a href="<?php #the_permalink(); ?>?edit=true">Edit</a>
+							<?php } ?> -->
+							<?php if ($post->post_status == 'publish') { ?> 
+								<a href="<?php the_permalink(); ?>?edit=true">
+							<?php } else { ?> 
+								<a href="<?php echo home_url().'?post_type=products&p='.$post->ID.'&?edit=true';?>">
 							<?php } ?>
+								Edit
+							</a>
 							<a href="#" class="deletepost" data-toggle="modal" data-currenturl="<?php echo $current_url.'?id='.$post->ID; ?>" data-target="#deleteProdConfirmation">Delete</a>
 						</td>
 					</tr>

@@ -135,7 +135,7 @@ if (isset($_GET['edit']) == true) {
 		
 		<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
 			<header>
-				<h2>Edit Product: <?php echo $prod_name; ?></h2>
+				<h2 class="mb-4">Edit Product: <?php echo $prod_name; ?></h2>
 				<span class="form-check">
 					<input class="form-check-input" name="product_sold" type="checkbox" value="Sold" id="sold" <?php echo ($product_status == 'Sold') ? 'checked="checked"' : '' ?>>
 					<label class="form-check-label" for="sold">This product is already sold.</label>

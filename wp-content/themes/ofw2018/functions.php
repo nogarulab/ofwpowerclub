@@ -999,4 +999,5 @@ function jv_change_post( $posts ) {
 add_filter( 'posts_results', 'jv_change_post', 10, 2 );
 
 // PREVIEW PRODUCT
+
 ?>

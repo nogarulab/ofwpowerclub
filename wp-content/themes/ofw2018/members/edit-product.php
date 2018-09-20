@@ -1,7 +1,9 @@
 <?php /* Template Name: Edit Product */ ?>
 
 <?php get_header(); ?>
-
+<?php $query = new WP_Query( array( 'post_type' => 'products', 'posts_per_page' => '-1' ) ); ?>
+ 
+<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
 
 <div class="container edit-product">
 
@@ -12,7 +14,7 @@ global $wp;
 $current_url = home_url(add_query_arg(array(),$wp->request));
 
 
-if (isset($_GET['post']) == true) {
+if (isset($_GET['post']) ) {
 	if ( $_GET['post'] == $post->ID )
 	 	{	
 	 		$current_post = $post->ID;
@@ -280,6 +282,9 @@ if (isset($_GET['post']) == true) {
 
 <?php 
 }
+
+ endwhile; endif; ?>
+ wp_reset_query(); ?>
 
 get_footer();
 ?>

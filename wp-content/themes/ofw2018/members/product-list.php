@@ -41,10 +41,10 @@ if ($products->have_posts()):
 			?>
 					<tr>
 						<th>
-							<!-- <?php if ($post->post_status == 'publish') { ?> -->
+							<?php #if ($post->post_status == 'publish') { ?> 
 							<a href="<?php echo $current_url.'?post_type=products&p='.$post->ID.'&preview=true';?>">
 								
-							<!-- <?php } ?> -->
+							<?php #} ?> 
 							<?php 
 								if ($sold == 'Sold') {
 									echo '<em class="text-danger">*Sold</em> - ';
@@ -52,6 +52,7 @@ if ($products->have_posts()):
 								echo $post->post_title;
 							?>
 							</a>
+							<?php echo $current_url; ?>
 						</th>
 						<td><?php the_field('price'); ?></td>
 						<td><?php the_field('status'); ?></td>

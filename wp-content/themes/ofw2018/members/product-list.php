@@ -42,7 +42,7 @@ if ($products->have_posts()):
 					<tr>
 						<th>
 							<?php if ($post->post_status == 'publish') { ?> 
-								<a href="<?php the_permalink(); ?>"></a>
+								<a href="<?php the_permalink(); ?>">
 							<?php } else { ?> 
 								<a href="<?php echo home_url().'?post_type=products&p='.$post->ID.'&preview=true';?>">
 							<?php } ?>

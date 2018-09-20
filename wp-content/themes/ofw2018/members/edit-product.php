@@ -13,7 +13,7 @@ $current_url = home_url(add_query_arg(array(),$wp->request));
 
 echo $current_url;
 
-if (isset($_GET['edit']) == true) {
+if (isset($_GET['post']) == true) {
 	$current_user = wp_get_current_user();
 	//$member = MS_Factory::load( 'MS_Model_Member', $current_user->ID );
 	$member = MS_Model_Member::get_current_member();

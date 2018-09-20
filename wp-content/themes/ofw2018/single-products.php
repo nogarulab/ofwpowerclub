@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
-<div class="edit-product py-5">
+<div class="edit-product">
 
-<div class="container">
+<div class="container py-5">
 
 <?php
 

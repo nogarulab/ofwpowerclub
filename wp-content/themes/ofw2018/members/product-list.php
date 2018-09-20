@@ -42,7 +42,7 @@ if ($products->have_posts()):
 					<tr>
 						<th>
 							<!-- <?php if ($post->post_status == 'publish') { ?> -->
-							<a href="<?php echo $current_url.'?post_type=products&p='.$post->ID;.'&preview=true'. ?>">
+							<a href="<?php echo $current_url.'?post_type=products&p='.$post->ID.'&preview=true'.;?>">
 								
 							<!-- <?php } ?> -->
 							<?php 

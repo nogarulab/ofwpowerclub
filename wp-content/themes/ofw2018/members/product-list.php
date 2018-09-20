@@ -1,4 +1,4 @@
-<div class="mb-5"><a href="<?php echo home_url(); ?>/sell-product" class="btn btn-primary btn-md">Sell A Product</a></div>
+<div class="mb-5"><a href="<?php echo home_url(); ?>/sell-product" class="btn btn-primary btn-md d-block">Sell A Product</a></div>
 
 <?php
 
@@ -42,7 +42,8 @@ if ($products->have_posts()):
 					<tr>
 						<th>
 							<!-- <?php if ($post->post_status == 'publish') { ?> -->
-							<a href="<?php the_permalink(); ?>">
+							<a href="<?php echo $current_url.'?post_type=products&p='.$post->ID;.'&preview=true' ?>">
+								
 							<!-- <?php } ?> -->
 							<?php 
 								if ($sold == 'Sold') {
@@ -67,9 +68,9 @@ if ($products->have_posts()):
 							?>
 						</td>
 						<td>
-							<!-- <?php if ($post->post_status == 'publish') { ?> -->
+							<?php if ($post->post_status == 'publish') { ?>
 								<a href="<?php the_permalink(); ?>?edit=true">Edit</a>
-							<!-- <?php } ?> -->
+							<?php } ?>
 							<a href="#" class="deletepost" data-toggle="modal" data-currenturl="<?php echo $current_url.'?id='.$post->ID; ?>" data-target="#deleteProdConfirmation">Delete</a>
 						</td>
 					</tr>

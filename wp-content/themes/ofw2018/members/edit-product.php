@@ -4,7 +4,7 @@
 
 
 <?php 
-		$the_query = new WP_Query(array('post_type'=>'page', 'pagename'=>'store'));
+		$the_query = new WP_Query(array('post_type'=>'page', 'pagename'=>'edit-my-product'));
 		while ( $the_query->have_posts() ) : $the_query->the_post();
 		$featuredImage = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); 
 	?>
@@ -294,7 +294,6 @@ if (isset($_GET['edit']) == true) {
 
 ?>
 
-</div>
  
  <p>Test 123</p>
 

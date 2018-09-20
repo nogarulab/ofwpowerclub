@@ -988,9 +988,12 @@ function delete_product_post($post_id) {
 // DELETE A PHOTO
 
 // PREVIEW PRODUCT
+
 function jv_change_post( $posts ) {
     if(is_preview() && !empty($posts)){
-        if(user_can('subscriber')) 
+        $current_user_id = get_current_user_id();
+        $author_id= $posts[0]->post_author;
+        if($current_user_id == $author_id)
             $posts[0]->post_status = 'publish';
     }
 

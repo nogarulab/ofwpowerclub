@@ -118,7 +118,7 @@ if (isset($_GET['edit']) == true) {
 		        	}
 		        }
 
-		        echo "<div class='success mb-5'><h5>You have successfully edited your product</h5><p>Please wait for our staff to approve your product.</p></div>";
+		        echo "<div class='success mb-5'><h5>You have successfully edited your product</h5></div>";
 	    		
 			} else {
 				
@@ -143,22 +143,22 @@ if (isset($_GET['edit']) == true) {
 			</header>
 			<div class="form-row">
 				<div class="form-group col-md-8">
-					<label class="fc-red text-transform">Product Name</label>
+					<label class="fc-red text-uppercase font-weight-bold">Product Name</label>
 					<input type="text" name="product_name" value="<?php echo $post->post_title ?>" placeholder="Product Name" class="form-control">
 				</div>
 				<div class="form-group col-md-4">
-					<label  class="fc-red text-transform">Product Price (HK Dollars)</label>
+					<label  class="fc-red text-uppercase font-weight-bold">Product Price (HK Dollars)</label>
 					<input type="text" name="product_price" value="<?php the_field('price'); ?>" placeholder="Product Price" class="form-control">
 				</div>
 			</div>
 			<div class="form-group">
-				<label  class="fc-red text-transform">Product Description</label>
+				<label  class="fc-red text-uppercase font-weight-bold">Product Description</label>
 				<textarea placeholder="Product Description" name="product_description" class="form-control">
 					<?php echo $post->post_content; ?>
 				</textarea>
 			</div>
 			<div class="form-group">
-				<label  class="fc-red text-transform">Choose Product Category</label>
+				<label  class="fc-red text-uppercase font-weight-bold">Choose Product Category</label>
 				<ul class="form-row">
 		    	<?php
 
@@ -201,7 +201,7 @@ if (isset($_GET['edit']) == true) {
 				</div>
 			</div>
 			<div class="form-group">
-				<h5 class="fc-blue">Add Product Photos</h5>
+				<h5 class="fc-blue text-uppercase font-weight-bold mt-4">Add Product Photos</h5>
 				<p>Please bear in mind that the first photo you choose will serve as the featured image. You can also upload up to six photos of your product.</p>
 				<div class="product_photos">
 					<ul class="row">

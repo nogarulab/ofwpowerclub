@@ -987,4 +987,14 @@ function delete_product_post($post_id) {
 }
 // DELETE A PHOTO
 
+// PREVIEW PRODUCT
+add_filter( 'preview_post_link', function ( $link, \WP_Post $post )
+{
+    return 'products' === $post->post_type 
+        ? add_query_arg( $link ) 
+        : $link;
+
+ }, 10, 2 );
+
+// PREVIEW PRODUCT
 ?>

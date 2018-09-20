@@ -1,4 +1,4 @@
-<div class="mb-5"><a href="<?php echo home_url(); ?>/sell-product" class="btn btn-primary btn-md d-block">Sell A Product</a></div>
+<div class="mb-5"><a href="<?php echo home_url(); ?>/sell-product" class="btn btn-primary btn-md">Sell A Product</a></div>
 
 <?php
 

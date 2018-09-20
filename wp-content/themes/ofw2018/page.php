@@ -32,7 +32,7 @@ get_header(); ?>
         <!-- section -->
         <section>
 
-            <div class="container">
+            <div class="container py-5">
 
             <h1><?php the_title(); ?></h1>
 

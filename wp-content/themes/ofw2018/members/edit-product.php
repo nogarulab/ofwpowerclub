@@ -283,8 +283,8 @@ if (isset($_GET['post']) ) {
 <?php 
 }
 
- endwhile; endif; ?>
- wp_reset_query(); ?>
+ endwhile; endif;
+ wp_reset_query(); 
 
 get_footer();
 ?>

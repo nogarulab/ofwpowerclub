@@ -29,6 +29,9 @@
 <?php
 
 global $wp;
+
+echo $wp;
+
 $current_url = home_url(add_query_arg(array(),$wp->request));
 
 if (isset($_GET['edit']) == true) {
@@ -290,6 +293,8 @@ if (isset($_GET['edit']) == true) {
 } else {
 
 ?>
+
+</div>
  
  <p>Test 123</p>
 

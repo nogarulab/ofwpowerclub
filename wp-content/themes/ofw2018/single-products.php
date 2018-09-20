@@ -135,7 +135,7 @@ if (isset($_GET['edit']) == true) {
 		
 		<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
 			<header>
-				<h2 class="mb-4">Edit Product: <?php echo $prod_name; ?></h2>
+				<h2 class="mb-4 fc-blue">Edit Product: <?php echo $prod_name; ?></h2>
 				<span class="form-check mb-4 d-block">
 					<input class="form-check-input" name="product_sold" type="checkbox" value="Sold" id="sold" <?php echo ($product_status == 'Sold') ? 'checked="checked"' : '' ?>>
 					<label class="form-check-label" for="sold">This product is already sold.</label>
@@ -143,22 +143,22 @@ if (isset($_GET['edit']) == true) {
 			</header>
 			<div class="form-row">
 				<div class="form-group col-md-8">
-					<label>Product Name</label>
+					<label class="fc-red text-transform">Product Name</label>
 					<input type="text" name="product_name" value="<?php echo $post->post_title ?>" placeholder="Product Name" class="form-control">
 				</div>
 				<div class="form-group col-md-4">
-					<label>Product Price (HK Dollars)</label>
+					<label  class="fc-red text-transform">Product Price (HK Dollars)</label>
 					<input type="text" name="product_price" value="<?php the_field('price'); ?>" placeholder="Product Price" class="form-control">
 				</div>
 			</div>
 			<div class="form-group">
-				<label>Product Description</label>
+				<label  class="fc-red text-transform">Product Description</label>
 				<textarea placeholder="Product Description" name="product_description" class="form-control">
 					<?php echo $post->post_content; ?>
 				</textarea>
 			</div>
 			<div class="form-group">
-				<label>Choose Product Category</label>
+				<label  class="fc-red text-transform">Choose Product Category</label>
 				<ul class="form-row">
 		    	<?php
 
@@ -201,7 +201,7 @@ if (isset($_GET['edit']) == true) {
 				</div>
 			</div>
 			<div class="form-group">
-				<h5>Add Product Photos</h5>
+				<h5 class="fc-blue">Add Product Photos</h5>
 				<p>Please bear in mind that the first photo you choose will serve as the featured image. You can also upload up to six photos of your product.</p>
 				<div class="product_photos">
 					<ul class="row">

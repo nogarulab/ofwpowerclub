@@ -469,3 +469,16 @@ p {
 .fc-red {
   color: $red;
 }
+
+.wpcf7-not-valid {
+  border: 1px solid $red;
+}
+
+.wpcf7-not-valid-tip {
+  display: none;
+}
+
+div.wpcf7-response-output {
+  text-align: center;
+  font-size: 10px;
+}

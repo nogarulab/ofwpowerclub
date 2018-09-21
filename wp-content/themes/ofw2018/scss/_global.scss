@@ -471,11 +471,11 @@ p {
 }
 
 .wpcf7-not-valid {
-  border: 1px solid $red;
+  border: 1px solid $red !important;
 }
 
 .wpcf7-not-valid-tip {
-  display: none;
+  display: none !important;
 }
 
 div.wpcf7-response-output {

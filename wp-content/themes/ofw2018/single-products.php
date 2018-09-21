@@ -305,7 +305,7 @@ if (isset($_GET['edit']) == true) {
 					<?php the_content(); ?>
 					<br><br>
 					<!-- <button class="btn btn-primary cont-seller"> <a href="mailto:<?php //echo get_the_author_meta( 'user_email'); ?>">Contact Seller</a></button> -->
-					<button class="btn btn-primary btn-md btn-contactseller" data-selleremail="<?php echo get_the_author_meta('user_email'); ?>"><a href="#contactSeller">Contact Seller</a></button>
+					<button class="btn btn-primary btn-md btn-contactseller cont-seller" data-selleremail="<?php echo get_the_author_meta('user_email'); ?>"><a href="#contactSeller">Contact Seller</a></button>
 				</div>
 				<div class="col-lg-6 order-lg-first">
 					<div class="first-col d-inline-block">
@@ -338,15 +338,19 @@ if (isset($_GET['edit']) == true) {
 					</div>
 				</div>
 			</div>
-			<br>
-			<hr>
 		</div>
 	</section>
 
-	<section id="contactSeller">
+	<section id="contactSeller py-5">
 		<div class="container">
-			<?php echo do_shortcode('[contact-form-7 id="692" title="Contact Seller"]'); ?>
+			<div class="row">
+				<div class="col-12">
+					<?php echo do_shortcode('[contact-form-7 id="692" title="Contact Seller"]'); ?>
+				</div>
+			</div>
 		</div>
+		<br>
+		<hr>
 	</section>
 
 	<section class="related pb-5">

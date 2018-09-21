@@ -70,7 +70,7 @@ if ($products->have_posts()):
 						</td>
 						<td align="justify">
 							<?php if ($post->post_status == 'publish') { ?>
-								<a href="<?php the_permalink(); ?>?edit=true">Edit </a> | &nbsp;
+								<a href="<?php the_permalink(); ?>?edit=true">Edit </a> &nbsp; | &nbsp;
 							<?php  } ?>
 							<a href="#" class="deletepost" data-toggle="modal" data-currenturl="<?php echo $current_url.'?id='.$post->ID; ?>" data-target="#deleteProdConfirmation">Delete</a>
 						</td>

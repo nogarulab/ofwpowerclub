@@ -355,6 +355,7 @@ if (isset($_GET['edit']) == true) {
 	<div class="container">
 		<br>
 		<hr>
+		<br>
 	</div>
 	<section class="related pb-5">
 		<div class="container">

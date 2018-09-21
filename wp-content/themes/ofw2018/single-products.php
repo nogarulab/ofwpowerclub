@@ -305,7 +305,7 @@ if (isset($_GET['edit']) == true) {
 					<?php the_content(); ?>
 					<br><br>
 					<!-- <button class="btn btn-primary cont-seller"> <a href="mailto:<?php //echo get_the_author_meta( 'user_email'); ?>">Contact Seller</a></button> -->
-					<button class="btn btn-primary btn-md btn-contactseller" data-selleremail="<?php echo get_the_author_meta('user_email'); ?>">Contact Seller</button>
+					<button class="btn btn-primary btn-md btn-contactseller" data-selleremail="<?php echo get_the_author_meta('user_email'); ?>"><a href="#contactSeller">Contact Seller</a></button>
 				</div>
 				<div class="col-lg-6 order-lg-first">
 					<div class="first-col d-inline-block">

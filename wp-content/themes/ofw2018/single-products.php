@@ -304,7 +304,8 @@ if (isset($_GET['edit']) == true) {
 					<br>
 					<?php the_content(); ?>
 					<br><br>
-					<button class="btn btn-primary cont-seller"> <a href="mailto:<?php echo get_the_author_meta( 'user_email'); ?>">Contact Seller</a></button>
+					<!-- <button class="btn btn-primary cont-seller"> <a href="mailto:<?php //echo get_the_author_meta( 'user_email'); ?>">Contact Seller</a></button> -->
+					<button class="btn btn-primary btn-md btn-contactseller" data-selleremail="<?php echo get_the_author_meta('user_email'); ?>">Contact Seller</button>
 				</div>
 				<div class="col-lg-6 order-lg-first">
 					<div class="first-col d-inline-block">
@@ -342,6 +343,11 @@ if (isset($_GET['edit']) == true) {
 		</div>
 	</section>
 
+	<section id="contactSeller">
+		<div class="container">
+			<?php echo do_shortcode('[contact-form-7 id="692" title="Contact Seller"]'); ?>
+		</div>
+	</section>
 
 	<section class="related pb-5">
 		<div class="container">
@@ -390,6 +396,7 @@ if (isset($_GET['edit']) == true) {
 		</div>
 	</section>
 </div>
+
 
 
 <?php 

@@ -115,6 +115,12 @@
 		    	$(this).find('.confirm').attr('href', url)
 		    })
 	    })
+
+	    $('.btn-contactseller').click(function() {
+			var seller_email = $(this).data('selleremail');
+			$('#contactSeller').show();
+			$('#contactSeller').find('.wpcf7-email').val(seller_email);
+		})
     
 	});
 	

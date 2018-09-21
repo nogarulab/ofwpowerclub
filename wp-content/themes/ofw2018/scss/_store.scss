@@ -102,4 +102,16 @@
 	h2 {
 		color: #fff;
 	}
+	.btn {
+		background: $yellow;
+	    color: #fff;
+	    border-radius: 5px;
+	    -moz-border-radius: 5px;
+	    -webkit-border-radius: 5px;
+	    padding: 10px 30px;
+	    font-weight: 100;
+	    border: none;
+	    margin: auto;
+	    display: block;
+	}
 }

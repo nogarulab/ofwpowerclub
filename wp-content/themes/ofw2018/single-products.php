@@ -343,6 +343,7 @@ if (isset($_GET['edit']) == true) {
 
 	<section id="contactSeller" class="py-5">
 		<div class="container">
+			<h2>Contact Seller</h2>
 			<div class="row justify-content-center">
 				<div class="col-xl-8 col-lg-10 col-12">
 					<?php echo do_shortcode('[contact-form-7 id="692" title="Contact Seller"]'); ?>

@@ -68,11 +68,11 @@ if ($products->have_posts()):
 							echo $post_status;
 							?>
 						</td>
-						<td>
+						<td align="justify">
 							<?php if ($post->post_status == 'publish') { ?>
-								<label for="edit" align="justify"><a href="<?php the_permalink(); ?>?edit=true">Edit</a></label>
+								<a href="<?php the_permalink(); ?>?edit=true">Edit</a>
 							<?php  } ?>
-							<label for="delete" align="justify"><a href="#" class="deletepost" data-toggle="modal" data-currenturl="<?php echo $current_url.'?id='.$post->ID; ?>" data-target="#deleteProdConfirmation">Delete</a></label>
+							<a href="#" class="deletepost" data-toggle="modal" data-currenturl="<?php echo $current_url.'?id='.$post->ID; ?>" data-target="#deleteProdConfirmation">Delete</a>
 						</td>
 					</tr>
 			<?php

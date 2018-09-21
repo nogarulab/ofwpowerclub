@@ -40,7 +40,7 @@ if ($products->have_posts()):
 					
 			?>
 					<tr>
-						<th>
+						<th class="font-weight-bold">
 							<?php if ($post->post_status == 'publish') { ?> 
 								<a href="<?php the_permalink(); ?>">
 							<?php } else { ?> 
@@ -70,9 +70,9 @@ if ($products->have_posts()):
 						</td>
 						<td>
 							<?php if ($post->post_status == 'publish') { ?>
-								<label for="edit"><a href="<?php the_permalink(); ?>?edit=true">Edit</a></label>
+								<label for="edit" align="justify"><a href="<?php the_permalink(); ?>?edit=true">Edit</a></label>
 							<?php  } ?>
-							<label for="delete"><a href="#" class="deletepost" data-toggle="modal" data-currenturl="<?php echo $current_url.'?id='.$post->ID; ?>" data-target="#deleteProdConfirmation">Delete</a></label>
+							<label for="delete" align="justify"><a href="#" class="deletepost" data-toggle="modal" data-currenturl="<?php echo $current_url.'?id='.$post->ID; ?>" data-target="#deleteProdConfirmation">Delete</a></label>
 						</td>
 					</tr>
 			<?php

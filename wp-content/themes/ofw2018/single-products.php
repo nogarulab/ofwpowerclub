@@ -341,7 +341,7 @@ if (isset($_GET['edit']) == true) {
 		</div>
 	</section>
 
-	<section id="contactSeller py-5">
+	<section id="contactSeller" class="py-5">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">

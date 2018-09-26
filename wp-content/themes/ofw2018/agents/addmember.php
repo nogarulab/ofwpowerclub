@@ -257,7 +257,15 @@ if ( is_user_logged_in() && current_user_can( 'agent' ) ) :
 
 	<header>
         <h3 class="blue">Add A Member</h3>
-        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+
+        <!-- <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p> -->
+
+        <?php 
+                $the_query = new WP_Query(array('post_type'=>'page', 'pagename'=>'add-a-member'));
+                while ( $the_query->have_posts() ) : $the_query->the_post();
+                the_content();
+                endwhile; wp_reset_query(); 
+            ?>
     </header>
 
 	<div class="row">

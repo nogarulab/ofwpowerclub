@@ -6,7 +6,7 @@ if ( is_user_logged_in() && current_user_can('agent') ) :
 		<header>
 			<h3>Hello <?php echo get_user_meta( $current_user->ID, 'first_name', true );  ?>!</h3>
 			<?php 
-				$the_query = new WP_Query(array('post_type'=>'page', 'pagename'=>'about'));
+				$the_query = new WP_Query(array('post_type'=>'page', 'pagename'=>'agent-dashboard'));
 				while ( $the_query->have_posts() ) : $the_query->the_post();
 				the_content();
 				endwhile; wp_reset_query(); 

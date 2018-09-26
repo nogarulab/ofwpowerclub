@@ -31,12 +31,12 @@ if ( is_user_logged_in() && current_user_can('partner') ) :
 					?>
 				</a>
 			</div>
-			<div class="col-lg-4">
+			<!-- <div class="col-lg-4">
 				<a href="<?php echo home_url(); ?>/partners/<?php echo $slug; ?>" target="_blank">
 					<h5>View Your Page</h5>
 					<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.</p>
 				</a>
-			</div>
+			</div> -->
 			<div class="col-lg-4">
 				<a href="<?php echo home_url(); ?>/contact-administrator">
 					<h5>Contact Admin</h5>

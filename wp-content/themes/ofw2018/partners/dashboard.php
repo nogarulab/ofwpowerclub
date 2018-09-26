@@ -10,7 +10,13 @@ if ( is_user_logged_in() && current_user_can('partner') ) :
 	<div class="user-dashboard-home">
 		<header>
 			<h3>Hello <?php echo get_user_meta( $current_user->ID, 'first_name', true );  ?>!</h3>
-			<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione</p>
+			<!-- <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione</p> -->
+			<?php 
+				$the_query = new WP_Query(array('post_type'=>'page', 'pagename'=>'partner-dashboard'));
+				while ( $the_query->have_posts() ) : $the_query->the_post();
+				the_content();
+				endwhile; wp_reset_query(); 
+			?>
 		</header>
 		<div class="row tools">
 			<div class="col-lg-4">

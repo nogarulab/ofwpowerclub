@@ -8,7 +8,7 @@ $slug = $post->post_name;
 	<ul>
 		<li><a href="<?php echo home_url(); ?>/partner-dashboard">Dashboard</a></li>
 		<li><a href="<?php echo home_url(); ?>/member-search">Search Member</a></li>
-		<li><a href="<?php echo home_url(); ?>/partners/<?php echo $slug; ?>" target="_blank">View Your Page</a></li>
+		<!-- <li><a href="<?php echo home_url(); ?>/partners/<?php echo $slug; ?>" target="_blank">View Your Page</a></li> -->
 		<li><a href="<?php echo home_url(); ?>/contact-administrator">Contact Admin</a></li>
 		<li><a href="<?php echo home_url(); ?>/partner-dashboard?showform=1#changepass" class="change-pass"">Change Password</a></li>
 		<li><a href="<?php echo wp_logout_url( home_url() ); ?>">Logout</a></li>

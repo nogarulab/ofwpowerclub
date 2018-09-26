@@ -22,7 +22,13 @@ if ( is_user_logged_in() && current_user_can('partner') ) :
 			<div class="col-lg-4">
 				<a href="<?php echo home_url(); ?>/member-search">
 					<h5>Search Member</h5>
-					<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.</p>
+					<!-- <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.</p> -->
+					<?php 
+						$the_query = new WP_Query(array('post_type'=>'page', 'pagename'=>'member-search'));
+						while ( $the_query->have_posts() ) : $the_query->the_post();
+						the_content();
+						endwhile; wp_reset_query(); 
+					?>
 				</a>
 			</div>
 			<div class="col-lg-4">
